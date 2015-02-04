@@ -1,0 +1,18 @@
+/*
+ * Theme Customizer CSS
+ *
+ */
+
+#customize-control-future_control_slider_activated {
+	margin-top: 24px;
+}
+#customize-control-future_control_excerpt_text_headline   {
+	margin-top: 12px;
+}
+
+#customize-control-future_control_header_content,
+#customize-control-future_control_post_images,
+#customize-control-future_control_excerpt_text_headline,
+#customize-control-future_control_slider_activated  {
+	margin-bottom: 0;
+}
