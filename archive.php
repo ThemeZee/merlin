@@ -9,13 +9,15 @@
 		<section id="content" class="primary" role="main">
 
 			<h2 id="date-title" class="archive-title">
+				<span>
 				<?php // Display Archive Title
 				if ( is_date() ) :
-					printf( __( 'Monthly Archives: %s', 'future'), '<span>' . get_the_date( _x( 'F Y', 'date format of monthly archives', 'future') ) . '</span>' );
+					printf( __( 'Monthly Archives: %s', 'future'), get_the_date( _x( 'F Y', 'date format of monthly archives', 'future') ) );
 				else :
 					_e( 'Archives', 'future');
 				endif;
 				?>
+				</span>
 			</h2>
 		
 			<div id="post-wrapper" class="clearfix">

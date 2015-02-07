@@ -41,7 +41,7 @@ html[xmlns] .zeeslides {display: block;}
 *****************************************/
 #post-slider-container {
 	padding-top: 2px;
-	border-top: 3px solid #ee5500;
+	border-top: 3px solid #ee4444;
 	margin: 0 0 2em 0;
 }
 #post-slider-wrap {
@@ -68,23 +68,23 @@ html[xmlns] .zeeslides {display: block;}
 	position: absolute;
 	bottom: 1em;
 	left: 0;
-	right: 3em;
-	background: rgba(0,0,0,0.7);
-	padding: 0.6em 1em 0.8em;
+	max-width: 70%;
+	background: #222;
 	color: #fff;
 }
 #post-slider .zeeslide .post-title {
-	font-size: 1.4em;
+	padding: 0.3em 0.5em;
+	background: #ee4444;
 }
-.post-title a:link, .post-title a:visited {
+#post-slider .zeeslide .post-title a:link, #post-slider .zeeslide .post-title a:visited {
 	color: #fff;
 	text-decoration: none;
 }
-.post-title a:hover, .post-title a:active{
+#post-slider .zeeslide .post-title a:hover, #post-slider .zeeslide .post-title a:active{
 	color: #ddd;
 }
-#post-slider .zeeslide .post-content {
-
+#post-slider .zeeslide .slide-content .entry {
+	padding: 0.6em 1em 0.7em;
 }
 #post-slider .zeeslide .slide-content .entry, 
 #post-slider .zeeslide .slide-content .entry p {
@@ -106,7 +106,7 @@ html[xmlns] .zeeslides {display: block;}
 	margin-left: -80px;
 	width: 40px;
 	height: 40px;
-	background: rgba(0,0,0,0.5);
+	background: #ee4444;
 	text-align: left;
 	color #fff;
 	font-size: 0;
@@ -143,12 +143,15 @@ html[xmlns] .zeeslides {display: block;}
 	left: 42px;
 }
 #post-slider-wrap:hover .post-slider-controls a:hover {
-	background: rgba(0,0,0,0.7);
+	background: #222;
 }
 
 /* Control Nav */
+.post-slider-controls {
+	margin-right: -3px;
+}
 .post-slider-controls .zeeflex-control-nav {
-	margin: 3px -5px 0 0;
+	margin: 3px 0 0;
 	display: table;
 	table-layout: fixed;
 	width: 100%;
@@ -159,9 +162,6 @@ html[xmlns] .zeeslides {display: block;}
 	background: #fff;
 	display: table-cell;
 	zoom: 1;
-}
-.post-slider-controls .zeeflex-control-nav li:last-child{
-	padding: 0;
 }
 .post-slider-controls .zeeflex-control-nav li img {
 	max-width: 100%;

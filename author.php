@@ -13,7 +13,7 @@
 		<section id="content" class="primary" role="main">
 		
 			<h2 id="author-title" class="archive-title">
-				<?php printf(__('Author Archives: %s', 'future'), '<span>' . esc_attr($author->display_name) . '</span>'); ?>
+				<span><?php printf(__('Author Archives: %s', 'future'), esc_attr($author->display_name) ); ?></span>
 			</h2>
 
 			<div id="post-wrapper" class="clearfix">

@@ -62,7 +62,7 @@ function future_enqueue_comment_reply() {
 // Retrieve Font URL to register default Google Fonts
 function future_google_fonts_url() {
     
-	$font_families = array('Muli', 'Oswald');
+	$font_families = array('Roboto:700,400', 'Hammersmith One');
 
 	$query_args = array(
 		'family' => urlencode( implode( '|', $font_families ) ),
@@ -71,7 +71,7 @@ function future_google_fonts_url() {
 
 	$fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
 
-    return apply_filters( 'future-fonts-url', $fonts_url );
+    return apply_filters( 'future_google_fonts_url', $fonts_url );
 }
 
 
@@ -133,13 +133,13 @@ if ( ! function_exists( 'future_add_image_sizes' ) ):
 function future_add_image_sizes() {
 	
 	// Add Featured Image Size
-	add_image_size( 'post-thumbnail', 900, 400, true);
+	add_image_size( 'post-thumbnail', 900, 350, true);
 	
 	// Add Custom Header Image Size
 	add_image_size( 'custom-header-image', 1320, 250, true);
 	
 	// Add Slider Thumbnail Image Size
-	add_image_size( 'slider-thumbnail', 225, 175, true);
+	add_image_size( 'slider-thumbnail', 225, 125, true);
 	
 	// Add Category Post Widget image sizes
 	add_image_size( 'category-posts-widget-small', 140, 90, true);
@@ -228,7 +228,7 @@ function future_excerpt_length($length) {
 
 // Slideshow Excerpt Length
 function future_slideshow_excerpt_length($length) {
-    return 25;
+    return 20;
 }
 
 // Category Posts Large Excerpt Length

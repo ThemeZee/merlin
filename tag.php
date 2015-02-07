@@ -9,7 +9,7 @@
 		<section id="content" class="primary" role="main">
 
 			<h2 id="tag-title" class="archive-title">
-				<?php printf(__('Tag Archives: %s', 'future'), '<span>' . single_cat_title( '', false ) . '</span>'); ?>
+				<span><?php printf(__('Tag Archives: %s', 'future'), single_cat_title( '', false )); ?></span>
 			</h2>
 
 			<div id="post-wrapper" class="clearfix">

@@ -10,7 +10,7 @@
 		
 		<?php if (have_posts()) : ?>
 			<h2 id="search-title" class="archive-title">
-				<?php printf( __( 'Search Results for: %s', 'future'), '<span>' . get_search_query() . '</span>' ); ?>
+				<span><?php printf( __( 'Search Results for: %s', 'future'), get_search_query() ); ?></span>
 			</h2>
 		
 			<div id="post-wrapper" class="clearfix">

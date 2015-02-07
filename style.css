@@ -57,7 +57,7 @@ html {
 	font-size: 100.01%;
 }
 body {
-	font-family: 'Muli', Tahoma, Verdana, Arial;
+	font-family: 'Roboto', Tahoma, Arial;
 	font-size: 1.0em;
 	border: 0;
 	color: #111;
@@ -66,7 +66,7 @@ body {
 
 /* Links */
 a, a:link, a:visited{
-	color: #ee5500;
+	color: #ee4444;
 	text-decoration: none;
 }
 a:hover, a:active {
@@ -80,13 +80,13 @@ input, textarea {
 	border: 1px solid #ddd;
 	font-size: 1.0em;
 	color: #222;
-	font-family: 'Muli', Tahoma, Verdana, Arial;
+	font-family: 'Roboto', Tahoma, Arial;
 }
 input[type="submit"] {
 	padding: 0.5em 1em;
 	text-decoration: none;
 	color: #fff;
-	background: #ee5500;
+	background: #ee4444;
 	font-weight: bold;
 	border: none;
 }
@@ -163,7 +163,7 @@ input, textarea, select {
 }
 #topnav-menu a {
 	display: block;
-	font-family: 'Muli', Tahoma, Verdana, Arial;
+	font-family: 'Roboto', Tahoma, Arial;
 	font-size: 0.75em;
 	padding: 1.2em;
 	text-decoration: none;
@@ -250,9 +250,10 @@ input, textarea, select {
 }
 #logo .site-title {
 	padding: 0.15em 0;
+	color: #ee4444;
+	font-family: 'Roboto', Tahoma, Arial;
 	font-size: 2.7em;
-	color: #ee5500;
-	font-family: 'Oswald', Tahoma, Verdana, Arial;
+	font-weight: bold;
 }
 #logo a:hover {
 	text-decoration: none;
@@ -302,27 +303,24 @@ input, textarea, select {
 }
 #mainnav-menu a {
 	display: block;
-	font-family: 'Muli', Tahoma, Verdana, Arial;
-	font-size: 0.9em;
+	font-family: 'Hammersmith One', Tahoma, Arial;
+	font-size: 0.95em;
 	padding: 1.4em;
 	text-transform: uppercase;
 	text-decoration: none;
-	margin-right: 1px;
 }
 #mainnav-menu a:link, #mainnav-menu a:visited {
 	color: #fff;
 	text-decoration: none;
 }
 #mainnav-menu a:hover {
-	background: #ee5500;
+	background: #ee4444;
 }
 #mainnav-menu ul {
 	position: absolute;
 	display: none;
 	z-index: 99;
-	background: #fff;
-	padding: 0.4em;
-	box-shadow: 0 0 2px #444;
+	background: #ee4444;
 }
 #mainnav-menu ul li{
 	margin: 0;
@@ -333,23 +331,23 @@ input, textarea, select {
 	padding: 1.2em;
 	float: left;
 	font-weight: normal;
-	color: #333;
+	color: #fff;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 #mainnav-menu ul a:link, #mainnav-menu ul a:visited{
-	color: #333;
+	color: #fff;
 	font-size: 0.85em;
 	text-decoration: none;
 }
 #mainnav-menu ul a:hover {
-	color: #fff;
-	background: #ee5500;
+	text-decoration: underline;
 }
 #mainnav-menu li ul ul {
 	margin-left: 250px;
 	margin-left: 16rem;
+	border-left: 2px solid rgba(255,255,255,0.2);
 }
 #mainnav-menu li:hover ul ul, #mainnav-menu li:hover ul ul ul, #mainnav-menu li:hover ul ul ul ul{
 	display:none;
@@ -358,7 +356,7 @@ input, textarea, select {
 	display:block;
 }
 #mainnav-menu li.current_page_item a, #mainnav-menu li.current-menu-item a {
-	background: #ee5500;
+	background: #ee4444;
 }
 #mainnav-menu li.current_page_item ul li a, #mainnav-menu li.current-menu-item ul li a{
 	text-decoration: none;
@@ -386,12 +384,12 @@ input, textarea, select {
 }
 .widgettitle span {
 	display: block;
-	font: 'Muli', Tahoma, Verdana, Arial;
-	font-size: 0.9em;
+	font-family: 'Hammersmith One', Tahoma, Arial;
+	font-size: 0.95em;
 	line-height: 1.4em;
 	text-transform: uppercase;
 	color: #fff;
-	padding: 0.5em 0.8em;
+	padding: 0.6em 0.8em;
 	border-top: 2px solid #fff;
 }
 .widget .textwidget {
@@ -412,7 +410,7 @@ input, textarea, select {
 }
 .widget a:link, .widget a:visited  {
 	text-decoration: none;
-	color: #ee5500;
+	color: #ee4444;
 }
 .widget a:hover, .widget a:active {
 	text-decoration: underline;
@@ -551,10 +549,10 @@ input, textarea, select {
 	margin: 0 0 2em 0;
 }
 .page-title, .post-title {
-	font-size: 1.6em;
-	font-family: 'Oswald', Tahoma, Verdana, Arial;
+	font-size: 1.7em;
+	font-family: 'Roboto', Tahoma, Arial;
 	padding: 0.1em 0;
-	color: #ee5500;
+	color: #ee4444;
 	line-height: 1.4em;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
@@ -563,7 +561,7 @@ input, textarea, select {
 	color: #333;
 }
 .post-title a:link, .post-title a:visited {
-	color: #ee5500;
+	color: #ee4444;
 	text-decoration: none;
 }
 .post-title a:hover, .post-title a:active{
@@ -614,17 +612,20 @@ input, textarea, select {
 .more-link {
 	display: inline-block;
 	margin: 0.5em 0;
-	padding: 0.5em 1em;
-	text-decoration: none;
+	padding: 0.6em 0.8em;
+	font-family: 'Hammersmith One', Tahoma, Arial;
+	font-size: 0.95em;
+	line-height: 1.4em;
 	color: #fff;
-	background: #ee5500;
-	font-weight: bold;
+	background: #ee4444;
+	text-transform: uppercase;
+	text-decoration: none;
 }
 .more-link:link, .more-link:visited  {
 	color: #fff;
 }
 .more-link:hover, .more-link:active {
-	background: #303030;
+	background: #222;
 	text-decoration: none;
 }
 .content-excerpt .more-link  {
@@ -633,18 +634,18 @@ input, textarea, select {
 
 /* Archives and Search Heading */
 .archive-title {
-	background: #ee5500;
+	background: #333;
 	margin-bottom: 1em;
-	border-top: 3px solid #ee5500;
+	border-top: 3px solid #333;
 }
 .archive-title span {
 	display: block;
-	font: 'Muli', Tahoma, Verdana, Arial;
-	font-size: 0.9em;
+	font-family: 'Hammersmith One', Tahoma, Arial;
+	font-size: 0.95em;
 	line-height: 1.4em;
 	text-transform: uppercase;
 	color: #fff;
-	padding: 0.5em 0.8em;
+	padding: 0.6em 0.8em;
 	border-top: 2px solid #fff;
 }
 
@@ -652,7 +653,7 @@ input, textarea, select {
 .post-pagination {
 	font-weight: bold;
 	color: #fff;
-	background: #ee5500;
+	background: #ee4444;
 	padding: 0.6em 1.0em;
 	line-height: 1.4em;
 	margin-bottom: 0.5em;
@@ -845,10 +846,10 @@ blockquote cite {
 -------------------------------------------------------------- */
 article .wp-post-image {
 	max-width: 100%;
-	margin: 0 0 0.8em 0;
+	margin: 0 0 0.5em 0;
 	height: auto;
 	padding-top: 2px;
-	border-top: 3px solid #ee5500;
+	border-top: 3px solid #ee4444;
 }
 .entry img {
 	max-width: 100%;
@@ -1078,10 +1079,10 @@ embed, iframe, object, video {
 	margin: 0;
 }
 #comments .comments-title, #respond #reply-title {
-	font-family: 'Muli', Tahoma, Verdana, Arial;
+	font-family: 'Hammersmith One', Tahoma, Arial;
 	font-weight: bold;
 	color: #fff;
-	background: #ee5500;
+	background: #ee4444;
 	padding: 0.6em 1.0em;
 	line-height: 1.4em;
 	margin-bottom: 0.5em;
@@ -1204,7 +1205,7 @@ embed, iframe, object, video {
 	padding: 0.8em 3em;
 	text-decoration: none;
 	color: #fff;
-	background: #ee5500;
+	background: #ee4444;
 }
 #commentform #submit:hover {
 	background: #222;
@@ -1440,7 +1441,7 @@ embed, iframe, object, video {
 /* Footer
 -------------------------------------------------------------- */
 #footer-wrap {
-	background: #ee5500;
+	background: #ee4444;
 }
 #footer {
 	padding: 0.8em 1.5em;
@@ -2173,6 +2174,9 @@ embed, iframe, object, video {
 	}
 	#topnav-menu li.menu-item:hover a {
 		background: rgba(0,0,0,0.2);
+	}
+	#mainnav-menu li.menu-item:hover a {
+		background: #ee4444;
 	}
 }
 @media only screen and (min-width: 50em) {
