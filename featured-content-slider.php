@@ -8,10 +8,10 @@
 $slider_posts = future_get_featured_content();
 
 // Check if there is Featured Content
-if ( empty( $slider_posts ) ) : ?>
+if ( empty( $slider_posts ) and current_user_can( 'edit_theme_options' ) ) : ?>
 
-	<p class="frontpage-slider-empty-posts">
-		<?php _e('There is no featured content to be displayed in the slider. To set up the slider, go to Appearance → Customize, and add a tag under Tag Name in the Featured Content section. The slideshow will then display all posts which are tagged with that keyword.', 'future'); ?>
+	<p class="post-slider-empty-posts">
+		<?php _e('There is no featured content to be displayed in the slider. To set up the slider, go to Appearance -> Customize -> Theme Options, and add a tag under Tag Name in the Featured Content section. The slideshow will then display all posts which are tagged with that keyword.', 'future'); ?>
 	</p>
 	
 <?php
