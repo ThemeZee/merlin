@@ -34,7 +34,7 @@ add_filter('excerpt_length', 'future_slideshow_excerpt_length');
 			<?php foreach ( $slider_posts as $post ) : setup_postdata( $post ); 
 			
 				// Get Thumbnail URL
-				$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'slider-thumbnail');
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'future-slider-thumbnail');
 				$thumbnail = $image[0];
 				
 				// set Default Thumbnail

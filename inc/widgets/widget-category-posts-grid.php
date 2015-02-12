@@ -149,7 +149,7 @@ class Future_Category_Posts_Grid_Widget extends WP_Widget {
 				
 						<article id="post-<?php the_ID(); ?>" <?php post_class('large-post'); ?>>
 
-							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('category-posts-widget-large'); ?></a>
+							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('future-category-posts-widget-large'); ?></a>
 
 							<h3 class="post-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 
@@ -218,7 +218,7 @@ class Future_Category_Posts_Grid_Widget extends WP_Widget {
 
 						<article id="post-<?php the_ID(); ?>" <?php post_class('medium-post clearfix'); ?>>
 
-							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('category-posts-widget-medium'); ?></a>
+							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('future-category-posts-widget-medium'); ?></a>
 
 							<div class="medium-post-content">
 								<h2 class="post-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>

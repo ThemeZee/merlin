@@ -34,7 +34,7 @@ if ( ! function_exists( 'future_display_custom_header' ) ):
 		if( is_page() && has_post_thumbnail() ) :
 		?>
 			<div id="custom-header" class="featured-image-header">
-				<?php the_post_thumbnail('custom-header-image'); ?>
+				<?php the_post_thumbnail('future-header-image'); ?>
 			</div>
 <?php
 		// Check if there is a custom header image

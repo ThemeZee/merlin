@@ -154,7 +154,7 @@ class Future_Category_Posts_Boxed_Widget extends WP_Widget {
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('large-post clearfix'); ?>>
 
-						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('category-posts-widget-extra-large'); ?></a>
+						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('future-category-posts-widget-extra-large'); ?></a>
 						
 						<div class="post-content">
 
@@ -178,7 +178,7 @@ class Future_Category_Posts_Boxed_Widget extends WP_Widget {
 					<article id="post-<?php the_ID(); ?>" <?php post_class('medium-post clearfix'); ?>>
 
 					<?php if ( '' != get_the_post_thumbnail() ) : ?>
-						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('category-posts-widget-medium'); ?></a>
+						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('future-category-posts-widget-medium'); ?></a>
 					<?php endif; ?>
 
 						<div class="medium-post-content">
@@ -239,7 +239,7 @@ class Future_Category_Posts_Boxed_Widget extends WP_Widget {
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('large-post clearfix'); ?>>
 
-						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('category-posts-widget-large'); ?></a>
+						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('future-category-posts-widget-large'); ?></a>
 						
 						<div class="post-content">
 
@@ -263,7 +263,7 @@ class Future_Category_Posts_Boxed_Widget extends WP_Widget {
 					<article id="post-<?php the_ID(); ?>" <?php post_class('small-post clearfix'); ?>>
 
 					<?php if ( '' != get_the_post_thumbnail() ) : ?>
-						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('category-posts-widget-small'); ?></a>
+						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('future-category-posts-widget-small'); ?></a>
 					<?php endif; ?>
 
 						<div class="small-post-content">
