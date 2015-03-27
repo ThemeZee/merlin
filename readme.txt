@@ -1,8 +1,8 @@
-Future WordPress Theme, Copyright 2014 ThemeZee.com
-Future is distributed under the terms of the GNU GPL
+Merlin WordPress Theme, Copyright 2014 ThemeZee.com
+Merlin is distributed under the terms of the GNU GPL
 
 ===================================
-Thanks for Downloading Future
+Thanks for Downloading Merlin
 ===================================
 
 Thank you for downloading my theme. 
@@ -52,7 +52,7 @@ To find out more about installing WordPress themes please also see the WordPress
 C) Theme Options
 ===================================
 
-Future supports the awesome Theme Customizer for all theme settings. 
+Merlin supports the awesome Theme Customizer for all theme settings. 
 Go to WP-Admin > Appearance > Customize to open the Customizer.
 
 ===================================
@@ -60,7 +60,7 @@ D) Theme Documentation
 ===================================
 
 Need any help to setup and configure this theme? We got you covered with an extensive theme documentation on our website.
-http://themezee.com/docs/future-documentation/
+http://themezee.com/docs/merlin-documentation/
 
 ===================================
 E) Page Templates
@@ -78,7 +78,7 @@ I have included a few, nice page templates for advanced content presentation.
 F) Theme License
 ===================================
 
-Future is released under the GNU general public license. 
+Merlin is released under the GNU general public license. 
 That means you can use this theme on all of your websites - for personal or commercial purposes!
 
 ===================================
@@ -111,7 +111,7 @@ G) Licenses of bundled resources
 	Free to use under the GPLv2 license: http://www.woothemes.com/flexslider/
 	
 	4. Featured Content class, Copyright 2014 Twenty Fourteen theme
-	Future uses the Featured Content class for the post slideshow
+	Merlin uses the Featured Content class for the post slideshow
 	License of Twenty Fourteen: http://www.gnu.org/licenses/gpl.html
 
 	5. Fonts

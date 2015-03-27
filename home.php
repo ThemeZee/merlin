@@ -4,7 +4,7 @@
 	
 <?php 
 	// Get Theme Options from Database
-	$theme_options = future_theme_options();
+	$theme_options = merlin_theme_options();
 
 ?>
 		<section id="content" class="primary" role="main">
@@ -37,7 +37,7 @@
 			</div>
 			
 			<?php // Display Pagination	
-				future_display_pagination();
+				merlin_display_pagination();
 
 			endif; ?>
 			

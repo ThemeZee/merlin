@@ -5,13 +5,13 @@
  */
 
 // Get our Featured Content posts
-$slider_posts = future_get_featured_content();
+$slider_posts = merlin_get_featured_content();
 
 // Check if there is Featured Content
 if ( empty( $slider_posts ) and current_user_can( 'edit_theme_options' ) ) : ?>
 
 	<p class="post-slider-empty-posts">
-		<?php _e('There is no featured content to be displayed in the slider. To set up the slider, go to Appearance -> Customize -> Theme Options, and add a tag under Tag Name in the Featured Content section. The slideshow will then display all posts which are tagged with that keyword.', 'future'); ?>
+		<?php _e('There is no featured content to be displayed in the slider. To set up the slider, go to Appearance -> Customize -> Theme Options, and add a tag under Tag Name in the Featured Content section. The slideshow will then display all posts which are tagged with that keyword.', 'merlin'); ?>
 	</p>
 	
 <?php
@@ -19,7 +19,7 @@ if ( empty( $slider_posts ) and current_user_can( 'edit_theme_options' ) ) : ?>
 endif;
 
 // Limit the number of words in slideshow post excerpts
-add_filter('excerpt_length', 'future_slideshow_excerpt_length');
+add_filter('excerpt_length', 'merlin_slideshow_excerpt_length');
 
 // Display Slider
 ?>
@@ -34,7 +34,7 @@ add_filter('excerpt_length', 'future_slideshow_excerpt_length');
 			<?php foreach ( $slider_posts as $post ) : setup_postdata( $post ); 
 			
 				// Get Thumbnail URL
-				$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'future-slider-thumbnail');
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'merlin-slider-thumbnail');
 				$thumbnail = $image[0];
 				
 				// set Default Thumbnail
@@ -82,7 +82,7 @@ add_filter('excerpt_length', 'future_slideshow_excerpt_length');
 
 <?php
 // Remove excerpt filter
-remove_filter('excerpt_length', 'future_slideshow_excerpt_length');
+remove_filter('excerpt_length', 'merlin_slideshow_excerpt_length');
 
 // Reset Postdata
 wp_reset_postdata();

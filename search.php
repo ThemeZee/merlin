@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <?php // Get Theme Options from Database
-	$theme_options = future_theme_options();
+	$theme_options = merlin_theme_options();
 ?>
 
 	<div id="wrap" class="container clearfix">
@@ -10,7 +10,7 @@
 		
 		<?php if (have_posts()) : ?>
 			<h2 id="search-title" class="archive-title">
-				<span><?php printf( __( 'Search Results for: %s', 'future'), get_search_query() ); ?></span>
+				<span><?php printf( __( 'Search Results for: %s', 'merlin'), get_search_query() ); ?></span>
 			</h2>
 		
 			<div id="post-wrapper" class="clearfix">
@@ -24,18 +24,18 @@
 			</div>
 			
 			<?php // Display Pagination	
-			future_display_pagination();
+			merlin_display_pagination();
 
 		else : ?>
 
 			<h2 id="search-title" class="archive-title">
-				<?php printf( __( 'Search Results for: %s', 'future'), '<span>' . get_search_query() . '</span>' ); ?>
+				<?php printf( __( 'Search Results for: %s', 'merlin'), '<span>' . get_search_query() . '</span>' ); ?>
 			</h2>
 			
 			<div class="post">
 				
 				<div class="entry">
-					<p><?php _e('No matches. Please try again, or use the navigation menus to find what you search for.', 'future'); ?></p>
+					<p><?php _e('No matches. Please try again, or use the navigation menus to find what you search for.', 'merlin'); ?></p>
 				</div>
 				
 			</div>

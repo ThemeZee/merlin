@@ -1,5 +1,5 @@
 
-	<?php do_action('future_before_footer'); ?>
+	<?php do_action('merlin_before_footer'); ?>
 
 	<div id="footer-wrap">
 	
@@ -14,7 +14,7 @@
 			</nav>
 			
 			<div id="footer-text">
-				<?php do_action('future_footer_text'); ?>
+				<?php do_action('merlin_footer_text'); ?>
 			</div>
 			
 		</footer>

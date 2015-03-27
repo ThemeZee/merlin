@@ -8,14 +8,14 @@
  */
 
 // Passing Variables to Featured Post Slider Slider ( js/slider.js)
-add_action('wp_enqueue_scripts', 'future_custom_slider_params');
+add_action('wp_enqueue_scripts', 'merlin_custom_slider_params');
 
-if ( ! function_exists( 'future_custom_slider_params' ) ):
+if ( ! function_exists( 'merlin_custom_slider_params' ) ):
 
-function future_custom_slider_params() { 
+function merlin_custom_slider_params() { 
 	
 	// Get Theme Options from Database
-	$theme_options = future_theme_options();
+	$theme_options = merlin_theme_options();
 	
 	// Set Parameters array
 	$params = array();
@@ -26,7 +26,7 @@ function future_custom_slider_params() {
 	endif;
 	
 	// Passing Parameters to Javascript
-	wp_localize_script( 'future-post-slider', 'future_slider_params', $params );
+	wp_localize_script( 'merlin-post-slider', 'merlin_slider_params', $params );
 }
 
 endif;

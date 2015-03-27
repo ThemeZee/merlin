@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <?php // Get Theme Options from Database
-	$theme_options = future_theme_options();
+	$theme_options = merlin_theme_options();
 ?>
 
 <?php // Retrieve Current Author
@@ -13,7 +13,7 @@
 		<section id="content" class="primary" role="main">
 		
 			<h2 id="author-title" class="archive-title">
-				<span><?php printf(__('Author Archives: %s', 'future'), esc_attr($author->display_name) ); ?></span>
+				<span><?php printf(__('Author Archives: %s', 'merlin'), esc_attr($author->display_name) ); ?></span>
 			</h2>
 
 			<div id="post-wrapper" class="clearfix">
@@ -27,7 +27,7 @@
 			</div>
 			
 			<?php // Display Pagination	
-				future_display_pagination();
+				merlin_display_pagination();
 
 			endif; ?>
 			

@@ -7,7 +7,7 @@
  */
  
 	// Get Theme Options from Database
-	$theme_options = future_theme_options();
+	$theme_options = merlin_theme_options();
 
 ?>
 
@@ -18,7 +18,7 @@
 			if ( isset($theme_options['header_icons']) and $theme_options['header_icons'] == true ) : ?>
 
 			<div id="navi-social-icons" class="social-icons-wrap clearfix">
-				<?php future_display_social_icons(); ?>
+				<?php merlin_display_social_icons(); ?>
 			</div>
 
 		<?php endif;
@@ -33,7 +33,7 @@
 					'container' => false, 
 					'menu_id' => 'topnav-menu', 
 					'echo' => true, 
-					'fallback_cb' => 'future_default_menu')
+					'fallback_cb' => 'merlin_default_menu')
 				);
 			?>
 		</nav>

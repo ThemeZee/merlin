@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <?php // Get Theme Options from Database
-	$theme_options = future_theme_options();
+	$theme_options = merlin_theme_options();
 ?>
 
 	<div id="wrap" class="container clearfix">
@@ -12,9 +12,9 @@
 				<span>
 				<?php // Display Archive Title
 				if ( is_date() ) :
-					printf( __( 'Monthly Archives: %s', 'future'), get_the_date( _x( 'F Y', 'date format of monthly archives', 'future') ) );
+					printf( __( 'Monthly Archives: %s', 'merlin'), get_the_date( _x( 'F Y', 'date format of monthly archives', 'merlin') ) );
 				else :
-					_e( 'Archives', 'future');
+					_e( 'Archives', 'merlin');
 				endif;
 				?>
 				</span>
@@ -31,7 +31,7 @@
 			</div>
 			
 			<?php // Display Pagination	
-				future_display_pagination();
+				merlin_display_pagination();
 
 			endif; ?>
 			

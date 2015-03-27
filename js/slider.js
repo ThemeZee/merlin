@@ -6,7 +6,7 @@ jQuery(document).ready(function($) {
 
 	/* Add flexslider to #post-slider div */ 
 	$("#post-slider").flexslider({
-		animation: future_slider_params.animation,
+		animation: merlin_slider_params.animation,
 		namespace: "zeeflex-",
 		selector: ".zeeslides > li",
 		smoothHeight: true,

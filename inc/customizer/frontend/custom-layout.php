@@ -1,9 +1,9 @@
 <?php 
-add_action('wp_head', 'future_css_layout');
-function future_css_layout() {
+add_action('wp_head', 'merlin_css_layout');
+function merlin_css_layout() {
 	
 	// Get Theme Options from Database
-	$theme_options = future_theme_options();
+	$theme_options = merlin_theme_options();
 		
 	// Switch Sidebar to left
 	if ( isset($theme_options['layout']) and $theme_options['layout'] == 'left-sidebar' ) :

@@ -9,9 +9,9 @@
 	
 
 // Display Site Title
-add_action( 'future_site_title', 'future_display_site_title' );
+add_action( 'merlin_site_title', 'merlin_display_site_title' );
 
-function future_display_site_title() { ?>
+function merlin_display_site_title() { ?>
 
 	<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 		<h1 class="site-title"><?php bloginfo('name'); ?></h1>
@@ -22,9 +22,9 @@ function future_display_site_title() { ?>
 
 
 // Display Custom Header
-if ( ! function_exists( 'future_display_custom_header' ) ):
+if ( ! function_exists( 'merlin_display_custom_header' ) ):
 	
-	function future_display_custom_header() {
+	function merlin_display_custom_header() {
 		
 		// Don't display header image on template-magazine.php
 		if( is_page_template('template-magazine.php') )
@@ -34,7 +34,7 @@ if ( ! function_exists( 'future_display_custom_header' ) ):
 		if( is_page() && has_post_thumbnail() ) :
 		?>
 			<div id="custom-header" class="featured-image-header">
-				<?php the_post_thumbnail('future-header-image'); ?>
+				<?php the_post_thumbnail('merlin-header-image'); ?>
 			</div>
 <?php
 		// Check if there is a custom header image
@@ -52,12 +52,12 @@ endif;
 
 
 // Display Postmeta Data
-if ( ! function_exists( 'future_display_postmeta' ) ):
+if ( ! function_exists( 'merlin_display_postmeta' ) ):
 	
-	function future_display_postmeta() { ?>
+	function merlin_display_postmeta() { ?>
 		
 		<span class="meta-date">
-		<?php printf(__('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>', 'future'), 
+		<?php printf(__('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>', 'merlin'), 
 				esc_url( get_permalink() ),
 				esc_attr( get_the_time() ),
 				esc_attr( get_the_date( 'c' ) ),
@@ -67,9 +67,9 @@ if ( ! function_exists( 'future_display_postmeta' ) ):
 		</span>
 		
 		<span class="meta-author">
-		<?php printf(__('by <a href="%1$s" title="%2$s" rel="author">%3$s</a>', 'future'), 
+		<?php printf(__('by <a href="%1$s" title="%2$s" rel="author">%3$s</a>', 'merlin'), 
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-				esc_attr( sprintf( __( 'View all posts by %s', 'future' ), get_the_author() ) ),
+				esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
 				get_the_author()
 			);
 		?>
@@ -82,10 +82,10 @@ endif;
 
 
 // Display Post Thumbnail on Archive Pages
-function future_display_thumbnail_index() {
+function merlin_display_thumbnail_index() {
 	
 	// Get Theme Options from Database
-	$theme_options = future_theme_options();
+	$theme_options = merlin_theme_options();
 	
 	// Display Post Thumbnail if activated
 	if ( isset($theme_options['post_thumbnails_index']) and $theme_options['post_thumbnails_index'] == true ) : ?>
@@ -101,10 +101,10 @@ function future_display_thumbnail_index() {
 
 
 // Display Post Thumbnail on single posts
-function future_display_thumbnail_single() {
+function merlin_display_thumbnail_single() {
 	
 	// Get Theme Options from Database
-	$theme_options = future_theme_options();
+	$theme_options = merlin_theme_options();
 	
 	// Display Post Thumbnail if activated
 	if ( isset($theme_options['post_thumbnails_single']) and $theme_options['post_thumbnails_single'] == true ) :
@@ -117,9 +117,9 @@ function future_display_thumbnail_single() {
 
 
 // Display Postinfo Data
-if ( ! function_exists( 'future_display_postinfo' ) ):
+if ( ! function_exists( 'merlin_display_postinfo' ) ):
 	
-	function future_display_postinfo_index() { ?>
+	function merlin_display_postinfo_index() { ?>
 
 		<span class="meta-category">
 			<?php echo get_the_category_list(', '); ?>
@@ -128,7 +128,7 @@ if ( ! function_exists( 'future_display_postinfo' ) ):
 	<?php if ( comments_open() ) : ?>
 			
 		<span class="meta-comments">
-			<?php comments_popup_link( __('Leave a comment', 'future'),__('One comment', 'future'),__('% comments', 'future') ); ?>
+			<?php comments_popup_link( __('Leave a comment', 'merlin'),__('One comment', 'merlin'),__('% comments', 'merlin') ); ?>
 		</span>
 		
 	<?php endif; 
@@ -139,9 +139,9 @@ endif;
 
 	
 // Display Content Pagination
-if ( ! function_exists( 'future_display_pagination' ) ):
+if ( ! function_exists( 'merlin_display_pagination' ) ):
 	
-	function future_display_pagination() { 
+	function merlin_display_pagination() { 
 		
 		global $wp_query;
 
@@ -173,14 +173,14 @@ endif;
 
 
 // Display Footer Text
-add_action( 'future_footer_text', 'future_display_footer_text' );
+add_action( 'merlin_footer_text', 'merlin_display_footer_text' );
 
-function future_display_footer_text() { ?>
+function merlin_display_footer_text() { ?>
 
 	<span class="credit-link">
-		<?php printf(__( 'Powered by %1$s and %2$s.', 'future' ), 
-			sprintf( '<a href="http://wordpress.org" title="WordPress">%s</a>', __( 'WordPress', 'future' ) ),
-			sprintf( '<a href="http://themezee.com/themes/future/" title="Future WordPress Theme">%s</a>', __( 'Future', 'future' ) )
+		<?php printf(__( 'Powered by %1$s and %2$s.', 'merlin' ), 
+			sprintf( '<a href="http://wordpress.org" title="WordPress">%s</a>', __( 'WordPress', 'merlin' ) ),
+			sprintf( '<a href="http://themezee.com/themes/merlin/" title="Merlin WordPress Theme">%s</a>', __( 'Merlin', 'merlin' ) )
 		); ?>
 	</span>
 
@@ -189,7 +189,7 @@ function future_display_footer_text() { ?>
 
 
 // Display Social Icons
-function future_display_social_icons() {
+function merlin_display_social_icons() {
 
 	// Check if there is a social_icons menu
 	if( has_nav_menu( 'social' ) ) :
@@ -212,7 +212,7 @@ function future_display_social_icons() {
 	else: // Display Hint how to configure Social Icons ?>
 
 		<p class="social-icons-hint">
-			<?php _e('Please go to WP-Admin-> Appearance-> Menus and create a new custom menu with custom links to all your social networks. Then click on "Manage Locations" tab and assign your created menu to the "Social Icons" theme location.', 'future'); ?>
+			<?php _e('Please go to WP-Admin-> Appearance-> Menus and create a new custom menu with custom links to all your social networks. Then click on "Manage Locations" tab and assign your created menu to the "Social Icons" theme location.', 'merlin'); ?>
 		</p>
 <?php
 	endif;

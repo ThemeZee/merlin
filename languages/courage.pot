@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Future\n"
+"Project-Id-Version: Merlin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-19 11:36+0100\n"
 "PO-Revision-Date: 2015-01-19 11:36+0100\n"
@@ -254,7 +254,7 @@ msgid "WordPress"
 msgstr ""
 
 #: inc/template-tags.php:188
-msgid "Future"
+msgid "Merlin"
 msgstr ""
 
 #: inc/template-tags.php:220
@@ -265,7 +265,7 @@ msgid ""
 msgstr ""
 
 #: inc/theme-info.php:15
-msgid "Welcome to Future"
+msgid "Welcome to Merlin"
 msgstr ""
 
 #: inc/theme-info.php:16
@@ -313,7 +313,7 @@ msgid ""
 msgstr ""
 
 #: inc/theme-info.php:70
-msgid "Visit Future Documentation"
+msgid "Visit Merlin Documentation"
 msgstr ""
 
 #: inc/theme-info.php:75 inc/customizer/customizer.php:28
@@ -322,7 +322,7 @@ msgstr ""
 
 #: inc/theme-info.php:77
 msgid ""
-"Future supports the awesome Theme Customizer for all theme settings. Click "
+"Merlin supports the awesome Theme Customizer for all theme settings. Click "
 "\"Customize Theme\" to open the Customizer now."
 msgstr ""
 
@@ -341,13 +341,13 @@ msgid ""
 msgstr ""
 
 #: inc/theme-info.php:88 inc/customizer/sections/customizer-upgrade.php:62
-msgid "Learn more about Future Pro"
+msgid "Learn more about Merlin Pro"
 msgstr ""
 
 #: inc/theme-info.php:108
 #, php-format
 msgid ""
-"Future is proudly brought to you by %1s. If you like this theme, %2s :) "
+"Merlin is proudly brought to you by %1s. If you like this theme, %2s :) "
 msgstr ""
 
 #: inc/theme-info.php:110
@@ -467,7 +467,7 @@ msgid "Fade Slider"
 msgstr ""
 
 #: inc/customizer/sections/customizer-upgrade.php:14
-msgid "Future Pro"
+msgid "Merlin Pro"
 msgstr ""
 
 #: inc/customizer/sections/customizer-upgrade.php:30
@@ -487,7 +487,7 @@ msgid ""
 msgstr ""
 
 #: inc/widgets/widget-category-posts-boxed.php:13
-msgid "Category Posts Boxed (Future)"
+msgid "Category Posts Boxed (Merlin)"
 msgstr ""
 
 #: inc/widgets/widget-category-posts-boxed.php:216
@@ -526,7 +526,7 @@ msgid ""
 msgstr ""
 
 #: inc/widgets/widget-category-posts-columns.php:13
-msgid "Category Posts Columns (Future)"
+msgid "Category Posts Columns (Merlin)"
 msgstr ""
 
 #: inc/widgets/widget-category-posts-columns.php:296
@@ -565,7 +565,7 @@ msgid ""
 msgstr ""
 
 #: inc/widgets/widget-category-posts-grid.php:13
-msgid "Category Posts Grid (Future)"
+msgid "Category Posts Grid (Merlin)"
 msgstr ""
 
 #: inc/widgets/widget-category-posts-grid.php:301

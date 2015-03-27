@@ -1,12 +1,12 @@
 /*======================================
-Theme Name: Future
-Theme URI: http://themezee.com/themes/future/
-Description: Future is a great way to start your personal blog or magazine website today. The theme is very easy to use and looks awesome on every device. It includes a beautiful featured post slideshow and a clean and flexible Magazine Homepage template. Hope you enjoy it!
+Theme Name: Merlin
+Theme URI: http://themezee.com/themes/merlin/
+Description: Merlin is a great way to start your personal blog or magazine website today. The theme is very easy to use and looks awesome on every device. It includes a beautiful featured post slideshow and a clean and flexible Magazine Homepage template. Hope you enjoy it!
 Version: 1.0
 Author: ThemeZee
 Author URI: http://themezee.com
 Tags: two-columns, light, blue, custom-background, custom-header, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, custom-colors, full-width-template, sticky-post, threaded-comments, translation-ready, theme-options, fluid-layout, responsive-layout, one-column, left-sidebar, right-sidebar, three-columns, black, red, silver, white, green, gray
-Text Domain: future
+Text Domain: merlin
 Domain Path: /languages/
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1388,13 +1388,13 @@ embed, iframe, object, video {
 }
 
 /* Front Page Category Area Thre (two columns) */
-.future_category_posts_columns {
+.merlin_category_posts_columns {
 	margin: 0;
 	padding: 0;
 	border: none;
 	background: none;
 }
-.future_category_posts_columns .widget-category-posts {
+.merlin_category_posts_columns .widget-category-posts {
 	margin-bottom: 0;
 }
 #widget-category-posts-columns .category-posts-columns .category-posts-columns-content .category-posts-columns-post-list {

@@ -8,14 +8,14 @@
  
  
 	// Get Theme Options from Database
-	$theme_options = future_theme_options();
+	$theme_options = merlin_theme_options();
 
 	
 	// Display Social Icons
 	if ( isset($theme_options['header_icons']) and $theme_options['header_icons'] == true ) : ?>
 
 		<div id="header-social-icons" class="social-icons-wrap clearfix">
-			<?php future_display_social_icons(); ?>
+			<?php merlin_display_social_icons(); ?>
 		</div>
 
 <?php

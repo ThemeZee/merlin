@@ -9,7 +9,7 @@
 // Add simple heading option to the theme customizer
 if ( class_exists( 'WP_Customize_Control' ) ) :
 
-    class Future_Customize_Header_Control extends WP_Customize_Control {
+    class Merlin_Customize_Header_Control extends WP_Customize_Control {
 
         public function render_content() {  ?>
 			
@@ -21,7 +21,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
         }
     }
 	
-	class Future_Customize_Description_Control extends WP_Customize_Control {
+	class Merlin_Customize_Description_Control extends WP_Customize_Control {
 
         public function render_content() {  ?>
 			
@@ -31,7 +31,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
         }
     }
 	
-	class Future_Customize_Text_Control extends WP_Customize_Control {
+	class Merlin_Customize_Text_Control extends WP_Customize_Control {
 
         public function render_content() {  ?>
 			
@@ -41,12 +41,12 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
         }
     }
 	
-	class Future_Customize_Button_Control extends WP_Customize_Control {
+	class Merlin_Customize_Button_Control extends WP_Customize_Control {
 
         public function render_content() {  ?>
 			
 			<p>
-				<a href="http://themezee.com/themes/future/#PROVersion-1" target="_blank" class="button button-secondary">
+				<a href="http://themezee.com/themes/merlin/#PROVersion-1" target="_blank" class="button button-secondary">
 					<?php echo esc_html( $this->label ); ?>
 				</a>
 			</p>

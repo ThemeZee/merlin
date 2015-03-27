@@ -6,15 +6,15 @@
 
 			<div class="type-page">
 			
-				<h2 class="page-title"><?php _e('404 Error: Not found', 'future'); ?></h2>
+				<h2 class="page-title"><?php _e('404 Error: Not found', 'merlin'); ?></h2>
 				
 				<div class="entry">
-					<p><?php _e('The page you trying to reach does not exist, or has been moved. Please use the menus or the search box to find what you are looking for', 'future'); ?></p>
+					<p><?php _e('The page you trying to reach does not exist, or has been moved. Please use the menus or the search box to find what you are looking for', 'merlin'); ?></p>
 					
-					<h2><?php _e('Search', 'future'); ?></h2>
+					<h2><?php _e('Search', 'merlin'); ?></h2>
 					<?php get_search_form(); ?>
 
-					<h2><?php _e('Recent Posts', 'future'); ?></h2>
+					<h2><?php _e('Recent Posts', 'merlin'); ?></h2>
 					<ul>
 						<?php
 							$recent_posts = wp_get_recent_posts(array('numberposts' => '8', 'post_status' => 'publish'));
@@ -24,7 +24,7 @@
 						?>
 					</ul>
 					
-					<h2><?php _e('Pages', 'future'); ?></h2>
+					<h2><?php _e('Pages', 'merlin'); ?></h2>
 					<ul>
 						<?php wp_list_pages('title_li='); ?>
 					</ul>

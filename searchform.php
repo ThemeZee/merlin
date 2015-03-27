@@ -1,8 +1,8 @@
 
 	<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 		<label>
-			<span class="screen-reader-text"><?php _ex( 'Search for:', 'label', 'future' ); ?></span>
-			<input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'future' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s">
+			<span class="screen-reader-text"><?php _ex( 'Search for:', 'label', 'merlin' ); ?></span>
+			<input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'merlin' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s">
 		</label>
 		<button type="submit" class="search-submit">
 			<span class="genericon-search"></span>

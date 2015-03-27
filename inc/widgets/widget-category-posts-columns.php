@@ -1,16 +1,16 @@
 <?php
 
 // Add Category Posts Columns Widget
-class Future_Category_Posts_Columns_Widget extends WP_Widget {
+class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 
 	function __construct() {
 		
 		// Setup Widget
 		$widget_ops = array(
-			'classname' => 'future_category_posts_columns', 
-			'description' => __('Display latest posts from two specified categories. Please use this widget ONLY on Frontpage Magazine widget area.', 'future')
+			'classname' => 'merlin_category_posts_columns', 
+			'description' => __('Display latest posts from two specified categories. Please use this widget ONLY on Frontpage Magazine widget area.', 'merlin')
 		);
-		$this->WP_Widget('future_category_posts_columns', __('Category Posts Columns (Future)', 'future'), $widget_ops);
+		$this->WP_Widget('merlin_category_posts_columns', __('Category Posts Columns (Merlin)', 'merlin'), $widget_ops);
 		
 		// Delete Widget Cache on certain actions
 		add_action( 'save_post', array( $this, 'delete_widget_cache' ) );
@@ -21,7 +21,7 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 
 	public function delete_widget_cache() {
 		
-		wp_cache_delete('widget_future_category_posts_columns', 'widget');
+		wp_cache_delete('widget_merlin_category_posts_columns', 'widget');
 		
 	}
 	
@@ -48,7 +48,7 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 				
 		// Get Widget Object Cache
 		if ( ! $this->is_preview() ) {
-			$cache = wp_cache_get( 'widget_future_category_posts_columns', 'widget' );
+			$cache = wp_cache_get( 'widget_merlin_category_posts_columns', 'widget' );
 		}
 		if ( ! is_array( $cache ) ) {
 			$cache = array();
@@ -88,7 +88,7 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 		// Set Cache
 		if ( ! $this->is_preview() ) {
 			$cache[ $this->id ] = ob_get_flush();
-			wp_cache_set( 'widget_future_category_posts_columns', $cache, 'widget' );
+			wp_cache_set( 'widget_merlin_category_posts_columns', $cache, 'widget' );
 		} else {
 			ob_end_flush();
 		}
@@ -152,7 +152,7 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 		$i = 0;
 		
 		// Limit the number of words for the excerpt
-		add_filter('excerpt_length', 'future_category_posts_small_excerpt');
+		add_filter('excerpt_length', 'merlin_category_posts_small_excerpt');
 
 		// Check if there are posts
 		if( $posts_query->have_posts() ) :
@@ -165,12 +165,12 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 				if( $highlight_post == true and (isset($i) and $i == 0) ) : 
 				
 					// Limit the number of words for the excerpt
-					add_filter('excerpt_length', 'future_category_posts_medium_excerpt');
+					add_filter('excerpt_length', 'merlin_category_posts_medium_excerpt');
 				?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('large-post clearfix'); ?>>
 
-						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('future-category-posts-widget-large'); ?></a>
+						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-large'); ?></a>
 
 						<h3 class="post-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 
@@ -178,21 +178,21 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 
 						<div class="entry">
 							<?php the_excerpt(); ?>
-							<a href="<?php esc_url(the_permalink()) ?>" class="more-link"><?php _e('Read more', 'future'); ?></a>
+							<a href="<?php esc_url(the_permalink()) ?>" class="more-link"><?php _e('Read more', 'merlin'); ?></a>
 						</div>
 
 					</article>
 
 				<?php 	
 					// Remove excerpt filter
-					remove_filter('excerpt_length', 'future_category_posts_medium_excerpt');
+					remove_filter('excerpt_length', 'merlin_category_posts_medium_excerpt');
 					
 				else: ?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('small-post clearfix'); ?>>
 
 						<?php if ( '' != get_the_post_thumbnail() ) : ?>
-							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('future-category-posts-widget-small'); ?></a>
+							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-small'); ?></a>
 						<?php endif; ?>
 						
 						<div class="small-post-content">
@@ -214,7 +214,7 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 		endif;
 		
 		// Remove excerpt filter
-		remove_filter('excerpt_length', 'future_category_posts_small_excerpt');
+		remove_filter('excerpt_length', 'merlin_category_posts_small_excerpt');
 		
 		// Reset Postdata
 		wp_reset_postdata();
@@ -236,7 +236,7 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 
 	<?php if ( comments_open() ) : ?>
 		<span class="meta-comments sep">
-			<?php comments_popup_link( __('Leave a comment', 'future'),__('One comment','future'),__('% comments','future') ); ?>
+			<?php comments_popup_link( __('Leave a comment', 'merlin'),__('One comment','merlin'),__('% comments','merlin') ); ?>
 		</span>
 	<?php endif;
 
@@ -262,7 +262,7 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 			// Link Category Title
 			if( $category_link == true ) : 
 				
-				$link_title = sprintf( __('View all posts from category %s', 'future'), get_cat_name( $category_id ) );
+				$link_title = sprintf( __('View all posts from category %s', 'merlin'), get_cat_name( $category_id ) );
 				$link_url = esc_url( get_category_link( $category_id ) );
 				
 				echo '<a href="'. esc_url( get_category_link( $category_id ) ) .'" title="'. $widget_title . '">'. $widget_title . '</a>';
@@ -304,17 +304,18 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 
 ?>
 		<p>
-			<label for="<?php echo $this->get_field_id('category_one_title'); ?>"><?php _e('Left Category Title:', 'future'); ?>
+			<label for="<?php echo $this->get_field_id('category_one_title'); ?>"><?php _e('Left Category Title:', 'merlin'); ?>
 				<input class="widefat" id="<?php echo $this->get_field_id('category_one_title'); ?>" name="<?php echo $this->get_field_name('category_one_title'); ?>" type="text" value="<?php echo $category_one_title; ?>" />
 			</label>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('category_one'); ?>"><?php _e('Left Category:', 'future'); ?></label><br/>
+			<label for="<?php echo $this->get_field_id('category_one'); ?>"><?php _e('Left Category:', 'merlin'); ?></label><br/>
 			<?php // Display Category One Select
 				$args = array(
-					'show_option_all'    => __('All Categories', 'future'),
+					'show_option_all'    => __('All Categories', 'merlin'),
 					'show_count' 		 => true,
+					'hide_empty'		 => false,
 					'selected'           => $category_one,
 					'name'               => $this->get_field_name('category_one'),
 					'id'                 => $this->get_field_id('category_one')
@@ -324,17 +325,18 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 		</p>
 		
 				<p>
-			<label for="<?php echo $this->get_field_id('category_two_title'); ?>"><?php _e('Right Category Title:', 'future'); ?>
+			<label for="<?php echo $this->get_field_id('category_two_title'); ?>"><?php _e('Right Category Title:', 'merlin'); ?>
 				<input class="widefat" id="<?php echo $this->get_field_id('category_two_title'); ?>" name="<?php echo $this->get_field_name('category_two_title'); ?>" type="text" value="<?php echo $category_two_title; ?>" />
 			</label>
 		</p>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('category_two'); ?>"><?php _e('Right Category:', 'future'); ?></label><br/>
+			<label for="<?php echo $this->get_field_id('category_two'); ?>"><?php _e('Right Category:', 'merlin'); ?></label><br/>
 			<?php // Display Category One Select
 				$args = array(
-					'show_option_all'    => __('All Categories', 'future'),
+					'show_option_all'    => __('All Categories', 'merlin'),
 					'show_count' 		 => true,
+					'hide_empty'		 => false,
 					'selected'           => $category_two,
 					'name'               => $this->get_field_name('category_two'),
 					'id'                 => $this->get_field_id('category_two')
@@ -344,7 +346,7 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of posts:', 'future'); ?>
+			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of posts:', 'merlin'); ?>
 				<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo (int)$number; ?>" size="3" />
 			</label>
 		</p>
@@ -352,19 +354,19 @@ class Future_Category_Posts_Columns_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id('highlight_post'); ?>">
 				<input class="checkbox" type="checkbox" <?php checked( $highlight_post ) ; ?> id="<?php echo $this->get_field_id('highlight_post'); ?>" name="<?php echo $this->get_field_name('highlight_post'); ?>" />
-				<?php _e('Highlight First Post (Big Image + Excerpt)', 'future'); ?>
+				<?php _e('Highlight First Post (Big Image + Excerpt)', 'merlin'); ?>
 			</label>
 		</p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id('category_link'); ?>">
 				<input class="checkbox" type="checkbox" <?php checked( $category_link ) ; ?> id="<?php echo $this->get_field_id('category_link'); ?>" name="<?php echo $this->get_field_name('category_link'); ?>" />
-				<?php _e('Link Category Titles to Category Archive pages', 'future'); ?>
+				<?php _e('Link Category Titles to Category Archive pages', 'merlin'); ?>
 			</label>
 		</p>
 		
 <?php
 	}
 }
-register_widget('Future_Category_Posts_Columns_Widget');
+register_widget('Merlin_Category_Posts_Columns_Widget');
 ?>

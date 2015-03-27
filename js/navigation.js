@@ -54,10 +54,10 @@ jQuery(document).ready(function($) {
 	/* Get Screen Size with Listener */ 
 	if(typeof matchMedia == 'function') {
 		var mq = window.matchMedia('(max-width: 60em)');
-		mq.addListener(futureWidthChange);
-		futureWidthChange(mq);
+		mq.addListener(merlinWidthChange);
+		merlinWidthChange(mq);
 	}
-	function futureWidthChange(mq) {
+	function merlinWidthChange(mq) {
 		if (mq.matches) {
 	
 			/* Reset dropdown animations for top navigation */

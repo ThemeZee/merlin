@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <?php // Get Theme Options from Database
-	$theme_options = future_theme_options();
+	$theme_options = merlin_theme_options();
 ?>
 
 	<div id="wrap" class="container clearfix">
@@ -9,7 +9,7 @@
 		<section id="content" class="primary" role="main">
 
 			<h2 id="category-title" class="archive-title">
-				<span><?php printf(__('Category Archives: %s', 'future'), single_cat_title( '', false ) ); ?></span>
+				<span><?php printf(__('Category Archives: %s', 'merlin'), single_cat_title( '', false ) ); ?></span>
 			</h2>
 
 			<div id="post-wrapper" class="clearfix">
@@ -23,7 +23,7 @@
 			</div>
 			
 			<?php // Display Pagination	
-				future_display_pagination();
+				merlin_display_pagination();
 
 			endif; ?>
 			

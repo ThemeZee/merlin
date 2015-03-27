@@ -16,16 +16,16 @@ require( get_template_directory() . '/inc/customizer/sections/customizer-slider.
 require( get_template_directory() . '/inc/customizer/sections/customizer-upgrade.php' );
 
 // Add Theme Options section to Customizer
-add_action( 'customize_register', 'future_customize_register_options' );
+add_action( 'customize_register', 'merlin_customize_register_options' );
 
-function future_customize_register_options( $wp_customize ) {
+function merlin_customize_register_options( $wp_customize ) {
 
 	// Add Theme Options Panel
-	$wp_customize->add_panel( 'future_options_panel', array(
+	$wp_customize->add_panel( 'merlin_options_panel', array(
 		'priority'       => 180,
 		'capability'     => 'edit_theme_options',
 		'theme_supports' => '',
-		'title'          => __( 'Theme Options', 'future' ),
+		'title'          => __( 'Theme Options', 'merlin' ),
 		'description'    => '',
 	) );
 	
@@ -38,21 +38,21 @@ function future_customize_register_options( $wp_customize ) {
 	$wp_customize->get_section( 'background_image'  )->title     = 'Background';
 	
 	// Change Featured Content Section
-	$wp_customize->get_section( 'featured_content'  )->panel = 'future_options_panel';
+	$wp_customize->get_section( 'featured_content'  )->panel = 'merlin_options_panel';
 	$wp_customize->get_section( 'featured_content'  )->priority = 40;
 	
 	// Add Header Tagline option
-	$wp_customize->add_setting( 'future_theme_options[header_tagline]', array(
+	$wp_customize->add_setting( 'merlin_theme_options[header_tagline]', array(
         'default'           => false,
 		'type'           	=> 'option',
         'transport'         => 'refresh',
-        'sanitize_callback' => 'future_sanitize_checkbox'
+        'sanitize_callback' => 'merlin_sanitize_checkbox'
 		)
 	);
-    $wp_customize->add_control( 'future_control_header_tagline', array(
-        'label'    => __( 'Display Tagline below site title.', 'future' ),
+    $wp_customize->add_control( 'merlin_control_header_tagline', array(
+        'label'    => __( 'Display Tagline below site title.', 'merlin' ),
         'section'  => 'title_tagline',
-        'settings' => 'future_theme_options[header_tagline]',
+        'settings' => 'merlin_theme_options[header_tagline]',
         'type'     => 'checkbox',
 		'priority' => 99
 		)
@@ -62,18 +62,18 @@ function future_customize_register_options( $wp_customize ) {
 
 
 // Embed JS file to make Theme Customizer preview reload changes asynchronously.
-add_action( 'customize_preview_init', 'future_customize_preview_js' );
+add_action( 'customize_preview_init', 'merlin_customize_preview_js' );
 
-function future_customize_preview_js() {
-	wp_enqueue_script( 'future-customizer-js', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20140312', true );
+function merlin_customize_preview_js() {
+	wp_enqueue_script( 'merlin-customizer-js', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20140312', true );
 }
 
 
 // Embed CSS styles for Theme Customizer
-add_action( 'customize_controls_print_styles', 'future_customize_preview_css' );
+add_action( 'customize_controls_print_styles', 'merlin_customize_preview_css' );
 
-function future_customize_preview_css() {
-	wp_enqueue_style( 'future-customizer-css', get_template_directory_uri() . '/css/customizer.css', array(), '20140312' );
+function merlin_customize_preview_css() {
+	wp_enqueue_style( 'merlin-customizer-css', get_template_directory_uri() . '/css/customizer.css', array(), '20140312' );
 
 }
 

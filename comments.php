@@ -7,7 +7,7 @@
  */
 
 if ( post_password_required()) : ?>
-	<p><?php _e('Enter password to view comments.', 'future'); ?></p>
+	<p><?php _e('Enter password to view comments.', 'merlin'); ?></p>
 <?php return; endif; ?>
 
 
@@ -17,7 +17,7 @@ if ( post_password_required()) : ?>
 	
 		<?php if ( have_comments() ) : ?>
 
-			<h3 class="comments-title"><span><?php comments_number( '', __('One comment','future'), __('% comments','future') );?></span></h3>
+			<h3 class="comments-title"><span><?php comments_number( '', __('One comment','merlin'), __('% comments','merlin') );?></span></h3>
 
 			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 			<div class="comment-pagination clearfix">
@@ -27,7 +27,7 @@ if ( post_password_required()) : ?>
 			<?php endif; ?>
 			
 			<ul class="commentlist">
-				<?php wp_list_comments( array('callback' => 'future_list_comments')); ?>
+				<?php wp_list_comments( array('callback' => 'merlin_list_comments')); ?>
 			</ul>
 
 			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
