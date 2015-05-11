@@ -73,7 +73,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		// Output
 		echo $before_widget;
 	?>
-		<div id="widget-category-posts-columns" class="widget-category-posts clearfix">
+		<div class="widget-category-posts-columns widget-category-posts clearfix">
 			
 			<div class="widget-category-posts-content clearfix">
 			
@@ -266,7 +266,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 				$link_url = esc_url( get_category_link( $category_id ) );
 				
 				echo '<a href="'. esc_url( get_category_link( $category_id ) ) .'" title="'. $widget_title . '">'. $widget_title . '</a>';
-				echo '<a class="category-archive-link" href="'. $link_url .'" title="'. $link_title . '"><span class="genericon-next"></span></a>';
+				echo '<a class="category-archive-link" href="'. $link_url .'" title="'. $link_title . '"><span class="category-archive-icon"></span></a>';
 				
 			else:
 			

@@ -17,27 +17,6 @@ function merlin_customize_register_post_settings( $wp_customize ) {
 		)
 	);
 
-	// Add Settings and Controls for Post Layout
-	$wp_customize->add_setting( 'merlin_theme_options[post_layout]', array(
-        'default'           => 'index',
-		'type'           	=> 'option',
-        'transport'         => 'refresh',
-        'sanitize_callback' => 'merlin_sanitize_post_layout'
-		)
-	);
-    $wp_customize->add_control( 'merlin_control_post_layout', array(
-        'label'    => __( 'Post Layout', 'merlin' ),
-        'section'  => 'merlin_section_post',
-        'settings' => 'merlin_theme_options[post_layout]',
-        'type'     => 'radio',
-		'priority' => 1,
-        'choices'  => array(
-            'one-column' => __( 'One Column', 'merlin' ),
-			'index' => __( 'Two Columns', 'merlin' )
-			)
-		)
-	);
-	
 	// Add Settings and Controls for Posts
 	$wp_customize->add_setting( 'merlin_theme_options[posts_length]', array(
         'default'           => 'excerpt',
@@ -51,7 +30,7 @@ function merlin_customize_register_post_settings( $wp_customize ) {
         'section'  => 'merlin_section_post',
         'settings' => 'merlin_theme_options[posts_length]',
         'type'     => 'radio',
-		'priority' => 2,
+		'priority' => 1,
         'choices'  => array(
             'index' => __( 'Show full posts', 'merlin' ),
             'excerpt' => __( 'Show post summaries (excerpt)', 'merlin' )
@@ -72,7 +51,7 @@ function merlin_customize_register_post_settings( $wp_customize ) {
             'label' => __( 'Post Images', 'merlin' ),
             'section' => 'merlin_section_post',
             'settings' => 'merlin_theme_options[post_images]',
-            'priority' => 3
+            'priority' => 2
             )
         )
     );
@@ -88,7 +67,7 @@ function merlin_customize_register_post_settings( $wp_customize ) {
         'section'  => 'merlin_section_post',
         'settings' => 'merlin_theme_options[post_thumbnails_index]',
         'type'     => 'checkbox',
-		'priority' => 4
+		'priority' => 3
 		)
 	);
 
@@ -104,7 +83,7 @@ function merlin_customize_register_post_settings( $wp_customize ) {
         'section'  => 'merlin_section_post',
         'settings' => 'merlin_theme_options[post_thumbnails_single]',
         'type'     => 'checkbox',
-		'priority' => 5
+		'priority' => 4
 		)
 	);
 

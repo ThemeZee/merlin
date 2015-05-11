@@ -34,7 +34,6 @@ function merlin_default_options() {
 		'latest_posts_title'				=> __( 'Latest Posts', 'merlin' ),
 		'header_tagline' 					=> false,
 		'header_icons' 						=> false,
-		'post_layout'						=> 'index',
 		'posts_length' 						=> 'excerpt',
 		'post_thumbnails_index'				=> true,
 		'post_thumbnails_single' 			=> true,

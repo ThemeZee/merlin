@@ -1,50 +1,60 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying the blog index (latest posts)
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Merlin
+ */
+ 
+get_header(); 
 
-	<div id="wrap" class="container clearfix">
-	
-<?php 
 	// Get Theme Options from Database
 	$theme_options = merlin_theme_options();
 
+	// Display Featured Post Slideshow if activated
+	if ( isset($theme_options['slider_active_blog']) and $theme_options['slider_active_blog'] == true ) :
+
+		get_template_part( 'featured-content-slider' );
+
+	endif; 
 ?>
-		<section id="content" class="primary" role="main">
-			
-		<?php
-		// Display Featured Post Slideshow if activated
-		if ( isset($theme_options['slider_active_blog']) and $theme_options['slider_active_blog'] == true ) :
 
-			get_template_part( 'featured-content-slider' );
-
-		endif; 
-		
-		// Display Latest Posts Title
-		if ( isset( $theme_options['latest_posts_title'] ) and $theme_options['latest_posts_title'] <> '' ) : ?>
-					
-			<h2 id="home-title" class="archive-title">
-				<span><?php echo wp_kses_post($theme_options['latest_posts_title']); ?></span>
-			</h2>
+	<div id="content" class="site-content container clearfix">
 	
-		<?php endif; ?>
+		<section id="primary" class="content-area">
+			<main id="main" class="site-main" role="main">
 			
-			<div id="post-wrapper" class="clearfix">
-		 
-			<?php if (have_posts()) : while (have_posts()) : the_post();
-		
-				get_template_part( 'content', $theme_options['post_layout'] );
-		
-				endwhile; ?>
-			
-			</div>
-			
-			<?php // Display Pagination	
-				merlin_display_pagination();
+				<?php
+				
+				// Display Latest Posts Title
+				if ( isset( $theme_options['latest_posts_title'] ) and $theme_options['latest_posts_title'] <> '' ) : ?>
+							
+					<header class="page-header">
+						
+						<h1 class="archive-title"><?php echo wp_kses_post($theme_options['latest_posts_title']); ?></h1>
 
-			endif; ?>
+					</header><!-- .page-header -->
 			
-		</section>
+				<?php endif; ?>
+				
+			 
+				<?php if (have_posts()) : while (have_posts()) : the_post();
+			
+					get_template_part( 'template-parts/content', $theme_options['posts_length'] );
+			
+					endwhile;
+
+					// Display Pagination	
+					merlin_display_pagination();
+
+				endif; ?>
+				
+			</main><!-- #main -->
+		</section><!-- #primary -->
 		
 		<?php get_sidebar(); ?>
-		
+	
 	</div>
 	
-<?php get_footer(); ?>	
+<?php get_footer(); ?>

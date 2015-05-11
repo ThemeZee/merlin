@@ -13,31 +13,31 @@ jQuery(document).ready(function($) {
 	
 	/** Tablet Top Navigation */
 	/* Add toggle effect */
-	$('#topnav-icon-tablet').on('click', function(){
-		$('#topnav').slideToggle();
+	$('#top-navigation-toggle-tablet').on('click', function(){
+		$('.top-navigation').slideToggle();
 		$(this).toggleClass('active');
 	});
 	
 	/** Mobile Social Icons */
 	/* Add toggle effect */
-	$('#social-menu-icon').on('click', function(){
-		if($('#topnav').is(':visible')) {
-			$('#topnav').slideToggle();
-			$('#navi-social-icons #social-icons-menu').delay(400).slideToggle();
+	$('.social-icons-navigation-toggle').on('click', function(){
+		if($('.top-navigation').is(':visible')) {
+			$('.top-navigation').slideToggle();
+			$('#top-header .social-icons-menu').delay(400).slideToggle();
 		} else {
-			$('#navi-social-icons #social-icons-menu').slideToggle();
+			$('#top-header .social-icons-menu').slideToggle();
 		}
 		$(this).toggleClass('active');
 	});
 	
 	/** Mobile Top Navigation */
 	/* Add toggle effect */
-	$('#topnav-icon-phone').on('click', function(){
-		if($('#navi-social-icons #social-icons-menu').is(':visible')) {
-			$('#navi-social-icons #social-icons-menu').slideToggle();
-			$('#topnav').delay(400).slideToggle();
+	$('#top-navigation-toggle-phone').on('click', function(){
+		if($('#top-header .social-icons-menu').is(':visible')) {
+			$('#top-header .social-icons-menu').slideToggle();
+			$('.top-navigation').delay(400).slideToggle();
 		} else {
-			$('#topnav').slideToggle();
+			$('.top-navigation').slideToggle();
 		}
 		$(this).toggleClass('active');
 	});
@@ -45,8 +45,8 @@ jQuery(document).ready(function($) {
 	
 	/** Mobile Main Navigation */
 	/* Add toggle effect */
-	$('#mainnav-icon').on('click', function(){
-		$('#mainnav-menu').slideToggle();
+	$('.main-navigation-toggle').on('click', function(){
+		$('.main-navigation-menu').slideToggle();
 		$(this).toggleClass('active');
 	});
 
@@ -61,28 +61,28 @@ jQuery(document).ready(function($) {
 		if (mq.matches) {
 	
 			/* Reset dropdown animations for top navigation */
-			$('#topnav-menu ul').css({display: 'block'}); // Opera Fix
-			$('#topnav-menu li ul').css({visibility: 'visible', display: 'block'});
-			$('#topnav-menu li').unbind('mouseenter mouseleave');
+			$('.top-navigation-menu ul').css({display: 'block'}); // Opera Fix
+			$('.top-navigation-menu li ul').css({visibility: 'visible', display: 'block'});
+			$('.top-navigation-menu li').unbind('mouseenter mouseleave');
 			
 			/* Reset dropdown animations for main navigation */
-			$('#mainnav-menu ul').css({display: 'block'}); // Opera Fix
-			$('#mainnav-menu li ul').css({visibility: 'visible', display: 'block'});
-			$('#mainnav-menu li').unbind('mouseenter mouseleave');
+			$('.main-navigation-menu ul').css({display: 'block'}); // Opera Fix
+			$('.main-navigation-menu li ul').css({visibility: 'visible', display: 'block'});
+			$('.main-navigation-menu li').unbind('mouseenter mouseleave');
 		
 		} else {
 			
 			/* Add dropdown animations for top navigation */
-			$('#topnav-menu ul').css({display: 'none'}); // Opera Fix
-			$('#topnav-menu li').hover(function(){
+			$('.top-navigation-menu ul').css({display: 'none'}); // Opera Fix
+			$('.top-navigation-menu li').hover(function(){
 				$(this).find('ul:first').css({visibility: 'visible',display: 'none'}).slideDown(300);
 			},function(){
 				$(this).find('ul:first').css({visibility: 'hidden'});
 			});
 			
 			/* Add dropdown animations for main navigation */
-			$('#mainnav-menu ul').css({display: 'none'}); // Opera Fix
-			$('#mainnav-menu li').hover(function(){
+			$('.main-navigation-menu ul').css({display: 'none'}); // Opera Fix
+			$('.main-navigation-menu li').hover(function(){
 				$(this).find('ul:first').css({visibility: 'visible',display: 'none'}).slideDown(300);
 			},function(){
 				$(this).find('ul:first').css({visibility: 'hidden'});

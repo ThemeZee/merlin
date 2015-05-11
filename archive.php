@@ -1,43 +1,49 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying archive pages.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Merlin
+ */
+ 
+get_header(); 
 
-<?php // Get Theme Options from Database
-	$theme_options = merlin_theme_options();
+// Get Theme Options from Database
+$theme_options = merlin_theme_options();
 ?>
 
-	<div id="wrap" class="container clearfix">
-		
-		<section id="content" class="primary" role="main">
+	<div id="content" class="site-content container clearfix">
+	
+		<section id="primary" class="content-area">
+			<main id="main" class="site-main" role="main">
+			
+			<?php if ( have_posts() ) : ?>
+			
+				<header class="page-header">
+					<?php
+						the_archive_title( '<h1 class="archive-title">', '</h1>' );
+						the_archive_description( '<div class="archive-description">', '</div>' );
+					?>
+				</header><!-- .page-header -->
 
-			<h2 id="date-title" class="archive-title">
-				<span>
-				<?php // Display Archive Title
-				if ( is_date() ) :
-					printf( __( 'Monthly Archives: %s', 'merlin'), get_the_date( _x( 'F Y', 'date format of monthly archives', 'merlin') ) );
-				else :
-					_e( 'Archives', 'merlin');
-				endif;
-				?>
-				</span>
-			</h2>
-		
-			<div id="post-wrapper" class="clearfix">
-		 
-			<?php if (have_posts()) : while (have_posts()) : the_post();
-		
-				get_template_part( 'content', $theme_options['post_layout'] );
-		
-				endwhile; ?>
-			
-			</div>
-			
-			<?php // Display Pagination	
+				<?php /* Start the Loop */ 
+				while ( have_posts() ) : the_post();
+
+					get_template_part( 'template-parts/content', $theme_options['post_layout'] );
+
+				endwhile;
+				
+				// Display Pagination	
 				merlin_display_pagination();
 
 			endif; ?>
-			
-		</section>
+				
+			</main><!-- #main -->
+		</section><!-- #primary -->
 		
 		<?php get_sidebar(); ?>
+	
 	</div>
 	
-<?php get_footer(); ?>	
+<?php get_footer(); ?>

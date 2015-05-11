@@ -51,38 +51,8 @@ if ( ! function_exists( 'merlin_display_custom_header' ) ):
 endif;
 
 
-// Display Postmeta Data
-if ( ! function_exists( 'merlin_display_postmeta' ) ):
-	
-	function merlin_display_postmeta() { ?>
-		
-		<span class="meta-date">
-		<?php printf(__('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>', 'merlin'), 
-				esc_url( get_permalink() ),
-				esc_attr( get_the_time() ),
-				esc_attr( get_the_date( 'c' ) ),
-				esc_html( get_the_date() )
-			);
-		?>
-		</span>
-		
-		<span class="meta-author">
-		<?php printf(__('by <a href="%1$s" title="%2$s" rel="author">%3$s</a>', 'merlin'), 
-				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-				esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
-				get_the_author()
-			);
-		?>
-		</span>
-		
-<?php
-	}
-	
-endif;
-
-
 // Display Post Thumbnail on Archive Pages
-function merlin_display_thumbnail_index() {
+function merlin_thumbnail_index() {
 	
 	// Get Theme Options from Database
 	$theme_options = merlin_theme_options();
@@ -101,7 +71,7 @@ function merlin_display_thumbnail_index() {
 
 
 // Display Post Thumbnail on single posts
-function merlin_display_thumbnail_single() {
+function merlin_thumbnail_single() {
 	
 	// Get Theme Options from Database
 	$theme_options = merlin_theme_options();
@@ -117,14 +87,44 @@ function merlin_display_thumbnail_single() {
 
 
 // Display Postinfo Data
-if ( ! function_exists( 'merlin_display_postinfo' ) ):
+if ( ! function_exists( 'merlin_entry_meta' ) ):
 	
-	function merlin_display_postinfo_index() { ?>
+	function merlin_entry_meta() { ?>
 
-		<span class="meta-category">
-			<?php echo get_the_category_list(', '); ?>
+		<span class="meta-date">
+		<?php printf(__('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>', 'merlin'), 
+				esc_url( get_permalink() ),
+				esc_attr( get_the_time() ),
+				esc_attr( get_the_date( 'c' ) ),
+				esc_html( get_the_date() )
+			);
+		?>
 		</span>
-			
+		
+		<span class="meta-author">
+		<?php printf(__('by <a href="%1$s" title="%2$s" rel="author">%3$s</a>', 'merlin'), 
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+				esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+				get_the_author()
+			);
+		?>
+		</span>
+<?php
+
+	}
+	
+endif;
+
+
+// Display Postmeta Data
+if ( ! function_exists( 'merlin_entry_footer' ) ):
+	
+	function merlin_entry_footer() { ?>
+		
+		<span class="meta-category">
+			<?php echo get_the_category_list(' '); ?>
+		</span>
+		
 	<?php if ( comments_open() ) : ?>
 			
 		<span class="meta-comments">
@@ -132,12 +132,12 @@ if ( ! function_exists( 'merlin_display_postinfo' ) ):
 		</span>
 		
 	<?php endif; 
-
+		
 	}
 	
 endif;
 
-	
+
 // Display Content Pagination
 if ( ! function_exists( 'merlin_display_pagination' ) ):
 	
@@ -198,11 +198,9 @@ function merlin_display_social_icons() {
 		wp_nav_menu( array(
 			'theme_location' => 'social',
 			'container' => false,
-			'menu_id' => 'social-icons-menu',
+			'menu_class' => 'social-icons-menu',
 			'echo' => true,
 			'fallback_cb' => '',
-			'before' => '',
-			'after' => '',
 			'link_before' => '<span class="screen-reader-text">',
 			'link_after' => '</span>',
 			'depth' => 1
@@ -211,9 +209,9 @@ function merlin_display_social_icons() {
 
 	else: // Display Hint how to configure Social Icons ?>
 
-		<p class="social-icons-hint">
+		<span class="social-icons-hint">
 			<?php _e('Please go to WP-Admin-> Appearance-> Menus and create a new custom menu with custom links to all your social networks. Then click on "Manage Locations" tab and assign your created menu to the "Social Icons" theme location.', 'merlin'); ?>
-		</p>
+		</span>
 <?php
 	endif;
 

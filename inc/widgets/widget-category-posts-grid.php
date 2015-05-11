@@ -71,7 +71,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		// Output
 		echo $before_widget;
 	?>
-		<div id="widget-category-posts-grid" class="widget-category-posts clearfix">
+		<div class="widget-category-posts-grid widget-category-posts clearfix">
 		
 			<?php // Display Title
 			$this->display_widget_title($args, $instance); ?>
@@ -295,7 +295,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 				$link_url = esc_url( get_category_link( $category ) );
 				
 				echo '<a href="'. $link_url .'" title="'. $link_title . '">'. $widget_title . '</a>';
-				echo '<a class="category-archive-link" href="'. $link_url .'" title="'. $link_title . '"><span class="genericon-next"></span></a>';
+				echo '<a class="category-archive-link" href="'. $link_url .'" title="'. $link_title . '"><span class="category-archive-icon"></span></a>';
 			
 			else:
 			

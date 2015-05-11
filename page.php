@@ -1,23 +1,35 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying all pages.
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site will use a
+ * different template.
+ *
+ * @package Merlin
+ */
 
-	<div id="wrap" class="container clearfix">
-		
-		<section id="content" class="primary" role="main">
-		
-		<?php if (have_posts()) : while (have_posts()) : the_post();
+get_header(); ?>
 
-			get_template_part( 'content', 'page' );
+	<div id="content" class="site-content container clearfix">
+	
+		<section id="primary" class="content-area">
+			<main id="main" class="site-main" role="main">
+			
+				<?php while (have_posts()) : the_post();
 
-			endwhile;
+					get_template_part( 'template-parts/content', 'page' );
+					
+					comments_template();
 
-		endif; ?>
-		
-		<?php comments_template(); ?>
-		
-		</section>
+				endwhile; ?>
+			
+			</main><!-- #main -->
+		</section><!-- #primary -->
 		
 		<?php get_sidebar(); ?>
-		
+	
 	</div>
 	
-<?php get_footer(); ?>	
+<?php get_footer(); ?>
