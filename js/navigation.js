@@ -5,7 +5,7 @@
 
 (function($) {
 
-	$.fn.responsiveNavigation = function( options ) {
+	$.fn.responsiveMenu = function( options ) {
 	
 		if (options === undefined) options = {};
 		
@@ -27,9 +27,55 @@
 			$this = $(this),
 			$menu = $('.' + menuClass);
 		
+
+		/**--------------------------------------------------------------
+		# Desktop Navigation 
+		--------------------------------------------------------------*/					
 		
-		/* Add Menu Toggle Button */
+		/* Set and reset dropdown animations based on screen size */
+		if(typeof matchMedia == 'function') {
+			var mq = window.matchMedia('(max-width: ' + maxWidth + ')');
+			mq.addListener(widthChange);
+			widthChange(mq);
+		}
+		function widthChange(mq) {
+			
+			if (mq.matches) {
+		
+				/* Reset desktop navigation menu dropdown animation on smaller screens */
+				$menu.find('ul').css({display: 'block'});
+				$menu.find('li ul').css({visibility: 'visible', display: 'block'});
+				$menu.find('li').unbind('mouseenter mouseleave');
+				
+				$menu.find('li.menu-item-has-children ul').each( function () {
+					$( this ).hide();
+					$(this).parent().find('.submenu-dropdown-toggle').removeClass('active');
+				} );
+				
+			} else {
+				
+				/* Add dropdown animation for desktop navigation menu */
+				$menu.find('ul').css({display: 'none'});
+				$menu.find('li').hover(function(){
+					$(this).find('ul:first').css({visibility: 'visible',display: 'none'}).slideDown(300);
+				},function(){
+					$(this).find('ul:first').css({visibility: 'hidden'});
+				});
+				
+			}
+			
+		}
+		
+		
+		/**--------------------------------------------------------------
+		# Mobile Navigation 
+		--------------------------------------------------------------*/
+		
+		/* Add Menu Toggle Button for mobile navigation */
 		$this.before('<button id=\"' + toggleID + '\" class=\"' + toggleClass + '\">' + toggleText + '</button>');
+				
+		/* Add dropdown toggle for submenus on mobile navigation */
+		$menu.find('li.menu-item-has-children').prepend('<span class=\"submenu-dropdown-toggle\"></span>');
 		
 		/* Add dropdown slide animation for mobile devices */
 		$('#' + toggleID).on('click', function(){
@@ -37,81 +83,92 @@
 			$(this).toggleClass('active');
 		});
 		
-		
-		/* Add dropdown slide animation for large screens */
-		if(typeof matchMedia == 'function') {
-			var mq = window.matchMedia('(min-width: ' + maxWidth + ')');
-			mq.addListener(widthChange);
-			widthChange(mq);
-		}
-		/* Set slide animations based on screen size */
-		function widthChange(mq) {
-			if (mq.matches) {
-		
-				/* Add dropdown animation for desktop navigation menu */
-				$menu.find('ul').css({display: 'none'}); // Opera Fix
-				$menu.find('li').hover(function(){
-					$(this).find('ul:first').css({visibility: 'visible',display: 'none'}).slideDown(300);
-				},function(){
-					$(this).find('ul:first').css({visibility: 'hidden'});
-				});
+		/* Add dropdown animation for submenus on mobile navigation */
+		$menu.find('li.menu-item-has-children ul').each( function () {
+			$( this ).hide();
+		} );
+		$menu.find('.submenu-dropdown-toggle').on('click', function(){
+			$(this).parent().find('ul:first').slideToggle();
+			$(this).toggleClass('active');
+		});
 
+	};
+	
+	
+	/** Combination of dropdown menus for Social Icons and Top Navigation */
+	$.fn.flipMenu = function( options ) {
+	
+		if (options === undefined) options = {};
+		
+		/* Set Defaults */
+		var defaults = {
+			menuClass: "menu",
+			flipMenuClass: "menu",
+			toggleClass: "menu-toggle",
+			toggleText: ""
+		};
+		
+		/* Set Variables */
+		var vars = $.extend({}, defaults, options),
+			menuClass = vars.menuClass,
+			flipMenuClass = vars.flipMenuClass,
+			toggleID = (vars.toggleID) ? vars.toggleID : vars.toggleClass,
+			toggleClass = vars.toggleClass,
+			toggleText = vars.toggleText,
+			$this = $(this),
+			$menu = $('.' + menuClass),
+			$flipMenu = $('.' + flipMenuClass);
+		
+		
+		/* Add both Menu Toggle Buttons */
+		$this.before('<button id=\"' + toggleID + '\" class=\"' + toggleClass + '\">' + toggleText + '</button>');
+		
+		/* Add dropdown slide animation for mobile devices */
+		$('#' + toggleID).on('click', function(){
+			if( $flipMenu.is(':visible') ) {
+				$flipMenu.slideToggle();
+				$menu.delay(400).slideToggle();
 			} else {
-				/* Reset dropdown animation for smaller screens */
-				$menu.find('ul').css({display: 'block'}); // Opera Fix
-				$menu.find('li ul').css({visibility: 'visible', display: 'block'});
-				$menu.find('li').unbind('mouseenter mouseleave');
-				
+				$menu.slideToggle();
 			}
-		}
+			$(this).toggleClass('active');
+		});
 
 	};
 	
 	$( document ).ready( function() {
 		
 		/* Main Navigation */
-		$("#main-navigation").responsiveNavigation({
+		$("#main-navigation").responsiveMenu({
 			menuClass: "main-navigation-menu",
 			toggleClass: "main-navigation-toggle",
 			maxWidth: "60em"
 		});
 		
 		/* Top Navigation */
-		$("#top-navigation").responsiveNavigation({
+		$("#top-navigation").responsiveMenu({
 			menuClass: "top-navigation-menu",
 			toggleID: "top-navigation-toggle-tablet",
 			toggleClass: "top-navigation-toggle",
 			maxWidth: "60em"
 		});
 		
-		/** Combination of dropdown menus for Social Icons and Top Navigation */
 		
-		/* Add dropdown menu for social icons */
-		$('#header-bar-social-icons').before('<button id=\"social-icons-navigation-toggle\" class=\"social-icons-navigation-toggle\"></button>');
-		
-		$('#social-icons-navigation-toggle').on('click', function(){
-			if($('.top-navigation-menu').is(':visible')) {
-				$('.top-navigation-menu').slideToggle();
-				$('.header-bar .social-icons-menu').delay(400).slideToggle();
-			} else {
-				$('.header-bar .social-icons-menu').slideToggle();
-			}
-			$(this).toggleClass('active');
+		/* Add flipMenu for social icons menu */
+		$("#header-bar-social-icons").flipMenu({
+			menuClass: "social-icons-menu",
+			flipMenuClass: "top-navigation-menu",
+			toggleClass: "social-icons-navigation-toggle"
 		});
 		
-		/* Add dropdown menu for top navigation */
-		$('#top-navigation').before('<button id=\"top-navigation-toggle-phone\" class=\"top-navigation-toggle\"></button>');
-		
-		$('#top-navigation-toggle-phone').on('click', function(){
-			if($('.header-bar .social-icons-menu').is(':visible')) {
-				$('.header-bar .social-icons-menu').slideToggle();
-				$('.top-navigation-menu').delay(400).slideToggle();
-			} else {
-				$('.top-navigation-menu').slideToggle();
-			}
-			$(this).toggleClass('active');
+		/* Add flipMenu for top navigation */
+		$("#top-navigation").flipMenu({
+			menuClass: "top-navigation-menu",
+			flipMenuClass: "social-icons-menu",
+			toggleID: "top-navigation-toggle-phone",
+			toggleClass: "top-navigation-toggle"
 		});
-		
+
 	} );
 
 }(jQuery));
