@@ -62,9 +62,7 @@ $theme_options = merlin_theme_options();
 			
 			</div><!-- .header-main -->
 			
-			<nav id="site-navigation" class="main-navigation navigation clearfix" role="navigation">
-			
-				<button class="main-navigation-toggle"></button>
+			<nav id="main-navigation" class="primary-navigation navigation clearfix" role="navigation">
 				<?php 
 					// Display Main Navigation
 					wp_nav_menu( array(
@@ -75,7 +73,7 @@ $theme_options = merlin_theme_options();
 						'fallback_cb' => 'merlin_default_menu')
 					);
 				?>
-			</nav><!-- #site-navigation -->
+			</nav><!-- #main-navigation -->
 			
 			<?php // Display Custom Header Image
 			merlin_display_custom_header(); ?>

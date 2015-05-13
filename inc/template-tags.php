@@ -33,14 +33,14 @@ if ( ! function_exists( 'merlin_display_custom_header' ) ):
 		// Check if page is displayed and featured header image is used
 		if( is_page() && has_post_thumbnail() ) :
 		?>
-			<div id="custom-header" class="featured-image-header">
+			<div id="headimg" class="header-image featured-image-header">
 				<?php the_post_thumbnail('merlin-header-image'); ?>
 			</div>
 <?php
 		// Check if there is a custom header image
 		elseif( get_header_image() ) :
 		?>
-			<div id="custom-header">
+			<div id="headimg" class="header-image">
 				<img src="<?php echo get_header_image(); ?>" />
 			</div>
 <?php 

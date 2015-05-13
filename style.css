@@ -639,11 +639,11 @@ textarea {
 }
 
 /* Custom Header Image */
-#custom-header {
+.header-image {
 	margin: 1px 0;
 }
 
-#custom-header img {
+.header-image img {
 	max-width: 1340px;
 	vertical-align: top;
 	width: 100%;
@@ -772,13 +772,13 @@ textarea {
 /*--------------------------------------------------------------
 ## 10.2 - Main Navigation
 --------------------------------------------------------------*/
-.main-navigation-toggle {
-	display: none;
-}
-
-.main-navigation {
+.primary-navigation {
 	border-top: 2px solid #fff;
 	background: #333;
+}
+
+.main-navigation-toggle {
+	display: none;
 }
 
 .main-navigation-menu {
@@ -1957,7 +1957,7 @@ object {
 	/* Mobile Top Navigation */
 	
 	/* Reset */
-	.top-navigation, .top-navigation-menu, .top-navigation-menu li, .top-navigation-menu a, .top-navigation-menu ul, 
+	.secondary-navigation, .top-navigation-menu, .top-navigation-menu li, .top-navigation-menu a, .top-navigation-menu ul, 
 	.top-navigation-menu ul a, .top-navigation-menu ul ul, .top-navigation-menu li ul ul 
 	{
 		margin: 0;
@@ -1978,7 +1978,7 @@ object {
 		display: inline;
 	}
 	
-	.top-navigation {
+	.secondary-navigation {
 		float: none;
 	}
 	#top-navigation-toggle-tablet {
@@ -2009,12 +2009,9 @@ object {
 		content: '\f419';
 		color: #fff;
 	}
-	.top-navigation {
-		float: none;
-		display: none;
-	}
 	.top-navigation-menu {
 		float: left;
+		display: none;
 		width: 100%;
 		border-top: 1px solid rgba(255,255,255,0.1);
 		background: #333;
@@ -2082,7 +2079,7 @@ object {
 	/* Mobile Main Navigation */
 	
 	/* Reset */
-	.main-navigation, .main-navigation-menu, .main-navigation-menu li, .main-navigation-menu a, .main-navigation-menu ul, 
+	.primary-navigation, .main-navigation-menu, .main-navigation-menu li, .main-navigation-menu a, .main-navigation-menu ul, 
 	.main-navigation-menu ul a, .main-navigation-menu ul ul, .main-navigation-menu li ul ul 
 	{
 		margin: 0;
@@ -2113,7 +2110,7 @@ object {
 	}
 	.main-navigation-toggle:hover {
 		cursor: pointer;
-		background: rgba(255, 255, 255, 0.1);
+		background: #333;
 	}
 	.main-navigation-toggle:after {
 		float: left;
@@ -2518,7 +2515,7 @@ object {
 /* Big Screens Navi Fix | >720px */
 @media only screen and (min-width: 60em) {
 	/* ensure navigation is visible on desktop version */
-	.main-navigation-menu, .top-navigation {
+	.main-navigation-menu, .top-navigation-menu {
 		display: block !important;
 	}
 	.top-navigation-menu li.menu-item:hover a {
@@ -2536,7 +2533,7 @@ object {
 }
 @media only screen and (min-width: 30em) {
 	/* ensure social icons are visible on desktop version */
-	.header-bar  .social-icons-menu {
+	.social-icons-navigation .social-icons-menu {
 		display: block !important;
 	}
 }
