@@ -78,5 +78,13 @@ function merlin_customize_preview_css() {
 }
 
 
+/* Embed JS file to make Theme Customizer preview reload changes asynchronously.
+add_action( 'customize_controls_enqueue_scripts', 'leeway_customize_admin_js' );
+
+function leeway_customize_admin_js() {
+	wp_enqueue_script( 'leeway-customizer-admin-js', get_template_directory_uri() . '/js/customizer-admin.js', array( 'jquery', 'customize-controls' ), false, true );
+}
+*/
+
 
 ?>

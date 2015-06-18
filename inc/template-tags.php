@@ -188,34 +188,4 @@ function merlin_display_footer_text() { ?>
 }
 
 
-// Display Social Icons
-function merlin_display_social_icons() {
-
-	// Check if there is a social_icons menu
-	if( has_nav_menu( 'social' ) ) :
-
-		// Display Social Icons Menu
-		wp_nav_menu( array(
-			'theme_location' => 'social',
-			'container' => false,
-			'menu_class' => 'social-icons-menu',
-			'echo' => true,
-			'fallback_cb' => '',
-			'link_before' => '<span class="screen-reader-text">',
-			'link_after' => '</span>',
-			'depth' => 1
-			)
-		);
-
-	else: // Display Hint how to configure Social Icons ?>
-
-		<span class="social-icons-hint">
-			<?php _e('Please go to WP-Admin-> Appearance-> Menus and create a new custom menu with custom links to all your social networks. Then click on "Manage Locations" tab and assign your created menu to the "Social Icons" theme location.', 'merlin'); ?>
-		</span>
-<?php
-	endif;
-
-}
-
-
 ?>

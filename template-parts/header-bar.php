@@ -5,28 +5,44 @@
  * This template displays the content in the right-hand header area based on theme options.
  *
  */
- 
-// Get Theme Options from Database
-$theme_options = merlin_theme_options();
 
 ?>
 
 	<div class="header-bar clearfix">
 		
-		<?php // Display Social Icons in Navigation
-			if ( isset($theme_options['header_icons']) and $theme_options['header_icons'] == true ) : ?>
+		<?php 
+		// Check if there is a social_icons menu
+		if( has_nav_menu( 'social' ) ) :?>
 
-			<div id="header-bar-social-icons" class="social-icons-navigation clearfix">
-				<?php merlin_display_social_icons(); ?>
+			<div id="header-social-icons" class="social-icons-navigation clearfix">
+
+				<?php
+				// Display Social Icons Menu
+				wp_nav_menu( array(
+					'theme_location' => 'social',
+					'container' => false,
+					'menu_class' => 'social-icons-menu',
+					'echo' => true,
+					'fallback_cb' => '',
+					'link_before' => '<span class="screen-reader-text">',
+					'link_after' => '</span>',
+					'depth' => 1
+					)
+				); 
+				?>
+			
 			</div>
-
+		
 		<?php endif;
+		
 
 		// Display Top Navigation Menu
 		if ( has_nav_menu( 'secondary' ) ) : ?>		
 		
-		<nav id="top-navigation" class="secondary-navigation navigation clearfix" role="navigation">
-			<?php // Display Top Navigation
+			<nav id="top-navigation" class="secondary-navigation navigation clearfix" role="navigation">
+				
+				<?php 
+				// Display Top Navigation
 				wp_nav_menu( array(
 					'theme_location' => 'secondary', 
 					'container' => false, 
@@ -34,8 +50,8 @@ $theme_options = merlin_theme_options();
 					'echo' => true, 
 					'fallback_cb' => '')
 				);
-			?>
-		</nav>
+				?>
+			</nav>
 		
 		<?php endif; ?>
 		

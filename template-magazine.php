@@ -9,19 +9,21 @@
  
 get_header(); 
 
-	// Get Theme Options from Database
-	$theme_options = merlin_theme_options();
+// Get Theme Options from Database
+$theme_options = merlin_theme_options();
 
-	// Display Featured Post Slideshow if activated
-	if ( isset($theme_options['slider_active_magazine']) and $theme_options['slider_active_magazine'] == true ) :
-
-		get_template_part( 'featured-content-slider' );
-
-	endif; 
 ?>
 	
 	<div id="content" class="site-content container clearfix">
 	
+		<?php // Display Featured Post Slideshow if activated
+		if ( isset($theme_options['slider_active_blog']) and $theme_options['slider_active_blog'] == true ) :
+
+			get_template_part( 'template-parts/featured-content-slider' );
+
+		endif;
+		?>
+		
 		<section id="primary" class="content-area magazine-homepage">
 			<main id="main" class="site-main" role="main">
 			

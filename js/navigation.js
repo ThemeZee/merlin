@@ -4,7 +4,10 @@
 */
 
 (function($) {
-
+	
+	/**--------------------------------------------------------------
+	# Responsive Navigation for WordPress menus
+	--------------------------------------------------------------*/
 	$.fn.responsiveMenu = function( options ) {
 	
 		if (options === undefined) options = {};
@@ -28,9 +31,9 @@
 			$menu = $('.' + menuClass);
 		
 
-		/**--------------------------------------------------------------
-		# Desktop Navigation 
-		--------------------------------------------------------------*/					
+		/*********************
+		* Desktop Navigation *
+		**********************/				
 		
 		/* Set and reset dropdown animations based on screen size */
 		if(typeof matchMedia == 'function') {
@@ -67,9 +70,9 @@
 		}
 		
 		
-		/**--------------------------------------------------------------
-		# Mobile Navigation 
-		--------------------------------------------------------------*/
+		/********************
+		* Mobile Navigation *
+		*********************/	
 		
 		/* Add Menu Toggle Button for mobile navigation */
 		$this.before('<button id=\"' + toggleID + '\" class=\"' + toggleClass + '\">' + toggleText + '</button>');
@@ -95,7 +98,9 @@
 	};
 	
 	
-	/** Combination of dropdown menus for Social Icons and Top Navigation */
+	/**--------------------------------------------------------------
+	# Flip between dropdown menus for Social Icons and Top Navigation
+	--------------------------------------------------------------*/
 	$.fn.flipMenu = function( options ) {
 	
 		if (options === undefined) options = {};
@@ -136,16 +141,20 @@
 
 	};
 	
+	
+	/**--------------------------------------------------------------
+	# Setup Navigation Menus
+	--------------------------------------------------------------*/
 	$( document ).ready( function() {
 		
-		/* Main Navigation */
+		/* Setup Main Navigation */
 		$("#main-navigation").responsiveMenu({
 			menuClass: "main-navigation-menu",
 			toggleClass: "main-navigation-toggle",
 			maxWidth: "60em"
 		});
 		
-		/* Top Navigation */
+		/* Setup Top Navigation */
 		$("#top-navigation").responsiveMenu({
 			menuClass: "top-navigation-menu",
 			toggleID: "top-navigation-toggle-tablet",

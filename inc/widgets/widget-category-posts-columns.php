@@ -8,9 +8,9 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		// Setup Widget
 		$widget_ops = array(
 			'classname' => 'merlin_category_posts_columns', 
-			'description' => __('Display latest posts from two specified categories. Please use this widget ONLY on Frontpage Magazine widget area.', 'merlin')
+			'description' => __('Display latest posts from two specified categories. Please use this widget ONLY in Magazine Homepage widget area.', 'merlin')
 		);
-		$this->WP_Widget('merlin_category_posts_columns', __('Category Posts Columns (Merlin)', 'merlin'), $widget_ops);
+		$this->WP_Widget('merlin_category_posts_columns', __('Merlin: Category Posts Columns', 'merlin'), $widget_ops);
 		
 		// Delete Widget Cache on certain actions
 		add_action( 'save_post', array( $this, 'delete_widget_cache' ) );
@@ -172,7 +172,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 
 						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-large'); ?></a>
 
-						<h3 class="post-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
+						<h3 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 
 						<div class="postmeta"><?php $this->display_postmeta($instance); ?></div>
 
@@ -197,7 +197,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 						
 						<div class="small-post-content">
 							
-							<h2 class="post-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>						
+							<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>						
 							<div class="postmeta-small"><?php $this->display_postmeta($instance); ?></div>
 							
 						</div>
@@ -266,7 +266,6 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 				$link_url = esc_url( get_category_link( $category_id ) );
 				
 				echo '<a href="'. esc_url( get_category_link( $category_id ) ) .'" title="'. $widget_title . '">'. $widget_title . '</a>';
-				echo '<a class="category-archive-link" href="'. $link_url .'" title="'. $link_title . '"><span class="category-archive-icon"></span></a>';
 				
 			else:
 			

@@ -6,9 +6,9 @@
  */
 
 /**
- * Merlin only works in WordPress 4.1 or later.
+ * Merlin only works in WordPress 4.2 or later.
  */
-if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
+if ( version_compare( $GLOBALS['wp_version'], '4.2', '<' ) ) :
 	require get_template_directory() . '/inc/back-compat.php';
 endif;
 
@@ -26,7 +26,7 @@ function merlin_setup() {
 	// Set the content width based on the theme's design and stylesheet.
 	global $content_width;
 	if ( ! isset( $content_width ) ) {
-		$content_width = 860; /* pixels */
+		$content_width = 810; /* pixels */
 	}
 
 	// Make theme available for translation. Translations can be filed in the /languages/ directory.
@@ -42,7 +42,7 @@ function merlin_setup() {
 	add_theme_support( 'post-thumbnails' );
 	
 	// Set detfault Post Thumbnail size
-	set_post_thumbnail_size( 890, 320, true );
+	set_post_thumbnail_size( 810 );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -63,8 +63,8 @@ function merlin_setup() {
 	// Set up the WordPress core custom header feature.
 	add_theme_support('custom-header', array(
 		'header-text' => false,
-		'width'	=> 1340,
-		'height' => 200,
+		'width'	=> 1190,
+		'height' => 250,
 		'flex-height' => true
 	) );
 	
@@ -106,10 +106,12 @@ function merlin_widgets_init() {
 }
 add_action( 'widgets_init', 'merlin_widgets_init' );
 
+
 /**
  * Enqueue scripts and styles.
  */
 function merlin_scripts() {
+	global $wp_scripts;
 	
 	// Get Theme Options from Database
 	$theme_options = merlin_theme_options();
@@ -119,6 +121,10 @@ function merlin_scripts() {
 	
 	// Register Genericons
 	wp_enqueue_style('merlin-genericons', get_template_directory_uri() . '/css/genericons/genericons.css');
+	
+	// Register and Enqueue HTML5shiv to support HTML5 elements in older IE versions
+	wp_enqueue_script( 'merlin-html5shiv', get_template_directory_uri() . '/js/html5shiv.min.js', array(), '3.7.2', false );
+	$wp_scripts->add_data( 'merlin-html5shiv', 'conditional', 'lt IE 9' );
 
 	// Register and enqueue navigation.js
 	wp_enqueue_script('merlin-jquery-navigation', get_template_directory_uri() .'/js/navigation.js', array('jquery'));
@@ -136,15 +142,6 @@ function merlin_scripts() {
 		// Register and enqueue slider.js
 		wp_enqueue_script('merlin-post-slider', get_template_directory_uri() .'/js/slider.js', array('merlin-flexslider'));
 
-	endif;
-	
-	// Register and Enqueue Masonry JS for two column post layout
-	if ( isset($theme_options['post_layout']) and $theme_options['post_layout'] == 'index' ) :
-	
-		// Register and enqueue masonry script
-		wp_enqueue_script('masonry');
-		wp_enqueue_script('merlin-masonry', get_template_directory_uri() .'/js/masonry-init.js', array('jquery', 'masonry'));
-		
 	endif;
 	
 	// Register and Enqueue Google Fonts
@@ -176,6 +173,66 @@ function merlin_google_fonts_url() {
     return apply_filters( 'merlin_google_fonts_url', $fonts_url );
 }
 
+
+/**
+ * Add custom sizes for featured images
+ */
+function merlin_add_image_sizes() {
+	
+	// Add Custom Header Image Size
+	add_image_size( 'merlin-header-image', 1190, 250, true);
+	
+	// Add Slider Image Size
+	add_image_size( 'merlin-slider-image', 720, 350, true);
+	
+	// Add Category Post Widget image sizes
+	add_image_size( 'merlin-category-posts-widget-small', 125, 75, true);
+	add_image_size( 'merlin-category-posts-widget-medium', 275, 165, true);
+	add_image_size( 'merlin-category-posts-widget-large', 400, 240, true);
+	add_image_size( 'merlin-category-posts-widget-extra-large', 450, 270, true);
+	
+}
+add_action( 'after_setup_theme', 'merlin_add_image_sizes' );
+
+
+/**
+ * Change excerpt length for default posts
+ */
+function merlin_excerpt_length($length) {
+    return 60; // number of words
+}
+add_filter('excerpt_length', 'merlin_excerpt_length');
+
+
+/**
+ * Function to change excerpt length for post slider
+ */
+function merlin_slideshow_excerpt_length($length) {
+    return 32;
+}
+
+
+/**
+ * Function to change excerpt length for large posts in category posts widgets
+ */
+function merlin_category_posts_large_excerpt($length) {
+    return 32;
+}
+
+/**
+ * Function to change excerpt length for medium posts in category posts widgets
+ */
+function merlin_category_posts_medium_excerpt($length) {
+    return 20;
+}
+
+
+/**
+ * Change excerpt length for small posts in category posts widgets
+ */
+function merlin_category_posts_small_excerpt($length) {
+    return 8;
+}
 
 /*==================================== INCLUDE FILES ====================================*/
 

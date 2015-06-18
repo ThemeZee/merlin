@@ -10,7 +10,6 @@ jQuery(document).ready(function($) {
 		namespace: "zeeflex-",
 		selector: ".zeeslides > li",
 		smoothHeight: true,
-		controlsContainer: ".post-slider-controls",
-		controlNav: "thumbnails"
+		controlsContainer: ".post-slider-controls"
 	});
 });
