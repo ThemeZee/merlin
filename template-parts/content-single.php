@@ -17,8 +17,7 @@
 			<div class="entry-meta">
 				<?php merlin_entry_meta(); ?>
 			</div><!-- .entry-meta -->
-		
-			
+
 		</header><!-- .entry-header -->
 
 		<div class="entry-content clearfix">
@@ -28,8 +27,15 @@
 		</div><!-- .entry-content -->
 		
 		<footer class="entry-footer">
-			<?php merlin_entry_footer(); ?>
+			
+			<div class="entry-tags clearfix">
+				<?php merlin_entry_tags(); ?>
+			</div><!-- .entry-tags -->
+			
+			<div class="entry-footer-meta">
+				<?php merlin_entry_footer(); ?>
+			</div><!-- .entry-footer-meta -->
+			
 		</footer><!-- .entry-footer -->
-
 
 	</article>

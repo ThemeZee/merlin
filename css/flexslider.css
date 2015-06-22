@@ -119,6 +119,26 @@ html[xmlns] .zeeflexslider .zeeslides {
 	font-size: 1.5em;
 }
 
+.post-slider .zeeslide .entry-meta .meta-author {
+	margin-left: 0.8em;
+}
+
+.post-slider .zeeslide .entry-meta span:before {
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 16px 'Genericons';
+	vertical-align: middle;
+	color: #555;
+}
+
+.post-slider .zeeslide .entry-meta .meta-date:before{
+	content: '\f303';
+}
+
+.post-slider .zeeslide .entry-meta .meta-author:before{
+	content: '\f411';
+}
+
 .post-slider-controls {
 	clear: left;
 }
@@ -143,6 +163,11 @@ html[xmlns] .zeeflexslider .zeeslides {
 	font-size: 0;
 	cursor: pointer;
 	z-index: 10;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
 }
 
 .post-slider-controls .zeeflex-direction-nav a:hover {
@@ -199,6 +224,11 @@ html[xmlns] .zeeflexslider .zeeslides {
 	background: #fff;
 	cursor: pointer; 
 	text-indent: -9999px;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
 }
 .post-slider-controls .zeeflex-control-nav li a:hover { 
 	background: #44aacc;

@@ -35,7 +35,7 @@ $theme_options = merlin_theme_options();
 				endwhile;
 				
 				// Display Pagination	
-				merlin_display_pagination();
+				merlin_pagination();
 
 			endif; ?>
 				

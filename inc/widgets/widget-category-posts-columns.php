@@ -107,10 +107,10 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 			<div class="category-posts-columns-content clearfix">
 			
 				<?php //Display Category Title
-					$this->display_category_title($args, $instance, $category_one, $category_one_title); ?>
+					$this->category_title($args, $instance, $category_one, $category_one_title); ?>
 					
 				<div class="category-posts-columns-post-list clearfix">
-					<?php $this->display_category_posts($instance, $category_one); ?>
+					<?php $this->category_posts($instance, $category_one); ?>
 				</div>
 				
 			</div>
@@ -122,10 +122,10 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 			<div class="category-posts-columns-content clearfix">
 			
 				<?php //Display Category Title
-					$this->display_category_title($args, $instance, $category_two, $category_two_title); ?>
+					$this->category_title($args, $instance, $category_two, $category_two_title); ?>
 					
 				<div class="category-posts-columns-post-list clearfix">
-					<?php $this->display_category_posts($instance, $category_two); ?>
+					<?php $this->category_posts($instance, $category_two); ?>
 				</div>
 				
 			</div>
@@ -136,7 +136,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 	}
 	
 	// Display Category Posts
-	function display_category_posts($instance, $category_id) {
+	function category_posts($instance, $category_id) {
 	
 		// Get Widget Settings
 		$defaults = $this->default_settings();
@@ -174,7 +174,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 
 						<h3 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 
-						<div class="postmeta"><?php $this->display_postmeta($instance); ?></div>
+						<div class="entry-meta"><?php $this->entry_meta($instance); ?></div>
 
 						<div class="entry">
 							<?php the_excerpt(); ?>
@@ -198,7 +198,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 						<div class="small-post-content">
 							
 							<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>						
-							<div class="postmeta-small"><?php $this->display_postmeta($instance); ?></div>
+							<div class="entry-meta"><?php $this->entry_date($instance); ?></div>
 							
 						</div>
 
@@ -221,8 +221,34 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		
 	}
 	
-	// Display Postmeta
-	function display_postmeta($instance) { ?>
+	// Display Entry Meta
+	function entry_meta($instance) { ?>
+
+		<span class="meta-date">
+		<?php printf('<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>',
+				esc_url( get_permalink() ),
+				esc_attr( get_the_time() ),
+				esc_attr( get_the_date( 'c' ) ),
+				esc_html( get_the_date() )
+			);
+		?>
+		</span>
+		
+		<span class="meta-author">
+		<?php printf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>', 
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+				esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+				get_the_author()
+			);
+		?>
+		</span>
+
+	<?php
+
+	}
+	
+	// Display Entry Date
+	function entry_date($instance) { ?>
 
 		<span class="meta-date">
 		<?php printf('<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>',
@@ -234,16 +260,12 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		?>
 		</span>
 
-	<?php if ( comments_open() ) : ?>
-		<span class="meta-comments sep">
-			<?php comments_popup_link( __('Leave a comment', 'merlin'),__('One comment','merlin'),__('% comments','merlin') ); ?>
-		</span>
-	<?php endif;
+	<?php
 
 	}
 	
 	// Display Category Widget Title
-	function display_category_title($args, $instance, $category_id, $category_title) {
+	function category_title($args, $instance, $category_id, $category_title) {
 		
 		// Get Sidebar Arguments
 		extract($args);

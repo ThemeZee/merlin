@@ -94,6 +94,16 @@ function merlin_widgets_init() {
 	));
 	
 	register_sidebar( array(
+		'name' => esc_html__( 'Header', 'merlin' ),
+		'id' => 'header',
+		'description' => esc_html__( 'Appears on header area. You can use a search or ad widget here.', 'merlin' ),
+		'before_widget' => '<aside id="%1$s" class="header-widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h4 class="header-widget-title">',
+		'after_title' => '</h4>',
+	));
+	
+	register_sidebar( array(
 		'name' => esc_html__( 'Magazine Homepage', 'merlin' ),
 		'id' => 'magazine-homepage',
 		'description' => esc_html__( 'Appears on Magazine Homepage template only. You can use the Category Posts widgets here.', 'merlin' ),
@@ -183,13 +193,12 @@ function merlin_add_image_sizes() {
 	add_image_size( 'merlin-header-image', 1190, 250, true);
 	
 	// Add Slider Image Size
-	add_image_size( 'merlin-slider-image', 720, 350, true);
+	add_image_size( 'merlin-slider-image', 720, 360, true);
 	
 	// Add Category Post Widget image sizes
-	add_image_size( 'merlin-category-posts-widget-small', 125, 75, true);
-	add_image_size( 'merlin-category-posts-widget-medium', 275, 165, true);
-	add_image_size( 'merlin-category-posts-widget-large', 400, 240, true);
-	add_image_size( 'merlin-category-posts-widget-extra-large', 450, 270, true);
+	add_image_size( 'merlin-category-posts-widget-small', 130, 75, true);
+	add_image_size( 'merlin-category-posts-widget-medium', 260, 150, true);
+	add_image_size( 'merlin-category-posts-widget-large', 400, 230, true);
 	
 }
 add_action( 'after_setup_theme', 'merlin_add_image_sizes' );
@@ -208,7 +217,7 @@ add_filter('excerpt_length', 'merlin_excerpt_length');
  * Function to change excerpt length for post slider
  */
 function merlin_slideshow_excerpt_length($length) {
-    return 32;
+    return 25;
 }
 
 

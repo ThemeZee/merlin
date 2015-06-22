@@ -25,7 +25,7 @@ get_header(); ?>
 					endwhile; ?>
 
 				<?php // Display Pagination	
-					merlin_display_pagination();
+					merlin_pagination();
 
 				endif; ?>
 				

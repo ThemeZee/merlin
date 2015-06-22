@@ -27,35 +27,11 @@
 				
 				<ul class="zeeslides">
 
-			<?php while( $slider_query->have_posts() ) : $slider_query->the_post(); ?>
+			<?php while( $slider_query->have_posts() ) : $slider_query->the_post();
 
-				<li id="slide-<?php the_ID(); ?>" class="zeeslide clearfix" data-thumb="<?php echo $thumbnail; ?>">
+				get_template_part( 'template-parts/content', 'slider' );
 
-					<?php // Display Post Thumbnail or default thumbnail
-					if( '' != get_the_post_thumbnail() ) :
-
-						the_post_thumbnail('merlin-slider-image', array('class' => 'slide-image'));
-
-					else: ?>
-
-						<img src="<?php echo get_template_directory_uri(); ?>/images/default-slider-image.png" class="slide-image default-slide-image wp-post-image" alt="default-image" />
-
-					<?php endif;?>
-				
-					<div class="slide-content clearfix">
-
-						<h2 class="entry-title"><a href="<?php esc_url(the_permalink()) ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-														
-						<div class="entry clearfix">
-							<?php the_excerpt(); ?>
-							<a href="<?php esc_url(the_permalink()) ?>" class="more-link"><?php _e('Read more', 'merlin'); ?></a>
-						</div>
-									
-					</div>
-
-				</li>
-
-			<?php endwhile; ?>
+			endwhile; ?>
 
 				</ul>
 				

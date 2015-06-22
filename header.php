@@ -49,11 +49,16 @@ $theme_options = merlin_theme_options();
 				
 				</div><!-- .site-branding -->
 				
-				<div class="header-content clearfix">
+				<div class="header-widgets clearfix">
 					
-					<?php #get_template_part('inc/header-content'); ?>
+					<?php // Display Header Widgets
+					if( is_active_sidebar('header') ) : 
+			
+						dynamic_sidebar('header');
+						
+					endif; ?>
 					
-				</div>
+				</div><!-- .header-widgets -->
 			
 			</div><!-- .header-main -->
 			
@@ -71,6 +76,6 @@ $theme_options = merlin_theme_options();
 			</nav><!-- #main-navigation -->
 			
 			<?php // Display Custom Header Image
-			merlin_display_custom_header(); ?>
+			merlin_header_image(); ?>
 		
 		</header><!-- #masthead -->

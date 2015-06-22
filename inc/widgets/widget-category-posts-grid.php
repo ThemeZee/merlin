@@ -32,6 +32,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 			'category'			=> 0,
 			'layout'			=> 'three-columns',
 			'number'			=> 6,
+			'excerpt'			=> false,
 			'category_link'		=> false
 		);
 		
@@ -74,7 +75,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		<div class="widget-category-posts-grid widget-category-posts clearfix">
 		
 			<?php // Display Title
-			$this->display_widget_title($args, $instance); ?>
+			$this->widget_title($args, $instance); ?>
 			
 			<div class="widget-category-posts-content">
 			
@@ -105,18 +106,18 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		
 		if( $layout == 'three-columns' ) :
 		
-			$this->display_category_posts_three_column_grid($instance);
+			$this->category_posts_three_column_grid($instance);
 		
 		else: 
 			
-			$this->display_category_posts_two_column_grid($instance);
+			$this->category_posts_two_column_grid($instance);
 		
 		endif;
 
 	}
 	
 	// Display Category Posts Grid Two Column
-	function display_category_posts_two_column_grid($instance) {
+	function category_posts_two_column_grid($instance) {
 
 		// Get Widget Settings
 		$defaults = $this->default_settings();
@@ -148,16 +149,27 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 				<?php endif; ?>
 				
 						<article id="post-<?php the_ID(); ?>" <?php post_class('large-post'); ?>>
+						
+							<header class="entry-header">
+			
+								<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-large'); ?></a>
 
-							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-large'); ?></a>
+								<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+							
+								<div class="entry-meta">
+									<?php $this->entry_meta($instance); ?>
+								</div><!-- .entry-meta -->
+						
+							</header><!-- .entry-header -->
 
-							<h3 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
-
-							<div class="postmeta"><?php $this->display_postmeta($instance); ?></div>
-
-							<div class="entry">
+						<?php if( $excerpt == true ) : ?>
+							
+							<div class="entry-content clearfix">
 								<?php the_excerpt(); ?>
-							</div>
+								<a href="<?php echo esc_url( get_permalink() ) ?>" class="more-link"><?php _e('Read More', 'merlin'); ?></a>
+							</div><!-- .entry-content -->
+							
+						<?php endif; ?>
 
 						</article>
 		
@@ -185,7 +197,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 	}
 	
 	// Display Category Posts Grid Three Column
-	function display_category_posts_three_column_grid($instance) {
+	function category_posts_three_column_grid($instance) {
 
 		// Get Widget Settings
 		$defaults = $this->default_settings();
@@ -215,15 +227,29 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 				 if ( $i % 3 == 0 ) : $row_open = true; ?>
 					<div class="category-posts-grid-row medium-post-row clearfix">
 				<?php endif; ?>
-
+			
 						<article id="post-<?php the_ID(); ?>" <?php post_class('medium-post clearfix'); ?>>
+						
+							<header class="entry-header">
+			
+								<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-medium'); ?></a>
 
-							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-medium'); ?></a>
+								<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+							
+								<div class="entry-meta">
+									<?php $this->entry_date($instance); ?>
+								</div><!-- .entry-meta -->
+						
+							</header><!-- .entry-header -->
 
-							<div class="medium-post-content">
-								<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-								<div class="postmeta-small"><?php $this->display_postmeta($instance); ?></div>
-							</div>
+						<?php if( $excerpt == true ) : ?>
+							
+							<div class="entry-content clearfix">
+								<?php the_excerpt(); ?>
+								<a href="<?php echo esc_url( get_permalink() ) ?>" class="more-link"><?php _e('Read More', 'merlin'); ?></a>
+							</div><!-- .entry-content -->
+							
+						<?php endif; ?>
 
 						</article>
 		
@@ -250,8 +276,34 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		
 	}
 	
-	// Display Postmeta
-	function display_postmeta($instance) { ?>
+	// Display Entry Meta
+	function entry_meta($instance) { ?>
+
+		<span class="meta-date">
+		<?php printf('<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>',
+				esc_url( get_permalink() ),
+				esc_attr( get_the_time() ),
+				esc_attr( get_the_date( 'c' ) ),
+				esc_html( get_the_date() )
+			);
+		?>
+		</span>
+		
+		<span class="meta-author">
+		<?php printf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>', 
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+				esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+				get_the_author()
+			);
+		?>
+		</span>
+
+	<?php
+
+	}
+	
+	// Display Entry Date
+	function entry_date($instance) { ?>
 
 		<span class="meta-date">
 		<?php printf('<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>',
@@ -263,16 +315,12 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		?>
 		</span>
 
-	<?php if ( comments_open() ) : ?>
-		<span class="meta-comments sep">
-			<?php comments_popup_link( __('Leave a comment', 'merlin'),__('One comment','merlin'),__('% comments','merlin') ); ?>
-		</span>
-	<?php endif;
+	<?php
 
 	}
 	
 	// Display Widget Title
-	function display_widget_title($args, $instance) {
+	function widget_title($args, $instance) {
 		
 		// Get Sidebar Arguments
 		extract($args);
@@ -315,6 +363,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		$instance['category'] = (int)$new_instance['category'];
 		$instance['layout'] = esc_attr($new_instance['layout']);
 		$instance['number'] = (int)$new_instance['number'];
+		$instance['excerpt'] = !empty($new_instance['excerpt']);
 		$instance['category_link'] = !empty($new_instance['category_link']);
 		
 		$this->delete_widget_cache();
@@ -361,6 +410,13 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of posts:', 'merlin'); ?>
 				<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" size="3" />
+			</label>
+		</p>
+		
+		<p>
+			<label for="<?php echo $this->get_field_id('excerpt'); ?>">
+				<input class="checkbox" type="checkbox" <?php checked( $excerpt ) ; ?> id="<?php echo $this->get_field_id('excerpt'); ?>" name="<?php echo $this->get_field_name('excerpt'); ?>" />
+				<?php _e('Display post excerpt and read more button', 'merlin'); ?>
 			</label>
 		</p>
 		

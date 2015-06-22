@@ -34,7 +34,7 @@ $theme_options = merlin_theme_options();
 				</div>
 				
 				<?php // Display Pagination	
-				merlin_display_pagination();
+				merlin_pagination();
 
 			else : ?>
 

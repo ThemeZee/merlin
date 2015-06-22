@@ -1,48 +1,85 @@
-<?php 
-/***
- * Comments Template
+<?php
+/**
+ * The template for displaying comments.
  *
- * This template displays the current comments of a post and the comment form
+ * The area of the page that contains both current comments
+ * and the comment form.
  *
+ * @package Merlin
  */
 
-if ( post_password_required()) : ?>
-	<p><?php _e('Enter password to view comments.', 'merlin'); ?></p>
-<?php return; endif; ?>
+/*
+ * If the current post is protected by a password and
+ * the visitor has not yet entered the password we will
+ * return early without loading the comments.
+ */
+if ( post_password_required() ) {
+	return;
+}
+?>
 
+<div id="comments" class="comments-area">
 
-<?php if ( have_comments() or comments_open() ) : ?>
+	<?php // You can start editing here -- including this comment! ?>
 
-	<div id="comments">
-	
-		<?php if ( have_comments() ) : ?>
-
-			<h3 class="comments-title"><span><?php comments_number( '', __('One comment','merlin'), __('% comments','merlin') );?></span></h3>
-
-			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-			<div class="comment-pagination clearfix">
-				<div class="alignleft"><?php previous_comments_link(); ?></div>
-				<div class="alignright"><?php next_comments_link() ?></div>
-			</div>
-			<?php endif; ?>
+	<?php if ( have_comments() ) : ?>
+		
+		<header class="comment-header">
 			
-			<ul class="commentlist">
-				<?php wp_list_comments( array('callback' => 'merlin_list_comments')); ?>
-			</ul>
-
-			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-			<div class="comment-pagination clearfix">
-				<div class="alignleft"><?php previous_comments_link() ?></div>
-				<div class="alignright"><?php next_comments_link() ?></div>
-			</div>
-			<?php endif; ?>
+			<h2 class="comment-title">
+				<?php comments_number( '', __('One comment','dynamicnewslite'), __('% comments','dynamicnewslite') );?>
+			</h2>
 			
-		<?php endif; ?>
+		</header><!-- .comment-header -->
+				
 
-		<?php if ( comments_open() ) : ?>
-			<?php comment_form(array('comment_notes_after' => '')); ?>
-		<?php endif; ?>
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+		<nav id="comment-nav-above" class="comment-navigation clearfix" role="navigation">
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'merlin' ); ?></h2>
+			<div class="nav-links">
 
-	</div>
+				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'merlin' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'merlin' ) ); ?></div>
 
-<?php endif; ?>
+			</div><!-- .nav-links -->
+		</nav><!-- #comment-nav-above -->
+		<?php endif; // Check for comment navigation. ?>
+
+		<ol class="comment-list">
+			<?php
+				wp_list_comments( array(
+					'style'      => 'ol',
+					'short_ping' => true,
+					'avatar_size' => 56
+				) );
+			?>
+		</ol><!-- .comment-list -->
+
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+		<nav id="comment-nav-below" class="comment-navigation clearfix" role="navigation">
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'merlin' ); ?></h2>
+			<div class="nav-links">
+
+				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'merlin' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'merlin' ) ); ?></div>
+
+			</div><!-- .nav-links -->
+		</nav><!-- #comment-nav-below -->
+		<?php endif; // Check for comment navigation. ?>
+
+	<?php endif; // Check for have_comments(). ?>
+
+	<?php
+		// If comments are closed and there are comments, let's leave a little note, shall we?
+		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+	?>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'merlin' ); ?></p>
+	<?php endif; ?>
+
+	<?php comment_form( array( 
+		'title_reply' => '<span>' . __( 'Leave a Reply' ) . '</span>',
+		'comment_notes_after' => ''
+		)
+	); ?>
+
+</div><!-- #comments -->

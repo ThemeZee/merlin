@@ -73,7 +73,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 		<div class="widget-category-posts-boxed widget-category-posts clearfix">
 
 			<?php // Display Title
-			$this->display_widget_title($args, $instance); ?>
+			$this->widget_title($args, $instance); ?>
 			
 			<div class="widget-category-posts-content">
 			
@@ -106,7 +106,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 		
 			<div class="category-posts-boxed-horizontal clearfix">
 			
-				<?php $this->display_category_posts_horizontal($instance); ?>
+				<?php $this->category_posts_horizontal($instance); ?>
 
 			</div>
 		
@@ -114,7 +114,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 			
 			<div class="category-posts-boxed-vertical clearfix">
 			
-				<?php $this->display_category_posts_vertical($instance); ?>
+				<?php $this->category_posts_vertical($instance); ?>
 
 			</div>
 		
@@ -124,7 +124,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 	}
 	
 	// Display Category Posts in Horizontal Layout
-	function display_category_posts_horizontal($instance) {
+	function category_posts_horizontal($instance) {
 		
 		// Get Widget Settings
 		$defaults = $this->default_settings();
@@ -154,13 +154,13 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('large-post clearfix'); ?>>
 
-						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-extra-large'); ?></a>
+						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-large'); ?></a>
 						
 						<div class="post-content">
 
 							<h3 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 
-							<div class="postmeta"><?php $this->display_postmeta($instance); ?></div>
+							<div class="entry-meta"><?php $this->entry_meta($instance); ?></div>
 
 							<div class="entry">
 								<?php the_excerpt(); ?>
@@ -184,7 +184,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 						<div class="medium-post-content">
 							
 							<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-							<div class="postmeta-small"><?php $this->display_postmeta($instance); ?></div>
+							<div class="entry-meta"><?php $this->entry_date($instance); ?></div>
 						
 						</div>
 
@@ -209,7 +209,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 	}
 	
 	// Display Category Posts in Vertical Layout
-	function display_category_posts_vertical($instance) {
+	function category_posts_vertical($instance) {
 		
 		// Get Widget Settings
 		$defaults = $this->default_settings();
@@ -245,7 +245,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 
 							<h3 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 
-							<div class="postmeta"><?php $this->display_postmeta($instance); ?></div>
+							<div class="entry-meta"><?php $this->entry_meta($instance); ?></div>
 
 							<div class="entry">
 								<?php the_excerpt(); ?>
@@ -269,7 +269,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 						<div class="small-post-content">
 							
 							<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-							<div class="postmeta-small"><?php $this->display_postmeta($instance); ?></div>
+							<div class="entry-meta"><?php $this->entry_date($instance); ?></div>
 						
 						</div>
 
@@ -293,8 +293,34 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 
 	}
 	
-	// Display Postmeta
-	function display_postmeta($instance) { ?>
+	// Display Entry Meta
+	function entry_meta($instance) { ?>
+
+		<span class="meta-date">
+		<?php printf('<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>',
+				esc_url( get_permalink() ),
+				esc_attr( get_the_time() ),
+				esc_attr( get_the_date( 'c' ) ),
+				esc_html( get_the_date() )
+			);
+		?>
+		</span>
+		
+		<span class="meta-author">
+		<?php printf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>', 
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+				esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+				get_the_author()
+			);
+		?>
+		</span>
+
+	<?php
+
+	}
+	
+	// Display Entry Date
+	function entry_date($instance) { ?>
 
 		<span class="meta-date">
 		<?php printf('<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>',
@@ -306,16 +332,12 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 		?>
 		</span>
 
-	<?php if ( comments_open() ) : ?>
-		<span class="meta-comments sep">
-			<?php comments_popup_link( __('Leave a comment', 'merlin'),__('One comment','merlin'),__('% comments','merlin') ); ?>
-		</span>
-	<?php endif;
+	<?php
 
 	}
 	
 	// Display Widget Title
-	function display_widget_title($args, $instance) {
+	function widget_title($args, $instance) {
 		
 		// Get Sidebar Arguments
 		extract($args);
