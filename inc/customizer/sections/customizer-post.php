@@ -12,7 +12,7 @@ function merlin_customize_register_post_settings( $wp_customize ) {
 	// Add Sections for Post Settings
 	$wp_customize->add_section( 'merlin_section_post', array(
         'title'    => __( 'Post Settings', 'merlin' ),
-        'priority' => 30,
+        'priority' => 20,
 		'panel' => 'merlin_options_panel' 
 		)
 	);
@@ -35,55 +35,6 @@ function merlin_customize_register_post_settings( $wp_customize ) {
             'index' => __( 'Show full posts', 'merlin' ),
             'excerpt' => __( 'Show post summaries (excerpt)', 'merlin' )
 			)
-		)
-	);
-	
-	// Add Post Images Headline
-	$wp_customize->add_setting( 'merlin_theme_options[post_images]', array(
-        'default'           => '',
-		'type'           	=> 'option',
-        'transport'         => 'refresh',
-        'sanitize_callback' => 'esc_attr'
-        )
-    );
-    $wp_customize->add_control( new Merlin_Customize_Header_Control(
-        $wp_customize, 'merlin_control_post_images', array(
-            'label' => __( 'Post Images', 'merlin' ),
-            'section' => 'merlin_section_post',
-            'settings' => 'merlin_theme_options[post_images]',
-            'priority' => 2
-            )
-        )
-    );
-	$wp_customize->add_setting( 'merlin_theme_options[post_thumbnails_index]', array(
-        'default'           => true,
-		'type'           	=> 'option',
-        'transport'         => 'refresh',
-        'sanitize_callback' => 'merlin_sanitize_checkbox'
-		)
-	);
-    $wp_customize->add_control( 'merlin_control_posts_thumbnails_index', array(
-        'label'    => __( 'Display featured images on archive pages', 'merlin' ),
-        'section'  => 'merlin_section_post',
-        'settings' => 'merlin_theme_options[post_thumbnails_index]',
-        'type'     => 'checkbox',
-		'priority' => 3
-		)
-	);
-
-	$wp_customize->add_setting( 'merlin_theme_options[post_thumbnails_single]', array(
-        'default'           => true,
-		'type'           	=> 'option',
-        'transport'         => 'refresh',
-        'sanitize_callback' => 'merlin_sanitize_checkbox'
-		)
-	);
-    $wp_customize->add_control( 'merlin_control_posts_thumbnails_single', array(
-        'label'    => __( 'Display featured images on single posts', 'merlin' ),
-        'section'  => 'merlin_section_post',
-        'settings' => 'merlin_theme_options[post_thumbnails_single]',
-        'type'     => 'checkbox',
-		'priority' => 4
 		)
 	);
 

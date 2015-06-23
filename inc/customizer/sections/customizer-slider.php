@@ -11,7 +11,7 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 
 	// Add Sections for Slider Settings
 	$wp_customize->add_section( 'merlin_section_slider', array(
-        'title'    => __( 'Post Slider', 'merlin' ),
+        'title'    => __( 'Post Slideshow', 'merlin' ),
 		'description' => __( 'The slideshow displays your featured posts, which you can configure on the "Featured Content" section above.', 'merlin' ),
         'priority' => 50,
 		'panel' => 'merlin_options_panel' 

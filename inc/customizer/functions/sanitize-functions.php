@@ -31,8 +31,8 @@ function merlin_sanitize_layout( $value ) {
 // Sanitize the post archive layout value.
 function merlin_sanitize_post_layout( $value ) {
 
-	if ( ! in_array( $value, array( 'index', 'one-column' ), true ) ) :
-        $value = 'index';
+	if ( ! in_array( $value, array( 'top', 'left', 'none' ), true ) ) :
+        $value = 'left';
 	endif;
 
     return $value;

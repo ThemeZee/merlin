@@ -1,28 +1,41 @@
+<?php
+/**
+ * The template for displaying the footer.
+ *
+ * Contains all content after the main content area and sidebar
+ *
+ * @package Merlin
+ */
 
-	<?php do_action('merlin_before_footer'); ?>
+do_action('merlin_before_footer'); 
 
-	<div id="footer-wrap">
-	
-		<footer id="footer" class="container clearfix" role="contentinfo">
-			
-			<nav id="footernav" class="clearfix" role="navigation">
-				<?php 
-					// Get Navigation out of Theme Options
-					wp_nav_menu(array('theme_location' => 'footer', 'container' => false, 'menu_id' => 'footernav-menu', 'echo' => true, 'fallback_cb' => '', 'before' => '', 'after' => '', 'link_before' => '', 'link_after' => '', 'depth' => 1));
-				?>
-				<h4 id="footernav-icon"></h4>
-			</nav>
-			
-			<div id="footer-text">
-				<?php do_action('merlin_footer_text'); ?>
-			</div>
-			
-		</footer>
+?>
+
+	<footer id="colophon" class="site-footer clearfix" role="contentinfo">
 		
-	</div>
+		<div id="footer-text" class="site-info">
+			<?php do_action('merlin_footer_text'); ?>
+		</div><!-- .site-info -->
+			
+		<nav id="footer-navigation" class="tertiary-navigation navigation clearfix" role="navigation">
+			<?php 
+				// Display Footer Navigation
+				wp_nav_menu( array(
+					'theme_location' => 'footer', 
+					'container' => false, 
+					'menu_class' => 'footer-navigation-menu', 
+					'echo' => true, 
+					'fallback_cb' => '',
+					'depth' => 1)
+				);
+			?>
+		</nav><!-- #footer-navigation -->
 
-</div><!-- end #wrapper -->
+	</footer><!-- #colophon -->
+
+</div><!-- #page -->
 
 <?php wp_footer(); ?>
+
 </body>
 </html>

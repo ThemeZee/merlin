@@ -278,24 +278,26 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		$widget_title = apply_filters('widget_title', $category_title, $instance, $this->id_base);
 		
 		if( !empty( $widget_title ) ) :
-		
-			echo $before_title;
-			
+
 			// Link Category Title
-			if( $category_link == true ) : 
-				
+			if( true == $category_link and $category_id > 0 ) : 
+			
+				// Set Link URL and Title for Category
 				$link_title = sprintf( __('View all posts from category %s', 'merlin'), get_cat_name( $category_id ) );
 				$link_url = esc_url( get_category_link( $category_id ) );
 				
-				echo '<a href="'. esc_url( get_category_link( $category_id ) ) .'" title="'. $widget_title . '">'. $widget_title . '</a>';
-				
-			else:
+				// Display Widget Title with link to category archive
+				echo '<div class="widget-header">';
+				echo '<a class="category-archive-link" href="'. $link_url .'" title="'. $link_title . '"><h3 class="widget-title">'. $widget_title . '</h3></a>';
+				echo '<a class="category-archive-link" href="'. $link_url .'" title="'. $link_title . '"><span class="category-archive-icon"></span></a>';
+				echo '</div>';
 			
-				echo $widget_title;
+			else:
+				
+				// Display default Widget Title without link
+				echo $before_title . $widget_title . $after_title; 
 			
 			endif;
-			
-			echo $after_title; 
 			
 		endif;
 
