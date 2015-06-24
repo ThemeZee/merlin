@@ -8,27 +8,23 @@
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		
+		<?php merlin_post_image_archives(); ?>
+		
 		<header class="entry-header">
-			
-			<?php merlin_thumbnail_index(); ?>
-
+		
 			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 			
-			<div class="entry-meta">
-				<?php merlin_entry_meta(); ?>
-			</div><!-- .entry-meta -->
+			<?php merlin_entry_meta(); ?>
 
 		</header><!-- .entry-header -->
 
 		<div class="entry-content clearfix">
-			<?php the_content(__('Continue reading &raquo;', 'merlin')); ?>
+			<?php the_content(__('Read more', 'merlin')); ?>
 		</div><!-- .entry-content -->
 		
 		<footer class="entry-footer">
 			
-			<div class="entry-footer-meta">
-				<?php merlin_entry_footer(); ?>
-			</div><!-- .entry-footer-meta -->
+			<?php merlin_entry_footer(); ?>
 			
 		</footer><!-- .entry-footer -->
 

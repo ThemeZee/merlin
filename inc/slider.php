@@ -1,0 +1,78 @@
+<?php
+/**
+ * Post Slider Setup
+ *
+ * Enqueues scripts and styles for the slideshow
+ * Sets slideshow excerpt length and slider animation parameter
+ * 
+ * The template for displaying the slideshow can be found under /template-parts/post-slider.php
+ *
+ * @package Merlin
+ */
+
+ 
+/**
+ * Enqueue slider scripts and styles.
+ */
+function merlin_slider_scripts() {
+	
+	// Get Theme Options from Database
+	$theme_options = merlin_theme_options();
+	
+	// Register and Enqueue FlexSlider JS and CSS if necessary
+	if ( ( isset($theme_options['slider_blog']) and $theme_options['slider_blog'] == true )
+		|| ( isset($theme_options['slider_magazine']) and $theme_options['slider_magazine'] == true ) ) :
+
+		// FlexSlider CSS
+		wp_enqueue_style('merlin-flexslider', get_template_directory_uri() . '/css/flexslider.css');
+
+		// FlexSlider JS
+		wp_enqueue_script('merlin-flexslider', get_template_directory_uri() .'/js/jquery.flexslider-min.js', array('jquery'));
+
+		// Register and enqueue slider.js
+		wp_enqueue_script('merlin-post-slider', get_template_directory_uri() .'/js/slider.js', array('merlin-flexslider'));
+
+	endif;
+	
+}
+add_action( 'wp_enqueue_scripts', 'merlin_slider_scripts' );
+
+
+/**
+ * Function to change excerpt length for post slider
+ */
+function merlin_slider_excerpt_length($length) {
+    return 25;
+}
+
+
+ /**
+ * Function to set slider animation and other slider settings
+ *
+ * Passes parameters from theme options to the javascript files (js/slider.js)
+ */
+function merlin_slider_options() { 
+	
+	// Get Theme Options from Database
+	$theme_options = merlin_theme_options();
+	
+	// Set Parameters array
+	$params = array();
+	
+	// Define Slider Animation
+	if( isset( $theme_options['slider_animation'] ) and $theme_options['slider_animation'] == 'fade' ) :
+		
+		$params['animation'] = 'fade';
+		
+	else:
+	
+		$params['animation'] = 'slide';
+		
+	endif;
+	
+	// Passing Parameters to Javascript
+	wp_localize_script( 'merlin-post-slider', 'merlin_slider_params', $params );
+	
+}
+add_action('wp_enqueue_scripts', 'merlin_slider_options');
+

@@ -8,15 +8,13 @@
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		
+		<?php merlin_post_image_single(); ?>
+		
 		<header class="entry-header">
 			
-			<?php merlin_thumbnail_single(); ?>
-
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			
-			<div class="entry-meta">
-				<?php merlin_entry_meta(); ?>
-			</div><!-- .entry-meta -->
+			<?php merlin_entry_meta(); ?>
 
 		</header><!-- .entry-header -->
 
@@ -28,13 +26,9 @@
 		
 		<footer class="entry-footer">
 			
-			<div class="entry-tags clearfix">
-				<?php merlin_entry_tags(); ?>
-			</div><!-- .entry-tags -->
+			<?php merlin_entry_tags(); ?>
 			
-			<div class="entry-footer-meta">
-				<?php merlin_entry_footer(); ?>
-			</div><!-- .entry-footer-meta -->
+			<?php merlin_entry_footer(); ?>
 			
 		</footer><!-- .entry-footer -->
 

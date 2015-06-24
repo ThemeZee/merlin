@@ -119,8 +119,8 @@ html[xmlns] .zeeflexslider .zeeslides {
 	font-size: 1.5em;
 }
 
-.post-slider .zeeslide .entry-meta .meta-author {
-	margin-left: 0.8em;
+.post-slider .zeeslide .entry-meta .meta-date {
+	margin-right: 0.8em;
 }
 
 .post-slider .zeeslide .entry-meta span:before {
@@ -210,6 +210,7 @@ html[xmlns] .zeeflexslider .zeeslides {
 	position: absolute; 
 	bottom: 0.3em;
 	left: 1em;
+	z-index: 99;
 }
 .post-slider-controls .zeeflex-control-nav li {
 	margin: 0 2px;
@@ -219,9 +220,9 @@ html[xmlns] .zeeflexslider .zeeslides {
 }
 .post-slider-controls .zeeflex-control-nav li a {
 	width: 30px; 
-	height: 12px; 
+	height: 14px; 
 	display: block; 
-	background: #fff;
+	background: rgba(255,255,255,0.4);
 	cursor: pointer; 
 	text-indent: -9999px;
 	-webkit-transition: all 0.4s ease;
@@ -231,10 +232,10 @@ html[xmlns] .zeeflexslider .zeeslides {
 	transition: all 0.4s ease;
 }
 .post-slider-controls .zeeflex-control-nav li a:hover { 
-	background: #44aacc;
+	background: rgba(255,255,255,0.9);
 }
 .post-slider-controls .zeeflex-control-nav li a.zeeflex-active { 
-	background: #44aacc;
+	background: rgba(255,255,255,0.9);
 	cursor: default; 
 }
 

@@ -17,9 +17,9 @@ $theme_options = merlin_theme_options();
 	<div id="content" class="site-content container clearfix">
 	
 		<?php // Display Featured Post Slideshow if activated
-		if ( isset($theme_options['slider_active_blog']) and $theme_options['slider_active_blog'] == true ) :
+		if ( isset($theme_options['slider_blog']) and $theme_options['slider_blog'] == true ) :
 
-			get_template_part( 'template-parts/featured-content-slider' );
+			get_template_part( 'template-parts/post-slider' );
 
 		endif;
 		?>

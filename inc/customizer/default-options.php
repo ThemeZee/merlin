@@ -33,13 +33,20 @@ function merlin_default_options() {
 		'layout' 							=> 'right-sidebar',
 		'latest_posts_title'				=> __( 'Latest Posts', 'merlin' ),
 		'header_tagline' 					=> false,
-		'header_icons' 						=> false,
-		'posts_length' 						=> 'excerpt',
-		'post_thumbnails_index'				=> true,
-		'post_thumbnails_single' 			=> true,
-		'slider_active_magazine' 			=> false,
-		'slider_active_blog' 				=> false,
-		'slider_animation' 					=> 'horizontal'
+		'post_content' 						=> 'excerpt',
+		'excerpt_length' 					=> 30,
+		'meta_date'							=> true,
+		'meta_author'						=> true,
+		'footer_meta_archives'				=> true,
+		'footer_meta_single'				=> true,
+		'meta_tags'							=> true,
+		'post_layout_archives'				=> 'left',
+		'post_image_single' 				=> true,
+		'slider_magazine' 					=> false,
+		'slider_blog' 						=> false,
+		'slider_category' 					=> 0,
+		'slider_limit' 						=> 8,
+		'slider_animation' 					=> 'slide'
 	);
 	
 	return $default_options;

@@ -56,16 +56,29 @@ endif;
 /**
  * Displays the featured image below on archive pages
  */
-function merlin_thumbnail_index() {
+function merlin_post_image_archives() {
 	
 	// Get Theme Options from Database
 	$theme_options = merlin_theme_options();
 	
-	// Display Post Thumbnail if activated
-	if ( isset($theme_options['post_thumbnails_index']) and $theme_options['post_thumbnails_index'] == true ) : ?>
+	// Return early if no featured image should be displayed
+	if ( isset($theme_options['post_layout_archives']) and $theme_options['post_layout_archives'] == 'none' ) :
+		return;
+	endif;
+	
+	// Display Featured Image beside post content
+	if ( isset($theme_options['post_layout_archives']) and $theme_options['post_layout_archives'] == 'left' ) : ?>
 
-		<a href="<?php esc_url(the_permalink()) ?>" rel="bookmark">
-			<?php the_post_thumbnail('post-thumbnail'); ?>
+		<a class="post-thumbnail-small" href="<?php esc_url( the_permalink() ); ?>" rel="bookmark">
+			<?php the_post_thumbnail( 'merlin-thumbnail-small' ); ?>
+		</a>
+
+<?php
+	// Display Featured Image above post content
+	else: ?>
+
+		<a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark">
+			<?php the_post_thumbnail(); ?>
 		</a>
 
 <?php
@@ -77,15 +90,15 @@ function merlin_thumbnail_index() {
 /**
  * Displays the featured image below on single posts
  */
-function merlin_thumbnail_single() {
+function merlin_post_image_single() {
 	
 	// Get Theme Options from Database
 	$theme_options = merlin_theme_options();
 	
 	// Display Post Thumbnail if activated
-	if ( isset($theme_options['post_thumbnails_single']) and $theme_options['post_thumbnails_single'] == true ) :
+	if ( isset($theme_options['post_image_single']) and $theme_options['post_image_single'] == true ) :
 
-		the_post_thumbnail('post-thumbnail');
+		the_post_thumbnail();
 
 	endif;
 
@@ -96,27 +109,48 @@ if ( ! function_exists( 'merlin_entry_meta' ) ):
 /**
  * Displays the date and author of posts
  */
-function merlin_entry_meta() { ?>
+function merlin_entry_meta() {
 
-	<span class="meta-date">
-	<?php printf(__('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>', 'merlin'), 
-			esc_url( get_permalink() ),
-			esc_attr( get_the_time() ),
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() )
-		);
-	?>
-	</span>
+	// Get Theme Options from Database
+	$theme_options = merlin_theme_options();
 	
-	<span class="meta-author">
-	<?php printf(__('by <a href="%1$s" title="%2$s" rel="author">%3$s</a>', 'merlin'), 
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
-			get_the_author()
-		);
-	?>
-	</span>
-<?php
+	// Display Postmeta
+	if ( true == $theme_options['meta_date'] or true == $theme_options['meta_author'] ) : ?>
+	
+		<div class="entry-meta">
+		
+		<?php // Display Date unless user has deactivated it via settings
+		if ( true == $theme_options['meta_date'] ) : ?>
+		
+			<span class="meta-date">
+			<?php printf(__('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>', 'merlin'), 
+					esc_url( get_permalink() ),
+					esc_attr( get_the_time() ),
+					esc_attr( get_the_date( 'c' ) ),
+					esc_html( get_the_date() )
+				);
+			?>
+			</span>
+		
+		<?php endif; 
+
+		// Display Author unless user has deactivated it via settings
+		if ( true == $theme_options['meta_author'] ) : ?>
+		
+			<span class="meta-author">
+			<?php printf(__('by <a href="%1$s" title="%2$s" rel="author">%3$s</a>', 'merlin'), 
+					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+					esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+					get_the_author()
+				);
+			?>
+			</span>
+		
+		<?php endif; ?>
+		
+		</div>
+		
+	<?php endif;
 
 }
 endif;
@@ -128,11 +162,20 @@ if ( ! function_exists( 'merlin_entry_tags' ) ):
  */
 function merlin_entry_tags() {
 	
+	// Get Theme Options from Database
+	$theme_options = merlin_theme_options();
+	
+	// Get Tags
 	$tag_list = get_the_tag_list('', '');
-	if ( $tag_list ) : ?>
-		<span class="meta-tags">
-			<?php echo $tag_list; ?>
-		</span>
+	
+	// Display Tags
+	if ( $tag_list && $theme_options['meta_tags'] ) : ?>
+	
+		<div class="entry-tags clearfix">
+			<span class="meta-tags">
+				<?php echo $tag_list; ?>
+			</span>
+		</div><!-- .entry-tags -->
 <?php 
 	endif;
 
@@ -144,20 +187,32 @@ if ( ! function_exists( 'merlin_entry_footer' ) ):
 /**
  * Displays the category on comments on posts
  */	
-function merlin_entry_footer() { ?>
+function merlin_entry_footer() { 
+
+	// Get Theme Options from Database
+	$theme_options = merlin_theme_options();
 	
-	<span class="meta-category">
-		<?php echo get_the_category_list(' / '); ?>
-	</span>
+	// Display Postmeta
+	if ( ( is_single() && $theme_options['footer_meta_single'] ) or ( ! is_single() && $theme_options['footer_meta_archives'] ) ) : ?>
 	
-<?php if ( comments_open() ) : ?>
+		<div class="entry-footer-meta">
 		
-	<span class="meta-comments">
-		<?php comments_popup_link( __('Leave a comment', 'merlin'),__('One comment', 'merlin'),__('% comments', 'merlin') ); ?>
-	</span>
+			<span class="meta-category">
+				<?php echo get_the_category_list(' / '); ?>
+			</span>
+
+		<?php // Display comments
+		if ( comments_open() ) : ?>
+		
+			<span class="meta-comments">
+				<?php comments_popup_link( __('Leave a comment', 'merlin'),__('One comment', 'merlin'),__('% comments', 'merlin') ); ?>
+			</span>
 	
-<?php endif; 
-	
+		<?php endif; ?>
+		
+		</div>
+		
+	<?php endif;
 }
 endif;
 
@@ -166,27 +221,48 @@ if ( ! function_exists( 'merlin_entry_meta_slider' ) ):
 /**
  * Displays date and author on slideshow posts
  */	
-function merlin_entry_meta_slider() { ?>
+function merlin_entry_meta_slider() { 
 
-	<span class="meta-date">
-	<?php printf( '<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>', 
-			esc_url( get_permalink() ),
-			esc_attr( get_the_time() ),
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() )
-		);
-	?>
-	</span>
+	// Get Theme Options from Database
+	$theme_options = merlin_theme_options();
 	
-	<span class="meta-author">
-	<?php printf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>', 
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
-			get_the_author()
-		);
-	?>
-	</span>
-<?php
+	// Display Postmeta
+	if ( true == $theme_options['meta_date'] or true == $theme_options['meta_author'] ) : ?>
+	
+		<div class="entry-meta">
+		
+		<?php // Display Date unless user has deactivated it via settings
+		if ( true == $theme_options['meta_date'] ) : ?>
+		
+			<span class="meta-date">
+				<?php printf( '<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>', 
+						esc_url( get_permalink() ),
+						esc_attr( get_the_time() ),
+						esc_attr( get_the_date( 'c' ) ),
+						esc_html( get_the_date() )
+					);
+				?>
+			</span>
+		
+		<?php endif; 
+
+		// Display Author unless user has deactivated it via settings
+		if ( true == $theme_options['meta_author'] ) : ?>
+		
+			<span class="meta-author">
+				<?php printf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>', 
+						esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+						esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+						get_the_author()
+					);
+				?>
+			</span>
+		
+		<?php endif; ?>
+		
+		</div>
+		
+	<?php endif; 
 
 }
 endif;

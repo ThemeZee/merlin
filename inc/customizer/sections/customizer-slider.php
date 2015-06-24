@@ -12,14 +12,13 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 	// Add Sections for Slider Settings
 	$wp_customize->add_section( 'merlin_section_slider', array(
         'title'    => __( 'Post Slideshow', 'merlin' ),
-		'description' => __( 'The slideshow displays your featured posts, which you can configure on the "Featured Content" section above.', 'merlin' ),
         'priority' => 50,
 		'panel' => 'merlin_options_panel' 
 		)
 	);
 
 	// Add settings and controls for Post Slider
-	$wp_customize->add_setting( 'merlin_theme_options[slider_active_header]', array(
+	$wp_customize->add_setting( 'merlin_theme_options[slider_activate]', array(
         'default'           => '',
 		'type'           	=> 'option',
         'transport'         => 'refresh',
@@ -27,47 +26,85 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
         )
     );
     $wp_customize->add_control( new Merlin_Customize_Header_Control(
-        $wp_customize, 'merlin_control_slider_activated', array(
-            'label' => __( 'Activate Featured Post Slider', 'merlin' ),
+        $wp_customize, 'merlin_control_slider_activate', array(
+            'label' => __( 'Activate Post Slider', 'merlin' ),
             'section' => 'merlin_section_slider',
-            'settings' => 'merlin_theme_options[slider_active_header]',
+            'settings' => 'merlin_theme_options[slider_activate]',
             'priority' => 1
             )
         )
     );
-	$wp_customize->add_setting( 'merlin_theme_options[slider_active_magazine]', array(
+	$wp_customize->add_setting( 'merlin_theme_options[slider_magazine]', array(
         'default'           => false,
 		'type'           	=> 'option',
         'transport'         => 'refresh',
         'sanitize_callback' => 'merlin_sanitize_checkbox'
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_slider_active_magazine', array(
-        'label'    => __( 'Display Slider on Magazine Front Page template.', 'merlin' ),
+    $wp_customize->add_control( 'merlin_control_slider_magazine', array(
+        'label'    => __( 'Show Slider on Magazine Homepage.', 'merlin' ),
         'section'  => 'merlin_section_slider',
-        'settings' => 'merlin_theme_options[slider_active_magazine]',
+        'settings' => 'merlin_theme_options[slider_magazine]',
         'type'     => 'checkbox',
 		'priority' => 2
 		)
 	);
-	$wp_customize->add_setting( 'merlin_theme_options[slider_active_blog]', array(
+	$wp_customize->add_setting( 'merlin_theme_options[slider_blog]', array(
         'default'           => false,
 		'type'           	=> 'option',
         'transport'         => 'refresh',
         'sanitize_callback' => 'merlin_sanitize_checkbox'
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_slider_active_blog', array(
-        'label'    => __( 'Display Slider on normal blog index.', 'merlin' ),
+    $wp_customize->add_control( 'merlin_control_slider_blog', array(
+        'label'    => __( 'Show Slider on normal blog page.', 'merlin' ),
         'section'  => 'merlin_section_slider',
-        'settings' => 'merlin_theme_options[slider_active_blog]',
+        'settings' => 'merlin_theme_options[slider_blog]',
         'type'     => 'checkbox',
 		'priority' => 3
 		)
 	);
-
+	
+	// Add Setting and Control for Slider Category
+	$wp_customize->add_setting( 'merlin_theme_options[slider_category]', array(
+        'default'           => 0,
+		'type'           	=> 'option',
+        'transport'         => 'refresh',
+        'sanitize_callback' => 'absint'
+        )
+    );
+    $wp_customize->add_control( new Merlin_Customize_Category_Dropdown_Control(
+        $wp_customize, 'merlin_control_slider_category', array(
+            'label' => __( 'Slider Category', 'merlin' ),
+            'section' => 'merlin_section_slider',
+            'settings' => 'merlin_theme_options[slider_category]',
+			'active_callback' => 'merlin_slider_activated_callback',
+            'priority' => 4
+            )
+        )
+    );
+	
+	// Add Setting and Control for Number of Posts
+	$wp_customize->add_setting( 'merlin_theme_options[slider_limit]', array(
+        'default'           => 8,
+		'type'           	=> 'option',
+        'transport'         => 'refresh',
+        'sanitize_callback' => 'absint'
+		)
+	);
+    $wp_customize->add_control( 'merlin_control_slider_limit', array(
+        'label'    => __( 'Number of Posts', 'merlin' ),
+        'section'  => 'merlin_section_slider',
+        'settings' => 'merlin_theme_options[slider_limit]',
+        'type'     => 'text',
+		'active_callback' => 'merlin_slider_activated_callback',
+		'priority' => 5
+		)
+	);
+	
+	// Add Setting and Control for Slider Animation
 	$wp_customize->add_setting( 'merlin_theme_options[slider_animation]', array(
-        'default'           => 'horizontal',
+        'default'           => 'slide',
 		'type'           	=> 'option',
         'transport'         => 'refresh',
         'sanitize_callback' => 'merlin_sanitize_slider_animation'
@@ -78,10 +115,11 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
         'section'  => 'merlin_section_slider',
         'settings' => 'merlin_theme_options[slider_animation]',
         'type'     => 'radio',
-		'priority' => 4,
+		'priority' => 6,
+		'active_callback' => 'merlin_slider_activated_callback',
         'choices'  => array(
-            'horizontal' => __( 'Horizontal Slider', 'merlin' ),
-            'fade' => __( 'Fade Slider', 'merlin' )
+            'slide' => __( 'Horizontal Slide', 'merlin' ),
+            'fade' => __( 'Fade Effect', 'merlin' )
 			)
 		)
 	);

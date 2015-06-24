@@ -61,12 +61,12 @@ function merlin_setup() {
 	add_theme_support( 'custom-background', apply_filters( 'merlin_custom_background_args', array('default-color' => 'e5e5e5') ) );
 	
 	// Set up the WordPress core custom header feature.
-	add_theme_support('custom-header', array(
+	add_theme_support('custom-header', apply_filters( 'merlin_custom_header_args', array(
 		'header-text' => false,
 		'width'	=> 1190,
 		'height' => 250,
 		'flex-height' => true
-	) );
+	) ) );
 	
 	// Add Theme Support for Merlin Pro Plugin
 	add_theme_support( 'merlin-pro' );
@@ -113,7 +113,7 @@ function merlin_widgets_init() {
 		'after_title' => '</h3></div>',
 	));
 	
-}
+} // merlin_widgets_init
 add_action( 'widgets_init', 'merlin_widgets_init' );
 
 
@@ -122,9 +122,6 @@ add_action( 'widgets_init', 'merlin_widgets_init' );
  */
 function merlin_scripts() {
 	global $wp_scripts;
-	
-	// Get Theme Options from Database
-	$theme_options = merlin_theme_options();
 	
 	// Register and Enqueue Stylesheet
 	wp_enqueue_style('merlin-stylesheet', get_stylesheet_uri());
@@ -138,21 +135,6 @@ function merlin_scripts() {
 
 	// Register and enqueue navigation.js
 	wp_enqueue_script('merlin-jquery-navigation', get_template_directory_uri() .'/js/navigation.js', array('jquery'));
-		
-	// Register and Enqueue FlexSlider JS and CSS if necessary
-	if ( ( isset($theme_options['slider_active_blog']) and $theme_options['slider_active_blog'] == true )
-		|| ( isset($theme_options['slider_active_magazine']) and $theme_options['slider_active_magazine'] == true ) ) :
-
-		// FlexSlider CSS
-		wp_enqueue_style('merlin-flexslider', get_template_directory_uri() . '/css/flexslider.css');
-
-		// FlexSlider JS
-		wp_enqueue_script('merlin-flexslider', get_template_directory_uri() .'/js/jquery.flexslider-min.js', array('jquery'));
-
-		// Register and enqueue slider.js
-		wp_enqueue_script('merlin-post-slider', get_template_directory_uri() .'/js/slider.js', array('merlin-flexslider'));
-
-	endif;
 	
 	// Register and Enqueue Google Fonts
 	wp_enqueue_style('merlin-default-fonts', merlin_google_fonts_url(), array(), null );
@@ -161,7 +143,8 @@ function merlin_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-}
+	
+}// merlin_scripts
 add_action( 'wp_enqueue_scripts', 'merlin_scripts' );
 
 
@@ -189,59 +172,23 @@ function merlin_google_fonts_url() {
  */
 function merlin_add_image_sizes() {
 	
+	// Add image size for small post thumbnais
+	add_image_size( 'merlin-post-thumbnail-small', 325 );
+	
 	// Add Custom Header Image Size
-	add_image_size( 'merlin-header-image', 1190, 250, true);
+	add_image_size( 'merlin-header-image', 1190, 250, true );
 	
 	// Add Slider Image Size
-	add_image_size( 'merlin-slider-image', 720, 360, true);
+	add_image_size( 'merlin-slider-image', 720, 360, true );
 	
 	// Add Category Post Widget image sizes
-	add_image_size( 'merlin-category-posts-widget-small', 130, 75, true);
-	add_image_size( 'merlin-category-posts-widget-medium', 260, 150, true);
-	add_image_size( 'merlin-category-posts-widget-large', 400, 230, true);
+	add_image_size( 'merlin-category-posts-widget-small', 130, 75, true );
+	add_image_size( 'merlin-category-posts-widget-medium', 260, 150, true );
+	add_image_size( 'merlin-category-posts-widget-large', 400, 230, true );
 	
 }
 add_action( 'after_setup_theme', 'merlin_add_image_sizes' );
 
-
-/**
- * Change excerpt length for default posts
- */
-function merlin_excerpt_length($length) {
-    return 60; // number of words
-}
-add_filter('excerpt_length', 'merlin_excerpt_length');
-
-
-/**
- * Function to change excerpt length for post slider
- */
-function merlin_slideshow_excerpt_length($length) {
-    return 25;
-}
-
-
-/**
- * Function to change excerpt length for large posts in category posts widgets
- */
-function merlin_category_posts_large_excerpt($length) {
-    return 32;
-}
-
-/**
- * Function to change excerpt length for medium posts in category posts widgets
- */
-function merlin_category_posts_medium_excerpt($length) {
-    return 20;
-}
-
-
-/**
- * Change excerpt length for small posts in category posts widgets
- */
-function merlin_category_posts_small_excerpt($length) {
-    return 8;
-}
 
 /*==================================== INCLUDE FILES ====================================*/
 
@@ -252,15 +199,14 @@ require get_template_directory() . '/inc/theme-info.php';
 require get_template_directory() . '/inc/customizer/customizer.php';
 require get_template_directory() . '/inc/customizer/default-options.php';
 
-// include Customization Files
-require get_template_directory() . '/inc/customizer/frontend/custom-layout.php';
-require get_template_directory() . '/inc/customizer/frontend/custom-slider.php';
-
 // include Template Functions
 require get_template_directory() . '/inc/template-tags.php';
 
 // Include Extra Functions
 require get_template_directory() . '/inc/extras.php';
+
+// Include Post Slider Setup
+require get_template_directory() . '/inc/slider.php';
 
 // include Widget Files
 require get_template_directory() . '/inc/widgets/widget-category-posts-boxed.php';

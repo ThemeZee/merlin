@@ -40,7 +40,7 @@ function merlin_sanitize_post_layout( $value ) {
 
 
 // Sanitize the post length value.
-function merlin_sanitize_post_length( $value ) {
+function merlin_sanitize_post_content( $value ) {
 
 	if ( ! in_array( $value, array( 'index', 'excerpt' ), true ) ) :
         $value = 'excerpt';
@@ -53,8 +53,8 @@ function merlin_sanitize_post_length( $value ) {
 // Sanitize the slider animation value.
 function merlin_sanitize_slider_animation( $value ) {
 
-	if ( ! in_array( $value, array( 'horizontal', 'fade' ), true ) ) :
-        $value = 'horizontal';
+	if ( ! in_array( $value, array( 'slide', 'fade' ), true ) ) :
+        $value = 'slide';
 	endif;
 
     return $value;
