@@ -8,7 +8,7 @@
 
 ?>
 
-	<div class="header-bar clearfix">
+	<div id="header-bar" class="header-bar clearfix">
 		
 		<?php 
 		// Check if there is a social_icons menu

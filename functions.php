@@ -136,6 +136,9 @@ function merlin_scripts() {
 	// Register and enqueue navigation.js
 	wp_enqueue_script('merlin-jquery-navigation', get_template_directory_uri() .'/js/navigation.js', array('jquery'));
 	
+	// Register and enqueue sidebar.js
+	wp_enqueue_script('merlin-jquery-sidebar', get_template_directory_uri() .'/js/sidebar.js', array('jquery'));
+	
 	// Register and Enqueue Google Fonts
 	wp_enqueue_style('merlin-default-fonts', merlin_google_fonts_url(), array(), null );
 
@@ -179,7 +182,7 @@ function merlin_add_image_sizes() {
 	add_image_size( 'merlin-header-image', 1190, 250, true );
 	
 	// Add Slider Image Size
-	add_image_size( 'merlin-slider-image', 720, 360, true );
+	add_image_size( 'merlin-slider-image', 880, 440, true );
 	
 	// Add Category Post Widget image sizes
 	add_image_size( 'merlin-category-posts-widget-small', 130, 75, true );

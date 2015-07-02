@@ -31,5 +31,7 @@
 			<?php merlin_entry_footer(); ?>
 			
 		</footer><!-- .entry-footer -->
+		
+		<?php the_post_navigation( array( 'prev_text' => '&laquo; %title', 'next_text' => '%title &raquo;' ) ); ?>
 
 	</article>

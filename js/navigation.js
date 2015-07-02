@@ -159,13 +159,13 @@
 			menuClass: "top-navigation-menu",
 			toggleID: "top-navigation-toggle-tablet",
 			toggleClass: "top-navigation-toggle",
-			maxWidth: "60em"
+			maxWidth: "65em"
 		});
 		
 		
 		/* Add flipMenu for social icons menu */
-		$("#header-bar-social-icons").flipMenu({
-			menuClass: "social-icons-menu",
+		$("#header-social-icons").flipMenu({
+			menuClass: "social-icons-navigation",
 			flipMenuClass: "top-navigation-menu",
 			toggleClass: "social-icons-navigation-toggle"
 		});
@@ -173,7 +173,7 @@
 		/* Add flipMenu for top navigation */
 		$("#top-navigation").flipMenu({
 			menuClass: "top-navigation-menu",
-			flipMenuClass: "social-icons-menu",
+			flipMenuClass: "social-icons-navigation",
 			toggleID: "top-navigation-toggle-phone",
 			toggleClass: "top-navigation-toggle"
 		});
