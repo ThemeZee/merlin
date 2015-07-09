@@ -2513,10 +2513,10 @@ object {
 		right: 0;
 		padding: 1.8em;
 		background: #fff;
-		box-shadow: 0 0 3px #bbb;
+		box-shadow: 0 0 5px #aaa;
 		width: 90%;
 		height: 100%;
-		overflow: scroll;
+		overflow: auto;
 		z-index: 200;
 	}
 	
@@ -2636,66 +2636,6 @@ object {
 		padding: 0.9em;
 	}
 	
-	
-	/* Mobile Footer Navigation */
-		
-	/* Reset */
-	#footernav, #footernav-menu, #footernav-menu li, #footernav-menu a, #footernav-menu ul {
-		margin: 0;
-		padding: 0;
-		position: static;
-		float: none;
-		display: inline;
-		font-size: 1.0em;
-		border: none;
-		box-shadow: none;
-		background: none;
-		top: 0;
-		left: 0;
-	}
-	#footernav {
-		float: none;
-	}
-	#footernav-icon {
-		display: block;
-		text-decoration: none;
-		font-size: 0.9em;
-		color: #fff;
-	}
-	#footernav-icon:hover {
-		cursor: pointer;
-		text-decoration: underline;
-	}
-	#footernav-icon:after {
-		margin: 0.05em 0 0 1em;
-		-webkit-font-smoothing: antialiased;
-		display: inline-block;
-		content: '\f419';
-		font: normal 14px/1 Genericons;
-		text-decoration: inherit;
-		vertical-align: text-bottom;
-	}
-	#footernav-icon:hover:after {
-		text-decoration: none;
-	}
-	#footernav-menu {
-		display: none;
-		width: 100%;
-		padding-bottom: 1.2em;
-	}
-	#footernav-menu li {
-		display: block;
-		padding: 0.4em 0;
-		margin: 0 1.5em 0.5em 0;
-	}
-	#footernav-menu a {
-		display: inline-block;
-		text-decoration: none;
-		font-size: 0.9em;
-	}
-	#footernav-menu a:hover {
-		text-decoration: underline;
-	}
 	
 	/* Magazine Homepage: Category Post Widgets */
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .more-link,

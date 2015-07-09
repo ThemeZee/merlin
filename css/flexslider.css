@@ -7,7 +7,8 @@
  * http://www.gnu.org/licenses/gpl-2.0.html
  *
  * Contributing author: Tyler Smith (@mbmufffin)
- * 
+ *
+ * @package Merlin
  */
 
 /* ====================================================================================================================
@@ -221,9 +222,9 @@ html[xmlns] .zeeflexslider .zeeslides {
 }
 .post-slider-controls .zeeflex-control-nav li a {
 	width: 30px; 
-	height: 14px; 
+	height: 10px; 
 	display: block; 
-	background: rgba(255,255,255,0.4);
+	background: rgba(255,255,255,0.7);
 	cursor: pointer; 
 	text-indent: -9999px;
 	-webkit-transition: all 0.4s ease;
@@ -233,10 +234,10 @@ html[xmlns] .zeeflexslider .zeeslides {
 	transition: all 0.4s ease;
 }
 .post-slider-controls .zeeflex-control-nav li a:hover { 
-	background: rgba(255,255,255,0.9);
+	background: rgba(255,255,255,1);
 }
 .post-slider-controls .zeeflex-control-nav li a.zeeflex-active { 
-	background: rgba(255,255,255,0.9);
+	background: rgba(255,255,255,1);
 	cursor: default; 
 }
 
@@ -386,4 +387,56 @@ html[xmlns] .zeeflexslider .zeeslides {
 		font-size: 1.25rem;
 	}
 	
+}
+
+
+.post-slider-wrap {
+	background: #44aacc;
+}
+.post-slider .zeeslide .slide-image {
+	border-right: 8px solid #fff;
+}
+.post-slider .zeeslide .slide-content {
+	background: #44aacc;
+}
+
+.post-slider .zeeslide .entry-title {
+	font-size: 28px;
+	font-size: 1.75rem;
+}
+
+.post-slider .zeeslide .entry-title,
+.post-slider .zeeslide .entry-title a:link,
+.post-slider .zeeslide .entry-title a:visited {
+	color: #fff;
+	border-color: #fff;
+}
+
+.post-slider .zeeslide .entry-title a:hover,
+.post-slider .zeeslide .entry-title a:active {
+	color: #eee;
+}
+
+.post-slider .zeeslide .entry-content,
+.post-slider .zeeslide .entry-meta a:link,
+.post-slider .zeeslide .entry-meta a:visited {
+	color: #fff;
+}
+
+.post-slider .zeeslide .entry-meta a:hover,
+.post-slider .zeeslide .entry-meta a:active {
+	color: #eee;
+}
+
+.post-slider .zeeslide .more-link {
+	color: #44aacc;
+	background: #fff;
+}
+
+.post-slider .zeeslide .more-link:hover {
+	background: #eee;
+}
+
+.post-slider .zeeslide .entry-meta span:before {
+	color: #eee;
 }

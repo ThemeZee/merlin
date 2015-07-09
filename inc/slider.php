@@ -24,13 +24,13 @@ function merlin_slider_scripts() {
 		|| ( isset($theme_options['slider_magazine']) and $theme_options['slider_magazine'] == true ) ) :
 
 		// FlexSlider CSS
-		wp_enqueue_style('merlin-flexslider', get_template_directory_uri() . '/css/flexslider.css');
+		wp_enqueue_style( 'merlin-flexslider', get_template_directory_uri() . '/css/flexslider.css' );
 
 		// FlexSlider JS
-		wp_enqueue_script('merlin-flexslider', get_template_directory_uri() .'/js/jquery.flexslider-min.js', array('jquery'));
+		wp_enqueue_script( 'merlin-flexslider', get_template_directory_uri() .'/js/jquery.flexslider-min.js', array('jquery'), '2.5.0' );
 
 		// Register and enqueue slider.js
-		wp_enqueue_script('merlin-post-slider', get_template_directory_uri() .'/js/slider.js', array('merlin-flexslider'));
+		wp_enqueue_script( 'merlin-post-slider', get_template_directory_uri() .'/js/slider.js', array('merlin-flexslider') );
 
 	endif;
 	

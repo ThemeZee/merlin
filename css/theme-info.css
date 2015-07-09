@@ -1,14 +1,10 @@
 /*
- * jQuery FlexSlider v2.0
- * http://www.woothemes.com/flexslider/
+ * Theme Info CSS
  *
- * Copyright 2012 WooThemes
- * Free to use under the GPLv2 license.
- * http://www.gnu.org/licenses/gpl-2.0.html
+ * CSS Stylesheet for Theme Info page on Appearance -> Theme Info
  *
- * Contributing author: Tyler Smith (@mbmufffin)
+ * @package Merlin
  */
-
 
 .theme-info-wrap {
     margin: 25px 40px 0 20px;

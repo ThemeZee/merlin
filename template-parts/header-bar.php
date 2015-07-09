@@ -1,9 +1,10 @@
 <?php
 /***
- * Top Navigation
+ * Header Bar
  *
- * This template displays the content in the right-hand header area based on theme options.
+ * Displays the top navigation and social icons menu above the main header area
  *
+ * @package Merlin
  */
 
 ?>
@@ -11,7 +12,7 @@
 	<div id="header-bar" class="header-bar clearfix">
 		
 		<?php 
-		// Check if there is a social_icons menu
+		// Check if there is a social menu
 		if( has_nav_menu( 'social' ) ) :?>
 
 			<div id="header-social-icons" class="social-icons-navigation clearfix">
@@ -35,8 +36,7 @@
 		
 		<?php endif;
 		
-
-		// Display Top Navigation Menu
+		// Check if there is a top navigation menu
 		if ( has_nav_menu( 'secondary' ) ) : ?>		
 		
 			<nav id="top-navigation" class="secondary-navigation navigation clearfix" role="navigation">

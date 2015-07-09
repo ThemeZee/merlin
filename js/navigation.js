@@ -1,7 +1,15 @@
-/*! jQuery navigation.js
-  Adds toggle icon for mobile navigation and dropdown animations for widescreen navigation
-  Author: Thomas W (themezee.com)
-*/
+/**
+ * jQuery Navigation Plugin
+ * Includes responsiveMenu() and flipMenu() functions
+ *
+ * Copyright 2015 ThemeZee
+ * Free to use under the GPLv2 and later license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Author: Thomas Weichselbaumer (themezee.com)
+ *
+ * @package Merlin
+ */
 
 (function($) {
 	

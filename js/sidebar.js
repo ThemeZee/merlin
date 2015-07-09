@@ -1,7 +1,16 @@
-/*! jQuery sidebar.js
-  Adds toggle icon for mobile sidebar toggle and slide animations for sidebar
-  Author: Thomas W (themezee.com)
-*/
+/**
+ * jQuery Sidebar JS
+ *
+ * Adds a toggle icon with slide animation for the sidebar on mobile devices
+ *
+ * Copyright 2015 ThemeZee
+ * Free to use under the GPLv2 and later license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Author: Thomas Weichselbaumer (themezee.com)
+ *
+ * @package Merlin
+ */
 
 (function($) {
 	
@@ -17,6 +26,7 @@
 			sidebar.animate({ 'max-width' : '400px' }, 400 );
 					
 			content.fadeTo('400', 0.5); 
+			
 		}
 		
 		/* Hide sidebar and show full content area */
@@ -32,7 +42,6 @@
 		/* Reset sidebar on desktop screen sizes */
 		function resetSidebar() {
 			
-			console.log("reset");
 			sidebar.show();
 			sidebar.css({ 'max-width' : '100%' });
 					
@@ -62,7 +71,7 @@
 					
 		}
 		
-		/* Rest sidebar menu on desktop screens */
+		/* Reset sidebar menu on desktop screens */
 		if(typeof matchMedia == 'function') {
 			var mq = window.matchMedia('(max-width: 55em)');
 			mq.addListener(widthChange);

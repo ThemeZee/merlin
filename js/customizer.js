@@ -1,6 +1,9 @@
-/*
- * Customizer.js to reload changes on Theme Customizer Preview asynchronously.
+/**
+ * jQuery Customizer JS
  *
+ * Reloads changes on Theme Customizer Preview asynchronously for better usability
+ *
+ * @package Merlin
  */
 
 ( function( $ ) {

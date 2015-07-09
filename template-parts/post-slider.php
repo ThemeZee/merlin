@@ -4,9 +4,9 @@
  *
  * Queries posts by selected slider category and displays slideshow
  *
+ * @package Merlin
  */
 
- 
 // Get Theme Options from Database
 $theme_options = merlin_theme_options();
 	
