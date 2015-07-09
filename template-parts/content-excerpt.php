@@ -20,7 +20,7 @@
 
 		<div class="entry-content clearfix">
 			<?php the_excerpt(); ?>
-			<a href="<?php echo esc_url( get_permalink() ) ?>" class="more-link"><?php _e('Read More', 'merlin'); ?></a>
+			<?php merlin_more_link(); ?>
 		</div><!-- .entry-content -->
 		
 		<footer class="entry-footer">

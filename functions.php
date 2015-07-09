@@ -187,7 +187,7 @@ function merlin_add_image_sizes() {
 	// Add Category Post Widget image sizes
 	add_image_size( 'merlin-category-posts-widget-small', 130, 75, true );
 	add_image_size( 'merlin-category-posts-widget-medium', 260, 150, true );
-	add_image_size( 'merlin-category-posts-widget-large', 400, 230, true );
+	add_image_size( 'merlin-category-posts-widget-large', 580, 320, true );
 	
 }
 add_action( 'after_setup_theme', 'merlin_add_image_sizes' );

@@ -43,7 +43,7 @@
 		if ( $( '.sidebar' ).length > 0 ) {
 		
 			/* Add sidebar toggle */
-			$('.main-navigation-menu').after('<button id=\"sidebar-toggle\" class=\"sidebar-navigation-toggle\"></button>');
+			$('.main-navigation-menu').before('<button id=\"sidebar-toggle\" class=\"sidebar-navigation-toggle\"></button>');
 			
 			/* Setup Selectors */
 			var button = $('#sidebar-toggle'),

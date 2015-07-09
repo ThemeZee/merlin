@@ -17,7 +17,7 @@ do_action('merlin_before_footer');
 			<?php do_action('merlin_footer_text'); ?>
 		</div><!-- .site-info -->
 			
-		<nav id="footer-navigation" class="tertiary-navigation navigation clearfix" role="navigation">
+		<nav id="footer-links" class="footer-navigation navigation clearfix" role="navigation">
 			<?php 
 				// Display Footer Navigation
 				wp_nav_menu( array(
@@ -29,7 +29,7 @@ do_action('merlin_before_footer');
 					'depth' => 1)
 				);
 			?>
-		</nav><!-- #footer-navigation -->
+		</nav><!-- #footer-links -->
 
 	</footer><!-- #colophon -->
 

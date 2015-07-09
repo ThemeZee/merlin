@@ -54,7 +54,7 @@ endif;
 
 
 /**
- * Displays the featured image below on archive pages
+ * Displays the featured image on archive pages
  */
 function merlin_post_image_archives() {
 	
@@ -88,7 +88,7 @@ function merlin_post_image_archives() {
 
 
 /**
- * Displays the featured image below on single posts
+ * Displays the featured image on single posts
  */
 function merlin_post_image_single() {
 	
@@ -264,6 +264,19 @@ function merlin_entry_meta_slider() {
 		
 	<?php endif; 
 
+}
+endif;
+
+
+if ( ! function_exists( 'merlin_more_link' ) ):
+/**
+ * Displays the more link on posts
+ */
+function merlin_more_link() { ?>
+
+	<a href="<?php echo esc_url( get_permalink() ) ?>" class="more-link"><?php _e('Read more', 'merlin'); ?></a>
+
+<?php
 }
 endif;
 

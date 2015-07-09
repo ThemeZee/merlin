@@ -24,9 +24,9 @@ if ( post_password_required() ) {
 
 	<?php if ( have_comments() ) : ?>
 		
-		<header class="comment-header">
+		<header class="comments-header">
 			
-			<h2 class="comment-title">
+			<h2 class="comments-title">
 				<?php comments_number( '', __('One comment','dynamicnewslite'), __('% comments','dynamicnewslite') );?>
 			</h2>
 			

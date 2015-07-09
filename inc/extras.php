@@ -59,24 +59,8 @@ add_filter('excerpt_length', 'merlin_excerpt_length');
 
 
 /**
- * Function to change excerpt length for large posts in category posts widgets
+ * Function to change excerpt length for posts in category posts widgets
  */
-function merlin_category_posts_large_excerpt($length) {
-    return 32;
-}
-
-
-/**
- * Function to change excerpt length for medium posts in category posts widgets
- */
-function merlin_category_posts_medium_excerpt($length) {
-    return 20;
-}
-
-
-/**
- * Change excerpt length for small posts in category posts widgets
- */
-function merlin_category_posts_small_excerpt($length) {
-    return 8;
+function merlin_category_posts_excerpt_length($length) {
+    return 15;
 }

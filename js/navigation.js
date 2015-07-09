@@ -177,6 +177,15 @@
 			toggleID: "top-navigation-toggle-phone",
 			toggleClass: "top-navigation-toggle"
 		});
+		
+		
+		/* Setup Footer Navigation */
+		$('.footer-navigation-menu').before('<button id=\"footer-links-toggle\" class=\"footer-navigation-toggle\"></button>');
+		
+		$('#footer-links-toggle').on('click', function(){
+			$('.footer-navigation-menu').slideToggle();
+			$(this).toggleClass('active');
+		});
 
 	} );
 

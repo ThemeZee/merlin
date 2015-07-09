@@ -143,7 +143,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 		if( $posts_query->have_posts() ) :
 		
 			// Limit the number of words for the excerpt
-			add_filter('excerpt_length', 'merlin_category_posts_medium_excerpt');
+			add_filter('excerpt_length', 'merlin_category_posts_excerpt_length');
 			
 			// Display Posts
 			while( $posts_query->have_posts() ) :
@@ -158,14 +158,20 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 						
 						<div class="post-content">
 
-							<h3 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
-
-							<div class="entry-meta"><?php $this->entry_meta($instance); ?></div>
-
-							<div class="entry">
+							<header class="entry-header">
+			
+								<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+							
+								<div class="entry-meta">
+									<?php $this->entry_meta($instance); ?>
+								</div><!-- .entry-meta -->
+						
+							</header><!-- .entry-header -->
+							
+							<div class="entry-content">
 								<?php the_excerpt(); ?>
-								<a href="<?php esc_url(the_permalink()) ?>" class="more-link"><?php _e('Read more', 'merlin'); ?></a>
-							</div>
+								<?php merlin_more_link(); ?>
+							</div><!-- .entry-content -->
 							
 						</div>
 
@@ -177,14 +183,17 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('medium-post clearfix'); ?>>
 
-					<?php if ( '' != get_the_post_thumbnail() ) : ?>
-						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-medium'); ?></a>
-					<?php endif; ?>
+						<?php if ( '' != get_the_post_thumbnail() ) : ?>
+							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-medium'); ?></a>
+						<?php endif; ?>
 
 						<div class="medium-post-content">
 							
-							<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-							<div class="entry-meta"><?php $this->entry_date($instance); ?></div>
+							<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>						
+							
+							<div class="entry-meta">
+								<?php $this->entry_date($instance); ?>
+							</div><!-- .entry-meta -->
 						
 						</div>
 
@@ -199,7 +208,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 				
 			<?php
 			// Remove excerpt filter
-			remove_filter('excerpt_length', 'merlin_category_posts_medium_excerpt');
+			remove_filter('excerpt_length', 'merlin_category_posts_excerpt_length');
 			
 		endif;
 		
@@ -228,7 +237,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 		if( $posts_query->have_posts() ) :
 		
 			// Limit the number of words for the excerpt
-			add_filter('excerpt_length', 'merlin_category_posts_medium_excerpt');
+			add_filter('excerpt_length', 'merlin_category_posts_excerpt_length');
 			
 			// Display Posts
 			while( $posts_query->have_posts() ) :
@@ -239,20 +248,22 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('large-post clearfix'); ?>>
 
-						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-large'); ?></a>
+						<header class="entry-header">
+			
+							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-large'); ?></a>
+
+							<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 						
-						<div class="post-content">
-
-							<h3 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
-
-							<div class="entry-meta"><?php $this->entry_meta($instance); ?></div>
-
-							<div class="entry">
-								<?php the_excerpt(); ?>
-								<a href="<?php esc_url(the_permalink()) ?>" class="more-link"><?php _e('Read more', 'merlin'); ?></a>
-							</div>
-							
-						</div>
+							<div class="entry-meta">
+								<?php $this->entry_meta($instance); ?>
+							</div><!-- .entry-meta -->
+					
+						</header><!-- .entry-header -->
+						
+						<div class="entry-content">
+							<?php the_excerpt(); ?>
+							<?php merlin_more_link(); ?>
+						</div><!-- .entry-content -->
 
 					</article>
 
@@ -262,15 +273,18 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('small-post clearfix'); ?>>
 
-					<?php if ( '' != get_the_post_thumbnail() ) : ?>
-						<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-small'); ?></a>
-					<?php endif; ?>
+						<?php if ( '' != get_the_post_thumbnail() ) : ?>
+							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-small'); ?></a>
+						<?php endif; ?>
 
 						<div class="small-post-content">
 							
-							<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-							<div class="entry-meta"><?php $this->entry_date($instance); ?></div>
-						
+							<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>						
+							
+							<div class="entry-meta">
+								<?php $this->entry_date($instance); ?>
+							</div><!-- .entry-meta -->
+							
 						</div>
 
 					</article>
@@ -284,7 +298,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 				
 			<?php
 			// Remove excerpt filter
-			remove_filter('excerpt_length', 'merlin_category_posts_medium_excerpt');
+			remove_filter('excerpt_length', 'merlin_category_posts_excerpt_length');
 			
 		endif;
 		

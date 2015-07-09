@@ -96,9 +96,9 @@ html[xmlns] .zeeflexslider .zeeslides {
 
 .post-slider .zeeslide .slide-image {
 	float: left;
-	max-width: 860px;
+	max-width: 880px;
 	width: 65%;
-	max-height: 430px;
+	max-height: 440px;
 	height: auto;
 	border-right: 15px solid #44aacc;
 	vertical-align: top;
@@ -293,7 +293,7 @@ html[xmlns] .zeeflexslider .zeeslides {
 	
 }
 
-@media only screen and (max-width: 60em) {
+@media only screen and (max-width: 58em) {
 	
 	.post-slider .zeeslide .slide-image {
 		float: none;

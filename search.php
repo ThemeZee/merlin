@@ -13,39 +13,53 @@ get_header();
 $theme_options = merlin_theme_options();
 ?>
 
-	<div id="content" class="site-content container clearfix">
+	<div id="content" class="site-content clearfix">
 	
 		<section id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 			
-			<?php if (have_posts()) : ?>
-				<h2 id="search-title" class="archive-title">
-					<span><?php printf( __( 'Search Results for: %s', 'merlin'), get_search_query() ); ?></span>
-				</h2>
-			
-				<div id="post-wrapper" class="clearfix">
-			 
-				<?php while (have_posts()) : the_post();
-			
-					get_template_part( 'template-parts/content', $theme_options['post_layout'] );
-			
-				endwhile; ?>
+				<header class="page-header">
+					
+					<h1 class="archive-title"><?php printf( __( 'Search Results for: %s', 'merlin'), get_search_query() ); ?></h1>
+					
+				</header><!-- .page-header -->
 				
-				</div>
-				
-				<?php // Display Pagination	
+			<?php 
+			if (have_posts()) : 
+			
+				while (have_posts()) : the_post();
+		
+					if ( 'post' == get_post_type() ) :
+			
+						get_template_part( 'template-parts/content', $theme_options['post_content'] );
+					
+					else :
+					
+						get_template_part( 'template-parts/content', 'search' );
+						
+					endif;
+			
+				endwhile;
+
+				// Display Pagination	
 				merlin_pagination();
 
 			else : ?>
 
-				<h2 id="search-title" class="archive-title">
-					<?php printf( __( 'Search Results for: %s', 'merlin'), '<span>' . get_search_query() . '</span>' ); ?>
-				</h2>
-				
-				<div class="post">
+				<div class="no-matches type-page">
 					
-					<div class="entry">
-						<p><?php _e('No matches. Please try again, or use the navigation menus to find what you search for.', 'merlin'); ?></p>
+					<header class="entry-header">
+			
+						<h1 class="page-title"><?php _e('No matches', 'merlin'); ?></h1>
+						
+					</header><!-- .entry-header -->
+					
+					<div class="entry-content">
+						
+						<p><?php esc_html_e('Please try again, or use the navigation menus to find what you search for.', 'merlin'); ?></p>
+						
+						<?php get_search_form(); ?>
+					
 					</div>
 					
 				</div>

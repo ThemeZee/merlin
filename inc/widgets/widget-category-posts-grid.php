@@ -136,7 +136,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		if( $posts_query->have_posts() ) :
 		
 			// Limit the number of words for the excerpt
-			add_filter('excerpt_length', 'merlin_category_posts_medium_excerpt');
+			add_filter('excerpt_length', 'merlin_category_posts_excerpt_length');
 			
 			// Display Posts
 			while( $posts_query->have_posts() ) :
@@ -166,7 +166,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 							
 							<div class="entry-content clearfix">
 								<?php the_excerpt(); ?>
-								<a href="<?php echo esc_url( get_permalink() ) ?>" class="more-link"><?php _e('Read More', 'merlin'); ?></a>
+								<?php merlin_more_link(); ?>
 							</div><!-- .entry-content -->
 							
 						<?php endif; ?>
@@ -187,7 +187,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 			<?php endif;
 			
 			// Remove excerpt filter
-			remove_filter('excerpt_length', 'merlin_category_posts_medium_excerpt');
+			remove_filter('excerpt_length', 'merlin_category_posts_excerpt_length');
 			
 		endif;
 		
@@ -216,7 +216,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		if( $posts_query->have_posts() ) :
 		
 			// Limit the number of words for the excerpt
-			add_filter('excerpt_length', 'merlin_category_posts_medium_excerpt');
+			add_filter('excerpt_length', 'merlin_category_posts_excerpt_length');
 			
 			// Display Posts
 			while( $posts_query->have_posts() ) :
@@ -234,7 +234,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 			
 								<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-medium'); ?></a>
 
-								<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+								<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 							
 								<div class="entry-meta">
 									<?php $this->entry_date($instance); ?>
@@ -246,7 +246,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 							
 							<div class="entry-content clearfix">
 								<?php the_excerpt(); ?>
-								<a href="<?php echo esc_url( get_permalink() ) ?>" class="more-link"><?php _e('Read More', 'merlin'); ?></a>
+								<?php merlin_more_link(); ?>
 							</div><!-- .entry-content -->
 							
 						<?php endif; ?>
@@ -267,7 +267,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 			<?php endif;
 			
 			// Remove excerpt filter
-			remove_filter('excerpt_length', 'merlin_category_posts_medium_excerpt');
+			remove_filter('excerpt_length', 'merlin_category_posts_excerpt_length');
 			
 		endif;
 		

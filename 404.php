@@ -7,35 +7,34 @@
 
 get_header(); ?>
 
-	<div id="content" class="site-content container clearfix">
+	<div id="content" class="site-content clearfix">
 	
 		<section id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 
 				<div class="error-404 not-found type-page">
 				
-					<h2 class="page-title"><?php _e('404 Error: Not found', 'merlin'); ?></h2>
-					
-					<div class="entry">
-						<p><?php _e('The page you trying to reach does not exist, or has been moved. Please use the menus or the search box to find what you are looking for', 'merlin'); ?></p>
+					<header class="entry-header">
+			
+						<h1 class="page-title"><?php _e('404: That page can&rsquo;t be found.', 'merlin'); ?></h1>
 						
-						<h2><?php _e('Search', 'merlin'); ?></h2>
+					</header><!-- .entry-header -->
+					
+					<div class="entry-content clearfix">
+						<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'merlin' ); ?></p>
+						
 						<?php get_search_form(); ?>
 
-						<h2><?php _e('Recent Posts', 'merlin'); ?></h2>
-						<ul>
-							<?php
-								$recent_posts = wp_get_recent_posts(array('numberposts' => '8', 'post_status' => 'publish'));
-								foreach( $recent_posts as $recent ) {
-									echo '<li><a href="' . esc_url(get_permalink($recent['ID'])) . '" title="Look '.esc_attr($recent['post_title']).'" >' . $recent['post_title'] . '</a></li>';
-								}
-							?>
-						</ul>
+						<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
+
+						<?php the_widget( 'WP_Widget_Archives', 'dropdown=1' ); ?>
 						
-						<h2><?php _e('Pages', 'merlin'); ?></h2>
-						<ul>
-							<?php wp_list_pages('title_li='); ?>
-						</ul>
+						<?php the_widget( 'WP_Widget_Categories', 'dropdown=1' ); ?>
+
+						<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
+						
+						<?php the_widget( 'WP_Widget_Pages' ); ?>
+
 					</div>
 					
 				</div>
