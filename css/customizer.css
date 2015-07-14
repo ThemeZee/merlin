@@ -6,14 +6,17 @@
  * @package Merlin
  */
 
+#customize-control-merlin_control_latest_posts_title,
+#customize-control-merlin_control_post_content,
+#customize-control-merlin_control_postmeta_headline,
+#customize-control-merlin_control_footermeta_headline,
 #customize-control-merlin_control_slider_category,
 #customize-control-merlin_control_slider_limit,
-#customize-control-merlin_control_slider_animation,
-#customize-control-merlin_control_postmeta_headline,
-#customize-control-merlin_control_footermeta_headline {
+#customize-control-merlin_control_slider_animation {
 	margin-top: 12px;
 }
 
+#customize-control-merlin_control_sticky_nav_headline,
 #customize-control-merlin_control_postmeta_headline,
 #customize-control-merlin_control_footermeta_headline,
 #customize-control-merlin_control_post_image_single_header,

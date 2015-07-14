@@ -17,4 +17,5 @@ jQuery(document).ready(function($) {
 		pauseOnHover: true,
 		controlsContainer: ".post-slider-controls"
 	});
+	
 });

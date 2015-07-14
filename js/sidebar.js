@@ -84,8 +84,11 @@
 				sidebar.hide();
 				
 				/* Hide Sidebar when Content Area is clicked */
-				content.on('click', function(){
-					hideSidebar();
+				content.on('click', function(e){
+					if( sidebar.is(':visible') ) {
+						e.preventDefault();
+						hideSidebar();
+					}
 				});
 
 			}

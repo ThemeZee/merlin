@@ -45,13 +45,21 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	13.1 - Captions
 	13.2 - Galleries
 14.0 - Media Queries
-	14.1 - Mobile Large
-	14.2 - Tablet Small
-	14.3 - Tablet Large
-	14.4 - Desktop Small
-	14.5 - Desktop Medium
-	14.6 - Desktop Large
-	14.7 - Desktop X-Large
+	14.1 - Desktop X-Large ( < 1280px )
+	14.2 - Desktop Large ( < 1120px )
+	14.3 - Desktop Medium ( < 1040px )
+	14.4 - Desktop Small ( < 960px )
+	14.5 - Tablet Large ( < 880px )
+	14.6 - Tablet Medium ( < 800px )
+	14.7 - Tablet Small ( < 720px )
+	14.8 - Mobile Extra Large ( < 640px )
+	14.9 - Mobile Large ( < 560px )
+	14.10 - Mobile Medium ( < 480px )
+	14.11 - Mobile Small ( < 320px )
+15.0 - Theme Option Styles
+	15.1 - Sidebar Left Layout
+	15.2 - Sticky Navigation
+16.0 - Media Query Fixes
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -616,21 +624,6 @@ textarea {
 .sidebar {
 	float: right;
 	width: 26%;
-}
-
-/* Sidebar Left Layout */
-@media only screen and (min-width: 60em) {
-	
-	.sidebar-left .content-area {
-		float: right;
-		padding-right: 0;
-		padding-left: 1.8em;
-	}
-	
-	.sidebar-left .sidebar {
-		float: left;
-	}
-	
 }
 
 /* Fullwidth Template */
@@ -2097,6 +2090,9 @@ object {
 # 14.0 - Media Queries
 --------------------------------------------------------------*/
 
+/*--------------------------------------------------------------
+## 14.1 - Desktop X-Large ( < 1280px )
+--------------------------------------------------------------*/
 @media only screen and (max-width: 80em) {
 
 	body {
@@ -2105,7 +2101,9 @@ object {
 	
 }
 
-/* Small screens | <1120px */
+/*--------------------------------------------------------------
+## 14.2 - Desktop Large ( < 1120px )
+--------------------------------------------------------------*/
 @media only screen and (max-width: 70em) {
 	
 	body {
@@ -2148,7 +2146,9 @@ object {
 	
 }
 
-/* Smaller screens | <1120px */
+/*--------------------------------------------------------------
+## 14.3 - Desktop Medium ( < 1040px )
+--------------------------------------------------------------*/
 @media only screen and (max-width: 65em) {
 	
 	body {
@@ -2178,7 +2178,9 @@ object {
 
 }
 
-/* Tablets (landscape) | <960px */
+/*--------------------------------------------------------------
+## 14.4 - Desktop Small ( < 960px )
+--------------------------------------------------------------*/
 @media only screen and (max-width: 60em) {
 	
 	body {
@@ -2482,7 +2484,9 @@ object {
 	
 }
 
-/* Tablets (landscape) | <960px */
+/*--------------------------------------------------------------
+## 14.5 - Tablet Large ( < 880px )
+--------------------------------------------------------------*/
 @media only screen and (max-width: 55em) {
 	
 	body {
@@ -2514,7 +2518,7 @@ object {
 		padding: 1.8em;
 		background: #fff;
 		box-shadow: 0 0 5px #aaa;
-		width: 90%;
+		width: 80%;
 		height: 100%;
 		overflow: auto;
 		z-index: 200;
@@ -2564,7 +2568,9 @@ object {
 	
 }
 
-/* Tablets (portrait) | <800px */
+/*--------------------------------------------------------------
+## 14.6 - Tablet Medium ( < 800px )
+--------------------------------------------------------------*/
 @media only screen and (max-width: 50em) {
 	
 	body {
@@ -2645,7 +2651,9 @@ object {
 	
 }
 
-/* Phablets (portrait) | <640px */
+/*--------------------------------------------------------------
+## 14.7 - Tablet Small ( < 720px )
+--------------------------------------------------------------*/
 @media only screen and (max-width: 45em) {
 	
 	.type-post .post-thumbnail-small .wp-post-image {
@@ -2662,7 +2670,9 @@ object {
 	
 }
 
-/* Phablets (portrait) | <640px */
+/*--------------------------------------------------------------
+## 14.8 - Mobile Extra Large ( < 640px )
+--------------------------------------------------------------*/
 @media only screen and (max-width: 40em) {
 	
 	body {
@@ -2691,7 +2701,6 @@ object {
 	
 	.widget-category-posts-grid .category-posts-grid-row .large-post,
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .wp-post-image,
-	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .post-content,
 	.widget-category-posts-boxed .category-posts-boxed-vertical .large-post,
 	.widget-category-posts-columns .category-posts-column-left {
 		float: none;
@@ -2707,20 +2716,41 @@ object {
 		padding-left: 0;
 	}
 	
-	.widget-category-posts .large-post .wp-post-image,
-	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .wp-post-image {
-		float: none;
-		margin: 0 0 0.5em 0;
+	.widget-category-posts .large-post .wp-post-image {
+		float: left;
+		margin: 0 1.5em 0 0;
+		max-width: 50%;
 	}
 	
-	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .more-link,
+	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .post-content {
+		float: right;
+		width: 50%;
+		padding-left: 1.5em;
+	}
+	
+	.widget-category-posts-grid .category-posts-grid-row .large-post {
+		clear: left;
+	}
+	
+	.widget-category-posts-grid .category-posts-grid-row .large-post .wp-post-image {
+		margin-bottom: 1em;
+	}
+
+	.widget-category-posts .large-post .entry-content {
+		display: none;
+	}
+
+	.widget-category-posts .large-post .entry-meta .meta-author,
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .entry-meta .meta-author {
-		display: inline-block;
+		display: block;
+		margin: 0;
 	}
 	
 }
 
-/* Smartphones | <480px */
+/*--------------------------------------------------------------
+## 14.9 - Mobile Large ( < 560px )
+--------------------------------------------------------------*/
 @media only screen and (max-width: 35em) {
 
 	.widget-category-posts-grid .medium-post-row {
@@ -2744,9 +2774,16 @@ object {
 		font-size: 1rem;
 	}
 	
+	.widget-category-posts .large-post .entry-title {
+		font-size: 18px;
+		font-size: 1.125rem;
+	}
+	
 }
 
-/* Smartphones | <480px */
+/*--------------------------------------------------------------
+## 14.10 - Mobile Medium ( < 480px )
+--------------------------------------------------------------*/
 @media only screen and (max-width: 30em) {
 	
 	body {
@@ -2844,9 +2881,40 @@ object {
 		font-size: 0.875rem;
 	}
 	
+	.widget-category-posts .large-post .wp-post-image,
+	.widget-category-posts-grid .category-posts-grid-row .large-post .wp-post-image {
+		float: none;
+		margin: 0 0 0.2em 0;
+		max-width: 100%;
+	}
+	
+	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .post-content {
+		float: none;
+		width: 100%;
+		padding: 0;
+	}
+	
+	.widget-category-posts .large-post .entry-title {
+		font-size: 20px;
+		font-size: 1.25rem;
+	}
+	
+	.widget-category-posts .large-post .entry-content,
+	.widget-category-posts .large-post .entry-content .more-link {
+		display: inline-block;
+	}
+
+	.widget-category-posts .large-post .entry-meta .meta-author,
+	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .entry-meta .meta-author {
+		display: inline-block;
+		margin-left: 0.8em;
+	}
+	
 }
 
-/* Smartphones | <320px */
+/*--------------------------------------------------------------
+## 14.11 - Mobile Small ( < 320px )
+--------------------------------------------------------------*/
 @media only screen and (max-width: 20em) {
 	
 	body {
@@ -2863,7 +2931,7 @@ object {
 	
 	.page-title,
 	.entry-title,
-	.type-post .post-thumbnail-small + .entry-header .entry-title	{
+	.type-post .post-thumbnail-small + .entry-header .entry-title {
 		font-size: 20px;
 		font-size: 1.25rem;
 	}
@@ -2875,10 +2943,65 @@ object {
 }
 
 
-/* Big Screens Navi Fix | >720px */
+/*--------------------------------------------------------------
+# 15.0 - Theme Option Styles
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+## 15.1 - Sidebar Left Layout
+--------------------------------------------------------------*/
+.sidebar-left .content-area {
+	float: right;
+	padding-right: 0;
+	padding-left: 1.8em;
+}
+	
+.sidebar-left .sidebar {
+	float: left;
+}
+
+@media only screen and (max-width: 55em) {
+	
+	.sidebar-left .content-area {
+		float: none;
+		width: 100%;
+		padding: 1.5em;
+	}
+	
+	.sidebar-left .sidebar {
+		float: none;
+		left: 0;
+		right: auto;
+		width: 80%;
+	}
+	
+}
+
+/*--------------------------------------------------------------
+## 15.2 - Sticky Navigation
+--------------------------------------------------------------*/
+@media only screen and (min-width: 60em) {
+	.sticky-navigation .sticky-nav-menu {
+		position: fixed;
+		z-index: 100;
+		top: 0;
+		width: 100%;
+		max-width: 1190px;
+		border-bottom: 1px solid #fff;
+	}
+
+	.sticky-navigation.admin-bar .sticky-nav-menu {
+		top: 32px;
+	}
+}
+
+/*--------------------------------------------------------------
+# 16.0 - Media Query Fixes
+--------------------------------------------------------------*/
+
+/* Ensure navigation is visible on desktop view */
 @media only screen and (min-width: 60em) {
 	
-	/* ensure navigation is visible on desktop version */
 	.main-navigation-menu, .top-navigation-menu {
 		display: block !important;
 	}
@@ -2889,10 +3012,9 @@ object {
 	
 }
 
-/* Big Screens Navi Fix | >720px */
+/* Ensure sidebar is visible on desktop view */
 @media only screen and (min-width: 55em) {
 	
-	/* ensure sidebar is visible on desktop version */
 	.sidebar {
 		display: block;
 		width: 30%;
@@ -2909,18 +3031,18 @@ object {
 	
 }
 
+/* Ensure .footer-navigation-menu is visible on desktop view */
 @media only screen and (min-width: 50em) {
 	
-	/* ensure .footer-navigation-menu is visible on desktop version */
 	.footer-navigation-menu {
 		display: block !important;
 	}
 	
 }
 
+/* Ensure social icons are visible on desktop view */
 @media only screen and (min-width: 30em) {
 	
-	/* ensure social icons are visible on desktop version */
 	.social-icons-navigation .social-icons-menu {
 		display: block !important;
 	}

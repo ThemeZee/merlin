@@ -11,6 +11,7 @@ require( get_template_directory() . '/inc/customizer/functions/sanitize-function
 // Load Customizer Settings
 require( get_template_directory() . '/inc/customizer/sections/customizer-general.php' );
 require( get_template_directory() . '/inc/customizer/sections/customizer-post.php' );
+require( get_template_directory() . '/inc/customizer/sections/customizer-postmeta.php' );
 require( get_template_directory() . '/inc/customizer/sections/customizer-images.php' );
 require( get_template_directory() . '/inc/customizer/sections/customizer-slider.php' );
 require( get_template_directory() . '/inc/customizer/sections/customizer-upgrade.php' );

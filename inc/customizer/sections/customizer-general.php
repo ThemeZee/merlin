@@ -38,22 +38,39 @@ function merlin_customize_register_general_settings( $wp_customize ) {
 		)
 	);
 	
-	// Add Title for latest posts setting
-	$wp_customize->add_setting( 'merlin_theme_options[latest_posts_title]', array(
-        'default'           => __( 'Latest Posts', 'merlin' ),
+	// Add Sticky Navigation Setting
+	$wp_customize->add_setting( 'merlin_theme_options[sticky_nav_headline]', array(
+        'default'           => '',
 		'type'           	=> 'option',
         'transport'         => 'refresh',
-        'sanitize_callback' => 'esc_html'
+        'sanitize_callback' => 'esc_attr'
+        )
+    );
+    $wp_customize->add_control( new Merlin_Customize_Header_Control(
+        $wp_customize, 'merlin_control_sticky_nav_headline', array(
+            'label' => __( 'Sticky Navigation', 'merlin' ),
+            'section' => 'merlin_section_general',
+            'settings' => 'merlin_theme_options[sticky_nav_headline]',
+            'priority' => 2
+            )
+        )
+    );
+	$wp_customize->add_setting( 'merlin_theme_options[sticky_nav]', array(
+        'default'           => false,
+		'type'           	=> 'option',
+        'transport'         => 'refresh',
+        'sanitize_callback' => 'merlin_sanitize_checkbox'
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_latest_posts_title', array(
-        'label'    => __( 'Title above Latest Posts', 'merlin' ),
+    $wp_customize->add_control( 'merlin_control_sticky_nav', array(
+        'label'    => __( 'Enable sticky menu on desktop view.', 'merlin' ),
         'section'  => 'merlin_section_general',
-        'settings' => 'merlin_theme_options[latest_posts_title]',
-        'type'     => 'text',
-		'priority' => 2
+        'settings' => 'merlin_theme_options[sticky_nav]',
+        'type'     => 'checkbox',
+		'priority' => 3
 		)
 	);
+
 	
 }
 

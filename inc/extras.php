@@ -20,12 +20,12 @@ endif;
 
 
 /**
- * Adds custom theme layout class to the array of body classes.
+ * Adds custom theme layout and sticky navigation class to the array of body classes.
  *
  * @param array $classes Classes for the body element.
  * @return array
  */
-function merlin_theme_layout( $classes ) {
+function merlin_body_classes( $classes ) {
 	
 	// Get Theme Options from Database
 	$theme_options = merlin_theme_options();
@@ -34,10 +34,15 @@ function merlin_theme_layout( $classes ) {
 	if ( isset($theme_options['layout']) and $theme_options['layout'] == 'left-sidebar' ) :
 		$classes[] = 'sidebar-left';
 	endif;
+	
+	// Add Sticky Navigation class
+	if ( isset($theme_options['sticky_nav']) and $theme_options['sticky_nav'] == true ) :
+		$classes[] = 'sticky-navigation';
+	endif;
 
 	return $classes;
 }
-add_filter( 'body_class', 'merlin_theme_layout' );
+add_filter( 'body_class', 'merlin_body_classes' );
 
 
 /**

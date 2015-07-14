@@ -105,7 +105,6 @@
 
 	};
 	
-	
 	/**--------------------------------------------------------------
 	# Flip between dropdown menus for Social Icons and Top Navigation
 	--------------------------------------------------------------*/
@@ -193,6 +192,28 @@
 		$('#footer-links-toggle').on('click', function(){
 			$('.footer-navigation-menu').slideToggle();
 			$(this).toggleClass('active');
+		});
+		
+		
+		/* Setup Sticky Menu for main navigation menu */
+		var menu = $( '#main-navigation' );
+		var stickyNavTop = menu.offset().top;
+			
+		stickyMenu = function() {
+		
+			scrollTop = $(window).scrollTop();
+			
+			/* Add Sticky class */
+			if (scrollTop > stickyNavTop) { 
+				menu.addClass('sticky-nav-menu');
+			} else {
+				menu.removeClass('sticky-nav-menu'); 
+			}
+			
+		}
+		stickyMenu();
+		$(window).scroll(function() {
+			stickyMenu();
 		});
 
 	} );

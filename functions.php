@@ -23,12 +23,6 @@ if ( ! function_exists( 'merlin_setup' ) ) :
  */
 function merlin_setup() {
 
-	// Set the content width based on the theme's design and stylesheet.
-	global $content_width;
-	if ( ! isset( $content_width ) ) {
-		$content_width = 810; /* pixels */
-	}
-
 	// Make theme available for translation. Translations can be filed in the /languages/ directory.
 	load_theme_textdomain( 'merlin', get_template_directory() . '/languages' );
 
@@ -74,6 +68,18 @@ function merlin_setup() {
 }
 endif; // merlin_setup
 add_action( 'after_setup_theme', 'merlin_setup' );
+
+
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function merlin_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'merlin_content_width', 810 );
+}
+add_action( 'after_setup_theme', 'merlin_content_width', 0 );
 
 
 /**
@@ -147,7 +153,7 @@ function merlin_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 	
-}// merlin_scripts
+} // merlin_scripts
 add_action( 'wp_enqueue_scripts', 'merlin_scripts' );
 
 
@@ -185,16 +191,18 @@ function merlin_add_image_sizes() {
 	add_image_size( 'merlin-slider-image', 880, 440, true );
 	
 	// Add Category Post Widget image sizes
-	add_image_size( 'merlin-category-posts-widget-small', 130, 75, true );
-	add_image_size( 'merlin-category-posts-widget-medium', 260, 150, true );
-	add_image_size( 'merlin-category-posts-widget-large', 580, 320, true );
+	add_image_size( 'merlin-category-posts-widget-small', 135, 75, true );
+	add_image_size( 'merlin-category-posts-widget-medium', 270, 150, true );
+	add_image_size( 'merlin-category-posts-widget-large', 585, 325, true );
 	
 }
 add_action( 'after_setup_theme', 'merlin_add_image_sizes' );
 
 
-/*==================================== INCLUDE FILES ====================================*/
-
+/**
+ * Include Files
+ */
+ 
 // include Theme Info page
 require get_template_directory() . '/inc/theme-info.php';
 
