@@ -38,23 +38,6 @@ function merlin_customize_register_options( $wp_customize ) {
 	$wp_customize->get_control( 'background_color'  )->section   = 'background_image';
 	$wp_customize->get_section( 'background_image'  )->title     = 'Background';
 	
-	// Add Header Tagline option
-	$wp_customize->add_setting( 'merlin_theme_options[header_tagline]', array(
-        'default'           => false,
-		'type'           	=> 'option',
-        'transport'         => 'refresh',
-        'sanitize_callback' => 'merlin_sanitize_checkbox'
-		)
-	);
-    $wp_customize->add_control( 'merlin_control_header_tagline', array(
-        'label'    => __( 'Display Tagline below site title.', 'merlin' ),
-        'section'  => 'title_tagline',
-        'settings' => 'merlin_theme_options[header_tagline]',
-        'type'     => 'checkbox',
-		'priority' => 99
-		)
-	);
-	
 }
 
 
@@ -73,15 +56,3 @@ function merlin_customize_preview_css() {
 	wp_enqueue_style( 'merlin-customizer-css', get_template_directory_uri() . '/css/customizer.css', array(), '20140312' );
 
 }
-
-
-/* Embed JS file to make Theme Customizer preview reload changes asynchronously.
-add_action( 'customize_controls_enqueue_scripts', 'leeway_customize_admin_js' );
-
-function leeway_customize_admin_js() {
-	wp_enqueue_script( 'leeway-customizer-admin-js', get_template_directory_uri() . '/js/customizer-admin.js', array( 'jquery', 'customize-controls' ), false, true );
-}
-*/
-
-
-?>

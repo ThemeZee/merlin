@@ -42,11 +42,6 @@ $theme_options = merlin_theme_options();
 				
 					<?php do_action('merlin_site_title'); ?>
 					<!--<h1 class="site-title">MERLIN<span style="color: #444;"> MAGAZINE THEME</span></h1>!-->
-
-					<?php // Display Tagline on header if activated
-					if ( isset($theme_options['header_tagline']) and $theme_options['header_tagline'] == true ) : ?>			
-						<h2 class="site-description"><?php echo bloginfo('description'); ?></h2>
-					<?php endif; ?>
 				
 				</div><!-- .site-branding -->
 				
