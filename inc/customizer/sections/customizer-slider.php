@@ -12,7 +12,7 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 	// Add Sections for Slider Settings
 	$wp_customize->add_section( 'merlin_section_slider', array(
         'title'    => __( 'Post Slideshow', 'merlin' ),
-        'priority' => 50,
+        'priority' => 60,
 		'panel' => 'merlin_options_panel' 
 		)
 	);

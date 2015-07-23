@@ -49,10 +49,10 @@ function merlin_header_image() {
 	endif;
 
 }
-	
 endif;
 
 
+if ( ! function_exists( 'merlin_post_image_archives' ) ):
 /**
  * Displays the featured image on archive pages
  */
@@ -84,9 +84,11 @@ function merlin_post_image_archives() {
 <?php
 	endif;
 
-}
+} // merlin_post_image_archives()
+endif;
 
 
+if ( ! function_exists( 'merlin_post_image_single' ) ):
 /**
  * Displays the featured image on single posts
  */
@@ -102,8 +104,8 @@ function merlin_post_image_single() {
 
 	endif;
 
-}
-
+} // merlin_post_image_single()
+endif;
 
 if ( ! function_exists( 'merlin_entry_meta' ) ):	
 /**
@@ -152,7 +154,7 @@ function merlin_entry_meta() {
 		
 	<?php endif;
 
-}
+} // merlin_entry_meta()
 endif;
 
 
@@ -179,7 +181,7 @@ function merlin_entry_tags() {
 <?php 
 	endif;
 
-}
+} // merlin_entry_tags()
 endif;
 
 
@@ -213,7 +215,8 @@ function merlin_entry_footer() {
 		</div>
 		
 	<?php endif;
-}
+	
+} // merlin_entry_footer()
 endif;
 
 
@@ -264,7 +267,7 @@ function merlin_entry_meta_slider() {
 		
 	<?php endif; 
 
-}
+} // merlin_entry_meta_slider()
 endif;
 
 
@@ -311,7 +314,7 @@ function merlin_pagination() {
 	<?php
 	endif;
 	
-}
+} // merlin_pagination()
 endif;
 
 
@@ -330,6 +333,3 @@ function merlin_footer_text() { ?>
 <?php
 }
 add_action( 'merlin_footer_text', 'merlin_footer_text' );
-
-
-?>

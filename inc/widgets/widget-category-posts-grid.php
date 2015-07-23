@@ -1,8 +1,18 @@
 <?php
+/***
+ * Category Posts Grid Widget
+ *
+ * Display the latest posts from a selected category in a grid layout. 
+ * Intented to be used in the Magazine Homepage widget area to built a magazine layouted page.
+ *
+ * @package Merlin
+ */
 
-// Add Category Posts Grid Widget
 class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
-
+	
+	/**
+	 * Widget Constructor
+	 */
 	function __construct() {
 		
 		// Setup Widget
@@ -18,13 +28,11 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		add_action( 'switch_theme', array( $this, 'delete_widget_cache' ) );
 		
 	}
-
-	public function delete_widget_cache() {
-		
-		wp_cache_delete('widget_merlin_category_posts_grid', 'widget');
-		
-	}
 	
+	
+	/**
+	 * Set default settings of the widget
+	 */
 	private function default_settings() {
 	
 		$defaults = array(
@@ -40,7 +48,15 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		
 	}
 	
-	// Display Widget
+	
+	/**
+	 * Main Function to display the widget
+	 * 
+	 * @uses this->render()
+	 * 
+	 * @param array $args / Parameters from widget area created with register_sidebar()
+	 * @param array $instance / Settings for this widget instance
+	 */
 	function widget($args, $instance) {
 
 		$cache = array();
@@ -95,9 +111,19 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 			ob_end_flush();
 		}
 		
-	}
+	} // widget()
 	
-	// Render Widget Content
+	
+	/**
+	 * Renders the Widget Content
+	 *
+	 * Switches between two or three column layout style based on widget settings
+	 * 
+	 * @uses this->category_posts_two_column_grid() or this->category_posts_three_column_grid()
+	 * @used-by this->widget()
+	 *
+	 * @param array $instance / Settings for this widget instance
+	 */
 	function render($instance) {
 		
 		// Get Widget Settings
@@ -114,9 +140,16 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		
 		endif;
 
-	}
+	} // render()
 	
-	// Display Category Posts Grid Two Column
+	
+	/**
+	 * Displays category posts in two column grid
+	 *
+	 * @used-by this->render()
+	 *
+	 * @param array $instance / Settings for this widget instance
+	 */
 	function category_posts_two_column_grid($instance) {
 
 		// Get Widget Settings
@@ -194,9 +227,16 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		// Reset Postdata
 		wp_reset_postdata();
 		
-	}
+	} // category_posts_two_column_grid()
 	
-	// Display Category Posts Grid Three Column
+	
+	/**
+	 * Displays category posts in three column grid
+	 *
+	 * @used-by this->render()
+	 *
+	 * @param array $instance / Settings for this widget instance
+	 */
 	function category_posts_three_column_grid($instance) {
 
 		// Get Widget Settings
@@ -274,9 +314,12 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		// Reset Postdata
 		wp_reset_postdata();
 		
-	}
+	} // category_posts_three_column_grid()
 	
-	// Display Entry Meta
+	
+	/**
+	 * Displays Entry Meta of Posts
+	 */
 	function entry_meta($instance) { ?>
 
 		<span class="meta-date">
@@ -300,9 +343,12 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 
 	<?php
 
-	}
+	} // entry_meta()
 	
-	// Display Entry Date
+	
+	/**
+	 * Displays Entry Date of Posts
+	 */
 	function entry_date($instance) { ?>
 
 		<span class="meta-date">
@@ -317,9 +363,12 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 
 	<?php
 
-	}
+	} // entry_date()
 	
-	// Display Widget Title
+	
+	/**
+	 * Displays Widget Title
+	 */
 	function widget_title($args, $instance) {
 		
 		// Get Sidebar Arguments
@@ -356,8 +405,16 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 			
 		endif;
 
-	}
-
+	} // widget_title()
+	
+	
+	/**
+	 * Update Widget Settings
+	 *
+	 * @param array $new_instance / New Settings for this widget instance
+	 * @param array $old_instance / Old Settings for this widget instance
+	 * @return array $instance
+	 */
 	function update($new_instance, $old_instance) {
 
 		$instance = $old_instance;
@@ -373,6 +430,12 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		return $instance;
 	}
 
+	
+	/**
+	 * Displays Widget Settings Form in the Backend
+	 *
+	 * @param array $instance / Settings for this widget instance
+	 */
 	function form( $instance ) {
 		
 		// Get Widget Settings
@@ -429,7 +492,18 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 			</label>
 		</p>
 <?php
+	} // form()
+	
+	
+	/**
+	 * Delete Widget Cache
+	 */
+	private function delete_widget_cache() {
+		
+		wp_cache_delete('widget_merlin_category_posts_grid', 'widget');
+		
 	}
+	
 }
+
 register_widget('Merlin_Category_Posts_Grid_Widget');
-?>

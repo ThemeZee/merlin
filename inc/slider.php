@@ -34,12 +34,15 @@ function merlin_slider_scripts() {
 
 	endif;
 	
-}
+} // merlin_slider_scripts
 add_action( 'wp_enqueue_scripts', 'merlin_slider_scripts' );
 
 
 /**
  * Function to change excerpt length for post slider
+ *
+ * @param int $length Length of excerpt in number of words
+ * @return int
  */
 function merlin_slider_excerpt_length($length) {
     return 25;
@@ -47,7 +50,7 @@ function merlin_slider_excerpt_length($length) {
 
 
  /**
- * Function to set slider animation and other slider settings
+ * Sets slider animation effect
  *
  * Passes parameters from theme options to the javascript files (js/slider.js)
  */
@@ -73,6 +76,5 @@ function merlin_slider_options() {
 	// Passing Parameters to Javascript
 	wp_localize_script( 'merlin-post-slider', 'merlin_slider_params', $params );
 	
-}
+} // merlin_slider_options
 add_action('wp_enqueue_scripts', 'merlin_slider_options');
-

@@ -7,7 +7,6 @@
  * relies on many newer functions and markup changes introduced in 4.2.
  *
  * @package Merlin
- * @since Merlin 1.0
  *
  * Original Code: Twenty Fifteen http://wordpress.org/themes/twentyfifteen
  * Original Copyright: the WordPress team and contributors.
@@ -17,12 +16,10 @@
  * of the GNU Public License, version 2.
  */
 
+ 
 /**
- * Prevent switching to Merlin on old versions of WordPress.
+ * Prevent switching to Merlin on old versions of WordPress. Switches to the default theme.
  *
- * Switches to the default theme.
- *
- * @since Merlin 1.0
  */
 function merlin_compat_switch_theme() {
 	switch_theme( WP_DEFAULT_THEME, WP_DEFAULT_THEME );
@@ -31,23 +28,22 @@ function merlin_compat_switch_theme() {
 }
 add_action( 'after_switch_theme', 'merlin_compat_switch_theme' );
 
+
 /**
  * Add message for unsuccessful theme switch.
  *
  * Prints an update nag after an unsuccessful attempt to switch to
  * Merlin on WordPress versions prior to 4.2.
  *
- * @since Merlin 1.0
  */
 function merlin_compat_upgrade_notice() {
 	$message = sprintf( __( 'Merlin requires at least WordPress version 4.2. You are running version %s. Please upgrade and try again.', 'merlin' ), $GLOBALS['wp_version'] );
 	printf( '<div class="error"><p>%s</p></div>', $message );
 }
 
+
 /**
  * Prevent the Customizer from being loaded on WordPress versions prior to 4.2.
- *
- * @since Merlin 1.0
  */
 function merlin_compat_customize() {
 	wp_die( sprintf( __( 'Merlin requires at least WordPress version 4.2. You are running version %s. Please upgrade and try again.', 'merlin' ), $GLOBALS['wp_version'] ), '', array(
@@ -56,10 +52,9 @@ function merlin_compat_customize() {
 }
 add_action( 'load-customize.php', 'merlin_compat_customize' );
 
+
 /**
  * Prevent the Theme Preview from being loaded on WordPress versions prior to 4.2.
- *
- * @since Merlin 1.0
  */
 function merlin_compat_preview() {
 	if ( isset( $_GET['preview'] ) ) {

@@ -12,7 +12,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 	// Add Sections for Post Meta
 	$wp_customize->add_section( 'merlin_section_postmeta', array(
         'title'    => __( 'Post Meta', 'merlin' ),
-        'priority' => 30,
+        'priority' => 40,
 		'panel' => 'merlin_options_panel' 
 		)
 	);

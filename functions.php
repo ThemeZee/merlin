@@ -163,7 +163,7 @@ add_action( 'wp_enqueue_scripts', 'merlin_scripts' );
 function merlin_google_fonts_url() {
     
 	// Set default Fonts
-	$font_families = array('Roboto:700,400', 'Hammersmith One');
+	$font_families = array('Roboto', 'Hammersmith One');
 
 	// Build Fonts URL
 	$query_args = array(

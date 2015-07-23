@@ -12,7 +12,7 @@ function merlin_customize_register_post_settings( $wp_customize ) {
 	// Add Sections for Post Settings
 	$wp_customize->add_section( 'merlin_section_post', array(
         'title'    => __( 'Post Settings', 'merlin' ),
-        'priority' => 20,
+        'priority' => 30,
 		'panel' => 'merlin_options_panel' 
 		)
 	);

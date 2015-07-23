@@ -47,6 +47,9 @@ add_filter( 'body_class', 'merlin_body_classes' );
 
 /**
  * Change excerpt length for default posts
+ *
+ * @param int $length Length of excerpt in number of words
+ * @return int
  */
 function merlin_excerpt_length($length) {
 	
@@ -65,6 +68,9 @@ add_filter('excerpt_length', 'merlin_excerpt_length');
 
 /**
  * Function to change excerpt length for posts in category posts widgets
+ *
+ * @param int $length Length of excerpt in number of words
+ * @return int
  */
 function merlin_category_posts_excerpt_length($length) {
     return 15;

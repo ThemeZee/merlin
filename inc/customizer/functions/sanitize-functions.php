@@ -1,12 +1,19 @@
 <?php
 /**
- * Theme Customizer Functions
+ * Sanitize Functions
  *
+ * Used to validate the user input of the theme settings
+ *
+ * @package Merlin
  */
 
-/*========================== CUSTOMIZER SANITIZE FUNCTIONS ==========================*/
 
-// Sanitize checkboxes
+/**
+ * Sanitize Checkbox Settings
+ *
+ * @param string $value / Value of the setting
+ * @return bool
+ */
 function merlin_sanitize_checkbox( $value ) {
 
 	if ( $value == 1) :
@@ -17,7 +24,12 @@ function merlin_sanitize_checkbox( $value ) {
 }
 
 
-// Sanitize the layout sidebar value.
+/**
+ * Sanitize the layout sidebar value.
+ *
+ * @param string $value / Value of the setting
+ * @return string
+ */
 function merlin_sanitize_layout( $value ) {
 
 	if ( ! in_array( $value, array( 'left-sidebar', 'right-sidebar' ), true ) ) :
@@ -28,7 +40,12 @@ function merlin_sanitize_layout( $value ) {
 }
 
 
-// Sanitize the post archive layout value.
+/**
+ * Sanitize the post layout value.
+ *
+ * @param string $value / Value of the setting
+ * @return string
+ */
 function merlin_sanitize_post_layout( $value ) {
 
 	if ( ! in_array( $value, array( 'top', 'left', 'none' ), true ) ) :
@@ -39,7 +56,12 @@ function merlin_sanitize_post_layout( $value ) {
 }
 
 
-// Sanitize the post length value.
+/**
+ * Sanitize the post length value.
+ *
+ * @param string $value / Value of the setting
+ * @return string
+ */
 function merlin_sanitize_post_content( $value ) {
 
 	if ( ! in_array( $value, array( 'index', 'excerpt' ), true ) ) :
@@ -50,7 +72,12 @@ function merlin_sanitize_post_content( $value ) {
 }
 
 
-// Sanitize the slider animation value.
+/**
+ * Sanitize the slider animation value.
+ *
+ * @param string $value / Value of the setting
+ * @return string
+ */
 function merlin_sanitize_slider_animation( $value ) {
 
 	if ( ! in_array( $value, array( 'slide', 'fade' ), true ) ) :
@@ -59,5 +86,3 @@ function merlin_sanitize_slider_animation( $value ) {
 
     return $value;
 }
-
-?>

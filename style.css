@@ -4,7 +4,7 @@ Theme URI: http://themezee.com/themes/merlin/
 Author: ThemeZee
 Author URI: http://themezee.com
 Description: Merlin is a great way to start your personal blog or magazine website today. The theme is very easy to use and looks awesome on every device. It includes a beautiful featured post slideshow and a clean and flexible Magazine Homepage template. Hope you enjoy it!
-Version: 1.0.0
+Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: merlin
@@ -603,7 +603,6 @@ textarea {
 	width: 100%;
 	margin: 0 auto;
 	background: #fff;
-	box-shadow: 0 0 3px #bbb;
 }
 
 .site-content {
@@ -638,12 +637,13 @@ textarea {
 # 9.0 - Header
 --------------------------------------------------------------*/
 .header-main {
-	padding: 0.8em 1.2em;
+	padding: 0.8em 1.8em;
 }
 
 .site-branding {
 	float: left;
 	max-width: 100%;
+	margin: 1.5em 0;
 }
 
 .site-branding a:link, 
@@ -655,13 +655,12 @@ textarea {
 
 .site-title {
 	display: inline-block;
-	margin: 0.4em 0;
-	padding: 0.2em;
+	margin: 0;
+	padding: 0;
 	color: #2299cc;
 	font-family: 'Roboto', Tahoma, Arial;
 	font-size: 38px;
 	font-size: 2.375rem;
-	font-weight: bold;
 	text-decoration: none;
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
@@ -1357,8 +1356,8 @@ textarea {
 }
 
 .widget-category-posts .large-post .entry-title {
-	font-size: 22px;
-	font-size: 1.375rem;
+	font-size: 24px;
+	font-size: 1.5rem;
 }
 
 .widget-category-posts .large-post .wp-post-image {
@@ -1523,6 +1522,7 @@ textarea {
 .page-title, 
 .entry-title {
 	display: inline;
+	font-family: 'Roboto', Tahoma, Arial;
 	font-size: 28px;
 	font-size: 1.75rem;
 	padding: 0 0 0.1em;
@@ -1569,8 +1569,8 @@ textarea {
 }
 
 .type-post .post-thumbnail-small + .entry-header .entry-title {
-	font-size: 22px;
-	font-size: 1.375rem;
+	font-size: 24px;
+	font-size: 1.5rem;
 }
 
 
@@ -2098,9 +2098,10 @@ object {
 		font-size: 1.625rem;
 	}
 	
-	.widget-category-posts .large-post .entry-title {
-		font-size: 20px;
-		font-size: 1.25rem;
+	.type-post .post-thumbnail-small + .entry-header .entry-title,
+	.widget-category-posts .large-post .entry-title 	{
+		font-size: 22px;
+		font-size: 1.375rem;
 	}
 
 	.widget-category-posts .medium-post .entry-title {
@@ -2136,6 +2137,12 @@ object {
 		width: 30%;
 	}
 	
+	.type-post .post-thumbnail-small + .entry-header .entry-title,
+	.widget-category-posts .large-post .entry-title 	{
+		font-size: 20px;
+		font-size: 1.25rem;
+	}
+	
 	/* Magazine Homepage: Category Post Widgets Boxed */
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .wp-post-image {
 		width: 55%;
@@ -2163,6 +2170,7 @@ object {
 	.site-branding {
 		float: none;
 		text-align: center;
+		margin: 1em 0;
 	}
 	
 	.header-widget {
@@ -2466,10 +2474,6 @@ object {
 		border-top: 10px solid blue;
 	}
 	
-	.site-title {
-		margin: 0.2em 0;
-	}
-	
 	.site-content {
 		position: relative;
 		padding: 0;
@@ -2650,10 +2654,6 @@ object {
 	
 	body {
 		border-top: 10px solid green;
-	}
-	
-	.site-title {
-		margin: 0;
 	}
 	
 	.page-title,
@@ -2899,7 +2899,8 @@ object {
 	}
 	
 	.site-branding .site-title {
-		font-size: 2.0em;
+		font-size: 28px;
+		font-size: 1.75rem;
 	}
 	
 	.page-title,

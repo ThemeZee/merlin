@@ -1,8 +1,18 @@
 <?php
+/***
+ * Category Posts Columns Widget
+ *
+ * Display the latest posts from two categories in a 2-column layout. 
+ * Intented to be used in the Magazine Homepage widget area to built a magazine layouted page.
+ *
+ * @package Merlin
+ */
 
-// Add Category Posts Columns Widget
 class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 
+	/**
+	 * Widget Constructor
+	 */
 	function __construct() {
 		
 		// Setup Widget
@@ -18,13 +28,11 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		add_action( 'switch_theme', array( $this, 'delete_widget_cache' ) );
 		
 	}
-
-	public function delete_widget_cache() {
-		
-		wp_cache_delete('widget_merlin_category_posts_columns', 'widget');
-		
-	}
 	
+	
+	/**
+	 * Set default settings of the widget
+	 */
 	private function default_settings() {
 	
 		$defaults = array(
@@ -41,7 +49,15 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		
 	}
 	
-	// Display Widget
+	
+	/**
+	 * Main Function to display the widget
+	 * 
+	 * @uses this->render()
+	 * 
+	 * @param array $args / Parameters from widget area created with register_sidebar()
+	 * @param array $instance / Settings for this widget instance
+	 */
 	function widget($args, $instance) {
 
 		$cache = array();
@@ -93,9 +109,20 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 			ob_end_flush();
 		}
 	
-	}
+	} // widget()
 	
-	// Render Widget Content
+	
+	/**
+	 * Renders the Widget Content
+	 *
+	 * Displays left and right column with posts
+	 * 
+	 * @uses this->category_posts()
+	 * @used-by this->widget()
+	 *
+	 * @param array $args / Parameters from widget area created with register_sidebar()
+	 * @param array $instance / Settings for this widget instance
+	 */
 	function render($args, $instance) {
 		
 		// Get Widget Settings
@@ -133,9 +160,17 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		</div>
 		
 	<?php
-	}
+	} // render()
 	
-	// Display Category Posts
+	
+	/**
+	 * Display Category Posts Loop
+	 *
+	 * @used-by this->render()
+	 *
+	 * @param array $instance / Settings for this widget instance
+	 * @param int $category_id / ID of the selected category
+	 */
 	function category_posts($instance, $category_id) {
 	
 		// Get Widget Settings
@@ -218,9 +253,12 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		// Reset Postdata
 		wp_reset_postdata();
 		
-	}
+	} // category_posts()
 	
-	// Display Entry Meta
+	
+	/**
+	 * Displays Entry Meta of Posts
+	 */
 	function entry_meta($instance) { ?>
 
 		<span class="meta-date">
@@ -244,9 +282,12 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 
 	<?php
 
-	}
+	} // entry_meta()
 	
-	// Display Entry Date
+	
+	/**
+	 * Displays Entry Date of Posts
+	 */
 	function entry_date($instance) { ?>
 
 		<span class="meta-date">
@@ -261,9 +302,12 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 
 	<?php
 
-	}
+	} // entry_date()
 	
-	// Display Category Widget Title
+	
+	/**
+	 * Displays Category Widget Title
+	 */
 	function category_title($args, $instance, $category_id, $category_title) {
 		
 		// Get Sidebar Arguments
@@ -300,8 +344,16 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 			
 		endif;
 
-	}
+	} // category_title()
 
+	
+	/**
+	 * Update Widget Settings
+	 *
+	 * @param array $new_instance / New Settings for this widget instance
+	 * @param array $old_instance / Old Settings for this widget instance
+	 * @return array $instance
+	 */
 	function update($new_instance, $old_instance) {
 
 		$instance = $old_instance;
@@ -317,7 +369,13 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		
 		return $instance;
 	}
-
+	
+	
+	/**
+	 * Displays Widget Settings Form in the Backend
+	 *
+	 * @param array $instance / Settings for this widget instance
+	 */
 	function form( $instance ) {
 		
 		// Get Widget Settings
@@ -388,7 +446,18 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		</p>
 		
 <?php
+	} // form()
+	
+	
+	/**
+	 * Delete Widget Cache
+	 */
+	public function delete_widget_cache() {
+		
+		wp_cache_delete('widget_merlin_category_posts_columns', 'widget');
+		
 	}
+	
 }
+
 register_widget('Merlin_Category_Posts_Columns_Widget');
-?>

@@ -4,26 +4,31 @@
  *
  * Adds a simple Theme Info page to the Appearance section of the WordPress Dashboard. 
  *
+ * @package Merlin
  */
 
 
-// Add Theme Info page to admin menu
-add_action('admin_menu', 'merlin_add_theme_info_page');
-function merlin_add_theme_info_page() {
+/**
+ * Add Theme Info page to admin menu
+ */
+function merlin_theme_info_menu_link() {
 	
 	add_theme_page( 
 		__('Welcome to Merlin', 'merlin'), 
 		__('Theme Info', 'merlin'), 
 		'edit_theme_options', 
 		'merlin', 
-		'merlin_display_theme_info_page'
+		'merlin_theme_info_page'
 	);
 	
 }
+add_action('admin_menu', 'merlin_theme_info_menu_link');
 
 
-// Display Theme Info page
-function merlin_display_theme_info_page() { 
+/**
+ * Display Theme Info page
+ */
+function merlin_theme_info_page() { 
 	
 	// Get Theme Details from style.css
 	$theme_data = wp_get_theme(); 
@@ -112,8 +117,9 @@ function merlin_display_theme_info_page() {
 }
 
 
-// Add CSS for Theme Info Panel
-add_action('admin_enqueue_scripts', 'merlin_theme_info_page_css');
+/**
+ * Enqueues CSS for Theme Info page
+ */
 function merlin_theme_info_page_css($hook) { 
 
 	// Load styles and scripts only on theme info page
@@ -125,6 +131,4 @@ function merlin_theme_info_page_css($hook) {
 	wp_enqueue_style('merlin-theme-info-css', get_template_directory_uri() .'/css/theme-info.css');
 
 }
-
-
-?>
+add_action('admin_enqueue_scripts', 'merlin_theme_info_page_css');

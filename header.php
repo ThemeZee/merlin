@@ -41,7 +41,6 @@ $theme_options = merlin_theme_options();
 				<div id="logo" class="site-branding clearfix">
 				
 					<?php do_action('merlin_site_title'); ?>
-					<!--<h1 class="site-title">MERLIN<span style="color: #444;"> MAGAZINE THEME</span></h1>!-->
 				
 				</div><!-- .site-branding -->
 				

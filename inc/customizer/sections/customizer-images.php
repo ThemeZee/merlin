@@ -12,7 +12,7 @@ function merlin_customize_register_post_image_settings( $wp_customize ) {
 	// Add Sections for Post Settings
 	$wp_customize->add_section( 'merlin_section_images', array(
         'title'    => __( 'Post Images', 'merlin' ),
-        'priority' => 40,
+        'priority' => 50,
 		'panel' => 'merlin_options_panel' 
 		)
 	);

@@ -1,49 +1,71 @@
 <?php
 /**
- * Theme Customizer Functions
+ * Custom Controls for the Customizer
  *
+ * @package Merlin
  */
 
-/*========================== CUSTOMIZER CONTROLS FUNCTIONS ==========================*/
 
-// Add simple heading option to the theme customizer
+/**
+ * Make sure that custom controls are only defined in the Customizer
+ */
 if ( class_exists( 'WP_Customize_Control' ) ) :
 
-    class Merlin_Customize_Header_Control extends WP_Customize_Control {
 
-        public function render_content() {  ?>
+	/**
+	 * Displays a bold label text. Used to create headlines for radio buttons and description sections.
+	 *
+	 */
+	class Merlin_Customize_Header_Control extends WP_Customize_Control {
+
+		public function render_content() {  ?>
 			
 			<label>
 				<span class="customize-control-title"><?php echo wp_kses_post( $this->label ); ?></span>
 			</label>
 			
-<?php
-        }
-    }
-	
+			<?php
+		}
+	}
+
+
+	/**
+	 * Displays a description text in gray italic font
+	 *
+	 */
 	class Merlin_Customize_Description_Control extends WP_Customize_Control {
 
-        public function render_content() {  ?>
+		public function render_content() {  ?>
 			
 			<span class="description"><?php echo wp_kses_post( $this->label ); ?></span>
 			
-<?php
-        }
-    }
-	
+			<?php
+		}
+	}
+
+
+	/**
+	 * Displays normal text. Used in the Upgrade to Pro Version section.
+	 *
+	 */
 	class Merlin_Customize_Text_Control extends WP_Customize_Control {
 
-        public function render_content() {  ?>
+		public function render_content() {  ?>
 			
 			<span class="textfield"><?php echo esc_html( $this->label ); ?></span>
 			
-<?php
-        }
-    }
-	
+			<?php
+		}
+	}
+
+
+	/**
+	 * Displays a CTA button. Used in the Upgrade to Pro Version section.
+	 *
+	 */
 	class Merlin_Customize_Button_Control extends WP_Customize_Control {
 
-        public function render_content() {  ?>
+		public function render_content() {  ?>
 			
 			<p>
 				<a href="http://themezee.com/themes/merlin/#PROVersion-1" target="_blank" class="button button-secondary">
@@ -51,14 +73,15 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 				</a>
 			</p>
 			
-<?php
-        }
-    }
-	
-	
+			<?php
+		}
+	}
+
+
 	/**
-	* Creates a category dropdown control for the Customizer
-	*/
+	 * Creates a category dropdown control for the Customizer
+	 *
+	 */
 	class Merlin_Customize_Category_Dropdown_Control extends WP_Customize_Control {
 		
 		public function render_content() {
@@ -95,36 +118,5 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 		
 	}
 	
+	
 endif;
-
-
-/*========================== CUSTOMIZER CALLBACK FUNCTIONS ==========================*/
-
-// Add a callback function to retrieve wether post content is set to excerpt or not
-function merlin_control_post_content_callback( $control ) {
-	
-	// Check if excerpt mode is selected
-	if ( $control->manager->get_setting('merlin_theme_options[post_content]')->value() == 'excerpt' ) :
-		return true;
-	else :
-		return false;
-	endif;
-	
-}
-
-
-// Add a callback function to retrieve wether slider is activated or not
-function merlin_slider_activated_callback( $control ) {
-	
-	// Check if Slider is turned on
-	if ( $control->manager->get_setting('merlin_theme_options[slider_blog]')->value() == 1 ) :
-		return true;
-	elseif ( $control->manager->get_setting('merlin_theme_options[slider_magazine]')->value() == 1 ) :
-		return true;
-	else :
-		return false;
-	endif;
-	
-}
-
-?>

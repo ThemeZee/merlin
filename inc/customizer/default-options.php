@@ -3,10 +3,16 @@
  * Returns theme options
  *
  * Uses sane defaults in case the user has not configured any theme options yet.
+ *
+ * @package Merlin
  */
 
 
-// Return theme options
+/**
+ * Get saved user settings from database or theme defaults
+ *
+ * @return array
+ */
 function merlin_theme_options() {
     
 	// Merge Theme Options Array from Database with Default Options Array
@@ -26,7 +32,11 @@ function merlin_theme_options() {
 }
 
 
-// Build default options array
+/**
+ * Returns the default settings of the theme
+ *
+ * @return array
+ */
 function merlin_default_options() {
 
 	$default_options = array(
@@ -52,6 +62,3 @@ function merlin_default_options() {
 	
 	return $default_options;
 }
-
-
-?>
