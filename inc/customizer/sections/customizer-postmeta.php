@@ -1,12 +1,18 @@
 <?php
 /**
- * Register Post Settings section, settings and controls for Theme Customizer
+ * Post Meta Settings
  *
+ * Register postmeta section, settings and controls for Theme Customizer
+ *
+ * @package Merlin
  */
 
-// Add Theme Colors section to Customizer
-add_action( 'customize_register', 'merlin_customize_register_postmeta_settings' );
 
+/**
+ * Adds postmeta settings in the Customizer
+ *
+ * @param object $wp_customize / Customizer Object
+ */
 function merlin_customize_register_postmeta_settings( $wp_customize ) {
 
 	// Add Sections for Post Meta
@@ -129,3 +135,4 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 	);
 
 }
+add_action( 'customize_register', 'merlin_customize_register_postmeta_settings' );

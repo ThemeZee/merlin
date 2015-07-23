@@ -1,12 +1,18 @@
 <?php
 /**
+ * General Settings
+ *
  * Register General section, settings and controls for Theme Customizer
  *
+ * @package Merlin
  */
 
-// Add Theme Colors section to Customizer
-add_action( 'customize_register', 'merlin_customize_register_general_settings' );
 
+/**
+ * Adds all general settings to the Customizer
+ *
+ * @param object $wp_customize / Customizer Object
+ */
 function merlin_customize_register_general_settings( $wp_customize ) {
 
 	// Add Section for Theme Options
@@ -73,5 +79,4 @@ function merlin_customize_register_general_settings( $wp_customize ) {
 
 	
 }
-
-?>
+add_action( 'customize_register', 'merlin_customize_register_general_settings' );

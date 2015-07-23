@@ -1,12 +1,18 @@
 <?php
 /**
+ * Slider Settings
+ *
  * Register Post Slider section, settings and controls for Theme Customizer
  *
+ * @package Merlin
  */
 
-// Add Theme Colors section to Customizer
-add_action( 'customize_register', 'merlin_customize_register_slider_settings' );
 
+/**
+ * Adds slider settings in the Customizer
+ *
+ * @param object $wp_customize / Customizer Object
+ */
 function merlin_customize_register_slider_settings( $wp_customize ) {
 
 	// Add Sections for Slider Settings
@@ -125,5 +131,4 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 	);
 	
 }
-
-?>
+add_action( 'customize_register', 'merlin_customize_register_slider_settings' );

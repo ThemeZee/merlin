@@ -1,12 +1,18 @@
 <?php
 /**
- * Register PRO Version section, settings and controls for Theme Customizer
+ * Pro Version Upgrade Section
  *
+ * Registers Upgrade Section for the Pro Version of the theme
+ *
+ * @package Merlin
  */
 
-// Add Theme Colors section to Customizer
-add_action( 'customize_register', 'merlin_customize_register_upgrade_settings' );
 
+/**
+ * Adds pro version description and CTA button
+ *
+ * @param object $wp_customize / Customizer Object
+ */
 function merlin_customize_register_upgrade_settings( $wp_customize ) {
 
 	// Add Sections for Post Settings
@@ -68,5 +74,4 @@ function merlin_customize_register_upgrade_settings( $wp_customize ) {
     );
 
 }
-
-?>
+add_action( 'customize_register', 'merlin_customize_register_upgrade_settings' );

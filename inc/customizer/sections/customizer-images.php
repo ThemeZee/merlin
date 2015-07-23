@@ -1,12 +1,18 @@
 <?php
 /**
- * Register Post Settings section, settings and controls for Theme Customizer
+ * Post Images Settings
  *
+ * Register images section, settings and controls for Theme Customizer
+ *
+ * @package Merlin
  */
 
-// Add Theme Colors section to Customizer
-add_action( 'customize_register', 'merlin_customize_register_post_image_settings' );
 
+/**
+ * Adds featured image settings to the Customizer
+ *
+ * @param object $wp_customize / Customizer Object
+ */
 function merlin_customize_register_post_image_settings( $wp_customize ) {
 
 	// Add Sections for Post Settings
@@ -73,5 +79,4 @@ function merlin_customize_register_post_image_settings( $wp_customize ) {
 	);
 
 }
-
-?>
+add_action( 'customize_register', 'merlin_customize_register_post_image_settings' );
