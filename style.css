@@ -3,7 +3,7 @@ Theme Name: Merlin
 Theme URI: http://themezee.com/themes/merlin/
 Author: ThemeZee
 Author URI: http://themezee.com
-Description: Merlin is a great way to start your personal blog or magazine website today. The theme is very easy to use and looks awesome on every device. It includes a beautiful featured post slideshow and a clean and flexible Magazine Homepage template. Hope you enjoy it!
+Description: Merlin is a beautiful designed Magazine WordPress theme with a responsive layout. The theme comes with a gorgeous Post Slider, Magazine Homepage template and a Header Widget area. Settings can be configured easily in the Customizer. 
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -45,17 +45,16 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	13.1 - Captions
 	13.2 - Galleries
 14.0 - Media Queries
-	14.1 - Desktop X-Large ( < 1280px )
-	14.2 - Desktop Large ( < 1120px )
-	14.3 - Desktop Medium ( < 1040px )
-	14.4 - Desktop Small ( < 960px )
-	14.5 - Tablet Large ( < 880px )
-	14.6 - Tablet Medium ( < 800px )
-	14.7 - Tablet Small ( < 720px )
-	14.8 - Mobile Extra Large ( < 640px )
-	14.9 - Mobile Large ( < 560px )
-	14.10 - Mobile Medium ( < 480px )
-	14.11 - Mobile Small ( < 320px )
+	14.1 - Desktop Large ( < 1120px )
+	14.2 - Desktop Medium ( < 1040px )
+	14.3 - Desktop Small ( < 960px )
+	14.4 - Tablet Large ( < 880px )
+	14.5 - Tablet Medium ( < 800px )
+	14.6 - Tablet Small ( < 720px )
+	14.7 - Mobile Extra Large ( < 640px )
+	14.8 - Mobile Large ( < 560px )
+	14.9 - Mobile Medium ( < 480px )
+	14.10 - Mobile Small ( < 320px )
 15.0 - Theme Option Styles
 	15.1 - Sidebar Left Layout
 	15.2 - Sticky Navigation
@@ -637,13 +636,13 @@ textarea {
 # 9.0 - Header
 --------------------------------------------------------------*/
 .header-main {
-	padding: 0.8em 1.8em;
+	padding: 1em 1.3em;
 }
 
 .site-branding {
 	float: left;
 	max-width: 100%;
-	margin: 1.5em 0;
+	margin: 1.5em 0.5em;
 }
 
 .site-branding a:link, 
@@ -680,15 +679,16 @@ textarea {
 
 .header-widget {
 	float: right;
-	margin: 0.3em 0 0 1.5em;
+	margin: 0.5em 0 0 1.5em;
+}
+
+.header-widget ul {
+	margin: 0;
+	padding: 0;
 }
 
 .header-widget-title {
 	margin: 0 0 0.5em;
-}
-
-.header-widgets .widget_search  {
-	margin-top: 2em;
 }
 
 /* Custom Header Image */
@@ -2064,24 +2064,9 @@ object {
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-## 14.1 - Desktop X-Large ( < 1280px )
---------------------------------------------------------------*/
-@media only screen and (max-width: 80em) {
-
-	body {
-		border-top: 10px solid orange;
-	}
-	
-}
-
-/*--------------------------------------------------------------
-## 14.2 - Desktop Large ( < 1120px )
+## 14.1 - Desktop Large ( < 1120px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 70em) {
-	
-	body {
-		border-top: 10px solid red;
-	}
 	
 	.top-navigation-menu a {
 		font-size: 12px;
@@ -2121,13 +2106,9 @@ object {
 }
 
 /*--------------------------------------------------------------
-## 14.3 - Desktop Medium ( < 1040px )
+## 14.2 - Desktop Medium ( < 1040px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 65em) {
-	
-	body {
-		border-top: 10px solid purple;
-	}
 	
 	.content-area {
 		width: 70%;
@@ -2159,13 +2140,9 @@ object {
 }
 
 /*--------------------------------------------------------------
-## 14.4 - Desktop Small ( < 960px )
+## 14.3 - Desktop Small ( < 960px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 60em) {
-	
-	body {
-		border-top: 10px solid yellow;
-	}
 	
 	.site-branding {
 		float: none;
@@ -2176,6 +2153,7 @@ object {
 	.header-widget {
 		float: none;
 		margin: 0.5em 0 0;
+		text-align: center;
 	}
 
 	.site-content {
@@ -2466,13 +2444,9 @@ object {
 }
 
 /*--------------------------------------------------------------
-## 14.5 - Tablet Large ( < 880px )
+## 14.4 - Tablet Large ( < 880px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 55em) {
-	
-	body {
-		border-top: 10px solid blue;
-	}
 	
 	.site-content {
 		position: relative;
@@ -2546,13 +2520,9 @@ object {
 }
 
 /*--------------------------------------------------------------
-## 14.6 - Tablet Medium ( < 800px )
+## 14.5 - Tablet Medium ( < 800px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 50em) {
-	
-	body {
-		border-top: 10px solid teal;
-	}
 	
 	/*** Mobile Footer Navigation ***/
 	
@@ -2629,7 +2599,7 @@ object {
 }
 
 /*--------------------------------------------------------------
-## 14.7 - Tablet Small ( < 720px )
+## 14.6 - Tablet Small ( < 720px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 45em) {
 	
@@ -2648,13 +2618,9 @@ object {
 }
 
 /*--------------------------------------------------------------
-## 14.8 - Mobile Extra Large ( < 640px )
+## 14.7 - Mobile Extra Large ( < 640px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 40em) {
-	
-	body {
-		border-top: 10px solid green;
-	}
 	
 	.page-title,
 	.entry-title,
@@ -2722,7 +2688,7 @@ object {
 }
 
 /*--------------------------------------------------------------
-## 14.9 - Mobile Large ( < 560px )
+## 14.8 - Mobile Large ( < 560px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 35em) {
 
@@ -2755,13 +2721,9 @@ object {
 }
 
 /*--------------------------------------------------------------
-## 14.10 - Mobile Medium ( < 480px )
+## 14.9 - Mobile Medium ( < 480px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 30em) {
-	
-	body {
-		border-top: 10px solid brown;
-	}
 	
 	.content-area, 
 	.fullwidth .content-area {
@@ -2886,16 +2848,12 @@ object {
 }
 
 /*--------------------------------------------------------------
-## 14.11 - Mobile Small ( < 320px )
+## 14.10 - Mobile Small ( < 320px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 20em) {
 	
-	body {
-		border-top: 10px solid yellow;
-	}
-	
 	.header-main {
-		padding: 1em 1.2em 1.2em;
+		padding: 1em 1.2em;
 	}
 	
 	.site-branding .site-title {

@@ -36,7 +36,7 @@ function merlin_setup() {
 	add_theme_support( 'post-thumbnails' );
 	
 	// Set detfault Post Thumbnail size
-	set_post_thumbnail_size( 810 );
+	set_post_thumbnail_size( 820, 410, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -182,7 +182,7 @@ function merlin_google_fonts_url() {
 function merlin_add_image_sizes() {
 	
 	// Add image size for small post thumbnais
-	add_image_size( 'merlin-post-thumbnail-small', 325 );
+	add_image_size( 'merlin-thumbnail-small', 360, 270, true );
 	
 	// Add Custom Header Image Size
 	add_image_size( 'merlin-header-image', 1190, 250, true );

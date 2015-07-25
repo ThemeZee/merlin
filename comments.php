@@ -27,7 +27,7 @@ if ( post_password_required() ) {
 		<header class="comments-header">
 			
 			<h2 class="comments-title">
-				<?php comments_number( '', __('One comment','dynamicnewslite'), __('% comments','dynamicnewslite') );?>
+				<?php comments_number( '', __('One comment','merlin'), __('% comments','merlin') );?>
 			</h2>
 			
 		</header><!-- .comment-header -->
@@ -77,7 +77,7 @@ if ( post_password_required() ) {
 	<?php endif; ?>
 
 	<?php comment_form( array( 
-		'title_reply' => '<span>' . __( 'Leave a Reply' ) . '</span>',
+		'title_reply' => '<span>' . __( 'Leave a Reply', 'merlin' ) . '</span>',
 		'comment_notes_after' => ''
 		)
 	); ?>

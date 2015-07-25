@@ -1,45 +1,116 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
+Merlin WordPress Theme, Copyright 2015 ThemeZee.com
+Merlin is distributed under the terms of the GNU GPL
 
-_s
-===
+===================================
+Thanks for Downloading Merlin
+===================================
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Thank you for downloading my theme. 
+If you have any questions that are beyond the scope of this help file, 
+please visit themezee.com. Thanks so much!
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
+It is completely optional, but if you like the Theme I would appreciate it if 
+you keep the credit link at the bottom.
 
-* A just right amount of lean, well-commented, modern, HTML5 templates.
-* A helpful 404 template.
-* A sample custom header implementation in `inc/custom-header.php` that can be activated by uncommenting one line in `functions.php` and adding the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/extras.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample CSS layouts in `layouts/` for a sidebar on either side of your content.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
+-----------------------------------
+Table of Contents
 
-Getting Started
----------------
+    * A) Requirements
+    * B) Installation
+    * C) Theme Options
+    * D) Theme Documentation
+    * E) Page Templates
+    * F) Theme License
+	* G) Licenses of bundled resources
+-----------------------------------
 
-If you want to keep it simple, head over to http://underscores.me and generate your `_s` based theme from there. You just input the name of the theme you want to create, click the "Generate" button, and you get your ready-to-awesomize starter theme.
+===================================
+A) Requirements
+===================================
 
-If you want to set things up manually, download `_s` from GitHub. The first thing you want to do is copy the `_s` directory and change the name to something else (like, say, `megatherium`), and then you'll need to do a five-step find and replace on the name in all the templates.
+The theme has been tested on all major browsers including Firefox, Opera, Chrome,  
+Internet Explorer and Safari. Your browser should have JavaScript enabled to make this theme work!
+For example the DropDown Navigation and the Content Slider need Javascript to work.
 
-1. Search for `'_s'` (inside single quotations) to capture the text domain.
-2. Search for `_s_` to capture all the function names.
-3. Search for `Text Domain: _s` in style.css.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks.
-5. Search for `_s-` to capture prefixed handles.
+The theme works on the latest Wordpress version without any problems. Previous versions have not been tested
+and are not supported. I suggest to update your wordpress installation, especially due to security flaws.
 
-OR
+===================================
+B) Installation
+===================================
 
-* Search for: `'_s'` and replace with: `'megatherium'`
-* Search for: `_s_` and replace with: `megatherium_`
-* Search for: `Text Domain: _s` and replace with: `Text Domain: megatherium` in style.css.
-* Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;Megatherium</code>
-* Search for: `_s-` and replace with: `megatherium-`
+   1. Automatic Installation
+      Go to WP-Admin > Appearance > Themes > Add New > Upload Theme and choose the theme zip folder.
 
-Then, update the stylesheet header in `style.css` and the links in `footer.php` with your own information. Next, update or delete this readme.
+   2. Manual Installation
+      Upload the theme files to your wordpress theme folder wp-content/themes and activate the theme in
+      your wordpress admin panel. That's it!
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+To find out more about installing WordPress themes please also see http://themezee.com/docs/install-wordpress-themes/
 
-Good luck!
+===================================
+C) Theme Options
+===================================
+
+Merlin supports the awesome Theme Customizer for all theme settings. 
+Go to WP-Admin > Appearance > Customize to open the Customizer.
+
+===================================
+D) Theme Documentation
+===================================
+
+Need any help to setup and configure this theme? We got you covered with an extensive theme documentation on our website.
+http://themezee.com/docs/Merlin-documentation/
+
+===================================
+E) Page Templates
+===================================
+
+I have included a few, nice page templates for advanced content presentation.
+
+	1. Fullwidth Template 
+	This template shows a static page without the blog sidebar
+	
+	2. Magazine Homepage Template
+	Displays a magazine-styled homepage with various posts.
+
+===================================
+F) Theme License
+===================================
+
+Merlin is released under the GNU general public license. 
+That means you can use this theme on all of your websites - for personal or commercial purposes!
+
+===================================
+G) Licenses of bundled resources
+===================================
+
+	1. Genericons, Copyright 2015 Automattic, Inc.
+	The theme uses the Genericons icon font for Postmeta Icons and Social Icons, which is licensed under GNU GPL.
+	Source URL: http://genericons.com
+	License of Genericon Icon font: http://www.gnu.org/licenses/gpl.html
+
+	2. Screenshot Photography (used on screenshot.png)
+	The demo photos used in screenshot.png are coming from Pixabay and are licensed under CC0 (GPL compatible).
+	Source URL: http://pixabay.com
+	Image 1: https://pixabay.com/en/fantasy-magic-mystic-fantastic-466759/
+	Image 2: https://pixabay.com/en/butterfly-stopwatch-eye-face-744115/
+	Image 3: https://pixabay.com/en/mysticism-beyond-bridge-death-666965/
+	Image 4: https://pixabay.com/en/statue-planet-sky-space-universe-717492/
+	Image 5: https://pixabay.com/en/orbit-space-science-fiction-767375/
+	Image 6: https://pixabay.com/en/baby-nest-stork-feather-bird-bill-707906/
+	Image 7: https://pixabay.com/en/butterfly-bokeh-magic-dream-dreams-407746/
+	License URL: http://creativecommons.org/publicdomain/zero/1.0/deed.de
+
+	3. FlexSlider, Copyright 2012 WooThemes
+	The post slideshow is powered by jQuery FlexSlider v2.5.0 by WooThemes
+	Free to use under the GPLv2 license: http://www.woothemes.com/flexslider/
+
+	4. Roboto and Hammersmith One Font
+	Default Fonts used in the theme are from the Google Font API and are GPL-compatible licensed (SIL Open Font License (OFL))
+
+===================================
+Enjoy!
+===================================
+
+Once again, thank you so much for downloading this theme. 
