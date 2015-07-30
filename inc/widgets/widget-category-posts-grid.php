@@ -498,7 +498,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 	/**
 	 * Delete Widget Cache
 	 */
-	private function delete_widget_cache() {
+	public function delete_widget_cache() {
 		
 		wp_cache_delete('widget_merlin_category_posts_grid', 'widget');
 		

@@ -2,6 +2,10 @@
 Merlin Changelog
 ===================================
 
+Version 1.0.1
+-----------------------------------
+[fixed] Merlin Category Posts Widgets causing some warnings on post edit screen
+
 Version 1.0
 -----------------------------------
 Final Version
