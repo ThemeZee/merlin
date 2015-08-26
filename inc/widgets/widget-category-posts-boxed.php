@@ -18,9 +18,9 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 		// Setup Widget
 		$widget_ops = array(
 			'classname' => 'merlin_category_posts_boxed', 
-			'description' => __('Display latest posts from category in boxed layout. Please use this widget ONLY in Magazine Homepage widget area.', 'merlin')
+			'description' => __('Displays your posts from a selected category in a boxed layout. Please use this widget ONLY in the Magazine Homepage widget area.', 'merlin')
 		);
-		parent::__construct('merlin_category_posts_boxed', __('Merlin: Category Posts Boxed', 'merlin'), $widget_ops);
+		parent::__construct('merlin_category_posts_boxed', sprintf( __('Category Posts: Boxed (%s)', 'merlin'), wp_get_theme()->Name ), $widget_ops);
 		
 		// Delete Widget Cache on certain actions
 		add_action( 'save_post', array( $this, 'delete_widget_cache' ) );

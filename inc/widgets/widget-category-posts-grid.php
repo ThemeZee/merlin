@@ -18,9 +18,9 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		// Setup Widget
 		$widget_ops = array(
 			'classname' => 'merlin_category_posts_grid', 
-			'description' => __('Display latest posts from category in a grid layout. Please use this widget ONLY in Magazine Homepage widget area.', 'merlin')
+			'description' => __('Displays your posts from a selected category in a grid layout. Please use this widget ONLY in the Magazine Homepage widget area.', 'merlin')
 		);
-		parent::__construct('merlin_category_posts_grid', __('Merlin: Category Posts Grid', 'merlin'), $widget_ops);
+		parent::__construct('merlin_category_posts_grid', sprintf( __('Category Posts: Grid (%s)', 'merlin'), wp_get_theme()->Name ), $widget_ops);
 		
 		// Delete Widget Cache on certain actions
 		add_action( 'save_post', array( $this, 'delete_widget_cache' ) );
