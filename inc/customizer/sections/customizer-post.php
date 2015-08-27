@@ -49,14 +49,14 @@ function merlin_customize_register_post_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_post_content', array(
-        'label'    => __( 'Post Length on archives', 'merlin' ),
+        'label'    => __( 'Post length on archives', 'merlin' ),
         'section'  => 'merlin_section_post',
         'settings' => 'merlin_theme_options[post_content]',
         'type'     => 'radio',
 		'priority' => 2,
         'choices'  => array(
             'index' => __( 'Show full posts', 'merlin' ),
-            'excerpt' => __( 'Show post summaries (excerpt)', 'merlin' )
+            'excerpt' => __( 'Show post excerpts', 'merlin' )
 			)
 		)
 	);

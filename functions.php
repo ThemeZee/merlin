@@ -92,7 +92,7 @@ function merlin_widgets_init() {
 	register_sidebar( array(
 		'name' => esc_html__( 'Sidebar', 'merlin' ),
 		'id' => 'sidebar',
-		'description' => esc_html__( 'Appears on posts and pages except front page and fullwidth template.', 'merlin' ),
+		'description' => esc_html__( 'Appears on posts and pages except Magazine Homepage and Fullwidth template.', 'merlin' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 		'after_widget' => '</aside>',
 		'before_title' => '<div class="widget-header"><h3 class="widget-title">',

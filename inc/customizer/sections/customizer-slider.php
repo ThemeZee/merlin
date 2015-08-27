@@ -48,7 +48,7 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_slider_magazine', array(
-        'label'    => __( 'Show Slider on Magazine Homepage.', 'merlin' ),
+        'label'    => __( 'Show Slider on Magazine Homepage', 'merlin' ),
         'section'  => 'merlin_section_slider',
         'settings' => 'merlin_theme_options[slider_magazine]',
         'type'     => 'checkbox',
@@ -63,7 +63,7 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_slider_blog', array(
-        'label'    => __( 'Show Slider on normal blog page.', 'merlin' ),
+        'label'    => __( 'Show Slider on posts page', 'merlin' ),
         'section'  => 'merlin_section_slider',
         'settings' => 'merlin_theme_options[slider_blog]',
         'type'     => 'checkbox',
@@ -124,7 +124,7 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 		'priority' => 6,
 		'active_callback' => 'merlin_slider_activated_callback',
         'choices'  => array(
-            'slide' => __( 'Horizontal Slide', 'merlin' ),
+            'slide' => __( 'Slide Effect', 'merlin' ),
             'fade' => __( 'Fade Effect', 'merlin' )
 			)
 		)

@@ -20,7 +20,7 @@ $theme_options = merlin_theme_options();
 			
 				<header class="page-header">
 					
-					<h1 class="archive-title"><?php printf( __( 'Search Results for: %s', 'merlin'), get_search_query() ); ?></h1>
+					<h1 class="archive-title"><?php printf( __( 'Search Results for: %s', 'merlin'), '<span>' . get_search_query() . '</span>' ); ?></h1>
 					
 				</header><!-- .page-header -->
 				

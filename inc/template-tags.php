@@ -324,9 +324,9 @@ endif;
 function merlin_footer_text() { ?>
 
 	<span class="credit-link">
-		<?php printf(__( 'Powered by %1$s and %2$s.', 'merlin' ), 
-			sprintf( '<a href="http://wordpress.org" title="WordPress">%s</a>', __( 'WordPress', 'merlin' ) ),
-			sprintf( '<a href="http://themezee.com/themes/merlin/" title="Merlin WordPress Theme">%s</a>', __( 'Merlin', 'merlin' ) )
+		<?php printf( __( 'Powered by %1$s and %2$s.', 'merlin' ), 
+			'<a href="http://wordpress.org" title="WordPress">WordPress</a>',
+			'<a href="http://themezee.com/themes/merlin/" title="Merlin WordPress Theme">Merlin</a>'
 		); ?>
 	</span>
 

@@ -16,12 +16,12 @@ get_header(); ?>
 				
 					<header class="entry-header">
 			
-						<h1 class="page-title"><?php _e('404: That page can&rsquo;t be found.', 'merlin'); ?></h1>
+						<h1 class="page-title"><?php _e('404: Page not found', 'merlin'); ?></h1>
 						
 					</header><!-- .entry-header -->
 					
 					<div class="entry-content clearfix">
-						<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'merlin' ); ?></p>
+						<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try a search or one of the links below?', 'merlin' ); ?></p>
 						
 						<?php get_search_form(); ?>
 
