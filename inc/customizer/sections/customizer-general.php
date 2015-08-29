@@ -69,7 +69,7 @@ function merlin_customize_register_general_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_sticky_nav', array(
-        'label'    => __( 'Enable sticky menu on desktop view.', 'merlin' ),
+        'label'    => __( 'Enable sticky menu on large screens', 'merlin' ),
         'section'  => 'merlin_section_general',
         'settings' => 'merlin_theme_options[sticky_nav]',
         'type'     => 'checkbox',

@@ -37,7 +37,7 @@ add_action( 'after_switch_theme', 'merlin_compat_switch_theme' );
  *
  */
 function merlin_compat_upgrade_notice() {
-	$message = sprintf( __( 'Merlin requires at least WordPress version 4.2. You are running version %s. Please upgrade and try again.', 'merlin' ), $GLOBALS['wp_version'] );
+	$message = sprintf( __( '%$1s requires at least WordPress version 4.2. You are running version %$2s. Please upgrade and try again.', 'merlin' ), 'Merlin', $GLOBALS['wp_version'] );
 	printf( '<div class="error"><p>%s</p></div>', $message );
 }
 

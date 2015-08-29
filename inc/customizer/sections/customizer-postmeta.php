@@ -23,7 +23,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 		)
 	);
 	
-	// Add Postmeta Settings
+	// Add Post Meta Settings
 	$wp_customize->add_setting( 'merlin_theme_options[postmeta_headline]', array(
         'default'           => '',
 		'type'           	=> 'option',
@@ -48,7 +48,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_meta_date', array(
-        'label'    => __( 'Display date on posts.', 'merlin' ),
+        'label'    => __( 'Display post date', 'merlin' ),
         'section'  => 'merlin_section_postmeta',
         'settings' => 'merlin_theme_options[meta_date]',
         'type'     => 'checkbox',
@@ -63,7 +63,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_meta_author', array(
-        'label'    => __( 'Display author on posts.', 'merlin' ),
+        'label'    => __( 'Display post author', 'merlin' ),
         'section'  => 'merlin_section_postmeta',
         'settings' => 'merlin_theme_options[meta_author]',
         'type'     => 'checkbox',
@@ -96,7 +96,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_footer_meta_archives', array(
-        'label'    => __( 'Display footer meta on archives.', 'merlin' ),
+        'label'    => __( 'Display post categories and comments on archive pages', 'merlin' ),
         'section'  => 'merlin_section_postmeta',
         'settings' => 'merlin_theme_options[footer_meta_archives]',
         'type'     => 'checkbox',
@@ -111,7 +111,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_footer_meta_single', array(
-        'label'    => __( 'Display footer meta on single posts.', 'merlin' ),
+        'label'    => __( 'Display post categories and comments on single posts', 'merlin' ),
         'section'  => 'merlin_section_postmeta',
         'settings' => 'merlin_theme_options[footer_meta_single]',
         'type'     => 'checkbox',
@@ -126,7 +126,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_meta_tags', array(
-        'label'    => __( 'Display tags on single posts.', 'merlin' ),
+        'label'    => __( 'Display post tags on single posts', 'merlin' ),
         'section'  => 'merlin_section_postmeta',
         'settings' => 'merlin_theme_options[meta_tags]',
         'type'     => 'checkbox',

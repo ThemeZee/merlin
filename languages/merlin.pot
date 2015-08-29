@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Merlin\n"
 "Report-Msgid-Bugs-To: http://themezee.com/\n"
-"POT-Creation-Date: 2015-08-25 15:23+0100\n"
-"PO-Revision-Date: 2015-08-25 15:24+0100\n"
+"POT-Creation-Date: 2015-08-29 14:30+0100\n"
+"PO-Revision-Date: 2015-08-29 14:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
 "Language: en_US\n"
@@ -21,13 +21,13 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:19
-msgid "404: That page can&rsquo;t be found."
+msgid "404: Page not found"
 msgstr ""
 
 #: 404.php:24
 msgid ""
-"It looks like nothing was found at this location. Maybe try one of the links "
-"below or a search?"
+"It looks like nothing was found at this location. Maybe try a search or one "
+"of the links below?"
 msgstr ""
 
 #: comments.php:30 inc/template-tags.php:210
@@ -75,12 +75,13 @@ msgstr ""
 msgid "Social Icons"
 msgstr ""
 
-#: functions.php:93
+#: functions.php:93 sidebar.php:20
 msgid "Sidebar"
 msgstr ""
 
 #: functions.php:95
-msgid "Appears on posts and pages except front page and fullwidth template."
+msgid ""
+"Appears on posts and pages except Magazine Homepage and Fullwidth template."
 msgstr ""
 
 #: functions.php:103
@@ -129,25 +130,25 @@ msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr ""
 
-#: sidebar.php:19
-msgid "Widget Area"
-msgstr ""
-
-#: sidebar.php:21
+#: sidebar.php:22
 msgid ""
-"Please go to Appearance &#8594; Widgets to set up your widgets in the "
-"sidebar."
+"Please go to Appearance &#8594; Widgets and add some widgets to your sidebar."
 msgstr ""
 
 #: template-magazine.php:46
 msgid ""
-"There are no widgets to be displayed. Please go to Appearance &#8594; "
-"Widgets and add at least one widget to the \"Magazine Homepage\" widget "
-"area. You can use the three Category Posts widgets to set up the theme like "
-"the demo website."
+"Please go to Appearance &#8594; Widgets and add at least one widget to the "
+"\"Magazine Homepage\" widget area. You can use the Category Posts widgets to "
+"set up the theme like the demo website."
 msgstr ""
 
-#: inc/back-compat.php:40 inc/back-compat.php:49 inc/back-compat.php:61
+#: inc/back-compat.php:40
+msgid ""
+"%$1s requires at least WordPress version 4.2. You are running version %$2s. "
+"Please upgrade and try again."
+msgstr ""
+
+#: inc/back-compat.php:49 inc/back-compat.php:61
 #, php-format
 msgid ""
 "Merlin requires at least WordPress version 4.2. You are running version %s. "
@@ -157,13 +158,15 @@ msgstr ""
 #: inc/template-tags.php:128
 #, php-format
 msgid ""
-"Posted on <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time datetime="
-"\"%3$s\">%4$s</time></a>"
+"Posted on <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class="
+"\"entry-date published updated\" datetime=\"%3$s\">%4$s</time></a>"
 msgstr ""
 
 #: inc/template-tags.php:143
 #, php-format
-msgid "by <a href=\"%1$s\" title=\"%2$s\" rel=\"author\">%3$s</a>"
+msgid ""
+"by <span class=\"author vcard\"><a class=\"fn\" href=\"%1$s\" title=\"%2$s\" "
+"rel=\"author\">%3$s</a></span>"
 msgstr ""
 
 #: inc/template-tags.php:145 inc/template-tags.php:258
@@ -187,101 +190,91 @@ msgstr ""
 msgid "Powered by %1$s and %2$s."
 msgstr ""
 
-#: inc/template-tags.php:328
-msgid "WordPress"
+#: inc/theme-info.php:20 inc/theme-info.php:43
+#, php-format
+msgid "Welcome to %1$s %2$s"
 msgstr ""
 
-#: inc/template-tags.php:329
-msgid "Merlin"
-msgstr ""
-
-#: inc/theme-info.php:17
-msgid "Welcome to Merlin"
-msgstr ""
-
-#: inc/theme-info.php:18
+#: inc/theme-info.php:21
 msgid "Theme Info"
 msgstr ""
 
-#: inc/theme-info.php:40
-#, php-format
-msgid "Welcome to %1s %2s"
-msgstr ""
-
-#: inc/theme-info.php:46
+#: inc/theme-info.php:49
 msgid "Important Links:"
 msgstr ""
 
-#: inc/theme-info.php:47
-msgid "Theme Info Page"
-msgstr ""
-
-#: inc/theme-info.php:48
-msgid "Changelog"
-msgstr ""
-
-#: inc/theme-info.php:49
-msgid "Theme Demo"
-msgstr ""
-
-#: inc/theme-info.php:50 inc/theme-info.php:65
-msgid "Theme Documentation"
+#: inc/theme-info.php:50
+msgid "Theme Page"
 msgstr ""
 
 #: inc/theme-info.php:51
+msgid "Changelog"
+msgstr ""
+
+#: inc/theme-info.php:52
+msgid "Theme Demo"
+msgstr ""
+
+#: inc/theme-info.php:53 inc/theme-info.php:68
+msgid "Theme Documentation"
+msgstr ""
+
+#: inc/theme-info.php:54
 msgid "Rate this theme"
 msgstr ""
 
-#: inc/theme-info.php:62
+#: inc/theme-info.php:65
 #, php-format
 msgid "Getting Started with %s"
 msgstr ""
 
-#: inc/theme-info.php:67
+#: inc/theme-info.php:71
 msgid ""
-"Need any help to setup and configure this theme? We got you covered with an "
+"You need help to setup and configure this theme? We got you covered with an "
 "extensive theme documentation on our website."
 msgstr ""
 
-#: inc/theme-info.php:69
-msgid "Visit Merlin Documentation"
+#: inc/theme-info.php:75
+#, php-format
+msgid "View %s Documentation"
 msgstr ""
 
-#: inc/theme-info.php:74 inc/customizer/customizer.php:34
+#: inc/theme-info.php:81 inc/customizer/customizer.php:34
 msgid "Theme Options"
 msgstr ""
 
-#: inc/theme-info.php:76
+#: inc/theme-info.php:84
+#, php-format
 msgid ""
-"Merlin supports the awesome Theme Customizer for all theme settings. Click "
-"\"Customize Theme\" to open the Customizer now."
+"%s makes use of the Customizer for all theme settings. Click on \"Customize "
+"Theme\" to open the Customizer now."
 msgstr ""
 
-#: inc/theme-info.php:78
+#: inc/theme-info.php:87
 msgid "Customize Theme"
 msgstr ""
 
-#: inc/theme-info.php:83
+#: inc/theme-info.php:92 inc/customizer/sections/customizer-upgrade.php:23
 msgid "Pro Version"
 msgstr ""
 
-#: inc/theme-info.php:85
+#: inc/theme-info.php:95
 msgid ""
-"Need more features? Check out the PRO version which comes with additional "
-"features and advanced customization options."
+"You need more features? Purchase the Pro Version to get additional features "
+"and advanced customization options."
 msgstr ""
 
-#: inc/theme-info.php:87 inc/customizer/sections/customizer-upgrade.php:68
-msgid "Learn more about Merlin Pro"
-msgstr ""
-
-#: inc/theme-info.php:107
+#: inc/theme-info.php:99 inc/customizer/sections/customizer-upgrade.php:71
 #, php-format
-msgid ""
-"Merlin is proudly brought to you by %1s. If you like this theme, %2s :) "
+msgid "Learn more about %s Pro"
 msgstr ""
 
-#: inc/theme-info.php:109
+#: inc/theme-info.php:120
+#, php-format
+msgid "%1$s is proudly brought to you by %2$s. If you like this theme, %3$s :)"
+msgstr ""
+
+#: inc/theme-info.php:123
 msgid "rate it"
 msgstr ""
 
@@ -319,7 +312,7 @@ msgid "Sticky Navigation"
 msgstr ""
 
 #: inc/customizer/sections/customizer-general.php:72
-msgid "Enable sticky menu on desktop view."
+msgid "Enable sticky menu on large screens"
 msgstr ""
 
 #: inc/customizer/sections/customizer-images.php:20
@@ -359,7 +352,7 @@ msgid "Title above Latest Posts"
 msgstr ""
 
 #: inc/customizer/sections/customizer-post.php:52
-msgid "Post Length on archives"
+msgid "Post length on archives"
 msgstr ""
 
 #: inc/customizer/sections/customizer-post.php:58
@@ -367,7 +360,7 @@ msgid "Show full posts"
 msgstr ""
 
 #: inc/customizer/sections/customizer-post.php:59
-msgid "Show post summaries (excerpt)"
+msgid "Show post excerpts"
 msgstr ""
 
 #: inc/customizer/sections/customizer-post.php:73
@@ -380,11 +373,11 @@ msgid "Post Meta"
 msgstr ""
 
 #: inc/customizer/sections/customizer-postmeta.php:51
-msgid "Display date on posts."
+msgid "Display post date"
 msgstr ""
 
 #: inc/customizer/sections/customizer-postmeta.php:66
-msgid "Display author on posts."
+msgid "Display post author"
 msgstr ""
 
 #: inc/customizer/sections/customizer-postmeta.php:84
@@ -392,19 +385,19 @@ msgid "Post Footer"
 msgstr ""
 
 #: inc/customizer/sections/customizer-postmeta.php:99
-msgid "Display footer meta on archives."
+msgid "Display post categories and comments on archive pages"
 msgstr ""
 
 #: inc/customizer/sections/customizer-postmeta.php:114
-msgid "Display footer meta on single posts."
+msgid "Display post categories and comments on single posts"
 msgstr ""
 
 #: inc/customizer/sections/customizer-postmeta.php:129
-msgid "Display tags on single posts."
+msgid "Display post tags on single posts"
 msgstr ""
 
 #: inc/customizer/sections/customizer-slider.php:20
-msgid "Post Slideshow"
+msgid "Post Slider"
 msgstr ""
 
 #: inc/customizer/sections/customizer-slider.php:36
@@ -412,11 +405,11 @@ msgid "Activate Post Slider"
 msgstr ""
 
 #: inc/customizer/sections/customizer-slider.php:51
-msgid "Show Slider on Magazine Homepage."
+msgid "Show Slider on Magazine Homepage"
 msgstr ""
 
 #: inc/customizer/sections/customizer-slider.php:66
-msgid "Show Slider on normal blog page."
+msgid "Show Slider on posts page"
 msgstr ""
 
 #: inc/customizer/sections/customizer-slider.php:84
@@ -432,35 +425,32 @@ msgid "Slider Animation"
 msgstr ""
 
 #: inc/customizer/sections/customizer-slider.php:127
-msgid "Horizontal Slide"
+msgid "Slide Effect"
 msgstr ""
 
 #: inc/customizer/sections/customizer-slider.php:128
 msgid "Fade Effect"
 msgstr ""
 
-#: inc/customizer/sections/customizer-upgrade.php:20
-msgid "Merlin Pro"
+#: inc/customizer/sections/customizer-upgrade.php:39
+msgid "You need more features?"
 msgstr ""
 
-#: inc/customizer/sections/customizer-upgrade.php:36
-msgid "Need more features?"
-msgstr ""
-
-#: inc/customizer/sections/customizer-upgrade.php:52
+#: inc/customizer/sections/customizer-upgrade.php:55
 msgid ""
-"Check out the PRO version which comes with additional features and advanced "
+"Purchase the Pro Version to get additional features and advanced "
 "customization options."
 msgstr ""
 
 #: inc/widgets/widget-category-posts-boxed.php:21
 msgid ""
-"Display latest posts from category in boxed layout. Please use this widget "
-"ONLY in Magazine Homepage widget area."
+"Displays your posts from a selected category in a boxed layout. Please use "
+"this widget ONLY in the Magazine Homepage widget area."
 msgstr ""
 
 #: inc/widgets/widget-category-posts-boxed.php:23
-msgid "Merlin: Category Posts Boxed"
+#, php-format
+msgid "Category Posts: Boxed (%s)"
 msgstr ""
 
 #: inc/widgets/widget-category-posts-boxed.php:421
@@ -499,12 +489,13 @@ msgstr ""
 
 #: inc/widgets/widget-category-posts-columns.php:21
 msgid ""
-"Display latest posts from two specified categories. Please use this widget "
-"ONLY in Magazine Homepage widget area."
+"Displays your posts from two selected categories. Please use this widget "
+"ONLY in the Magazine Homepage widget area."
 msgstr ""
 
 #: inc/widgets/widget-category-posts-columns.php:23
-msgid "Merlin: Category Posts Columns"
+#, php-format
+msgid "Category Posts: 2 Columns (%s)"
 msgstr ""
 
 #: inc/widgets/widget-category-posts-columns.php:387
@@ -529,7 +520,7 @@ msgid "Number of posts:"
 msgstr ""
 
 #: inc/widgets/widget-category-posts-columns.php:437
-msgid "Highlight First Post (Big Image + Excerpt)"
+msgid "Highlight first post (big image + excerpt)"
 msgstr ""
 
 #: inc/widgets/widget-category-posts-columns.php:444
@@ -538,12 +529,13 @@ msgstr ""
 
 #: inc/widgets/widget-category-posts-grid.php:21
 msgid ""
-"Display latest posts from category in a grid layout. Please use this widget "
-"ONLY in Magazine Homepage widget area."
+"Displays your posts from a selected category in a grid layout. Please use "
+"this widget ONLY in the Magazine Homepage widget area."
 msgstr ""
 
 #: inc/widgets/widget-category-posts-grid.php:23
-msgid "Merlin: Category Posts Grid"
+#, php-format
+msgid "Category Posts: Grid (%s)"
 msgstr ""
 
 #: inc/widgets/widget-category-posts-grid.php:468

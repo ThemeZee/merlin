@@ -17,7 +17,7 @@ function merlin_theme_info_menu_link() {
 	$theme = wp_get_theme(); 
 	
 	add_theme_page( 
-		sprintf( __( 'Welcome to %1s %2s', 'merlin' ), $theme->get( 'Name' ), $theme->get( 'Version' ) ), 
+		sprintf( __( 'Welcome to %1$s %2$s', 'merlin' ), $theme->get( 'Name' ), $theme->get( 'Version' ) ), 
 		__('Theme Info', 'merlin'), 
 		'edit_theme_options', 
 		'merlin', 
@@ -40,14 +40,14 @@ function merlin_theme_info_page() {
 			
 	<div class="wrap theme-info-wrap">
 
-		<h1><?php printf( __( 'Welcome to %1s %2s', 'merlin' ), $theme->get( 'Name' ), $theme->get( 'Version' ) ); ?></h1>
+		<h1><?php printf( __( 'Welcome to %1$s %2$s', 'merlin' ), $theme->get( 'Name' ), $theme->get( 'Version' ) ); ?></h1>
 
 		<div class="theme-description"><?php echo $theme->get( 'Description' ); ?></div>
 		
 		<hr>
 		<div class="important-links clearfix">
 			<p><strong><?php _e('Important Links:', 'merlin'); ?></strong>
-				<a href="http://themezee.com/themes/merlin/" target="_blank"><?php _e('Theme Info Page', 'merlin'); ?></a>
+				<a href="http://themezee.com/themes/merlin/" target="_blank"><?php _e('Theme Page', 'merlin'); ?></a>
 				<a href="<?php echo get_template_directory_uri(); ?>/changelog.txt" target="_blank"><?php _e('Changelog', 'merlin'); ?></a>
 				<a href="http://preview.themezee.com/merlin/" target="_blank"><?php _e('Theme Demo', 'merlin'); ?></a>
 				<a href="http://themezee.com/docs/merlin-documentation/" target="_blank"><?php _e('Theme Documentation', 'merlin'); ?></a>
@@ -117,7 +117,7 @@ function merlin_theme_info_page() {
 		
 		<div id="theme-author">
 			
-			<p><?php printf( __( '%1s is proudly brought to you by %2s. If you like this theme, %3s :) ', 'merlin' ), 
+			<p><?php printf( __( '%1$s is proudly brought to you by %2$s. If you like this theme, %3$s :)', 'merlin' ), 
 				$theme->get( 'Name' ),
 				'<a target="_blank" href="http://themezee.com" title="ThemeZee">ThemeZee</a>',
 				'<a target="_blank" href="http://wordpress.org/support/view/theme-reviews/merlin?filter=5" title="Merlin Review">' . __( 'rate it', 'merlin' ) . '</a>'); ?>
