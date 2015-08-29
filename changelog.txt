@@ -4,7 +4,6 @@ Merlin Changelog
 
 Version 1.0.3
 -----------------------------------
-[improved] code of 404.php and search.php templates
 [improved] phrasing of all translatable text strings
 [added] German language files
 
