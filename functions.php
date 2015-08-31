@@ -83,7 +83,7 @@ add_action( 'after_setup_theme', 'merlin_content_width', 0 );
 
 
 /**
- * Register widget areas.
+ * Register widget areas and custom widgets.
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
@@ -118,6 +118,11 @@ function merlin_widgets_init() {
 		'before_title' => '<div class="widget-header"><h3 class="widget-title">',
 		'after_title' => '</h3></div>',
 	));
+	
+	// Register Category Posts widgets
+	register_widget('Merlin_Category_Posts_Boxed_Widget');
+	register_widget('Merlin_Category_Posts_Columns_Widget');
+	register_widget('Merlin_Category_Posts_Grid_Widget');
 	
 } // merlin_widgets_init
 add_action( 'widgets_init', 'merlin_widgets_init' );

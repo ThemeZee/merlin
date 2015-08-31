@@ -459,5 +459,3 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 	}
 	
 }
-
-register_widget('Merlin_Category_Posts_Columns_Widget');

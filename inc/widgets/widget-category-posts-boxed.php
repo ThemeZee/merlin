@@ -522,5 +522,3 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 	}
 	
 }
-
-register_widget('Merlin_Category_Posts_Boxed_Widget');
