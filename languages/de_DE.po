@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Everything\n"
 "Report-Msgid-Bugs-To: http://themezee.com/\n"
-"POT-Creation-Date: 2015-08-29 14:30+0100\n"
-"PO-Revision-Date: 2015-08-29 14:30+0100\n"
+"POT-Creation-Date: 2015-08-31 20:01+0100\n"
+"PO-Revision-Date: 2015-08-31 20:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,7 @@ msgid "One comment"
 msgstr "Ein Kommentar"
 
 #: comments.php:30 inc/template-tags.php:210
+#, php-format
 msgid "% comments"
 msgstr "% Kommentare"
 
@@ -299,6 +300,10 @@ msgstr ""
 #: inc/theme-info.php:123
 msgid "rate it"
 msgstr "bewerte es"
+
+#: inc/customizer/customizer.php:44
+msgid "Background"
+msgstr "Hintergrund"
 
 #: inc/customizer/default-options.php:45
 #: inc/customizer/sections/customizer-post.php:28
@@ -1071,9 +1076,6 @@ msgstr "Textauszug und Weiterlesen Button anzeigen"
 
 #~ msgid "Post Slider Color"
 #~ msgstr "Farbe des Beitrags-Sliders"
-
-#~ msgid "Header Background Color"
-#~ msgstr "Header Hintergrundfarbe"
 
 #~ msgid "Footer Background Color"
 #~ msgstr "Footer Hintergrundfarbe"

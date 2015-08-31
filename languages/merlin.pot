@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Merlin\n"
 "Report-Msgid-Bugs-To: http://themezee.com/\n"
-"POT-Creation-Date: 2015-08-29 14:30+0100\n"
-"PO-Revision-Date: 2015-08-29 14:30+0100\n"
+"POT-Creation-Date: 2015-08-31 20:01+0100\n"
+"PO-Revision-Date: 2015-08-31 20:01+0100\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
 "Language: en_US\n"
@@ -276,6 +276,10 @@ msgstr ""
 
 #: inc/theme-info.php:123
 msgid "rate it"
+msgstr ""
+
+#: inc/customizer/customizer.php:44
+msgid "Background"
 msgstr ""
 
 #: inc/customizer/default-options.php:45
