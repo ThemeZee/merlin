@@ -2,6 +2,11 @@
 Merlin Changelog
 ===================================
 
+Version 1.0.4
+-----------------------------------
+[moved] register_widget() functions to functions.php
+[added] readme.txt
+
 Version 1.0.3
 -----------------------------------
 [improved] phrasing of all translatable text strings

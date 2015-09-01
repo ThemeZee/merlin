@@ -85,14 +85,35 @@ That means you can use this theme on all of your websites - for personal or comm
 G) Licenses of bundled resources
 ===================================
 
-	1. Genericons, Copyright 2015 Automattic, Inc.
-	The theme uses the Genericons icon font for Postmeta Icons and Social Icons, which is licensed under GNU GPL.
-	Source URL: http://genericons.com
-	License of Genericon Icon font: http://www.gnu.org/licenses/gpl.html
+	1. Genericons Icon Font - http://genericons.com
+	License: Distributed under the terms of the GPLv2 (https://www.gnu.org/licenses/gpl-2.0.html)
+	Copyright: 2015 Automattic, Inc., https://automattic.com/
+	
+	2. Underscores - http://underscores.me/
+	License: Distributed under the terms of the GPLv2 (https://www.gnu.org/licenses/gpl-2.0.html)
+	Copyright: 2012-2015 Automattic, Inc., https://automattic.com/
 
-	2. Screenshot Photography (used on screenshot.png)
-	The demo photos used in screenshot.png are coming from Pixabay and are licensed under CC0 (GPL compatible).
-	Source URL: http://pixabay.com
+	3. normalize.css - http://necolas.github.io/normalize.css/
+	License: Distributed under the terms of the MIT License (http://opensource.org/licenses/MIT)
+	Copyright: 2012-2015 Nicolas Gallagher and Jonathan Neal
+	
+	4. FlexSlider - https://github.com/woothemes/FlexSlider
+	License: Distributed under the terms of the GPLv2 (https://www.gnu.org/licenses/gpl-2.0.html)
+	Copyright: 2015 WooThemes, http://www.woothemes.com
+	
+	5. Roboto Font - https://www.google.com/fonts/specimen/Roboto
+	License: Distributed under the terms of the Apache License (http://www.apache.org/licenses/LICENSE-2.0.html)
+	Copyright: 2015 Christian Robertson
+	
+	6. Hammersmith One Font - https://www.google.com/fonts/specimen/Hammersmith+One
+	License: Distributed under the terms of the SIL Open Font License (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
+	Copyright: 2015 Sorkin Type
+	
+	7. Images from Pixabay - http://pixabay.com
+	License: Distributed under the terms of the CC0 License (https://creativecommons.org/publicdomain/zero/1.0/)
+	Copyright: 2015 Pixabay users werner22brigitte, sciencefreak, geralt
+	
+	Images used in screenshot.jpg:
 	Image 1: https://pixabay.com/en/fantasy-magic-mystic-fantastic-466759/
 	Image 2: https://pixabay.com/en/butterfly-stopwatch-eye-face-744115/
 	Image 3: https://pixabay.com/en/mysticism-beyond-bridge-death-666965/
@@ -100,14 +121,6 @@ G) Licenses of bundled resources
 	Image 5: https://pixabay.com/en/orbit-space-science-fiction-767375/
 	Image 6: https://pixabay.com/en/baby-nest-stork-feather-bird-bill-707906/
 	Image 7: https://pixabay.com/en/butterfly-bokeh-magic-dream-dreams-407746/
-	License URL: http://creativecommons.org/publicdomain/zero/1.0/deed.de
-
-	3. FlexSlider, Copyright 2012 WooThemes
-	The post slideshow is powered by jQuery FlexSlider v2.5.0 by WooThemes
-	Free to use under the GPLv2 license: http://www.woothemes.com/flexslider/
-
-	4. Roboto and Hammersmith One Font
-	Default Fonts used in the theme are from the Google Font API and are GPL-compatible licensed (SIL Open Font License (OFL))
 
 ===================================
 Enjoy!
