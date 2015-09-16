@@ -119,11 +119,6 @@ function merlin_widgets_init() {
 		'after_title' => '</h3></div>',
 	));
 	
-	// Register Category Posts widgets
-	register_widget('Merlin_Category_Posts_Boxed_Widget');
-	register_widget('Merlin_Category_Posts_Columns_Widget');
-	register_widget('Merlin_Category_Posts_Grid_Widget');
-	
 } // merlin_widgets_init
 add_action( 'widgets_init', 'merlin_widgets_init' );
 

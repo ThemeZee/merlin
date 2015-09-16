@@ -505,3 +505,12 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 	}
 	
 }
+
+// Register Widget
+add_action( 'widgets_init', 'merlin_register_category_posts_grid_widget' );
+
+function merlin_register_category_posts_grid_widget() {
+
+	register_widget('Merlin_Category_Posts_Grid_Widget');
+	
+}
