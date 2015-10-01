@@ -9,22 +9,18 @@
 
 get_header(); ?>
 
-	<div id="content" class="site-content fullwidth clearfix">
-	
-		<section id="primary" class="content-area">
-			<main id="main" class="site-main" role="main">
-			
-				<?php while (have_posts()) : the_post();
+	<section id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+		
+			<?php while (have_posts()) : the_post();
 
-					get_template_part( 'template-parts/content', 'page' );
-					
-					comments_template();
+				get_template_part( 'template-parts/content', 'page' );
+				
+				comments_template();
 
-				endwhile; ?>
-			
-			</main><!-- #main -->
-		</section><!-- #primary -->
-	
-	</div>
-	
+			endwhile; ?>
+		
+		</main><!-- #main -->
+	</section><!-- #primary -->
+
 <?php get_footer(); ?>

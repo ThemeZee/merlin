@@ -6,10 +6,12 @@
  *
  * @package Merlin
  */
-
-do_action('merlin_before_footer'); 
-
+ 
 ?>
+	
+	</div><!-- #content -->
+	
+	<?php do_action( 'merlin_before_footer' ); ?>
 
 	<footer id="colophon" class="site-footer clearfix" role="contentinfo">
 		

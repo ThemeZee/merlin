@@ -74,3 +74,6 @@ $theme_options = merlin_theme_options();
 			merlin_header_image(); ?>
 		
 		</header><!-- #masthead -->
+		
+		<div id="content" class="site-content container clearfix">
+		

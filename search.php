@@ -13,64 +13,60 @@ get_header();
 $theme_options = merlin_theme_options();
 ?>
 
-	<div id="content" class="site-content clearfix">
-	
-		<section id="primary" class="content-area">
-			<main id="main" class="site-main" role="main">
-			
-				<header class="page-header">
-					
-					<h1 class="archive-title"><?php printf( __( 'Search Results for: %s', 'merlin'), '<span>' . get_search_query() . '</span>' ); ?></h1>
-					
-				</header><!-- .page-header -->
-				
-			<?php 
-			if (have_posts()) : 
-			
-				while (have_posts()) : the_post();
+	<section id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 		
-					if ( 'post' == get_post_type() ) :
+			<header class="page-header">
+				
+				<h1 class="archive-title"><?php printf( __( 'Search Results for: %s', 'merlin'), '<span>' . get_search_query() . '</span>' ); ?></h1>
+				
+			</header><!-- .page-header -->
 			
-						get_template_part( 'template-parts/content', $theme_options['post_content'] );
+		<?php 
+		if (have_posts()) : 
+		
+			while (have_posts()) : the_post();
+	
+				if ( 'post' == get_post_type() ) :
+		
+					get_template_part( 'template-parts/content', $theme_options['post_content'] );
+				
+				else :
+				
+					get_template_part( 'template-parts/content', 'search' );
 					
-					else :
-					
-						get_template_part( 'template-parts/content', 'search' );
-						
-					endif;
-			
-				endwhile;
+				endif;
+		
+			endwhile;
 
-				// Display Pagination	
-				merlin_pagination();
+			// Display Pagination	
+			merlin_pagination();
 
-			else : ?>
+		else : ?>
 
-				<div class="no-matches type-page">
+			<div class="no-matches type-page">
+				
+				<header class="entry-header">
+		
+					<h1 class="page-title"><?php _e('No matches', 'merlin'); ?></h1>
 					
-					<header class="entry-header">
-			
-						<h1 class="page-title"><?php _e('No matches', 'merlin'); ?></h1>
-						
-					</header><!-- .entry-header -->
+				</header><!-- .entry-header -->
+				
+				<div class="entry-content">
 					
-					<div class="entry-content">
-						
-						<p><?php esc_html_e('Please try again, or use the navigation menus to find what you search for.', 'merlin'); ?></p>
-						
-						<?php get_search_form(); ?>
+					<p><?php esc_html_e('Please try again, or use the navigation menus to find what you search for.', 'merlin'); ?></p>
 					
-					</div>
-					
+					<?php get_search_form(); ?>
+				
 				</div>
-
-			<?php endif; ?>
 				
-			</main><!-- #main -->
-		</section><!-- #primary -->
-		
-		<?php get_sidebar(); ?>
+			</div>
+
+		<?php endif; ?>
+			
+		</main><!-- #main -->
+	</section><!-- #primary -->
 	
-	</div>
+	<?php get_sidebar(); ?>
 	
 <?php get_footer(); ?>
