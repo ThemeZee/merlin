@@ -62,9 +62,6 @@ function merlin_setup() {
 		'flex-height' => true
 	) ) );
 	
-	// Add Theme Support for Merlin Pro Plugin
-	add_theme_support( 'merlin-pro' );
-	
 }
 endif; // merlin_setup
 add_action( 'after_setup_theme', 'merlin_setup' );
@@ -210,11 +207,14 @@ require get_template_directory() . '/inc/theme-info.php';
 require get_template_directory() . '/inc/customizer/customizer.php';
 require get_template_directory() . '/inc/customizer/default-options.php';
 
+// Include Extra Functions
+require get_template_directory() . '/inc/extras.php';
+
 // include Template Functions
 require get_template_directory() . '/inc/template-tags.php';
 
-// Include Extra Functions
-require get_template_directory() . '/inc/extras.php';
+// Include support functions for Theme Addons
+require get_template_directory() . '/inc/addons.php';
 
 // Include Post Slider Setup
 require get_template_directory() . '/inc/slider.php';
