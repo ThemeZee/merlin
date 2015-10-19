@@ -41,7 +41,8 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 			'layout'			=> 'three-columns',
 			'number'			=> 6,
 			'excerpt'			=> false,
-			'category_link'		=> false
+			'category_link'		=> false,
+			'postmeta'			=> true
 		);
 		
 		return $defaults;
@@ -320,28 +321,27 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 	/**
 	 * Displays Entry Meta of Posts
 	 */
-	function entry_meta($instance) { ?>
+	function entry_meta($instance) { 
 
-		<span class="meta-date">
-		<?php printf('<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>',
-				esc_url( get_permalink() ),
-				esc_attr( get_the_time() ),
-				esc_attr( get_the_date( 'c' ) ),
-				esc_html( get_the_date() )
-			);
-		?>
-		</span>
+		// Get Widget Settings
+		$defaults = $this->default_settings();
+		extract( wp_parse_args( $instance, $defaults ) );
 		
-		<span class="meta-author">
-		<?php printf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>', 
-				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-				esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
-				get_the_author()
-			);
-		?>
-		</span>
-
-	<?php
+		if( true == $postmeta ) :
+		
+			$this->entry_date( $instance ); ?>
+			
+			<span class="meta-author">
+			<?php printf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>', 
+					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+					esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+					get_the_author()
+				);
+			?>
+			</span>
+			
+		<?php endif;
+	
 
 	} // entry_meta()
 	
@@ -349,19 +349,25 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 	/**
 	 * Displays Entry Date of Posts
 	 */
-	function entry_date($instance) { ?>
+	function entry_date($instance) { 
 
-		<span class="meta-date">
-		<?php printf('<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>',
-				esc_url( get_permalink() ),
-				esc_attr( get_the_time() ),
-				esc_attr( get_the_date( 'c' ) ),
-				esc_html( get_the_date() )
-			);
-		?>
-		</span>
-
-	<?php
+		// Get Widget Settings
+		$defaults = $this->default_settings();
+		extract( wp_parse_args( $instance, $defaults ) );
+		
+		if( true == $postmeta ) : ?>
+		
+			<span class="meta-date">
+			<?php printf('<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>',
+					esc_url( get_permalink() ),
+					esc_attr( get_the_time() ),
+					esc_attr( get_the_date( 'c' ) ),
+					esc_html( get_the_date() )
+				);
+			?>
+			</span>
+		
+		<?php endif;
 
 	} // entry_date()
 	
@@ -424,6 +430,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		$instance['number'] = (int)$new_instance['number'];
 		$instance['excerpt'] = !empty($new_instance['excerpt']);
 		$instance['category_link'] = !empty($new_instance['category_link']);
+		$instance['postmeta'] = !empty($new_instance['postmeta']);
 		
 		$this->delete_widget_cache();
 		
@@ -489,6 +496,13 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id('category_link'); ?>">
 				<input class="checkbox" type="checkbox" <?php checked( $category_link ) ; ?> id="<?php echo $this->get_field_id('category_link'); ?>" name="<?php echo $this->get_field_name('category_link'); ?>" />
 				<?php _e('Link Widget Title to Category Archive page', 'merlin'); ?>
+			</label>
+		</p>
+		
+		<p>
+			<label for="<?php echo $this->get_field_id('postmeta'); ?>">
+				<input class="checkbox" type="checkbox" <?php checked( $postmeta ) ; ?> id="<?php echo $this->get_field_id('postmeta'); ?>" name="<?php echo $this->get_field_name('postmeta'); ?>" />
+				<?php _e( 'Display post date and author', 'merlin' ); ?>
 			</label>
 		</p>
 <?php

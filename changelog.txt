@@ -5,6 +5,9 @@ Merlin Changelog
 Version 1.0.6
 -----------------------------------
 [improved] structure of post meta functions for better re-usability
+[added] postmeta setting to Category Posts Boxed widget
+[added] postmeta setting to Category Posts Columns widget
+[added] postmeta setting to Category Posts Grid widget
 
 Version 1.0.5
 -----------------------------------
