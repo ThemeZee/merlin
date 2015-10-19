@@ -13,7 +13,7 @@
 		
 		<?php 
 		// Check if there is a social menu
-		if( has_nav_menu( 'social' ) ) :?>
+		if( has_nav_menu( 'social' ) ) : ?>
 
 			<div id="header-social-icons" class="social-icons-navigation clearfix">
 

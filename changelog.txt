@@ -2,6 +2,10 @@
 Merlin Changelog
 ===================================
 
+Version 1.0.6
+-----------------------------------
+[improved] structure of post meta functions for better re-usability
+
 Version 1.0.5
 -----------------------------------
 [added] theme support for Widget Bundle Addon Plugin

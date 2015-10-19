@@ -122,39 +122,65 @@ function merlin_entry_meta() {
 		<div class="entry-meta">
 		
 		<?php // Display Date unless user has deactivated it via settings
-		if ( true == $theme_options['meta_date'] ) : ?>
+		if ( true == $theme_options['meta_date'] ) :
 		
-			<span class="meta-date">
-			<?php printf(__('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date published updated" datetime="%3$s">%4$s</time></a>', 'merlin'), 
-					esc_url( get_permalink() ),
-					esc_attr( get_the_time() ),
-					esc_attr( get_the_date( 'c' ) ),
-					esc_html( get_the_date() )
-				);
-			?>
-			</span>
+			merlin_meta_date();
 		
-		<?php endif; 
+		endif; 
 
 		// Display Author unless user has deactivated it via settings
-		if ( true == $theme_options['meta_author'] ) : ?>
+		if ( true == $theme_options['meta_author'] ) :
 		
-			<span class="meta-author">
-			<?php printf(__('by <span class="author vcard"><a class="fn" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', 'merlin'), 
-					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-					esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
-					get_the_author()
-				);
-			?>
-			</span>
+			merlin_meta_author();
 		
-		<?php endif; ?>
+		endif; ?>
 		
 		</div>
 		
 	<?php endif;
 
 } // merlin_entry_meta()
+endif;
+
+
+if ( ! function_exists( 'merlin_meta_date' ) ):
+/**
+ * Displays the post date
+ */
+function merlin_meta_date() { ?>
+	
+	<span class="meta-date">
+	<?php printf(__('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date published updated" datetime="%3$s">%4$s</time></a>', 'merlin'), 
+			esc_url( get_permalink() ),
+			esc_attr( get_the_time() ),
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() )
+		);
+	?>
+	</span>
+	
+<?php
+}  // merlin_meta_date()
+endif;
+
+
+if ( ! function_exists( 'merlin_meta_author' ) ):
+/**
+ * Displays the post author
+ */
+function merlin_meta_author() {  ?>
+			
+	<span class="meta-author">
+	<?php printf(__('by <span class="author vcard"><a class="fn" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', 'merlin'), 
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+			get_the_author()
+		);
+	?>
+	</span>
+
+<?php
+}  // merlin_meta_author()
 endif;
 
 
