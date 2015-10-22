@@ -95,7 +95,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 						<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 						
 						<select <?php $this->link(); ?>>
-							<option value="0"><?php esc_html_e('All Categories', 'merlin'); ?></option>
+							<option value="0"><?php esc_html_e( 'All Categories', 'merlin' ); ?></option>
 						<?php
 							foreach ( $categories as $category ) :
 								

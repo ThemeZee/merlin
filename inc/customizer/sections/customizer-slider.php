@@ -17,7 +17,7 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 
 	// Add Sections for Slider Settings
 	$wp_customize->add_section( 'merlin_section_slider', array(
-        'title'    => __( 'Post Slider', 'merlin' ),
+        'title'    => esc_html__( 'Post Slider', 'merlin' ),
         'priority' => 60,
 		'panel' => 'merlin_options_panel' 
 		)
@@ -33,7 +33,7 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
     );
     $wp_customize->add_control( new Merlin_Customize_Header_Control(
         $wp_customize, 'merlin_control_slider_activate', array(
-            'label' => __( 'Activate Post Slider', 'merlin' ),
+            'label' => esc_html__( 'Activate Post Slider', 'merlin' ),
             'section' => 'merlin_section_slider',
             'settings' => 'merlin_theme_options[slider_activate]',
             'priority' => 1
@@ -48,7 +48,7 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_slider_magazine', array(
-        'label'    => __( 'Show Slider on Magazine Homepage', 'merlin' ),
+        'label'    => esc_html__( 'Show Slider on Magazine Homepage', 'merlin' ),
         'section'  => 'merlin_section_slider',
         'settings' => 'merlin_theme_options[slider_magazine]',
         'type'     => 'checkbox',
@@ -63,7 +63,7 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_slider_blog', array(
-        'label'    => __( 'Show Slider on posts page', 'merlin' ),
+        'label'    => esc_html__( 'Show Slider on posts page', 'merlin' ),
         'section'  => 'merlin_section_slider',
         'settings' => 'merlin_theme_options[slider_blog]',
         'type'     => 'checkbox',
@@ -81,7 +81,7 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
     );
     $wp_customize->add_control( new Merlin_Customize_Category_Dropdown_Control(
         $wp_customize, 'merlin_control_slider_category', array(
-            'label' => __( 'Slider Category', 'merlin' ),
+            'label' => esc_html__( 'Slider Category', 'merlin' ),
             'section' => 'merlin_section_slider',
             'settings' => 'merlin_theme_options[slider_category]',
 			'active_callback' => 'merlin_slider_activated_callback',
@@ -99,7 +99,7 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_slider_limit', array(
-        'label'    => __( 'Number of Posts', 'merlin' ),
+        'label'    => esc_html__( 'Number of Posts', 'merlin' ),
         'section'  => 'merlin_section_slider',
         'settings' => 'merlin_theme_options[slider_limit]',
         'type'     => 'text',
@@ -117,15 +117,15 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_slider_animation', array(
-        'label'    => __( 'Slider Animation', 'merlin' ),
+        'label'    => esc_html__( 'Slider Animation', 'merlin' ),
         'section'  => 'merlin_section_slider',
         'settings' => 'merlin_theme_options[slider_animation]',
         'type'     => 'radio',
 		'priority' => 6,
 		'active_callback' => 'merlin_slider_activated_callback',
         'choices'  => array(
-            'slide' => __( 'Slide Effect', 'merlin' ),
-            'fade' => __( 'Fade Effect', 'merlin' )
+            'slide' => esc_html__( 'Slide Effect', 'merlin' ),
+            'fade' => esc_html__( 'Fade Effect', 'merlin' )
 			)
 		)
 	);

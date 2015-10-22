@@ -14,7 +14,7 @@ get_header(); ?>
 			
 				<header class="entry-header">
 		
-					<h1 class="page-title"><?php _e('404: Page not found', 'merlin'); ?></h1>
+					<h1 class="page-title"><?php esc_html_e( '404: Page not found', 'merlin' ); ?></h1>
 					
 				</header><!-- .entry-header -->
 				

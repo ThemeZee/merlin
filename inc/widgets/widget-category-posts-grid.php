@@ -18,9 +18,9 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		// Setup Widget
 		$widget_ops = array(
 			'classname' => 'merlin_category_posts_grid', 
-			'description' => __('Displays your posts from a selected category in a grid layout. Please use this widget ONLY in the Magazine Homepage widget area.', 'merlin')
+			'description' => esc_html__( 'Displays your posts from a selected category in a grid layout. Please use this widget ONLY in the Magazine Homepage widget area.', 'merlin' )
 		);
-		parent::__construct('merlin_category_posts_grid', sprintf( __('Category Posts: Grid (%s)', 'merlin'), wp_get_theme()->Name ), $widget_ops);
+		parent::__construct('merlin_category_posts_grid', sprintf( esc_html__( 'Category Posts: Grid (%s)', 'merlin' ), wp_get_theme()->Name ), $widget_ops);
 		
 		// Delete Widget Cache on certain actions
 		add_action( 'save_post', array( $this, 'delete_widget_cache' ) );
@@ -334,7 +334,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 			<span class="meta-author">
 			<?php printf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>', 
 					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-					esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+					esc_attr( sprintf( esc_html__( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
 					get_the_author()
 				);
 			?>
@@ -393,7 +393,7 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 			if( true == $category_link and $category > 0 ) : 
 			
 				// Set Link URL and Title for Category
-				$link_title = sprintf( __('View all posts from category %s', 'merlin'), get_cat_name( $category ) );
+				$link_title = sprintf( esc_html__( 'View all posts from category %s', 'merlin' ), get_cat_name( $category ) );
 				$link_url = esc_url( get_category_link( $category ) );
 				
 				// Display Widget Title with link to category archive
@@ -451,16 +451,16 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 
 ?>
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'merlin'); ?>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php esc_html_e( 'Title:', 'merlin' ); ?>
 				<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 			</label>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('category'); ?>"><?php _e('Category:', 'merlin'); ?></label><br/>
+			<label for="<?php echo $this->get_field_id('category'); ?>"><?php esc_html_e( 'Category:', 'merlin' ); ?></label><br/>
 			<?php // Display Category Select
 				$args = array(
-					'show_option_all'    => __('All Categories', 'merlin'),
+					'show_option_all'    => esc_html__( 'All Categories', 'merlin' ),
 					'show_count' 		 => true,
 					'hide_empty'		 => false,
 					'selected'           => $category,
@@ -472,15 +472,15 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('layout'); ?>"><?php _e('Grid Layout:', 'merlin'); ?></label><br/>
+			<label for="<?php echo $this->get_field_id('layout'); ?>"><?php esc_html_e( 'Grid Layout:', 'merlin' ); ?></label><br/>
 			<select id="<?php echo $this->get_field_id('layout'); ?>" name="<?php echo $this->get_field_name('layout'); ?>">
-				<option <?php selected( $layout, 'two-columns' ); ?> value="two-columns" ><?php _e('Two Columns Grid', 'merlin'); ?></option>
-				<option <?php selected( $layout, 'three-columns' ); ?> value="three-columns" ><?php _e('Three Columns Grid', 'merlin'); ?></option>
+				<option <?php selected( $layout, 'two-columns' ); ?> value="two-columns" ><?php esc_html_e( 'Two Columns Grid', 'merlin' ); ?></option>
+				<option <?php selected( $layout, 'three-columns' ); ?> value="three-columns" ><?php esc_html_e( 'Three Columns Grid', 'merlin' ); ?></option>
 			</select>
 		</p>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of posts:', 'merlin'); ?>
+			<label for="<?php echo $this->get_field_id('number'); ?>"><?php esc_html_e( 'Number of posts:', 'merlin' ); ?>
 				<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" size="3" />
 			</label>
 		</p>
@@ -488,21 +488,21 @@ class Merlin_Category_Posts_Grid_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id('excerpt'); ?>">
 				<input class="checkbox" type="checkbox" <?php checked( $excerpt ) ; ?> id="<?php echo $this->get_field_id('excerpt'); ?>" name="<?php echo $this->get_field_name('excerpt'); ?>" />
-				<?php _e('Display post excerpt and read more button', 'merlin'); ?>
+				<?php esc_html_e( 'Display post excerpt and read more button', 'merlin' ); ?>
 			</label>
 		</p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id('category_link'); ?>">
 				<input class="checkbox" type="checkbox" <?php checked( $category_link ) ; ?> id="<?php echo $this->get_field_id('category_link'); ?>" name="<?php echo $this->get_field_name('category_link'); ?>" />
-				<?php _e('Link Widget Title to Category Archive page', 'merlin'); ?>
+				<?php esc_html_e( 'Link Widget Title to Category Archive page', 'merlin' ); ?>
 			</label>
 		</p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id('postmeta'); ?>">
 				<input class="checkbox" type="checkbox" <?php checked( $postmeta ) ; ?> id="<?php echo $this->get_field_id('postmeta'); ?>" name="<?php echo $this->get_field_name('postmeta'); ?>" />
-				<?php _e( 'Display post date and author', 'merlin' ); ?>
+				<?php esc_html_e( 'Display post date and author', 'merlin' ); ?>
 			</label>
 		</p>
 <?php

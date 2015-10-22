@@ -37,7 +37,7 @@ add_action( 'after_switch_theme', 'merlin_compat_switch_theme' );
  *
  */
 function merlin_compat_upgrade_notice() {
-	$message = sprintf( __( '%$1s requires at least WordPress version 4.2. You are running version %$2s. Please upgrade and try again.', 'merlin' ), 'Merlin', $GLOBALS['wp_version'] );
+	$message = sprintf( esc_html__( '%$1s requires at least WordPress version 4.2. You are running version %$2s. Please upgrade and try again.', 'merlin' ), 'Merlin', $GLOBALS['wp_version'] );
 	printf( '<div class="error"><p>%s</p></div>', $message );
 }
 
@@ -46,7 +46,7 @@ function merlin_compat_upgrade_notice() {
  * Prevent the Customizer from being loaded on WordPress versions prior to 4.2.
  */
 function merlin_compat_customize() {
-	wp_die( sprintf( __( 'Merlin requires at least WordPress version 4.2. You are running version %s. Please upgrade and try again.', 'merlin' ), $GLOBALS['wp_version'] ), '', array(
+	wp_die( sprintf( esc_html__( 'Merlin requires at least WordPress version 4.2. You are running version %s. Please upgrade and try again.', 'merlin' ), $GLOBALS['wp_version'] ), '', array(
 		'back_link' => true,
 	) );
 }
@@ -58,7 +58,7 @@ add_action( 'load-customize.php', 'merlin_compat_customize' );
  */
 function merlin_compat_preview() {
 	if ( isset( $_GET['preview'] ) ) {
-		wp_die( sprintf( __( 'Merlin requires at least WordPress version 4.2. You are running version %s. Please upgrade and try again.', 'merlin' ), $GLOBALS['wp_version'] ) );
+		wp_die( sprintf( esc_html__( 'Merlin requires at least WordPress version 4.2. You are running version %s. Please upgrade and try again.', 'merlin' ), $GLOBALS['wp_version'] ) );
 	}
 }
 add_action( 'template_redirect', 'merlin_compat_preview' );

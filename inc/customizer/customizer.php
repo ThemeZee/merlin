@@ -31,7 +31,7 @@ function merlin_customize_register_options( $wp_customize ) {
 		'priority'       => 180,
 		'capability'     => 'edit_theme_options',
 		'theme_supports' => '',
-		'title'          => __( 'Theme Options', 'merlin' ),
+		'title'          => esc_html__( 'Theme Options', 'merlin' ),
 		'description'    => '',
 	) );
 	
@@ -41,7 +41,7 @@ function merlin_customize_register_options( $wp_customize ) {
 	
 	// Change default background section
 	$wp_customize->get_control( 'background_color'  )->section   = 'background_image';
-	$wp_customize->get_section( 'background_image'  )->title     = __( 'Background', 'merlin' );
+	$wp_customize->get_section( 'background_image'  )->title     = esc_html__( 'Background', 'merlin' );
 	
 } // merlin_customize_register_options()
 add_action( 'customize_register', 'merlin_customize_register_options' );

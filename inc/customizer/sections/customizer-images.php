@@ -17,7 +17,7 @@ function merlin_customize_register_post_image_settings( $wp_customize ) {
 
 	// Add Sections for Post Settings
 	$wp_customize->add_section( 'merlin_section_images', array(
-        'title'    => __( 'Post Images', 'merlin' ),
+        'title'    => esc_html__( 'Post Images', 'merlin' ),
         'priority' => 50,
 		'panel' => 'merlin_options_panel' 
 		)
@@ -32,15 +32,15 @@ function merlin_customize_register_post_image_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_post_layout_archives', array(
-        'label'    => __( 'Post Images (archive pages)', 'merlin' ),
+        'label'    => esc_html__( 'Post Images (archive pages)', 'merlin' ),
         'section'  => 'merlin_section_images',
         'settings' => 'merlin_theme_options[post_layout_archives]',
         'type'     => 'radio',
 		'priority' => 1,
         'choices'  => array(
-            'left' => __( 'Show featured image beside content.', 'merlin' ),
-            'top' => __( 'Show featured image above content.', 'merlin'),
-			'none' => __( 'Hide featured image.', 'merlin')
+            'left' => esc_html__( 'Show featured image beside content.', 'merlin' ),
+            'top' => esc_html__( 'Show featured image above content.', 'merlin' ),
+			'none' => esc_html__( 'Hide featured image.', 'merlin' )
 			)
 		)
 	);
@@ -55,7 +55,7 @@ function merlin_customize_register_post_image_settings( $wp_customize ) {
     );
     $wp_customize->add_control( new Merlin_Customize_Header_Control(
         $wp_customize, 'merlin_control_post_image_single_header', array(
-            'label' => __( 'Post Image (single posts)', 'merlin' ),
+            'label' => esc_html__( 'Post Image (single posts)', 'merlin' ),
             'section' => 'merlin_section_images',
             'settings' => 'merlin_theme_options[post_image_single_header]',
             'priority' => 2
@@ -70,7 +70,7 @@ function merlin_customize_register_post_image_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_post_image_single', array(
-        'label'    => __( 'Show featured image on single posts.', 'merlin' ),
+        'label'    => esc_html__( 'Show featured image on single posts.', 'merlin' ),
         'section'  => 'merlin_section_images',
         'settings' => 'merlin_theme_options[post_image_single]',
         'type'     => 'checkbox',

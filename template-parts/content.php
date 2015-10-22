@@ -19,7 +19,7 @@
 		</header><!-- .entry-header -->
 
 		<div class="entry-content clearfix">
-			<?php the_content(__('Read more', 'merlin')); ?>
+			<?php the_content( esc_html__( 'Read more', 'merlin' ) ); ?>
 		</div><!-- .entry-content -->
 		
 		<footer class="entry-footer">

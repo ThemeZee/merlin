@@ -18,9 +18,9 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		// Setup Widget
 		$widget_ops = array(
 			'classname' => 'merlin_category_posts_columns', 
-			'description' => __('Displays your posts from two selected categories. Please use this widget ONLY in the Magazine Homepage widget area.', 'merlin')
+			'description' => esc_html__( 'Displays your posts from two selected categories. Please use this widget ONLY in the Magazine Homepage widget area.', 'merlin' )
 		);
-		parent::__construct('merlin_category_posts_columns', sprintf( __('Category Posts: 2 Columns (%s)', 'merlin'), wp_get_theme()->Name ), $widget_ops);
+		parent::__construct('merlin_category_posts_columns', sprintf( esc_html__( 'Category Posts: 2 Columns (%s)', 'merlin' ), wp_get_theme()->Name ), $widget_ops);
 		
 		// Delete Widget Cache on certain actions
 		add_action( 'save_post', array( $this, 'delete_widget_cache' ) );
@@ -273,7 +273,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 			<span class="meta-author">
 			<?php printf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>', 
 					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-					esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+					esc_attr( sprintf( esc_html__( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
 					get_the_author()
 				);
 			?>
@@ -332,7 +332,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 			if( true == $category_link and $category_id > 0 ) : 
 			
 				// Set Link URL and Title for Category
-				$link_title = sprintf( __('View all posts from category %s', 'merlin'), get_cat_name( $category_id ) );
+				$link_title = sprintf( esc_html__( 'View all posts from category %s', 'merlin' ), get_cat_name( $category_id ) );
 				$link_url = esc_url( get_category_link( $category_id ) );
 				
 				// Display Widget Title with link to category archive
@@ -391,16 +391,16 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 
 ?>
 		<p>
-			<label for="<?php echo $this->get_field_id('category_one_title'); ?>"><?php _e('Left Category Title:', 'merlin'); ?>
+			<label for="<?php echo $this->get_field_id('category_one_title'); ?>"><?php esc_html_e( 'Left Category Title:', 'merlin' ); ?>
 				<input class="widefat" id="<?php echo $this->get_field_id('category_one_title'); ?>" name="<?php echo $this->get_field_name('category_one_title'); ?>" type="text" value="<?php echo $category_one_title; ?>" />
 			</label>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('category_one'); ?>"><?php _e('Left Category:', 'merlin'); ?></label><br/>
+			<label for="<?php echo $this->get_field_id('category_one'); ?>"><?php esc_html_e( 'Left Category:', 'merlin' ); ?></label><br/>
 			<?php // Display Category One Select
 				$args = array(
-					'show_option_all'    => __('All Categories', 'merlin'),
+					'show_option_all'    => esc_html__( 'All Categories', 'merlin' ),
 					'show_count' 		 => true,
 					'hide_empty'		 => false,
 					'selected'           => $category_one,
@@ -412,16 +412,16 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		</p>
 		
 				<p>
-			<label for="<?php echo $this->get_field_id('category_two_title'); ?>"><?php _e('Right Category Title:', 'merlin'); ?>
+			<label for="<?php echo $this->get_field_id('category_two_title'); ?>"><?php esc_html_e( 'Right Category Title:', 'merlin' ); ?>
 				<input class="widefat" id="<?php echo $this->get_field_id('category_two_title'); ?>" name="<?php echo $this->get_field_name('category_two_title'); ?>" type="text" value="<?php echo $category_two_title; ?>" />
 			</label>
 		</p>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('category_two'); ?>"><?php _e('Right Category:', 'merlin'); ?></label><br/>
+			<label for="<?php echo $this->get_field_id('category_two'); ?>"><?php esc_html_e( 'Right Category:', 'merlin' ); ?></label><br/>
 			<?php // Display Category One Select
 				$args = array(
-					'show_option_all'    => __('All Categories', 'merlin'),
+					'show_option_all'    => esc_html__( 'All Categories', 'merlin' ),
 					'show_count' 		 => true,
 					'hide_empty'		 => false,
 					'selected'           => $category_two,
@@ -433,7 +433,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of posts:', 'merlin'); ?>
+			<label for="<?php echo $this->get_field_id('number'); ?>"><?php esc_html_e( 'Number of posts:', 'merlin' ); ?>
 				<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo (int)$number; ?>" size="3" />
 			</label>
 		</p>
@@ -441,21 +441,21 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id('highlight_post'); ?>">
 				<input class="checkbox" type="checkbox" <?php checked( $highlight_post ) ; ?> id="<?php echo $this->get_field_id('highlight_post'); ?>" name="<?php echo $this->get_field_name('highlight_post'); ?>" />
-				<?php _e('Highlight first post (big image + excerpt)', 'merlin'); ?>
+				<?php esc_html_e( 'Highlight first post (big image + excerpt)', 'merlin' ); ?>
 			</label>
 		</p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id('category_link'); ?>">
 				<input class="checkbox" type="checkbox" <?php checked( $category_link ) ; ?> id="<?php echo $this->get_field_id('category_link'); ?>" name="<?php echo $this->get_field_name('category_link'); ?>" />
-				<?php _e('Link Category Titles to Category Archive pages', 'merlin'); ?>
+				<?php esc_html_e( 'Link Category Titles to Category Archive pages', 'merlin' ); ?>
 			</label>
 		</p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id('postmeta'); ?>">
 				<input class="checkbox" type="checkbox" <?php checked( $postmeta ) ; ?> id="<?php echo $this->get_field_id('postmeta'); ?>" name="<?php echo $this->get_field_name('postmeta'); ?>" />
-				<?php _e( 'Display post date and author', 'merlin' ); ?>
+				<?php esc_html_e( 'Display post date and author', 'merlin' ); ?>
 			</label>
 		</p>
 		

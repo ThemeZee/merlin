@@ -42,7 +42,7 @@ function merlin_default_options() {
 	$default_options = array(
 		'layout' 							=> 'right-sidebar',
 		'sticky_nav'						=> false,
-		'latest_posts_title'				=> __( 'Latest Posts', 'merlin' ),
+		'latest_posts_title'				=> esc_html__( 'Latest Posts', 'merlin' ),
 		'header_tagline' 					=> false,
 		'post_content' 						=> 'excerpt',
 		'excerpt_length' 					=> 30,

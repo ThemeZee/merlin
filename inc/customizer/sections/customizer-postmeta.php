@@ -17,7 +17,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 
 	// Add Sections for Post Meta
 	$wp_customize->add_section( 'merlin_section_postmeta', array(
-        'title'    => __( 'Post Meta', 'merlin' ),
+        'title'    => esc_html__( 'Post Meta', 'merlin' ),
         'priority' => 40,
 		'panel' => 'merlin_options_panel' 
 		)
@@ -33,7 +33,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
     );
     $wp_customize->add_control( new Merlin_Customize_Header_Control(
         $wp_customize, 'merlin_control_postmeta_headline', array(
-            'label' => __( 'Post Meta', 'merlin' ),
+            'label' => esc_html__( 'Post Meta', 'merlin' ),
             'section' => 'merlin_section_postmeta',
             'settings' => 'merlin_theme_options[postmeta_headline]',
             'priority' => 1
@@ -48,7 +48,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_meta_date', array(
-        'label'    => __( 'Display post date', 'merlin' ),
+        'label'    => esc_html__( 'Display post date', 'merlin' ),
         'section'  => 'merlin_section_postmeta',
         'settings' => 'merlin_theme_options[meta_date]',
         'type'     => 'checkbox',
@@ -63,7 +63,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_meta_author', array(
-        'label'    => __( 'Display post author', 'merlin' ),
+        'label'    => esc_html__( 'Display post author', 'merlin' ),
         'section'  => 'merlin_section_postmeta',
         'settings' => 'merlin_theme_options[meta_author]',
         'type'     => 'checkbox',
@@ -81,7 +81,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
     );
     $wp_customize->add_control( new Merlin_Customize_Header_Control(
         $wp_customize, 'merlin_control_footermeta_headline', array(
-            'label' => __( 'Post Footer', 'merlin' ),
+            'label' => esc_html__( 'Post Footer', 'merlin' ),
             'section' => 'merlin_section_postmeta',
             'settings' => 'merlin_theme_options[footermeta_headline]',
             'priority' => 4
@@ -96,7 +96,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_footer_meta_archives', array(
-        'label'    => __( 'Display post categories and comments on archive pages', 'merlin' ),
+        'label'    => esc_html__( 'Display post categories and comments on archive pages', 'merlin' ),
         'section'  => 'merlin_section_postmeta',
         'settings' => 'merlin_theme_options[footer_meta_archives]',
         'type'     => 'checkbox',
@@ -111,7 +111,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_footer_meta_single', array(
-        'label'    => __( 'Display post categories and comments on single posts', 'merlin' ),
+        'label'    => esc_html__( 'Display post categories and comments on single posts', 'merlin' ),
         'section'  => 'merlin_section_postmeta',
         'settings' => 'merlin_theme_options[footer_meta_single]',
         'type'     => 'checkbox',
@@ -126,7 +126,7 @@ function merlin_customize_register_postmeta_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_meta_tags', array(
-        'label'    => __( 'Display post tags on single posts', 'merlin' ),
+        'label'    => esc_html__( 'Display post tags on single posts', 'merlin' ),
         'section'  => 'merlin_section_postmeta',
         'settings' => 'merlin_theme_options[meta_tags]',
         'type'     => 'checkbox',

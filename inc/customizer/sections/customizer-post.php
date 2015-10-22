@@ -17,7 +17,7 @@ function merlin_customize_register_post_settings( $wp_customize ) {
 
 	// Add Sections for Post Settings
 	$wp_customize->add_section( 'merlin_section_post', array(
-        'title'    => __( 'Post Settings', 'merlin' ),
+        'title'    => esc_html__( 'Post Settings', 'merlin' ),
         'priority' => 30,
 		'panel' => 'merlin_options_panel' 
 		)
@@ -25,14 +25,14 @@ function merlin_customize_register_post_settings( $wp_customize ) {
 	
 	// Add Title for latest posts setting
 	$wp_customize->add_setting( 'merlin_theme_options[latest_posts_title]', array(
-        'default'           => __( 'Latest Posts', 'merlin' ),
+        'default'           => esc_html__( 'Latest Posts', 'merlin' ),
 		'type'           	=> 'option',
         'transport'         => 'refresh',
         'sanitize_callback' => 'esc_html'
 		)
 	);
     $wp_customize->add_control( 'merlin_control_latest_posts_title', array(
-        'label'    => __( 'Title above Latest Posts', 'merlin' ),
+        'label'    => esc_html__( 'Title above Latest Posts', 'merlin' ),
         'section'  => 'merlin_section_post',
         'settings' => 'merlin_theme_options[latest_posts_title]',
         'type'     => 'text',
@@ -49,14 +49,14 @@ function merlin_customize_register_post_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_post_content', array(
-        'label'    => __( 'Post length on archives', 'merlin' ),
+        'label'    => esc_html__( 'Post length on archives', 'merlin' ),
         'section'  => 'merlin_section_post',
         'settings' => 'merlin_theme_options[post_content]',
         'type'     => 'radio',
 		'priority' => 2,
         'choices'  => array(
-            'index' => __( 'Show full posts', 'merlin' ),
-            'excerpt' => __( 'Show post excerpts', 'merlin' )
+            'index' => esc_html__( 'Show full posts', 'merlin' ),
+            'excerpt' => esc_html__( 'Show post excerpts', 'merlin' )
 			)
 		)
 	);
@@ -70,7 +70,7 @@ function merlin_customize_register_post_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_excerpt_length', array(
-        'label'    => __( 'Excerpt Length', 'merlin' ),
+        'label'    => esc_html__( 'Excerpt Length', 'merlin' ),
         'section'  => 'merlin_section_post',
         'settings' => 'merlin_theme_options[excerpt_length]',
         'type'     => 'text',

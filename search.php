@@ -18,7 +18,7 @@ $theme_options = merlin_theme_options();
 		
 			<header class="page-header">
 				
-				<h1 class="archive-title"><?php printf( __( 'Search Results for: %s', 'merlin'), '<span>' . get_search_query() . '</span>' ); ?></h1>
+				<h1 class="archive-title"><?php printf( esc_html__( 'Search Results for: %s', 'merlin' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				
 			</header><!-- .page-header -->
 			
@@ -48,13 +48,13 @@ $theme_options = merlin_theme_options();
 				
 				<header class="entry-header">
 		
-					<h1 class="page-title"><?php _e('No matches', 'merlin'); ?></h1>
+					<h1 class="page-title"><?php esc_html_e( 'No matches', 'merlin' ); ?></h1>
 					
 				</header><!-- .entry-header -->
 				
 				<div class="entry-content">
 					
-					<p><?php esc_html_e('Please try again, or use the navigation menus to find what you search for.', 'merlin'); ?></p>
+					<p><?php esc_html_e( 'Please try again, or use the navigation menus to find what you search for.', 'merlin' ); ?></p>
 					
 					<?php get_search_form(); ?>
 				

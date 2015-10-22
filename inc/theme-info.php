@@ -17,8 +17,8 @@ function merlin_theme_info_menu_link() {
 	$theme = wp_get_theme(); 
 	
 	add_theme_page( 
-		sprintf( __( 'Welcome to %1$s %2$s', 'merlin' ), $theme->get( 'Name' ), $theme->get( 'Version' ) ), 
-		__('Theme Info', 'merlin'), 
+		sprintf( esc_html__( 'Welcome to %1$s %2$s', 'merlin' ), $theme->get( 'Name' ), $theme->get( 'Version' ) ), 
+		esc_html__( 'Theme Info', 'merlin' ), 
 		'edit_theme_options', 
 		'merlin', 
 		'merlin_theme_info_page'
@@ -40,18 +40,18 @@ function merlin_theme_info_page() {
 			
 	<div class="wrap theme-info-wrap">
 
-		<h1><?php printf( __( 'Welcome to %1$s %2$s', 'merlin' ), $theme->get( 'Name' ), $theme->get( 'Version' ) ); ?></h1>
+		<h1><?php printf( esc_html__( 'Welcome to %1$s %2$s', 'merlin' ), $theme->get( 'Name' ), $theme->get( 'Version' ) ); ?></h1>
 
 		<div class="theme-description"><?php echo $theme->get( 'Description' ); ?></div>
 		
 		<hr>
 		<div class="important-links clearfix">
-			<p><strong><?php _e('Important Links:', 'merlin'); ?></strong>
-				<a href="http://themezee.com/themes/merlin/" target="_blank"><?php _e('Theme Page', 'merlin'); ?></a>
-				<a href="<?php echo get_template_directory_uri(); ?>/changelog.txt" target="_blank"><?php _e('Changelog', 'merlin'); ?></a>
-				<a href="http://preview.themezee.com/merlin/" target="_blank"><?php _e('Theme Demo', 'merlin'); ?></a>
-				<a href="http://themezee.com/docs/merlin-documentation/" target="_blank"><?php _e('Theme Documentation', 'merlin'); ?></a>
-				<a href="http://wordpress.org/support/view/theme-reviews/merlin?filter=5" target="_blank"><?php _e('Rate this theme', 'merlin'); ?></a>
+			<p><strong><?php esc_html_e( 'Important Links:', 'merlin' ); ?></strong>
+				<a href="http://themezee.com/themes/merlin/" target="_blank"><?php esc_html_e( 'Theme Page', 'merlin' ); ?></a>
+				<a href="<?php echo get_template_directory_uri(); ?>/changelog.txt" target="_blank"><?php esc_html_e( 'Changelog', 'merlin' ); ?></a>
+				<a href="http://preview.themezee.com/merlin/" target="_blank"><?php esc_html_e( 'Theme Demo', 'merlin' ); ?></a>
+				<a href="http://themezee.com/docs/merlin-documentation/" target="_blank"><?php esc_html_e( 'Theme Documentation', 'merlin' ); ?></a>
+				<a href="http://wordpress.org/support/view/theme-reviews/merlin?filter=5" target="_blank"><?php esc_html_e( 'Rate this theme', 'merlin' ); ?></a>
 			</p>
 		</div>
 		<hr>
@@ -62,41 +62,41 @@ function merlin_theme_info_page() {
 
 				<div class="column column-half clearfix">
 				
-					<h3><?php printf( __( 'Getting Started with %s', 'merlin' ), $theme->get( 'Name' ) ); ?></h3>
+					<h3><?php printf( esc_html__( 'Getting Started with %s', 'merlin' ), $theme->get( 'Name' ) ); ?></h3>
 						
 					<div class="section">
-						<h4><?php _e( 'Theme Documentation', 'merlin' ); ?></h4>
+						<h4><?php esc_html_e( 'Theme Documentation', 'merlin' ); ?></h4>
 						
 						<p class="about">
-							<?php _e( 'You need help to setup and configure this theme? We got you covered with an extensive theme documentation on our website.', 'merlin' ); ?>
+							<?php esc_html_e( 'You need help to setup and configure this theme? We got you covered with an extensive theme documentation on our website.', 'merlin' ); ?>
 						</p>
 						<p>
 							<a href="http://themezee.com/docs/merlin-documentation/" target="_blank" class="button button-secondary">
-								<?php printf( __( 'View %s Documentation', 'merlin' ), $theme->get( 'Name' ) ); ?>
+								<?php printf( esc_html__( 'View %s Documentation', 'merlin' ), $theme->get( 'Name' ) ); ?>
 							</a>
 						</p>
 					</div>
 					
 					<div class="section">
-						<h4><?php _e( 'Theme Options', 'merlin' ); ?></h4>
+						<h4><?php esc_html_e( 'Theme Options', 'merlin' ); ?></h4>
 						
 						<p class="about">
-							<?php printf( __( '%s makes use of the Customizer for all theme settings. Click on "Customize Theme" to open the Customizer now.', 'merlin' ), $theme->get( 'Name' ) ); ?>
+							<?php printf( esc_html__( '%s makes use of the Customizer for all theme settings. Click on "Customize Theme" to open the Customizer now.', 'merlin' ), $theme->get( 'Name' ) ); ?>
 						</p>
 						<p>
-							<a href="<?php echo admin_url( 'customize.php' ); ?>" class="button button-primary"><?php _e('Customize Theme', 'merlin'); ?></a>
+							<a href="<?php echo admin_url( 'customize.php' ); ?>" class="button button-primary"><?php esc_html_e( 'Customize Theme', 'merlin' ); ?></a>
 						</p>
 					</div>
 					
 					<div class="section">
-						<h4><?php _e( 'Pro Version', 'merlin' ); ?></h4>
+						<h4><?php esc_html_e( 'Pro Version', 'merlin' ); ?></h4>
 						
 						<p class="about">
-							<?php _e( 'You need more features? Purchase the Pro Version to get additional features and advanced customization options.', 'merlin' ); ?>
+							<?php esc_html_e( 'You need more features? Purchase the Pro Version to get additional features and advanced customization options.', 'merlin' ); ?>
 						</p>
 						<p>
 							<a href="http://themezee.com/themes/merlin/#PROVersion-1" target="_blank" class="button button-secondary">
-								<?php printf( __( 'Learn more about %s Pro', 'merlin' ), $theme->get( 'Name' ) ); ?>
+								<?php printf( esc_html__( 'Learn more about %s Pro', 'merlin' ), $theme->get( 'Name' ) ); ?>
 							</a>
 						</p>
 					</div>
@@ -117,10 +117,10 @@ function merlin_theme_info_page() {
 		
 		<div id="theme-author">
 			
-			<p><?php printf( __( '%1$s is proudly brought to you by %2$s. If you like this theme, %3$s :)', 'merlin' ), 
+			<p><?php printf( esc_html__( '%1$s is proudly brought to you by %2$s. If you like this theme, %3$s :)', 'merlin' ), 
 				$theme->get( 'Name' ),
 				'<a target="_blank" href="http://themezee.com" title="ThemeZee">ThemeZee</a>',
-				'<a target="_blank" href="http://wordpress.org/support/view/theme-reviews/merlin?filter=5" title="Merlin Review">' . __( 'rate it', 'merlin' ) . '</a>'); ?>
+				'<a target="_blank" href="http://wordpress.org/support/view/theme-reviews/merlin?filter=5" title="Merlin Review">' . esc_html__( 'rate it', 'merlin' ) . '</a>'); ?>
 			</p>
 		
 		</div>

@@ -2,6 +2,10 @@
 Merlin Changelog
 ===================================
 
+Version 1.0.7
+-----------------------------------
+[added] escaping for translation strings for improved security
+
 Version 1.0.6
 -----------------------------------
 [improved] structure of post meta functions for better re-usability

@@ -147,19 +147,19 @@ if ( ! function_exists( 'merlin_meta_date' ) ):
 /**
  * Displays the post date
  */
-function merlin_meta_date() { ?>
+function merlin_meta_date() { 
+
+	$time_string = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date published updated" datetime="%3$s">%4$s</time></a>',
+		esc_url( get_permalink() ),
+		esc_attr( get_the_time() ),
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
+	);
+
+	$posted_on = sprintf( esc_html_x( 'Posted on %s', 'post date', 'merlin' ), $time_string );
 	
-	<span class="meta-date">
-	<?php printf(__('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date published updated" datetime="%3$s">%4$s</time></a>', 'merlin'), 
-			esc_url( get_permalink() ),
-			esc_attr( get_the_time() ),
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() )
-		);
-	?>
-	</span>
-	
-<?php
+	echo '<span class="meta-date">' . $posted_on . '</span>';
+
 }  // merlin_meta_date()
 endif;
 
@@ -168,18 +168,18 @@ if ( ! function_exists( 'merlin_meta_author' ) ):
 /**
  * Displays the post author
  */
-function merlin_meta_author() {  ?>
-			
-	<span class="meta-author">
-	<?php printf(__('by <span class="author vcard"><a class="fn" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', 'merlin'), 
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
-			get_the_author()
-		);
-	?>
-	</span>
+function merlin_meta_author() {  
+	
+	$author_string = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', 
+		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+		esc_attr( sprintf( esc_html__( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+		esc_html( get_the_author() )
+	);
+	
+	$byline = sprintf( esc_html_x( 'by %s', 'post author', 'merlin' ), $author_string );
+	
+	echo '<span class="meta-author"> ' . $byline . '</span>';
 
-<?php
 }  // merlin_meta_author()
 endif;
 
@@ -233,7 +233,7 @@ function merlin_entry_footer() {
 		if ( comments_open() ) : ?>
 		
 			<span class="meta-comments">
-				<?php comments_popup_link( __('Leave a comment', 'merlin'),__('One comment', 'merlin'),__('% comments', 'merlin') ); ?>
+				<?php comments_popup_link( esc_html__( 'Leave a comment', 'merlin' ), esc_html__( 'One comment', 'merlin' ), esc_html__( '% comments', 'merlin' ) ); ?>
 			</span>
 	
 		<?php endif; ?>
@@ -281,7 +281,7 @@ function merlin_entry_meta_slider() {
 			<span class="meta-author">
 				<?php printf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>', 
 						esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-						esc_attr( sprintf( __( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+						esc_attr( sprintf( esc_html__( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
 						get_the_author()
 					);
 				?>
@@ -303,7 +303,7 @@ if ( ! function_exists( 'merlin_more_link' ) ):
  */
 function merlin_more_link() { ?>
 
-	<a href="<?php echo esc_url( get_permalink() ) ?>" class="more-link"><?php _e('Read more', 'merlin'); ?></a>
+	<a href="<?php echo esc_url( get_permalink() ) ?>" class="more-link"><?php esc_html_e( 'Read more', 'merlin' ); ?></a>
 
 <?php
 }
@@ -350,7 +350,7 @@ endif;
 function merlin_footer_text() { ?>
 
 	<span class="credit-link">
-		<?php printf( __( 'Powered by %1$s and %2$s.', 'merlin' ), 
+		<?php printf( esc_html__( 'Powered by %1$s and %2$s.', 'merlin' ), 
 			'<a href="http://wordpress.org" title="WordPress">WordPress</a>',
 			'<a href="http://themezee.com/themes/merlin/" title="Merlin WordPress Theme">Merlin</a>'
 		); ?>

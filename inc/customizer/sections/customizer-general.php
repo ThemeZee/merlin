@@ -17,7 +17,7 @@ function merlin_customize_register_general_settings( $wp_customize ) {
 
 	// Add Section for Theme Options
 	$wp_customize->add_section( 'merlin_section_general', array(
-        'title'    => __( 'General Settings', 'merlin' ),
+        'title'    => esc_html__( 'General Settings', 'merlin' ),
         'priority' => 10,
 		'panel' => 'merlin_options_panel' 
 		)
@@ -32,14 +32,14 @@ function merlin_customize_register_general_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_layout', array(
-        'label'    => __( 'Theme Layout', 'merlin' ),
+        'label'    => esc_html__( 'Theme Layout', 'merlin' ),
         'section'  => 'merlin_section_general',
         'settings' => 'merlin_theme_options[layout]',
         'type'     => 'radio',
 		'priority' => 1,
         'choices'  => array(
-            'left-sidebar' => __( 'Left Sidebar', 'merlin' ),
-            'right-sidebar' => __( 'Right Sidebar', 'merlin')
+            'left-sidebar' => esc_html__( 'Left Sidebar', 'merlin' ),
+            'right-sidebar' => esc_html__( 'Right Sidebar', 'merlin' )
 			)
 		)
 	);
@@ -54,7 +54,7 @@ function merlin_customize_register_general_settings( $wp_customize ) {
     );
     $wp_customize->add_control( new Merlin_Customize_Header_Control(
         $wp_customize, 'merlin_control_sticky_nav_headline', array(
-            'label' => __( 'Sticky Navigation', 'merlin' ),
+            'label' => esc_html__( 'Sticky Navigation', 'merlin' ),
             'section' => 'merlin_section_general',
             'settings' => 'merlin_theme_options[sticky_nav_headline]',
             'priority' => 2
@@ -69,7 +69,7 @@ function merlin_customize_register_general_settings( $wp_customize ) {
 		)
 	);
     $wp_customize->add_control( 'merlin_control_sticky_nav', array(
-        'label'    => __( 'Enable sticky menu on large screens', 'merlin' ),
+        'label'    => esc_html__( 'Enable sticky menu on large screens', 'merlin' ),
         'section'  => 'merlin_section_general',
         'settings' => 'merlin_theme_options[sticky_nav]',
         'type'     => 'checkbox',
