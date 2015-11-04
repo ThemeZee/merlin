@@ -73,14 +73,14 @@
 	display: none;
 }
 
-.tzwb-posts-list .tzwb-postmeta {
+.tzwb-posts-list .tzwb-entry-meta {
 	margin: 0.2em 0 0.6em;
 	color: #777;
 	font-size: 14px;
 	font-size: 0.875rem;
 }
 
-.tzwb-posts-list .tzwb-postmeta span {
+.tzwb-posts-list .tzwb-entry-meta span {
 	margin-right: 0.4em;
 }
 
@@ -210,7 +210,7 @@
 	margin: 0.3em 0.8em 0.3em 0;
 }
 
-.tzwb-tabbed-content .tzwb-tabcontent ul li .tzwb-postmeta {
+.tzwb-tabbed-content .tzwb-tabcontent ul li .tzwb-entry-meta {
 	margin: 0.2em 0;
 	color: #777;
 	font-size: 14px;

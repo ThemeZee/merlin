@@ -21,7 +21,7 @@
 		<div class="entry-content clearfix">
 			<?php the_content(); ?>
 			<!-- <?php trackback_rdf(); ?> -->
-			<div class="page-links"><?php wp_link_pages(); ?></div>	
+			<div class="page-links"><?php wp_link_pages(); ?></div>
 		</div><!-- .entry-content -->
 		
 		<footer class="entry-footer">
