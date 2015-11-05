@@ -20,8 +20,7 @@ function merlin_slider_scripts() {
 	$theme_options = merlin_theme_options();
 	
 	// Register and Enqueue FlexSlider JS and CSS if necessary
-	if ( ( isset($theme_options['slider_blog']) and $theme_options['slider_blog'] == true )
-		|| ( isset($theme_options['slider_magazine']) and $theme_options['slider_magazine'] == true ) ) :
+	if ( true == $theme_options['slider_blog'] or true == $theme_options['slider_magazine'] or is_page_template('template-slider.php') ) :
 
 		// FlexSlider CSS
 		wp_enqueue_style( 'merlin-flexslider', get_template_directory_uri() . '/css/flexslider.css' );

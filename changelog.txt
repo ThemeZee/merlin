@@ -2,6 +2,10 @@
 Merlin Changelog
 ===================================
 
+Version 1.0.9
+-----------------------------------
+[added] Post Slider page template
+
 Version 1.0.8
 -----------------------------------
 [fixed] styling of broken full width page template
