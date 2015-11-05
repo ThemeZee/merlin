@@ -5,6 +5,8 @@ Merlin Changelog
 Version 1.0.9
 -----------------------------------
 [added] Post Slider page template
+[changed] h2 post titles in post widgets to h1 for better SEO
+[fixed] postmeta styling for widget bundle
 
 Version 1.0.8
 -----------------------------------

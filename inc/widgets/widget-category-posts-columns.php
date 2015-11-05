@@ -206,7 +206,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 			
 							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-large'); ?></a>
 
-							<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+							<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 						
 							<div class="entry-meta">
 								<?php $this->entry_meta($instance); ?>
@@ -231,7 +231,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 						
 						<div class="small-post-content">
 							
-							<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>						
+							<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>						
 							
 							<div class="entry-meta">
 								<?php $this->entry_date($instance); ?>

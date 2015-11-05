@@ -112,8 +112,8 @@ function merlin_widgets_init() {
 		'description' => esc_html__( 'Appears on Magazine Homepage template only. You can use the Category Posts widgets here.', 'merlin' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
-		'before_title' => '<div class="widget-header"><h3 class="widget-title">',
-		'after_title' => '</h3></div>',
+		'before_title' => '<div class="widget-header"><h2 class="widget-title">',
+		'after_title' => '</h2></div>',
 	));
 	
 } // merlin_widgets_init
