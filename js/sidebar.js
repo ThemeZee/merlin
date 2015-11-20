@@ -79,6 +79,11 @@
 		}
 		function widthChange(mq) {
 			
+			/* Only do something if sidebar exists */
+			if ( $( '.sidebar' ).length <= 0 ) {
+				return;
+			}
+		
 			if (mq.matches) {
 		
 				sidebar.hide();

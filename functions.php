@@ -43,7 +43,7 @@ function merlin_setup() {
 		'primary' => esc_html__( 'Main Navigation', 'merlin' ),
 		'secondary' => esc_html__( 'Top Navigation', 'merlin' ),
 		'footer' => esc_html__( 'Footer Navigation', 'merlin' ),
-		'social' => esc_html__( 'Social Icons', 'merlin' )
+		'social' => esc_html__( 'Social Icons', 'merlin' ),
 	) );
 
 	// Switch default core markup for search form, comment form, and comments to output valid HTML5.
