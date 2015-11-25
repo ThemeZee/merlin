@@ -62,6 +62,9 @@ function merlin_setup() {
 		'flex-height' => true
 	) ) );
 	
+	// Add Theme Support for wooCommerce
+	add_theme_support( 'woocommerce' );
+	
 }
 endif; // merlin_setup
 add_action( 'after_setup_theme', 'merlin_setup' );
