@@ -28,26 +28,44 @@ if ( ! function_exists( 'merlin_header_image' ) ):
  */
 function merlin_header_image() {
 		
-	// Don't display header image on template-magazine.php
-	if( is_page_template('template-magazine.php') )
+	// Get theme options from database
+	$theme_options = merlin_theme_options();
+	
+	// Hide header image on front page
+	if ( true == $theme_options['custom_header_hide'] and is_front_page() ) {
 		return;
+	}
 		
 	// Check if page is displayed and featured header image is used
-	if( is_page() && has_post_thumbnail() ) :
-	?>
+	if( is_page() && has_post_thumbnail() ) : ?>
+		
 		<div id="headimg" class="header-image featured-image-header">
 			<?php the_post_thumbnail('merlin-header-image'); ?>
 		</div>
-<?php
+	
+	<?php
 	// Check if there is a custom header image
-	elseif( get_header_image() ) :
-	?>
+	elseif( get_header_image() ) : ?>
+		
 		<div id="headimg" class="header-image">
-			<img src="<?php echo get_header_image(); ?>" />
+			
+			<?php // Check if custom header image is linked
+			if( $theme_options['custom_header_link'] <> '' ) : ?>
+			
+				<a href="<?php echo esc_url( $theme_options['custom_header_link'] ); ?>">
+					<img src="<?php echo get_header_image(); ?>" />
+				</a>
+				
+			<?php else : ?>
+			
+				<img src="<?php echo get_header_image(); ?>" />
+				
+			<?php endif; ?>
+			
 		</div>
-<?php 
+	
+	<?php 
 	endif;
-
 }
 endif;
 

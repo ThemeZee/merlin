@@ -6,6 +6,7 @@ Version 1.1.1
 -----------------------------------
 [added] basic support for wooCommerce
 [added] support for ThemeZee Breadcrumbs plugin
+[added] custom header image settings
 
 Version 1.1.0
 -----------------------------------

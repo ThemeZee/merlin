@@ -40,10 +40,11 @@ function merlin_theme_options() {
 function merlin_default_options() {
 
 	$default_options = array(
+		'custom_header_link'				=> '',
+		'custom_header_hide'				=> false,
 		'layout' 							=> 'right-sidebar',
 		'sticky_nav'						=> false,
 		'latest_posts_title'				=> esc_html__( 'Latest Posts', 'merlin' ),
-		'header_tagline' 					=> false,
 		'post_content' 						=> 'excerpt',
 		'excerpt_length' 					=> 30,
 		'meta_date'							=> true,
