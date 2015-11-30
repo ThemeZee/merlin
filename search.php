@@ -16,6 +16,8 @@ $theme_options = merlin_theme_options();
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 		
+			<?php if ( function_exists( 'themezee_breadcrumbs' ) ) themezee_breadcrumbs(); ?>
+			
 			<header class="page-header">
 				
 				<h1 class="archive-title"><?php printf( esc_html__( 'Search Results for: %s', 'merlin' ), '<span>' . get_search_query() . '</span>' ); ?></h1>

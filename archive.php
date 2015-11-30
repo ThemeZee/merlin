@@ -16,6 +16,8 @@ $theme_options = merlin_theme_options();
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 		
+		<?php if ( function_exists( 'themezee_breadcrumbs' ) ) themezee_breadcrumbs(); ?>
+			
 		<?php if ( have_posts() ) : ?>
 		
 			<header class="page-header">

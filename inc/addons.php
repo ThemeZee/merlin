@@ -16,7 +16,8 @@ function merlin_theme_addons_setup() {
 	
 	// Add Theme Support for ThemeZee Addons
 	add_theme_support( 'themezee-widget-bundle' );
-
+	add_theme_support( 'themezee-breadcrumbs' );
+	
 }
 
 

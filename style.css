@@ -4,7 +4,7 @@ Theme URI: http://themezee.com/themes/merlin/
 Author: ThemeZee
 Author URI: http://themezee.com
 Description: Merlin is a beautiful designed Magazine WordPress theme with a responsive layout. The theme comes with a gorgeous Post Slider, Magazine Homepage template and a Header Widget area. Settings can be configured easily in the Customizer. 
-Version: 1.1.0
+Version: 1.1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: merlin
@@ -1779,6 +1779,53 @@ textarea {
 .post-pagination .current {
 	color: #fff;
 	background-color: #2299cc;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+	margin: 0 0 1.5em;
+	padding: 0.4em 0.6em;
+	color: #222;
+	font-size: 14px;
+	font-size: 0.875rem;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+.breadcrumbs .trail-browse,
+.breadcrumbs .trail-items,
+.breadcrumbs .trail-items li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+.breadcrumbs .trail-browse {
+	margin-right: 0.5em;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: normal;
+}
+
+.breadcrumbs .trail-items {
+	list-style: none;
+}
+
+.breadcrumbs .trail-items li::after {
+	content: "\00bb"; /* Raquo */
+	padding: 0 0.5em;
+}
+
+.trail-separator-slash .trail-items li::after { content: "\002F"; }
+.trail-separator-dash .trail-items li::after { content: "\2013"; }
+.trail-separator-bull .trail-items li::after { content: "\2022"; }
+.trail-separator-arrow-bracket .trail-items li::after { content: "\003e"; }
+.trail-separator-raquo .trail-items li::after { content: "\00bb"; }
+.trail-separator-single-arrow .trail-items li::after { content: "\2192"; }
+.trail-separator-double-arrow .trail-items li::after { content: "\21D2"; }
+
+.breadcrumbs .trail-items li:last-of-type::after {
+	display: none;
 }
 
 /*--------------------------------------------------------------

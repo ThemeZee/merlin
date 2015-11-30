@@ -23,6 +23,8 @@ endif;
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 		
+			<?php if ( function_exists( 'themezee_breadcrumbs' ) ) themezee_breadcrumbs(); ?>
+			
 			<?php
 			// Display Latest Posts Title
 			if ( isset( $theme_options['latest_posts_title'] ) and $theme_options['latest_posts_title'] <> '' ) : ?>

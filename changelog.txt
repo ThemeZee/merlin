@@ -5,6 +5,7 @@ Merlin Changelog
 Version 1.1.1
 -----------------------------------
 [added] basic support for wooCommerce
+[added] support for ThemeZee Breadcrumbs plugin
 
 Version 1.1.0
 -----------------------------------
