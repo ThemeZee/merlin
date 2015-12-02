@@ -46,7 +46,7 @@ function merlin_theme_info_page() {
 		
 		<hr>
 		<div class="important-links clearfix">
-			<p><strong><?php esc_html_e( 'Important Links:', 'merlin' ); ?></strong>
+			<p><strong><?php esc_html_e( 'Theme Links:', 'merlin' ); ?></strong>
 				<a href="http://themezee.com/themes/merlin/" target="_blank"><?php esc_html_e( 'Theme Page', 'merlin' ); ?></a>
 				<a href="<?php echo get_template_directory_uri(); ?>/changelog.txt" target="_blank"><?php esc_html_e( 'Changelog', 'merlin' ); ?></a>
 				<a href="http://preview.themezee.com/merlin/" target="_blank"><?php esc_html_e( 'Theme Demo', 'merlin' ); ?></a>

@@ -86,9 +86,33 @@ add_action( 'customize_register', 'merlin_customize_register_options' );
  *
  */
 function merlin_customize_preview_js() {
-	wp_enqueue_script( 'merlin-customizer-js', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20150723', true );
+	wp_enqueue_script( 'merlin-customizer-preview', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151202', true );
 }
 add_action( 'customize_preview_init', 'merlin_customize_preview_js' );
+
+
+/**
+ * Embed JS file for Customizer Controls
+ *
+ */
+function merlin_customize_controls_js() {
+	
+	wp_enqueue_script( 'merlin-customizer-controls', get_template_directory_uri() . '/js/customizer-controls.js', array(), '20151202', true );
+	
+	// Localize the script
+	wp_localize_script( 'merlin-customizer-controls', 'merlin_theme_links', array(
+		'title'	=> esc_html__( 'Theme Links', 'merlin' ),
+		'themeURL'	=> esc_url( 'http://themezee.com/themes/merlin/' ),
+		'themeLabel'	=> esc_html__( 'Theme Page', 'merlin' ),
+		'docuURL'	=> esc_url( 'http://themezee.com/docs/merlin-documentation/' ),
+		'docuLabel'	=>  esc_html__( 'Theme Documentation', 'merlin' ),
+		'rateURL'	=> esc_url( 'http://wordpress.org/support/view/theme-reviews/merlin?filter=5' ),
+		'rateLabel'	=> esc_html__( 'Rate this theme', 'merlin' ),
+		)
+	);
+
+}
+add_action( 'customize_controls_enqueue_scripts', 'merlin_customize_controls_js' );
 
 
 /**
@@ -96,6 +120,6 @@ add_action( 'customize_preview_init', 'merlin_customize_preview_js' );
  *
  */
 function merlin_customize_preview_css() {
-	wp_enqueue_style( 'merlin-customizer-css', get_template_directory_uri() . '/css/customizer.css', array(), '20150723' );
+	wp_enqueue_style( 'merlin-customizer-css', get_template_directory_uri() . '/css/customizer.css', array(), '20151202' );
 }
 add_action( 'customize_controls_print_styles', 'merlin_customize_preview_css' );
