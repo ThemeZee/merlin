@@ -2,6 +2,11 @@
 Merlin Changelog
 ===================================
 
+Version 1.1.2
+-----------------------------------
+[added] support for ThemeZee Related Posts plugin
+[fixed] styling of archive descriptions
+
 Version 1.1.1
 -----------------------------------
 [added] basic support for wooCommerce
