@@ -16,6 +16,8 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', 'single' );
 			
+			merlin_related_posts();
+		
 			comments_template();
 
 		endwhile; ?>

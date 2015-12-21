@@ -328,6 +328,25 @@ function merlin_more_link() { ?>
 endif;
 
 
+if ( ! function_exists( 'merlin_related_posts' ) ):
+/**
+ * Displays Merlin plugin
+ */	
+function merlin_related_posts() { 
+	
+	if ( function_exists( 'themezee_related_posts' ) ) {
+
+		themezee_related_posts( array( 
+			'class' => 'related-posts type-page clearfix',
+			'before_title' => '<header class="page-header"><h2 class="archive-title related-posts-title">',
+			'after_title' => '</h2></header>'
+		) );
+		
+	}
+}	
+endif;
+
+
 if ( ! function_exists( 'merlin_pagination' ) ):
 /**
  * Displays pagination on archive pages
