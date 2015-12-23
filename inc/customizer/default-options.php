@@ -60,6 +60,7 @@ function merlin_default_options() {
 		'slider_category' 					=> 0,
 		'slider_limit' 						=> 8,
 		'slider_animation' 					=> 'slide',
+		'slider_speed' 						=> 7000,
 	);
 	
 	return $default_options;

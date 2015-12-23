@@ -62,15 +62,10 @@ function merlin_slider_options() {
 	$params = array();
 	
 	// Define Slider Animation
-	if( isset( $theme_options['slider_animation'] ) and $theme_options['slider_animation'] == 'fade' ) :
-		
-		$params['animation'] = 'fade';
-		
-	else:
+	$params['animation'] = $theme_options['slider_animation'];
 	
-		$params['animation'] = 'slide';
-		
-	endif;
+	// Define Slider Speed
+	$params['speed'] = $theme_options['slider_speed'];
 	
 	// Passing Parameters to Javascript
 	wp_localize_script( 'merlin-post-slider', 'merlin_slider_params', $params );

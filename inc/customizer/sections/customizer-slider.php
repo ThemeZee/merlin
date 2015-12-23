@@ -130,5 +130,27 @@ function merlin_customize_register_slider_settings( $wp_customize ) {
 		)
 	);
 	
+	// Add Setting and Control for Slider Speed
+	$wp_customize->add_setting( 'merlin_theme_options[slider_speed]', array(
+        'default'           => 7000,
+		'type'           	=> 'option',
+        'transport'         => 'refresh',
+        'sanitize_callback' => 'absint'
+		)
+	);
+    $wp_customize->add_control( 'merlin_theme_options[slider_speed]', array(
+        'label'    => esc_html__( 'Slider Speed (in ms)', 'merlin' ),
+        'section'  => 'merlin_section_slider',
+        'settings' => 'merlin_theme_options[slider_speed]',
+        'type'     => 'number',
+		'active_callback' => 'merlin_slider_activated_callback',
+		'priority' => 7,
+		'input_attrs' => array(
+			'min'   => 1000,
+			'step'  => 100,
+		),
+		)
+	);
+	
 }
 add_action( 'customize_register', 'merlin_customize_register_slider_settings' );
