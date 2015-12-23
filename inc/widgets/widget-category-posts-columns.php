@@ -16,12 +16,15 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 	function __construct() {
 		
 		// Setup Widget
-		$widget_ops = array(
-			'classname' => 'merlin_category_posts_columns', 
-			'description' => esc_html__( 'Displays your posts from two selected categories. Please use this widget ONLY in the Magazine Homepage widget area.', 'merlin' )
+		parent::__construct(
+			'merlin_category_posts_columns', // ID
+			sprintf( esc_html__( 'Category Posts: 2 Columns (%s)', 'merlin' ), wp_get_theme()->Name ), // Name
+			array( 
+				'classname' => 'merlin_category_posts_columns', 
+				'description' => esc_html__( 'Displays your posts from two selected categories. Please use this widget ONLY in the Magazine Homepage widget area.', 'merlin' ) 
+			) // Args
 		);
-		parent::__construct('merlin_category_posts_columns', sprintf( esc_html__( 'Category Posts: 2 Columns (%s)', 'merlin' ), wp_get_theme()->Name ), $widget_ops);
-		
+
 		// Delete Widget Cache on certain actions
 		add_action( 'save_post', array( $this, 'delete_widget_cache' ) );
 		add_action( 'deleted_post', array( $this, 'delete_widget_cache' ) );
@@ -59,7 +62,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 	 * @param array $args / Parameters from widget area created with register_sidebar()
 	 * @param array $instance / Settings for this widget instance
 	 */
-	function widget($args, $instance) {
+	function widget( $args, $instance ) {
 
 		$cache = array();
 				
@@ -80,27 +83,23 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		// Start Output Buffering
 		ob_start();
 		
-		// Get Sidebar Arguments
-		extract($args);
-		
 		// Get Widget Settings
-		$defaults = $this->default_settings();
-		extract( wp_parse_args( $instance, $defaults ) );
+		$settings = wp_parse_args( $instance, $this->default_settings() );
 
 		// Output
-		echo $before_widget;
+		echo $args['before_widget'];
 	?>
 		<div class="widget-category-posts-columns widget-category-posts clearfix">
 			
 			<div class="widget-category-posts-content clearfix">
 			
-				<?php echo $this->render($args, $instance); ?>
+				<?php echo $this->render( $args, $settings ); ?>
 				
 			</div>
 
 		</div>
 	<?php
-		echo $after_widget;
+		echo $args['after_widget'];
 		
 		// Set Cache
 		if ( ! $this->is_preview() ) {
@@ -122,23 +121,19 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 	 * @used-by this->widget()
 	 *
 	 * @param array $args / Parameters from widget area created with register_sidebar()
-	 * @param array $instance / Settings for this widget instance
+	 * @param array $settings / Settings for this widget instance
 	 */
-	function render($args, $instance) {
-		
-		// Get Widget Settings
-		$defaults = $this->default_settings();
-		extract( wp_parse_args( $instance, $defaults ) ); ?>
+	function render( $args, $settings ) { ?>
 		
 		<div class="category-posts-column-left category-posts-columns clearfix">
 				
 			<div class="category-posts-columns-content clearfix">
 			
 				<?php //Display Category Title
-					$this->category_title($args, $instance, $category_one, $category_one_title); ?>
+					$this->category_title( $args, $settings, $settings['category_one'], $settings['category_one_title'] ); ?>
 					
 				<div class="category-posts-columns-post-list clearfix">
-					<?php $this->category_posts($instance, $category_one); ?>
+					<?php $this->category_posts( $settings, $settings['category_one'] ); ?>
 				</div>
 				
 			</div>
@@ -150,10 +145,10 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 			<div class="category-posts-columns-content clearfix">
 			
 				<?php //Display Category Title
-					$this->category_title($args, $instance, $category_two, $category_two_title); ?>
+					$this->category_title( $args, $settings, $settings['category_two'], $settings['category_two_title'] ); ?>
 					
 				<div class="category-posts-columns-post-list clearfix">
-					<?php $this->category_posts($instance, $category_two); ?>
+					<?php $this->category_posts( $settings, $settings['category_two'] ); ?>
 				</div>
 				
 			</div>
@@ -169,22 +164,18 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 	 *
 	 * @used-by this->render()
 	 *
-	 * @param array $instance / Settings for this widget instance
+	 * @param array $settings / Settings for this widget instance
 	 * @param int $category_id / ID of the selected category
 	 */
-	function category_posts($instance, $category_id) {
+	function category_posts( $settings, $category_id ) {
 	
-		// Get Widget Settings
-		$defaults = $this->default_settings();
-		extract( wp_parse_args( $instance, $defaults ) );
-		
 		// Get latest posts from database
 		$query_arguments = array(
-			'posts_per_page' => (int)$number,
+			'posts_per_page' => (int)$settings['number'],
 			'ignore_sticky_posts' => true,
 			'cat' => (int)$category_id
 		);
-		$posts_query = new WP_Query($query_arguments);
+		$posts_query = new WP_Query( $query_arguments );
 		$i = 0;
 		
 		// Check if there are posts
@@ -198,18 +189,18 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 				
 				$posts_query->the_post(); 
 				
-				if( $highlight_post == true and (isset($i) and $i == 0) ) : ?>
+				if( true == $settings['highlight_post'] and ( isset($i) and $i == 0 ) ) : ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class('large-post clearfix'); ?>>
+					<article id="post-<?php the_ID(); ?>" <?php post_class( 'large-post clearfix' ); ?>>
 
 						<header class="entry-header">
 			
-							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-large'); ?></a>
+							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail( 'merlin-category-posts-widget-large' ); ?></a>
 
 							<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 						
 							<div class="entry-meta">
-								<?php $this->entry_meta($instance); ?>
+								<?php $this->entry_meta( $settings ); ?>
 							</div><!-- .entry-meta -->
 					
 						</header><!-- .entry-header -->
@@ -223,10 +214,10 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 
 				<?php else: ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class('small-post clearfix'); ?>>
+					<article id="post-<?php the_ID(); ?>" <?php post_class( 'small-post clearfix' ); ?>>
 
-						<?php if ( '' != get_the_post_thumbnail() ) : ?>
-							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('merlin-category-posts-widget-small'); ?></a>
+						<?php if ( has_post_thumbnail() ) : ?>
+							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail( 'merlin-category-posts-widget-small' ); ?></a>
 						<?php endif; ?>
 						
 						<div class="small-post-content">
@@ -234,7 +225,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 							<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>						
 							
 							<div class="entry-meta">
-								<?php $this->entry_date($instance); ?>
+								<?php $this->entry_date( $settings ); ?>
 							</div><!-- .entry-meta -->
 							
 						</div>
@@ -247,7 +238,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 			endwhile;
 			
 			// Remove excerpt filter
-			remove_filter('excerpt_length', 'merlin_category_posts_excerpt_length');
+			remove_filter( 'excerpt_length', 'merlin_category_posts_excerpt_length' );
 
 		endif;
 		
@@ -260,26 +251,14 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 	/**
 	 * Displays Entry Meta of Posts
 	 */
-	function entry_meta($instance) { 
+	function entry_meta( $settings ) { 
 
-		// Get Widget Settings
-		$defaults = $this->default_settings();
-		extract( wp_parse_args( $instance, $defaults ) );
+		if( true == $settings['postmeta'] ) :
 		
-		if( true == $postmeta ) :
-		
-			$this->entry_date( $instance ); ?>
+			merlin_meta_date();
+			merlin_meta_author();
 			
-			<span class="meta-author">
-			<?php printf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>', 
-					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-					esc_attr( sprintf( esc_html__( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
-					get_the_author()
-				);
-			?>
-			</span>
-			
-		<?php endif;
+		endif;
 	
 
 	} // entry_meta()
@@ -288,25 +267,13 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 	/**
 	 * Displays Entry Date of Posts
 	 */
-	function entry_date($instance) { 
+	function entry_date( $settings ) { 
 
-		// Get Widget Settings
-		$defaults = $this->default_settings();
-		extract( wp_parse_args( $instance, $defaults ) );
+		if( true == $settings['postmeta'] ) :
 		
-		if( true == $postmeta ) : ?>
-		
-			<span class="meta-date">
-			<?php printf('<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>',
-					esc_url( get_permalink() ),
-					esc_attr( get_the_time() ),
-					esc_attr( get_the_date( 'c' ) ),
-					esc_html( get_the_date() )
-				);
-			?>
-			</span>
-		
-		<?php endif;
+			merlin_meta_date();
+			
+		endif;
 
 	} // entry_date()
 	
@@ -314,22 +281,15 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 	/**
 	 * Displays Category Widget Title
 	 */
-	function category_title($args, $instance, $category_id, $category_title) {
-		
-		// Get Sidebar Arguments
-		extract($args);
-		
-		// Get Widget Settings
-		$defaults = $this->default_settings();
-		extract( wp_parse_args( $instance, $defaults ) );
+	function category_title( $args, $settings, $category_id, $category_title ) {
 		
 		// Add Widget Title Filter
-		$widget_title = apply_filters('widget_title', $category_title, $instance, $this->id_base);
+		$widget_title = apply_filters( 'widget_title', $category_title, $settings, $this->id_base );
 		
 		if( !empty( $widget_title ) ) :
 
 			// Link Category Title
-			if( true == $category_link and $category_id > 0 ) : 
+			if( true == $settings['category_link'] and $category_id > 0 ) : 
 			
 				// Set Link URL and Title for Category
 				$link_title = sprintf( esc_html__( 'View all posts from category %s', 'merlin' ), get_cat_name( $category_id ) );
@@ -344,7 +304,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 			else:
 				
 				// Display default Widget Title without link
-				echo $before_title . $widget_title . $after_title; 
+				echo $args['before_title'] . $widget_title . $args['after_title']; 
 			
 			endif;
 			
@@ -360,7 +320,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 	 * @param array $old_instance / Old Settings for this widget instance
 	 * @return array $instance
 	 */
-	function update($new_instance, $old_instance) {
+	function update( $new_instance, $old_instance ) {
 
 		$instance = $old_instance;
 		$instance['category_one_title'] = sanitize_text_field($new_instance['category_one_title']);
@@ -386,13 +346,12 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 	function form( $instance ) {
 		
 		// Get Widget Settings
-		$defaults = $this->default_settings();
-		extract( wp_parse_args( $instance, $defaults ) );
-
-?>
+		$settings = wp_parse_args( $instance, $this->default_settings() );
+		?>
+		
 		<p>
 			<label for="<?php echo $this->get_field_id('category_one_title'); ?>"><?php esc_html_e( 'Left Category Title:', 'merlin' ); ?>
-				<input class="widefat" id="<?php echo $this->get_field_id('category_one_title'); ?>" name="<?php echo $this->get_field_name('category_one_title'); ?>" type="text" value="<?php echo $category_one_title; ?>" />
+				<input class="widefat" id="<?php echo $this->get_field_id('category_one_title'); ?>" name="<?php echo $this->get_field_name('category_one_title'); ?>" type="text" value="<?php echo $settings['category_one_title']; ?>" />
 			</label>
 		</p>
 
@@ -403,7 +362,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 					'show_option_all'    => esc_html__( 'All Categories', 'merlin' ),
 					'show_count' 		 => true,
 					'hide_empty'		 => false,
-					'selected'           => $category_one,
+					'selected'           => $settings['category_one'],
 					'name'               => $this->get_field_name('category_one'),
 					'id'                 => $this->get_field_id('category_one')
 				);
@@ -413,7 +372,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		
 				<p>
 			<label for="<?php echo $this->get_field_id('category_two_title'); ?>"><?php esc_html_e( 'Right Category Title:', 'merlin' ); ?>
-				<input class="widefat" id="<?php echo $this->get_field_id('category_two_title'); ?>" name="<?php echo $this->get_field_name('category_two_title'); ?>" type="text" value="<?php echo $category_two_title; ?>" />
+				<input class="widefat" id="<?php echo $this->get_field_id('category_two_title'); ?>" name="<?php echo $this->get_field_name('category_two_title'); ?>" type="text" value="<?php echo $settings['category_two_title']; ?>" />
 			</label>
 		</p>
 		
@@ -424,7 +383,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 					'show_option_all'    => esc_html__( 'All Categories', 'merlin' ),
 					'show_count' 		 => true,
 					'hide_empty'		 => false,
-					'selected'           => $category_two,
+					'selected'           => $settings['category_two'],
 					'name'               => $this->get_field_name('category_two'),
 					'id'                 => $this->get_field_id('category_two')
 				);
@@ -434,27 +393,27 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 		
 		<p>
 			<label for="<?php echo $this->get_field_id('number'); ?>"><?php esc_html_e( 'Number of posts:', 'merlin' ); ?>
-				<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo (int)$number; ?>" size="3" />
+				<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo (int)$settings['number']; ?>" size="3" />
 			</label>
 		</p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id('highlight_post'); ?>">
-				<input class="checkbox" type="checkbox" <?php checked( $highlight_post ) ; ?> id="<?php echo $this->get_field_id('highlight_post'); ?>" name="<?php echo $this->get_field_name('highlight_post'); ?>" />
+				<input class="checkbox" type="checkbox" <?php checked( $settings['highlight_post'] ) ; ?> id="<?php echo $this->get_field_id('highlight_post'); ?>" name="<?php echo $this->get_field_name('highlight_post'); ?>" />
 				<?php esc_html_e( 'Highlight first post (big image + excerpt)', 'merlin' ); ?>
 			</label>
 		</p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id('category_link'); ?>">
-				<input class="checkbox" type="checkbox" <?php checked( $category_link ) ; ?> id="<?php echo $this->get_field_id('category_link'); ?>" name="<?php echo $this->get_field_name('category_link'); ?>" />
+				<input class="checkbox" type="checkbox" <?php checked( $settings['category_link'] ) ; ?> id="<?php echo $this->get_field_id('category_link'); ?>" name="<?php echo $this->get_field_name('category_link'); ?>" />
 				<?php esc_html_e( 'Link Category Titles to Category Archive pages', 'merlin' ); ?>
 			</label>
 		</p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id('postmeta'); ?>">
-				<input class="checkbox" type="checkbox" <?php checked( $postmeta ) ; ?> id="<?php echo $this->get_field_id('postmeta'); ?>" name="<?php echo $this->get_field_name('postmeta'); ?>" />
+				<input class="checkbox" type="checkbox" <?php checked( $settings['postmeta'] ) ; ?> id="<?php echo $this->get_field_id('postmeta'); ?>" name="<?php echo $this->get_field_name('postmeta'); ?>" />
 				<?php esc_html_e( 'Display post date and author', 'merlin' ); ?>
 			</label>
 		</p>
@@ -468,7 +427,7 @@ class Merlin_Category_Posts_Columns_Widget extends WP_Widget {
 	 */
 	public function delete_widget_cache() {
 		
-		wp_cache_delete('widget_merlin_category_posts_columns', 'widget');
+		wp_cache_delete( 'widget_merlin_category_posts_columns', 'widget' );
 		
 	}
 	
@@ -479,6 +438,6 @@ add_action( 'widgets_init', 'merlin_register_category_posts_columns_widget' );
 
 function merlin_register_category_posts_columns_widget() {
 
-	register_widget('Merlin_Category_Posts_Columns_Widget');
+	register_widget( 'Merlin_Category_Posts_Columns_Widget' );
 	
 }

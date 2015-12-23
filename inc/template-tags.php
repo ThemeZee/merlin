@@ -142,14 +142,14 @@ function merlin_entry_meta() {
 		<?php // Display Date unless user has deactivated it via settings
 		if ( true == $theme_options['meta_date'] ) :
 		
-			merlin_meta_date();
+			merlin_posted_on();
 		
 		endif; 
 
 		// Display Author unless user has deactivated it via settings
 		if ( true == $theme_options['meta_author'] ) :
 		
-			merlin_meta_author();
+			merlin_posted_by();
 		
 		endif; ?>
 		
@@ -161,11 +161,11 @@ function merlin_entry_meta() {
 endif;
 
 
-if ( ! function_exists( 'merlin_meta_date' ) ):
+if ( ! function_exists( 'merlin_posted_on' ) ):
 /**
  * Displays the post date
  */
-function merlin_meta_date() { 
+function merlin_posted_on() { 
 
 	$time_string = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date published updated" datetime="%3$s">%4$s</time></a>',
 		esc_url( get_permalink() ),
@@ -178,15 +178,15 @@ function merlin_meta_date() {
 	
 	echo '<span class="meta-date">' . $posted_on . '</span>';
 
-}  // merlin_meta_date()
+}  // merlin_posted_on()
 endif;
 
 
-if ( ! function_exists( 'merlin_meta_author' ) ):
+if ( ! function_exists( 'merlin_posted_by' ) ):
 /**
  * Displays the post author
  */
-function merlin_meta_author() {  
+function merlin_posted_by() {  
 	
 	$author_string = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', 
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
@@ -198,7 +198,7 @@ function merlin_meta_author() {
 	
 	echo '<span class="meta-author"> ' . $byline . '</span>';
 
-}  // merlin_meta_author()
+}  // merlin_posted_by()
 endif;
 
 
@@ -279,39 +279,61 @@ function merlin_entry_meta_slider() {
 		<div class="entry-meta">
 		
 		<?php // Display Date unless user has deactivated it via settings
-		if ( true == $theme_options['meta_date'] ) : ?>
+		if ( true == $theme_options['meta_date'] ) :
 		
-			<span class="meta-date">
-				<?php printf( '<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a>', 
-						esc_url( get_permalink() ),
-						esc_attr( get_the_time() ),
-						esc_attr( get_the_date( 'c' ) ),
-						esc_html( get_the_date() )
-					);
-				?>
-			</span>
+			merlin_meta_date();
 		
-		<?php endif; 
+		endif; 
 
 		// Display Author unless user has deactivated it via settings
-		if ( true == $theme_options['meta_author'] ) : ?>
+		if ( true == $theme_options['meta_author'] ) :
 		
-			<span class="meta-author">
-				<?php printf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>', 
-						esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-						esc_attr( sprintf( esc_html__( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
-						get_the_author()
-					);
-				?>
-			</span>
+			merlin_meta_author();
 		
-		<?php endif; ?>
+		endif; ?>
 		
 		</div>
 		
 	<?php endif; 
 
 } // merlin_entry_meta_slider()
+endif;
+
+
+if ( ! function_exists( 'merlin_meta_date' ) ):
+/**
+ * Displays the post date
+ */
+function merlin_meta_date() { 
+
+	$time_string = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date published updated" datetime="%3$s">%4$s</time></a>',
+		esc_url( get_permalink() ),
+		esc_attr( get_the_time() ),
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
+	);
+
+	echo '<span class="meta-date">' . $time_string . '</span>';
+
+}  // merlin_meta_date()
+endif;
+
+
+if ( ! function_exists( 'merlin_meta_author' ) ):
+/**
+ * Displays the post author
+ */
+function merlin_meta_author() {  
+	
+	$author_string = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', 
+		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+		esc_attr( sprintf( esc_html__( 'View all posts by %s', 'merlin' ), get_the_author() ) ),
+		esc_html( get_the_author() )
+	);
+	
+	echo '<span class="meta-author"> ' . $author_string . '</span>';
+
+}  // merlin_meta_author()
 endif;
 
 
