@@ -28,10 +28,10 @@ function merlin_customize_register_post_image_settings( $wp_customize ) {
         'default'           => 'left',
 		'type'           	=> 'option',
         'transport'         => 'refresh',
-        'sanitize_callback' => 'merlin_sanitize_post_layout'
+        'sanitize_callback' => 'merlin_sanitize_select'
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_post_layout_archives', array(
+    $wp_customize->add_control( 'merlin_theme_options[post_layout_archives]', array(
         'label'    => esc_html__( 'Post Images (archive pages)', 'merlin' ),
         'section'  => 'merlin_section_images',
         'settings' => 'merlin_theme_options[post_layout_archives]',
@@ -54,7 +54,7 @@ function merlin_customize_register_post_image_settings( $wp_customize ) {
         )
     );
     $wp_customize->add_control( new Merlin_Customize_Header_Control(
-        $wp_customize, 'merlin_control_post_image_single_header', array(
+        $wp_customize, 'merlin_theme_options[post_image_single_header]', array(
             'label' => esc_html__( 'Post Image (single posts)', 'merlin' ),
             'section' => 'merlin_section_images',
             'settings' => 'merlin_theme_options[post_image_single_header]',
@@ -69,7 +69,7 @@ function merlin_customize_register_post_image_settings( $wp_customize ) {
         'sanitize_callback' => 'merlin_sanitize_checkbox'
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_post_image_single', array(
+    $wp_customize->add_control( 'merlin_theme_options[post_image_single]', array(
         'label'    => esc_html__( 'Show featured image on single posts.', 'merlin' ),
         'section'  => 'merlin_section_images',
         'settings' => 'merlin_theme_options[post_image_single]',

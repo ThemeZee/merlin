@@ -32,7 +32,7 @@ function merlin_customize_register_upgrade_settings( $wp_customize ) {
         )
     );
     $wp_customize->add_control( new Merlin_Customize_Upgrade_Control(
-        $wp_customize, 'merlin_control_upgrade', array(
+        $wp_customize, 'merlin_theme_options[upgrade]', array(
             'section' => 'merlin_section_upgrade',
             'settings' => 'merlin_theme_options[upgrade]',
             'priority' => 1

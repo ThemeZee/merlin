@@ -31,7 +31,7 @@ function merlin_customize_register_post_settings( $wp_customize ) {
         'sanitize_callback' => 'esc_html'
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_latest_posts_title', array(
+    $wp_customize->add_control( 'merlin_theme_options[latest_posts_title]', array(
         'label'    => esc_html__( 'Title above Latest Posts', 'merlin' ),
         'section'  => 'merlin_section_post',
         'settings' => 'merlin_theme_options[latest_posts_title]',
@@ -45,10 +45,10 @@ function merlin_customize_register_post_settings( $wp_customize ) {
         'default'           => 'excerpt',
 		'type'           	=> 'option',
         'transport'         => 'refresh',
-        'sanitize_callback' => 'merlin_sanitize_post_content'
+        'sanitize_callback' => 'merlin_sanitize_select'
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_post_content', array(
+    $wp_customize->add_control( 'merlin_theme_options[post_content]', array(
         'label'    => esc_html__( 'Post length on archives', 'merlin' ),
         'section'  => 'merlin_section_post',
         'settings' => 'merlin_theme_options[post_content]',
@@ -69,7 +69,7 @@ function merlin_customize_register_post_settings( $wp_customize ) {
         'sanitize_callback' => 'absint'
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_excerpt_length', array(
+    $wp_customize->add_control( 'merlin_theme_options[excerpt_length]', array(
         'label'    => esc_html__( 'Excerpt Length', 'merlin' ),
         'section'  => 'merlin_section_post',
         'settings' => 'merlin_theme_options[excerpt_length]',
@@ -88,7 +88,7 @@ function merlin_customize_register_post_settings( $wp_customize ) {
         )
     );
     $wp_customize->add_control( new Merlin_Customize_Header_Control(
-        $wp_customize, 'merlin_control_post_footer_headline', array(
+        $wp_customize, 'merlin_theme_options[post_footer_headline]', array(
             'label' => esc_html__( 'Post Footer', 'merlin' ),
             'section' => 'merlin_section_post',
             'settings' => 'merlin_theme_options[post_footer_headline]',
@@ -103,7 +103,7 @@ function merlin_customize_register_post_settings( $wp_customize ) {
         'sanitize_callback' => 'merlin_sanitize_checkbox'
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_post_navigation', array(
+    $wp_customize->add_control( 'merlin_theme_options[post_navigation]', array(
         'label'    => esc_html__( 'Display post navigation on single posts', 'merlin' ),
         'section'  => 'merlin_section_post',
         'settings' => 'merlin_theme_options[post_navigation]',

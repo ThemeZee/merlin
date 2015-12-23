@@ -28,10 +28,10 @@ function merlin_customize_register_general_settings( $wp_customize ) {
         'default'           => 'right-sidebar',
 		'type'           	=> 'option',
         'transport'         => 'refresh',
-        'sanitize_callback' => 'merlin_sanitize_layout'
+        'sanitize_callback' => 'merlin_sanitize_select'
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_layout', array(
+    $wp_customize->add_control( 'merlin_theme_options[layout]', array(
         'label'    => esc_html__( 'Theme Layout', 'merlin' ),
         'section'  => 'merlin_section_general',
         'settings' => 'merlin_theme_options[layout]',
@@ -53,7 +53,7 @@ function merlin_customize_register_general_settings( $wp_customize ) {
         )
     );
     $wp_customize->add_control( new Merlin_Customize_Header_Control(
-        $wp_customize, 'merlin_control_sticky_nav_headline', array(
+        $wp_customize, 'merlin_theme_options[sticky_nav_headline]', array(
             'label' => esc_html__( 'Sticky Navigation', 'merlin' ),
             'section' => 'merlin_section_general',
             'settings' => 'merlin_theme_options[sticky_nav_headline]',
@@ -68,7 +68,7 @@ function merlin_customize_register_general_settings( $wp_customize ) {
         'sanitize_callback' => 'merlin_sanitize_checkbox'
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_sticky_nav', array(
+    $wp_customize->add_control( 'merlin_theme_options[sticky_nav]', array(
         'label'    => esc_html__( 'Enable sticky menu on large screens', 'merlin' ),
         'section'  => 'merlin_section_general',
         'settings' => 'merlin_theme_options[sticky_nav]',
