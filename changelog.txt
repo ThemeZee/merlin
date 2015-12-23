@@ -2,6 +2,10 @@
 Merlin Changelog
 ===================================
 
+Version 1.1.3
+-----------------------------------
+[added] setting to disable single post navigation
+
 Version 1.1.2
 -----------------------------------
 [added] support for ThemeZee Related Posts plugin

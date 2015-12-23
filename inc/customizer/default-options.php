@@ -54,11 +54,12 @@ function merlin_default_options() {
 		'meta_tags'							=> true,
 		'post_layout_archives'				=> 'left',
 		'post_image_single' 				=> true,
+		'post_navigation'					=> true,
 		'slider_magazine' 					=> false,
 		'slider_blog' 						=> false,
 		'slider_category' 					=> 0,
 		'slider_limit' 						=> 8,
-		'slider_animation' 					=> 'slide'
+		'slider_animation' 					=> 'slide',
 	);
 	
 	return $default_options;

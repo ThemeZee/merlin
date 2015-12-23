@@ -79,5 +79,38 @@ function merlin_customize_register_post_settings( $wp_customize ) {
 		)
 	);
 	
+	// Add Post Footer Settings
+	$wp_customize->add_setting( 'merlin_theme_options[post_footer_headline]', array(
+        'default'           => '',
+		'type'           	=> 'option',
+        'transport'         => 'refresh',
+        'sanitize_callback' => 'esc_attr'
+        )
+    );
+    $wp_customize->add_control( new Merlin_Customize_Header_Control(
+        $wp_customize, 'merlin_control_post_footer_headline', array(
+            'label' => esc_html__( 'Post Footer', 'merlin' ),
+            'section' => 'merlin_section_post',
+            'settings' => 'merlin_theme_options[post_footer_headline]',
+            'priority' => 5
+            )
+        )
+    );
+	$wp_customize->add_setting( 'merlin_theme_options[post_navigation]', array(
+        'default'           => true,
+		'type'           	=> 'option',
+        'transport'         => 'refresh',
+        'sanitize_callback' => 'merlin_sanitize_checkbox'
+		)
+	);
+    $wp_customize->add_control( 'merlin_control_post_navigation', array(
+        'label'    => esc_html__( 'Display post navigation on single posts', 'merlin' ),
+        'section'  => 'merlin_section_post',
+        'settings' => 'merlin_theme_options[post_navigation]',
+        'type'     => 'checkbox',
+		'priority' => 6
+		)
+	);
+	
 }
 add_action( 'customize_register', 'merlin_customize_register_post_settings' );

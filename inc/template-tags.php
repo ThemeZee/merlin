@@ -328,9 +328,28 @@ function merlin_more_link() { ?>
 endif;
 
 
+if ( ! function_exists( 'merlin_post_navigation' ) ):
+/**
+ * Displays Single Post Navigation
+ */	
+function merlin_post_navigation() { 
+	
+	// Get Theme Options from Database
+	$theme_options = merlin_theme_options();
+	
+	if ( true == $theme_options['post_navigation'] ) {
+
+		the_post_navigation( array( 'prev_text' => '&laquo; %title', 'next_text' => '%title &raquo;' ) );
+			
+	}
+	
+}	
+endif;
+
+
 if ( ! function_exists( 'merlin_related_posts' ) ):
 /**
- * Displays Merlin plugin
+ * Displays ThemeZee Related Posts plugin
  */	
 function merlin_related_posts() { 
 	
