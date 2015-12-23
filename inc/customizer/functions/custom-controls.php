@@ -98,7 +98,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 				</span>
 				
 				<p>
-					<a href="http://themezee.com/themes/merlin/?utm_source=customizer&utm_medium=button&utm_campaign=merlin&utm_content=pro-version" target="_blank" class="button button-secondary">
+					<a href="<?php echo esc_url( merlin_theme_links( 'pro_version' ) . '?utm_source=customizer&utm_medium=button&utm_campaign=merlin&utm_content=pro-version' ); ?>" target="_blank" class="button button-secondary">
 						<?php printf( esc_html__( 'Learn more about %s Pro', 'merlin' ), 'Merlin'); ?>
 					</a>
 				</p>
@@ -114,7 +114,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 				</span>
 				
 				<p>
-					<a href="http://themezee.com/addons/toolkit/?utm_source=customizer&utm_medium=button&utm_campaign=merlin&utm_content=toolkit" target="_blank" class="button button-secondary">
+					<a href="<?php echo esc_url( merlin_theme_links( 'toolkit' ) . '?utm_source=customizer&utm_medium=button&utm_campaign=merlin&utm_content=toolkit' ); ?>" target="_blank" class="button button-secondary">
 						<?php printf( esc_html__( 'View Details', 'merlin' ), 'Merlin'); ?>
 					</a>
 					<a href="<?php echo admin_url( 'plugin-install.php?tab=search&type=author&s=themezee' ); ?>" class="button button-primary">
@@ -124,17 +124,17 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 			
 			</div>
 			
-			<div class="upgrade-addons">
+			<div class="upgrade-plugins">
 			
-				<span class="customize-control-title"><?php esc_html_e( 'Add-on plugins', 'merlin' ); ?></span>
+				<span class="customize-control-title"><?php esc_html_e( 'ThemeZee Plugins', 'merlin' ); ?></span>
 				
 				<span class="textfield">
-					<?php esc_html_e( 'Extend the functionality of your WordPress website with our customized add-ons.', 'merlin' ); ?>
+					<?php esc_html_e( 'Extend the functionality of your WordPress website with our customized plugins.', 'merlin' ); ?>
 				</span>
 
 				<p>
-					<a href="http://themezee.com/addons/?utm_source=customizer&utm_medium=button&utm_campaign=merlin&utm_content=addons" target="_blank" class="button button-secondary">
-						<?php esc_html_e( 'Browse our add-ons', 'merlin' ); ?>
+					<a href="<?php echo esc_url( merlin_theme_links( 'plugins' ) . '?utm_source=customizer&utm_medium=button&utm_campaign=merlin&utm_content=plugins' ); ?>" target="_blank" class="button button-secondary">
+						<?php esc_html_e( 'Browse Plugins', 'merlin' ); ?>
 					</a>
 				</p>
 				

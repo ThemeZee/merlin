@@ -99,3 +99,53 @@ function merlin_wrapper_end() {
 }
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 add_action('woocommerce_after_main_content', 'merlin_wrapper_end', 10);
+
+
+/**
+ * Returns the themezee.com links
+ *
+ * @param string $link Which link should be displayed
+ * @return string $url URL to correct ThemeZee.com page
+ */
+function merlin_theme_links( $link ) {
+    
+	// Set Language Variable
+	$language = get_locale();
+	
+	// Theme Links
+	$theme_links = array(
+		'homepage' 		=> 'https://themezee.com/',
+		'theme_page' 	=> 'https://themezee.com/themes/merlin/',
+		'documentation' => 'https://themezee.com/docs/merlin-documentation/',
+		'pro_version' 	=> 'https://themezee.com/themes/merlin/',
+		'toolkit' 		=> 'https://themezee.com/plugins/toolkit/',
+		'plugins' 		=> 'https://themezee.com/plugins/',
+	);
+	
+	// Links for German website
+	$theme_links_german = array(
+		'homepage' 		=> 'https://themezee.com/de/',
+		'theme_page' 	=> 'https://themezee.com/de/themes/merlin/',
+		'documentation' => 'https://themezee.com/de/docs/merlin-dokumentation/',
+		'pro_version' 	=> 'https://themezee.com/de/themes/merlin/',
+		'toolkit' 		=> 'https://themezee.com/de/plugins/toolkit/',
+		'plugins' 		=> 'https://themezee.com/de/plugins/',
+	);
+	
+	// Use URLs for German website when site language is German
+	if( 'de_DE' ==  $language or 'de_DE_formal' == $language or 'de_CH' == $language ) {
+		$theme_links = $theme_links_german;
+	}
+	
+	// Return URL
+	if( array_key_exists( $link, $theme_links ) ) {
+		
+		return $theme_links[$link];
+	
+	} else {
+		
+		return $theme_links['homepage'];
+		
+	}
+	
+}

@@ -102,9 +102,9 @@ function merlin_customize_controls_js() {
 	// Localize the script
 	wp_localize_script( 'merlin-customizer-controls', 'merlin_theme_links', array(
 		'title'	=> esc_html__( 'Theme Links', 'merlin' ),
-		'themeURL'	=> esc_url( 'http://themezee.com/themes/merlin/?utm_source=customizer&utm_medium=textlink&utm_campaign=merlin&utm_content=theme-page' ),
+		'themeURL'	=> esc_url( merlin_theme_links( 'theme_page' ) . '?utm_source=customizer&utm_medium=textlink&utm_campaign=merlin&utm_content=theme-page' ),
 		'themeLabel'	=> esc_html__( 'Theme Page', 'merlin' ),
-		'docuURL'	=> esc_url( 'http://themezee.com/docs/merlin-documentation/?utm_source=customizer&utm_medium=textlink&utm_campaign=merlin&utm_content=documentation' ),
+		'docuURL'	=> esc_url( merlin_theme_links( 'documentation' ) . '?utm_source=customizer&utm_medium=textlink&utm_campaign=merlin&utm_content=documentation' ),
 		'docuLabel'	=>  esc_html__( 'Theme Documentation', 'merlin' ),
 		'rateURL'	=> esc_url( 'http://wordpress.org/support/view/theme-reviews/merlin?filter=5' ),
 		'rateLabel'	=> esc_html__( 'Rate this theme', 'merlin' ),
