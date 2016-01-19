@@ -430,7 +430,7 @@ function merlin_footer_text() { ?>
 	<span class="credit-link">
 		<?php printf( esc_html__( 'Powered by %1$s and %2$s.', 'merlin' ), 
 			'<a href="http://wordpress.org" title="WordPress">WordPress</a>',
-			'<a href="http://themezee.com/themes/merlin/" title="Merlin WordPress Theme">Merlin</a>'
+			'<a href="https://themezee.com/themes/merlin/" title="Merlin WordPress Theme">Merlin</a>'
 		); ?>
 	</span>
 

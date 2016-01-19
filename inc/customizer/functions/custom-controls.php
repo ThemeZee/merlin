@@ -94,34 +94,15 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 				<span class="customize-control-title"><?php esc_html_e( 'Pro Version', 'merlin' ); ?></span>
 				
 				<span class="textfield">
-					<?php printf( esc_html__( 'Purchase the Pro Version of %s to get additional features and advanced customization options.', 'merlin' ), 'Merlin'); ?>
+					<?php printf( esc_html__( 'Purchase the Pro Version of %s to get additional features and advanced customization options.', 'merlin' ), 'Anderson'); ?>
 				</span>
 				
 				<p>
-					<a href="<?php echo esc_url( merlin_theme_links( 'pro_version' ) . '?utm_source=customizer&utm_medium=button&utm_campaign=merlin&utm_content=pro-version' ); ?>" target="_blank" class="button button-secondary">
+					<a href="<?php echo esc_url( __( 'https://themezee.com/addons/merlin-pro/', 'merlin' ) ); ?>?utm_source=customizer&utm_medium=button&utm_campaign=merlin&utm_content=pro-version" target="_blank" class="button button-secondary">
 						<?php printf( esc_html__( 'Learn more about %s Pro', 'merlin' ), 'Merlin'); ?>
 					</a>
 				</p>
 				
-			</div>
-			
-			<div class="upgrade-toolkit">
-			
-				<span class="customize-control-title"><?php esc_html_e( 'ThemeZee Toolkit', 'merlin' ); ?></span>
-				
-				<span class="textfield">
-					<?php esc_html_e( 'The ThemeZee Toolkit add-on is a collection of useful small modules and features, neatly bundled into a single plugin.', 'merlin' ); ?>
-				</span>
-				
-				<p>
-					<a href="<?php echo esc_url( merlin_theme_links( 'toolkit' ) . '?utm_source=customizer&utm_medium=button&utm_campaign=merlin&utm_content=toolkit' ); ?>" target="_blank" class="button button-secondary">
-						<?php printf( esc_html__( 'View Details', 'merlin' ), 'Merlin'); ?>
-					</a>
-					<a href="<?php echo admin_url( 'plugin-install.php?tab=search&type=author&s=themezee' ); ?>" class="button button-primary">
-						<?php esc_html_e( 'Install now', 'merlin' ); ?>
-					</a>
-				</p>
-			
 			</div>
 			
 			<div class="upgrade-plugins">
@@ -131,13 +112,16 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 				<span class="textfield">
 					<?php esc_html_e( 'Extend the functionality of your WordPress website with our customized plugins.', 'merlin' ); ?>
 				</span>
-
+				
 				<p>
-					<a href="<?php echo esc_url( merlin_theme_links( 'plugins' ) . '?utm_source=customizer&utm_medium=button&utm_campaign=merlin&utm_content=plugins' ); ?>" target="_blank" class="button button-secondary">
+					<a href="<?php echo esc_url( __( 'https://themezee.com/plugins/', 'merlin' ) ); ?>?utm_source=customizer&utm_medium=button&utm_campaign=merlin&utm_content=plugins" target="_blank" class="button button-secondary">
 						<?php esc_html_e( 'Browse Plugins', 'merlin' ); ?>
 					</a>
+					<a href="<?php echo admin_url( 'plugin-install.php?tab=search&type=author&s=themezee' ); ?>" class="button button-primary">
+						<?php esc_html_e( 'Install now', 'merlin' ); ?>
+					</a>
 				</p>
-				
+			
 			</div>
 			
 			<?php

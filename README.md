@@ -46,7 +46,7 @@ B) Installation
       Upload the theme files to your wordpress theme folder wp-content/themes and activate the theme in
       your wordpress admin panel. That's it!
 
-To find out more about installing WordPress themes please also see http://themezee.com/docs/install-wordpress-themes/
+To find out more about installing WordPress themes please also see https://themezee.com/docs/install-wordpress-themes/
 
 ===================================
 C) Theme Options
@@ -60,7 +60,7 @@ D) Theme Documentation
 ===================================
 
 Need any help to setup and configure this theme? We got you covered with an extensive theme documentation on our website.
-http://themezee.com/docs/Merlin-documentation/
+https://themezee.com/docs/Merlin-documentation/
 
 ===================================
 E) Page Templates
