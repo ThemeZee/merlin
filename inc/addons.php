@@ -19,6 +19,13 @@ function merlin_theme_addons_setup() {
 	add_theme_support( 'themezee-breadcrumbs' );
 	add_theme_support( 'themezee-related-posts' );
 	
+	// Add Support for Infinite Scroll
+	add_theme_support( 'infinite-scroll', array(
+		'type' 		=> 'click',
+		'container' => 'main',
+		'render'    => 'merlin_infinite_scroll_render',
+	) );
+	
 }
 
 
@@ -63,3 +70,19 @@ function merlin_theme_addons_image_sizes() {
 	add_image_size( 'themezee-related-posts', 450, 250, true );
 
 }
+
+
+/**
+ * Custom render function for Infinite Scroll.
+ */
+function merlin_infinite_scroll_render() {
+
+	// Get Theme Options from Database
+	$theme_options = merlin_theme_options();
+	
+	while ( have_posts() ) {
+		the_post();
+		get_template_part( 'template-parts/content', $theme_options['post_content'] );
+	}
+	
+} // merlin_infinite_scroll_render()
