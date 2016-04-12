@@ -185,7 +185,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 
 							<header class="entry-header">
 			
-								<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+								<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 							
 								<div class="entry-meta">
 									<?php $this->entry_meta( $settings ); ?>
@@ -214,7 +214,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 
 						<div class="medium-post-content">
 							
-							<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>						
+							<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>						
 							
 							<div class="entry-meta">
 								<?php $this->entry_date( $settings ); ?>
@@ -280,7 +280,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 			
 							<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail( 'merlin-category-posts-widget-large' ); ?></a>
 
-							<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+							<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 						
 							<div class="entry-meta">
 								<?php $this->entry_meta( $settings ); ?>
@@ -307,7 +307,7 @@ class Merlin_Category_Posts_Boxed_Widget extends WP_Widget {
 
 						<div class="small-post-content">
 							
-							<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>						
+							<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>						
 							
 							<div class="entry-meta">
 								<?php $this->entry_date( $settings ); ?>

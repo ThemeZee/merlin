@@ -50,7 +50,7 @@ $theme_options = merlin_theme_options();
 				
 				<header class="entry-header">
 		
-					<h1 class="page-title"><?php esc_html_e( 'No matches', 'merlin' ); ?></h1>
+					<h2 class="page-title"><?php esc_html_e( 'No matches', 'merlin' ); ?></h2>
 					
 				</header><!-- .entry-header -->
 				
