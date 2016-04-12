@@ -40,6 +40,7 @@ function merlin_theme_options() {
 function merlin_default_options() {
 
 	$default_options = array(
+		'site_title'						=> true,
 		'custom_header_link'				=> '',
 		'custom_header_hide'				=> false,
 		'layout' 							=> 'right-sidebar',

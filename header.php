@@ -40,7 +40,8 @@ $theme_options = merlin_theme_options();
 						
 				<div id="logo" class="site-branding clearfix">
 				
-					<?php do_action('merlin_site_title'); ?>
+					<?php merlin_site_logo(); ?>
+					<?php merlin_site_title(); ?>
 				
 				</div><!-- .site-branding -->
 				

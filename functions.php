@@ -54,6 +54,14 @@ function merlin_setup() {
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'merlin_custom_background_args', array('default-color' => 'e5e5e5') ) );
 	
+	// Set up the WordPress core custom logo feature
+	add_theme_support( 'custom-logo', apply_filters( 'merlin_custom_logo_args', array(
+		'height' => 50,
+		'width' => 350,
+		'flex-height' => true,
+		'flex-width' => true,
+	) ) );
+	
 	// Set up the WordPress core custom header feature.
 	add_theme_support('custom-header', apply_filters( 'merlin_custom_header_args', array(
 		'header-text' => false,
