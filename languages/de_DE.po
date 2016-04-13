@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Merlin\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2016-01-19 18:07+0100\n"
-"PO-Revision-Date: 2016-01-19 18:07+0100\n"
+"POT-Creation-Date: 2016-04-13 13:43+0100\n"
+"PO-Revision-Date: 2016-04-13 13:44+0100\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
 "Language: de_DE\n"
@@ -28,11 +28,11 @@ msgstr ""
 "Unter dieser Adresse wurde nichts gefunden. Möglicherweise hilft eine Suche "
 "oder einer der Links unterhalb?"
 
-#: comments.php:30 inc/template-tags.php:254
+#: comments.php:30 inc/template-tags.php:285
 msgid "One comment"
 msgstr "Ein Kommentar"
 
-#: comments.php:30 inc/template-tags.php:254
+#: comments.php:30 inc/template-tags.php:285
 #, php-format
 msgid "% comments"
 msgstr "% Kommentare"
@@ -73,32 +73,29 @@ msgstr "Footer Navigation"
 msgid "Social Icons"
 msgstr "Social Icons"
 
-#: functions.php:93 sidebar.php:20
+#: functions.php:101 sidebar.php:20
 msgid "Sidebar"
 msgstr "Sidebar"
 
-#: functions.php:95
-msgid ""
-"Appears on posts and pages except Magazine Homepage and Fullwidth template."
-msgstr ""
-"Erscheint auf allen Beiträgen und Seiten mit Ausnahme der Magazine Homepage "
-"und Fullwidth Templates."
-
 #: functions.php:103
+msgid "Appears on posts and pages except the full width template."
+msgstr "Erscheint auf allen Beiträgen und Seiten außer dem Fullwidth Template."
+
+#: functions.php:111
 msgid "Header"
 msgstr "Header"
 
-#: functions.php:105
+#: functions.php:113
 msgid "Appears on header area. You can use a search or ad widget here."
 msgstr ""
 "Erscheint im Header Bereich. Du kannst hier Widgets für ein Suchfeld oder "
 "Werbung verwenden."
 
-#: functions.php:113
+#: functions.php:121
 msgid "Magazine Homepage"
 msgstr "Magazin Startseite"
 
-#: functions.php:115
+#: functions.php:123
 msgid ""
 "Appears on Magazine Homepage template only. You can use the Category Posts "
 "widgets here."
@@ -169,32 +166,32 @@ msgstr ""
 "Merlin benötigt mindestens WordPress Version 4.2. Du verwendest Version %s. "
 "Bitte führe ein Update durch und versuche es erneut."
 
-#: inc/template-tags.php:177
+#: inc/template-tags.php:208
 #, php-format
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr "Veröffentlicht am %s"
 
-#: inc/template-tags.php:193 inc/template-tags.php:330
+#: inc/template-tags.php:224 inc/template-tags.php:361
 #, php-format
 msgid "View all posts by %s"
 msgstr "Alle Beiträge von %s ansehen"
 
-#: inc/template-tags.php:197
+#: inc/template-tags.php:228
 #, php-format
 msgctxt "post author"
 msgid "by %s"
 msgstr "von %s"
 
-#: inc/template-tags.php:254
+#: inc/template-tags.php:285
 msgid "Leave a comment"
 msgstr "Kommentar hinterlassen"
 
-#: inc/template-tags.php:346 template-parts/content.php:22
+#: inc/template-tags.php:377 template-parts/content.php:22
 msgid "Read more"
 msgstr "Weiterlesen"
 
-#: inc/template-tags.php:431
+#: inc/template-tags.php:462
 #, php-format
 msgid "Powered by %1$s and %2$s."
 msgstr "Erstellt mit %1$s und %2$s."
@@ -208,15 +205,15 @@ msgstr "Willkommen bei %1$s %2$s"
 msgid "Theme Info"
 msgstr "Theme Info"
 
-#: inc/theme-info.php:49 inc/customizer/customizer.php:104
+#: inc/theme-info.php:49 inc/customizer/customizer.php:121
 msgid "Theme Links"
 msgstr "Theme Links"
 
-#: inc/theme-info.php:50 inc/customizer/customizer.php:105
+#: inc/theme-info.php:50 inc/customizer/customizer.php:122
 msgid "https://themezee.com/themes/merlin/"
 msgstr "https://themezee.com/de/themes/merlin/"
 
-#: inc/theme-info.php:50 inc/customizer/customizer.php:106
+#: inc/theme-info.php:50 inc/customizer/customizer.php:123
 msgid "Theme Page"
 msgstr "Theme Seite"
 
@@ -229,16 +226,16 @@ msgid "Theme Demo"
 msgstr "Theme Demo"
 
 #: inc/theme-info.php:53 inc/theme-info.php:74
-#: inc/customizer/customizer.php:107
+#: inc/customizer/customizer.php:124
 msgid "https://themezee.com/docs/merlin-documentation/"
 msgstr "https://themezee.com/de/docs/merlin-dokumentation/"
 
 #: inc/theme-info.php:53 inc/theme-info.php:68
-#: inc/customizer/customizer.php:108
+#: inc/customizer/customizer.php:125
 msgid "Theme Documentation"
 msgstr "Theme Dokumentation"
 
-#: inc/theme-info.php:54 inc/customizer/customizer.php:110
+#: inc/theme-info.php:54 inc/customizer/customizer.php:127
 msgid "Rate this theme"
 msgstr "Theme bewerten"
 
@@ -318,14 +315,18 @@ msgid "Background"
 msgstr "Hintergrund"
 
 #: inc/customizer/customizer.php:55
+msgid "Display Site Title"
+msgstr "Zeige Titel der Website"
+
+#: inc/customizer/customizer.php:72
 msgid "Header Image Link"
 msgstr "Header-Bild Link"
 
-#: inc/customizer/customizer.php:72
+#: inc/customizer/customizer.php:89
 msgid "Hide header image on front page"
 msgstr "Verstecke Header-Bild auf der Startseite"
 
-#: inc/customizer/default-options.php:47
+#: inc/customizer/default-options.php:48
 #: inc/customizer/sections/customizer-post.php:28
 msgid "Latest Posts"
 msgstr "Letzte Beiträge"
@@ -877,9 +878,6 @@ msgstr "Textauszug und Weiterlesen Button anzeigen"
 
 #~ msgid "Display Social Icons on top navigation"
 #~ msgstr "Social Icons in der oberen Navigation anzeigen"
-
-#~ msgid "Display Category Titles"
-#~ msgstr "Zeige Kategorien als Titel"
 
 #~ msgid ""
 #~ "Displays a single post from a selected category. Please use this widget "
