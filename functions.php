@@ -135,23 +135,25 @@ add_action( 'widgets_init', 'merlin_widgets_init' );
  * Enqueue scripts and styles.
  */
 function merlin_scripts() {
-	global $wp_scripts;
+
+	// Get Theme Version
+	$theme_version = wp_get_theme()->get( 'Version' );
 	
 	// Register and Enqueue Stylesheet
-	wp_enqueue_style( 'merlin-stylesheet', get_stylesheet_uri() );
+	wp_enqueue_style( 'merlin-stylesheet', get_stylesheet_uri(), array(), $theme_version );
 	
 	// Register Genericons
-	wp_enqueue_style( 'merlin-genericons', get_template_directory_uri() . '/css/genericons/genericons.css' );
+	wp_enqueue_style( 'merlin-genericons', get_template_directory_uri() . '/css/genericons/genericons.css', array(), '3.4.1' );
 	
 	// Register and Enqueue HTML5shiv to support HTML5 elements in older IE versions
-	wp_enqueue_script( 'merlin-html5shiv', get_template_directory_uri() . '/js/html5shiv.min.js', array(), '3.7.2', false );
-	$wp_scripts->add_data( 'merlin-html5shiv', 'conditional', 'lt IE 9' );
+	wp_enqueue_script( 'merlin-html5shiv', get_template_directory_uri() . '/js/html5shiv.min.js', array(), '3.7.3' );
+	wp_script_add_data( 'merlin-html5shiv', 'conditional', 'lt IE 9' );
 
 	// Register and enqueue navigation.js
-	wp_enqueue_script( 'merlin-jquery-navigation', get_template_directory_uri() .'/js/navigation.js', array('jquery') );
+	wp_enqueue_script( 'merlin-jquery-navigation', get_template_directory_uri() . '/js/navigation.js', array( 'jquery' ), '20160421' );
 	
 	// Register and enqueue sidebar.js
-	wp_enqueue_script( 'merlin-jquery-sidebar', get_template_directory_uri() .'/js/sidebar.js', array('jquery') );
+	wp_enqueue_script( 'merlin-jquery-sidebar', get_template_directory_uri() .'/js/sidebar.js', array( 'jquery' ) );
 	
 	// Register and Enqueue Google Fonts
 	wp_enqueue_style( 'merlin-default-fonts', merlin_google_fonts_url(), array(), null );
