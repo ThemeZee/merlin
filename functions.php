@@ -73,6 +73,9 @@ function merlin_setup() {
 	// Add Theme Support for wooCommerce
 	add_theme_support( 'woocommerce' );
 	
+	// Add extra theme styling to the visual editor
+	add_editor_style( array( 'css/editor-style.css', merlin_google_fonts_url() ) );
+	
 }
 endif; // merlin_setup
 add_action( 'after_setup_theme', 'merlin_setup' );
