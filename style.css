@@ -3028,7 +3028,7 @@ object {
 --------------------------------------------------------------*/
 
 /* Ensure navigation is visible on desktop view */
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 60.001em) {
 	
 	.main-navigation-menu, .top-navigation-menu {
 		display: block !important;
@@ -3060,7 +3060,7 @@ object {
 }
 
 /* Ensure .footer-navigation-menu is visible on desktop view */
-@media only screen and (min-width: 50em) {
+@media only screen and (min-width: 50.001em) {
 	
 	.footer-navigation-menu {
 		display: block !important;
@@ -3069,7 +3069,7 @@ object {
 }
 
 /* Ensure social icons are visible on desktop view */
-@media only screen and (min-width: 30em) {
+@media only screen and (min-width: 30.001em) {
 	
 	.header-bar .social-icons-navigation {
 		display: block !important;
