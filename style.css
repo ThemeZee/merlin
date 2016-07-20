@@ -3,7 +3,7 @@ Theme Name: Merlin
 Theme URI: https://themezee.com/themes/merlin/
 Author: ThemeZee
 Author URI: https://themezee.com
-Description: Merlin is a beautiful designed Magazine WordPress theme with a responsive layout. The theme comes with a gorgeous Post Slider, Magazine Homepage template and a Header Widget area. Settings can be configured easily in the Customizer. 
+Description: Merlin is a beautiful designed Magazine WordPress theme with a responsive layout. The theme comes with a gorgeous Post Slider, Magazine Homepage template and a Header Widget area. Settings can be configured easily in the Customizer.
 Version: 1.1.7
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -677,8 +677,8 @@ textarea {
 	margin: 1.5em 0.5em;
 }
 
-.site-branding a:link, 
-.site-branding a:visited, 
+.site-branding a:link,
+.site-branding a:visited,
 .site-branding a:hover {
 	text-decoration: none;
 	padding: 0;
@@ -764,6 +764,10 @@ textarea {
 	padding: 0 0.5em;
 }
 
+.header-bar {
+	position: relative;
+}
+
 .top-navigation-toggle {
 	display: none;
 }
@@ -774,12 +778,10 @@ textarea {
 	padding: 0;
 	list-style-type: none;
 	list-style-position: outside;
-	position: relative;
 }
 
 .top-navigation-menu li {
 	float: left;
-	position: relative;
 }
 
 .top-navigation-menu a {
@@ -805,44 +807,34 @@ textarea {
 }
 
 .top-navigation-menu ul li{
-	margin: 0;
-	padding: 0;
-	border: none;
+	float: none;
+	position: relative;
 }
 
 .top-navigation-menu ul a {
-	width: 250px;
-	width: 16rem;
+	min-width: 250px;
+	min-width: 16rem;
 	padding: 0.8em 1em;
 	text-transform: none;
-	float: left;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
-.top-navigation-menu ul a:link, 
+.top-navigation-menu ul a:link,
 .top-navigation-menu ul a:visited {
 	text-decoration: none;
 }
 
 .top-navigation-menu li ul ul {
-	margin-left: 250px;
-	margin-left: 16rem;
+	top: 0;
+	left: 100%;
 	margin-top: -2px;
 }
 
-.top-navigation-menu li:hover ul ul, 
-.top-navigation-menu li:hover ul ul ul, 
-.top-navigation-menu li:hover ul ul ul ul {
-	display:none;
-}
-
-.top-navigation-menu li:hover ul, 
-.top-navigation-menu li li:hover ul, 
-.top-navigation-menu li li li:hover ul, 
-.top-navigation-menu li li li li:hover ul {
-	display:block;
+.top-navigation-menu li.menu-item-has-children:hover > ul,
+.top-navigation-menu li.menu-item-has-children[aria-expanded="true"] > ul {
+	display: block;
 }
 
 .top-navigation-menu li.current-menu-item a,
@@ -856,11 +848,11 @@ textarea {
 	text-decoration: none;
 }
 
-
 /*--------------------------------------------------------------
 ## 10.2 - Main Navigation
 --------------------------------------------------------------*/
 .primary-navigation {
+	color: #fff;
 	background: #444;
 }
 
@@ -871,16 +863,16 @@ textarea {
 
 .main-navigation-menu {
 	float: left;
+	width: 100%;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 	list-style-position: outside;
-	position: relative;	
+	position: relative;
 }
 
 .main-navigation-menu li {
 	float: left;
-	position: relative;
 }
 
 .main-navigation-menu a {
@@ -898,7 +890,7 @@ textarea {
 	transition: all 0.4s ease;
 }
 
-.main-navigation-menu a:link, 
+.main-navigation-menu a:link,
 .main-navigation-menu a:visited {
 	color: #fff;
 	text-decoration: none;
@@ -919,15 +911,15 @@ textarea {
 	background: #2299cc;
 }
 
-.main-navigation-menu ul li{
-	margin: 0;
+.main-navigation-menu ul li {
+	float: none;
+	position: relative;
 }
 
 .main-navigation-menu ul a {
-	width: 250px;
-	width: 16rem;
+	min-width: 250px;
+	min-width: 16rem;
 	padding: 0.9em 0;
-	float: left;
 	font-size: 14px;
 	font-size: 0.875rem;
 	color: #fff;
@@ -943,7 +935,7 @@ textarea {
 	border-bottom: none;
 }
 
-.main-navigation-menu ul a:link, 
+.main-navigation-menu ul a:link,
 .main-navigation-menu ul a:visited {
 	color: #fff;
 	text-decoration: none;
@@ -954,21 +946,14 @@ textarea {
 }
 
 .main-navigation-menu li ul ul {
-	margin-left: 250px;
-	margin-left: 16rem;
+	top: 0;
+	left: 100%;
 }
 
-.main-navigation-menu li:hover ul ul, 
-.main-navigation-menu li:hover ul ul ul, 
-.main-navigation-menu li:hover ul ul ul ul {
-	display:none;
-}
-
-.main-navigation-menu li:hover ul, 
-.main-navigation-menu li li:hover ul, 
-.main-navigation-menu li li li:hover ul, 
-.main-navigation-menu li li li li:hover ul {
-	display:block;
+.main-navigation-menu li.menu-item-has-children:hover > ul,
+.main-navigation-menu li.page_item_has_children:hover > ul,
+.main-navigation-menu li.menu-item-has-children[aria-expanded="true"] > ul {
+	display: block;
 }
 
 .main-navigation-menu li.current-menu-item a {
@@ -982,6 +967,22 @@ textarea {
 
 .main-navigation-menu ul li.current-menu-item a {
 	text-decoration: underline;
+}
+
+/* Mega Menu Styling */
+.mega-menu-content .mega-menu-widget a:hover,
+.mega-menu-content .mega-menu-widget a:active {
+	text-decoration: underline;
+}
+
+.main-navigation-menu .mega-menu-content .mega-menu-widget ul li:before,
+.main-navigation-menu .mega-menu-content .mega-menu-widget ul li a:before {
+	color: #fff;
+}
+
+.main-navigation-menu .mega-menu-content .mega-menu-widget .entry-meta,
+.main-navigation-menu .mega-menu-content .mega-menu-widget .entry-meta span:before {
+	color: #eee;
 }
 
 /*--------------------------------------------------------------
@@ -1115,12 +1116,12 @@ textarea {
 	margin: 0.5em 0 0.5em 1em;
 }
 
-.widget-title a:link, 
+.widget-title a:link,
 .widget-title a:visited  {
 	color: #fff;
 }
 
-.widget-title a:hover, 
+.widget-title a:hover,
 .widget-title a:active  {
 	text-decoration: underline;
 }
@@ -1135,12 +1136,12 @@ textarea {
 --------------------------------------------------------------*/
 
 /* Default Archive & Category Wigdets */
-.widget_archive ul, 
+.widget_archive ul,
 .widget_categories ul {
 	list-style: none;
 }
 
-.widget_archive ul li:before, 
+.widget_archive ul li:before,
 .widget_categories ul li:before {
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
@@ -1159,7 +1160,7 @@ textarea {
 }
 
 /* Default Recent Posts & Comments Wigdets */
-.widget_recent_entries ul, 
+.widget_recent_entries ul,
 .widget_recent_comments ul {
 	list-style: none;
 }
@@ -1171,7 +1172,7 @@ textarea {
 	font-style: italic;
 }
 
-.widget_recent_entries ul li:before, 
+.widget_recent_entries ul li:before,
 .widget_recent_comments ul li:before {
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
@@ -1190,13 +1191,13 @@ textarea {
 }
 
 /* Default Meta & Pages Wigdets */
-.widget_meta ul, 
-.widget_pages ul, 
+.widget_meta ul,
+.widget_pages ul,
 .widget_nav_menu ul {
 	list-style: none;
 }
 
-.widget_meta ul li a:before, 
+.widget_meta ul li a:before,
 .widget_pages ul li a:before ,
 .widget_nav_menu ul li a:before {
 	display: inline-block;
@@ -1238,7 +1239,7 @@ textarea {
 	border: 1px solid #2299cc;
 }
 
-.widget_tag_cloud .tagcloud a:link, 
+.widget_tag_cloud .tagcloud a:link,
 .widget_tag_cloud .tagcloud a:visited {
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
@@ -1247,7 +1248,7 @@ textarea {
 	transition: all 0.4s ease;
 }
 
-.widget_tag_cloud .tagcloud a:hover, 
+.widget_tag_cloud .tagcloud a:hover,
 .widget_tag_cloud .tagcloud a:active {
 	color: #fff;
 	background-color: #2299cc;
@@ -1400,7 +1401,7 @@ textarea {
 	margin: 1em 0 0;
 }
 
-.widget-category-posts .type-post .more-link:link, 
+.widget-category-posts .type-post .more-link:link,
 .widget-category-posts .type-post .more-link:visited  {
 	color: #fff;
 }
@@ -1462,7 +1463,7 @@ textarea {
 
 /* Category Posts Boxed Widget Horizontal Style */
 .widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .wp-post-image {
-	float: left;	
+	float: left;
 	width: 50%;
 	margin: 0;
 	padding-right: 0.5em;
@@ -1562,14 +1563,14 @@ textarea {
 /*--------------------------------------------------------------
 # 12.0 - Posts and pages
 --------------------------------------------------------------*/
-.type-post, 
-.type-page, 
+.type-post,
+.type-page,
 .type-attachment  {
 	margin: 0 0 1.8em 0;
 	max-width: 100%;
 }
 
-.page-title, 
+.page-title,
 .entry-title {
 	display: inline;
 	font-family: 'Roboto', Tahoma, Arial;
@@ -1591,7 +1592,7 @@ textarea {
 	border-bottom: 3px solid #2299cc;
 }
 
-.entry-title a:link, 
+.entry-title a:link,
 .entry-title a:visited {
 	color: #2299cc;
 	text-decoration: none;
@@ -1602,7 +1603,7 @@ textarea {
 	transition: all 0.4s ease;
 }
 
-.entry-title a:hover, 
+.entry-title a:hover,
 .entry-title a:active{
 	color: #444;
 }
@@ -1661,7 +1662,7 @@ textarea {
 	border: 1px solid #2299cc;
 }
 
-.entry-tags .meta-tags a:link, 
+.entry-tags .meta-tags a:link,
 .entry-tags .meta-tags a:visited {
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
@@ -1670,7 +1671,7 @@ textarea {
 	transition: all 0.4s ease;
 }
 
-.entry-tags .meta-tags a:hover, 
+.entry-tags .meta-tags a:hover,
 .entry-tags .meta-tags a:active {
 	color: #fff;
 	background-color: #2299cc;
@@ -1749,12 +1750,12 @@ textarea {
 	transition: all 0.4s ease;
 }
 
-.more-link:link, 
+.more-link:link,
 .more-link:visited  {
 	color: #fff;
 }
 
-.more-link:hover, 
+.more-link:hover,
 .more-link:active {
 	background: #444;
 	text-decoration: none;
@@ -1792,7 +1793,7 @@ textarea {
 	border: 1px solid #2299cc;
 }
 
-.entry-tags .meta-tags a:link, 
+.entry-tags .meta-tags a:link,
 .entry-tags .meta-tags a:visited {
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
@@ -1801,7 +1802,7 @@ textarea {
 	transition: all 0.4s ease;
 }
 
-.entry-tags .meta-tags a:hover, 
+.entry-tags .meta-tags a:hover,
 .entry-tags .meta-tags a:active {
 	color: #fff;
 	background-color: #2299cc;
@@ -1818,7 +1819,7 @@ textarea {
 	border: 1px solid #2299cc;
 }
 
-.post-pagination a:link, 
+.post-pagination a:link,
 .post-pagination a:visited {
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
@@ -2003,7 +2004,7 @@ textarea {
 	border: 1px solid #2299cc;
 }
 
-.comment-navigation a:link, 
+.comment-navigation a:link,
 .comment-navigation a:visited {
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
@@ -2012,7 +2013,7 @@ textarea {
 	transition: all 0.4s ease;
 }
 
-.comment-navigation a:hover, 
+.comment-navigation a:hover,
 .comment-navigation a:active {
 	color: #fff;
 	background-color: #2299cc;
@@ -2195,7 +2196,7 @@ object {
 ## 14.1 - Desktop Large ( < 1120px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 70em) {
-	
+
 	.top-navigation-menu a {
 		font-size: 12px;
 		font-size: 0.75rem;
@@ -2204,13 +2205,13 @@ object {
 	.social-icons-menu li a:before {
 		font-size: 21px;
 	}
-	
+
 	.page-title,
 	.entry-title {
 		font-size: 26px;
 		font-size: 1.625rem;
 	}
-	
+
 	.type-post .post-thumbnail-small + .entry-header .entry-title,
 	.widget-category-posts .large-post .entry-title 	{
 		font-size: 22px;
@@ -2221,23 +2222,23 @@ object {
 		font-size: 15px;
 		font-size: 0.9375rem;
 	}
-	
+
 	.widget-category-posts .small-post .entry-title {
 		font-size: 14px;
 		font-size: 0.875rem;
 	}
-	
+
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .more-link  {
 		display: none;
 	}
-	
+
 }
 
 /*--------------------------------------------------------------
 ## 14.2 - Desktop Medium ( < 1040px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 65em) {
-	
+
 	.content-area {
 		width: 70%;
 	}
@@ -2245,13 +2246,13 @@ object {
 	.sidebar {
 		width: 30%;
 	}
-	
+
 	.type-post .post-thumbnail-small + .entry-header .entry-title,
 	.widget-category-posts .large-post .entry-title 	{
 		font-size: 20px;
 		font-size: 1.25rem;
 	}
-	
+
 	/* Magazine Homepage: Category Post Widgets Boxed */
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .wp-post-image {
 		width: 55%;
@@ -2260,7 +2261,7 @@ object {
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .post-content {
 		width: 45%;
 	}
-	
+
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .entry-meta .meta-author {
 		display: none;
 	}
@@ -2271,13 +2272,13 @@ object {
 ## 14.3 - Desktop Small ( < 960px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 60em) {
-	
+
 	.site-branding {
 		float: none;
 		text-align: center;
 		margin: 1em 0;
 	}
-	
+
 	.header-widget {
 		float: none;
 		margin: 0.5em 0 0;
@@ -2292,70 +2293,70 @@ object {
 	.site-content .fullwidth-content-area {
 		padding-right: 1.5em;
 	}
-	
+
 	.header-bar-wrap {
 		padding: 0;
 	}
-	
+
 	.header-bar .social-icons-navigation {
 		padding-right: 0.5em;
 	}
-	
+
 	/*** Mobile Top Navigation ***/
-	
+
 	/* Reset */
 	.top-navigation-menu li {
 		float: none;
 		position: static;
 	}
-	
+
 	.top-navigation-menu ul {
 		position: static;
 		display: block;
 	}
-	
+
 	.top-navigation-menu ul a {
 		width: auto;
 		float: none;
 	}
-	
+
 	.top-navigation-menu li ul ul {
 		margin-left: 0;
 	}
-	
-	.top-navigation-menu li:hover ul ul, 
-	.top-navigation-menu li:hover ul ul ul, 
+
+	.top-navigation-menu li:hover ul ul,
+	.top-navigation-menu li:hover ul ul ul,
 	.top-navigation-menu li:hover ul ul ul ul,
-	.top-navigation-menu li:hover ul, 
-	.top-navigation-menu li li:hover ul, 
+	.top-navigation-menu li:hover ul,
+	.top-navigation-menu li li:hover ul,
 	.top-navigation-menu li li li:hover ul,
 	.top-navigation-menu li li li li:hover ul {
 		display: inline;
 	}
-	
-	
+
+
 	/* Top Navigation Toggle */
 	#top-navigation-toggle-tablet {
 		display: inline-block;
 	}
-	
+
 	#top-navigation-toggle-phone {
 		display: none;
 	}
-	
+
 	.top-navigation-toggle {
 		display: inline-block;
 		padding: 0.8em 1.2em;
 		background: none;
 	}
-	
+
 	.top-navigation-toggle:hover,
 	.top-navigation-toggle:active,
 	.top-navigation-toggle:focus {
 		cursor: pointer;
 		background: none;
 	}
-	
+
 	.top-navigation-toggle:after {
 		float: left;
 		display: inline-block;
@@ -2370,11 +2371,11 @@ object {
 		content: '\f419';
 		color: #2299cc;
 	}
-	
+
 	.top-navigation-toggle:hover:after {
 		color: #333;
 	}
-	
+
 	/* Top Navigation Menu */
 	.top-navigation-menu {
 		float: left;
@@ -2382,7 +2383,7 @@ object {
 		display: none;
 		border-top: 2px solid #eee;
 	}
-	
+
 	.top-navigation-menu a {
 		display: block;
 		clear: left;
@@ -2398,17 +2399,17 @@ object {
 		border-right: none;
 		padding-left: 1em;
 	}
-	
+
 	.top-navigation-menu ul a {
 		display: block;
 		width: 100%;
 	}
-	
+
 	.top-navigation-menu ul ul {
 		border: none;
 		padding-left: 2em;
 	}
-	
+
 	/* Mobile Submenu Dropdowns */
 	.top-navigation-menu .submenu-dropdown-toggle {
 		float: right;
@@ -2416,11 +2417,11 @@ object {
 		margin: 0;
 		padding: 0.5em 1.2em;
 	}
-	
+
 	.top-navigation-menu .submenu-dropdown-toggle:hover {
 		cursor: pointer;
 	}
-	
+
 	.top-navigation-menu .submenu-dropdown-toggle:before {
 		font-size: 24px;
 		line-height: 1;
@@ -2432,52 +2433,52 @@ object {
 		content: '\f431';
 		color: #2299cc;
 	}
-	
+
 	.top-navigation-menu .submenu-dropdown-toggle:hover:before {
 		color: #333;
 	}
-	
+
 	.top-navigation-menu .submenu-dropdown-toggle.active:before {
 		content: '\f432';
 	}
-	
+
 	.top-navigation-menu ul .submenu-dropdown-toggle {
 		padding: 0.4em 1em;
 	}
-	
+
 	/*** Mobile Main Navigation ***/
-	
+
 	/* Reset */
 	.main-navigation-menu li {
 		float: none;
 		position: static;
 	}
-	
-	.main-navigation-menu ul {
+
+	.main-navigation-menu ul,
+	.mega-menu-item .mega-menu-content,
+	.mega-menu-item .mega-menu-content .mega-menu-widget {
 		position: static;
 		display: block;
+		left: auto;
+		top: auto;
 	}
-	
+
 	.main-navigation-menu ul a {
 		width: auto;
 		float: none;
 	}
-	
+
 	.main-navigation-menu li ul ul {
-		margin-left: 0;
+		top: auto;
+		left: auto;
+		margin: 0;
 	}
-	
-	.main-navigation-menu li:hover ul ul, 
-	.main-navigation-menu li:hover ul ul ul, 
-	.main-navigation-menu li:hover ul ul ul ul,
-	.main-navigation-menu li:hover ul, 
-	.main-navigation-menu li li:hover ul, 
-	.main-navigation-menu li li li:hover ul,
-	.main-navigation-menu li li li li:hover ul {
-		display: inline;
+
+	.main-navigation-menu > .menu-item-has-children > a:after,
+	.main-navigation-menu ul .menu-item-has-children > a:after {
+		display: none;
 	}
-	
-	
+
 	/* Main Navigation Toggle */
 	.main-navigation-toggle {
 		float: left;
@@ -2485,13 +2486,13 @@ object {
 		padding: 0.8em 1.2em;
 		background: #444;
 	}
-	
+
 	.main-navigation-toggle:hover,
 	.main-navigation-toggle:active {
 		cursor: pointer;
 		background: #2299cc;
 	}
-	
+
 	.main-navigation-toggle:after {
 		float: left;
 		display: inline-block;
@@ -2505,7 +2506,7 @@ object {
 		content: '\f419';
 		color: #fff;
 	}
-	
+
 	/* Main Navigation Menu */
 	.main-navigation-menu {
 		float: left;
@@ -2513,7 +2514,7 @@ object {
 		display: none;
 		border-top: 1px solid #fff;
 	}
-	
+
 	.main-navigation-menu a {
 		display: block;
 		clear: left;
@@ -2522,18 +2523,18 @@ object {
 	.main-navigation-menu ul {
 		width: 100%;
 	}
-	
+
 	.main-navigation-menu ul a {
 		display: block;
 		width: 100%;
 	}
-	
+
 	.main-navigation-menu a:hover,
 	.main-navigation-menu li.current-menu-item a {
 		background: none;
 		text-decoration: underline;
 	}
-	
+
 	/* Mobile Submenu Dropdowns */
 	.main-navigation-menu .submenu-dropdown-toggle {
 		float: right;
@@ -2541,11 +2542,11 @@ object {
 		margin: 0;
 		padding: 0.6em 1.2em;
 	}
-	
+
 	.main-navigation-menu .submenu-dropdown-toggle:hover {
 		cursor: pointer;
 	}
-	
+
 	.main-navigation-menu .submenu-dropdown-toggle:before {
 		font-size: 24px;
 		line-height: 1;
@@ -2557,38 +2558,54 @@ object {
 		content: '\f431';
 		color: #fff;
 	}
-	
+
 	.main-navigation-menu .submenu-dropdown-toggle:hover:before {
 		color: #aaa;
 	}
-	
+
 	.main-navigation-menu .submenu-dropdown-toggle.active:before {
 		content: '\f432';
 	}
-	
+
 	.main-navigation-menu ul .submenu-dropdown-toggle:before {
 		font-size: 20px;
 	}
-	
+
+	/* Mega Menu Styling */
+	.mega-menu-item .mega-menu-content {
+		border-bottom: 1px solid rgba(255,255,255,0.1);
+	}
+
+	.mega-menu-item .mega-menu-two-columns > li,
+	.mega-menu-item .mega-menu-three-columns > li,
+	.mega-menu-item .mega-menu-five-columns > li {
+		width: 100%;
+	}
+
+	.mega-menu-item .mega-menu-four-columns > li,
+	.mega-menu-item .mega-menu-six-columns > li {
+		width: 50%;
+	}
+
 }
 
 /*--------------------------------------------------------------
 ## 14.4 - Tablet Large ( < 880px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 55em) {
-	
+
 	.site-content {
 		position: relative;
 		padding: 0;
 	}
-	
-	.content-area, 
+
+	.content-area,
 	.site-content .fullwidth-content-area {
 		float: none;
 		width: 100%;
 		padding: 1.5em;
 	}
-	
+
 	.sidebar {
 		float: none;
 		display: none;
@@ -2603,7 +2620,7 @@ object {
 		overflow: auto;
 		z-index: 200;
 	}
-	
+
 	/* Sidebar Toggle */
 	.sidebar-navigation-toggle {
 		float: right;
@@ -2611,13 +2628,13 @@ object {
 		padding: 0.8em 1.2em;
 		background: #444;
 	}
-	
+
 	.sidebar-navigation-toggle:hover,
 	.sidebar-navigation-toggle:active {
 		cursor: pointer;
 		background: #2299cc;
 	}
-	
+
 	.sidebar-navigation-toggle:after {
 		float: left;
 		display: inline-block;
@@ -2631,7 +2648,7 @@ object {
 		content: '\f510';
 		color: #fff;
 	}
-	
+
 	/* Magazine Homepage: Category Post Widgets Boxed */
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .wp-post-image {
 		width: 50%;
@@ -2640,35 +2657,35 @@ object {
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .post-content {
 		width: 50%;
 	}
-	
+
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .more-link,
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .entry-meta .meta-author {
 		display: inline-block;
 	}
-	
+
 }
 
 /*--------------------------------------------------------------
 ## 14.5 - Tablet Medium ( < 800px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 50em) {
-	
+
 	/*** Mobile Footer Navigation ***/
-	
+
 	.site-footer {
 		padding: 0;
 	}
-	
+
 	.site-footer .site-info {
 		padding: 0.9em 1.5em;
 	}
-	
+
 	.footer-navigation {
 		display: block;
 		width: 100%;
 
 	}
-	
+
 	/* Footer Navigation Toggle */
 	.footer-navigation-toggle {
 		float: right;
@@ -2677,14 +2694,14 @@ object {
 		padding: 0.9em 1.5em;
 		margin-top: -3.2em;
 	}
-	
+
 	.footer-navigation-toggle:hover,
 	.footer-navigation-toggle:active,
 	.footer-navigation-toggle:focus {
 		cursor: pointer;
 		background: none;
 	}
-	
+
 	.footer-navigation-toggle:after {
 		float: left;
 		display: inline-block;
@@ -2699,11 +2716,11 @@ object {
 		content: '\f419';
 		color: #2299cc;
 	}
-	
+
 	.footer-navigation-toggle:hover:after {
 		color: #333;
 	}
-	
+
 	/* Footer Navigation Menu */
 	.footer-navigation-menu {
 		float: left;
@@ -2711,62 +2728,62 @@ object {
 		display: none;
 		border-top: 2px solid #eee;
 	}
-	
+
 	.footer-navigation-menu a {
 		font-size: 13px;
 		font-size: 0.8125rem;
 		padding: 0.9em;
 	}
-	
-	
+
+
 	/* Magazine Homepage: Category Post Widgets */
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .more-link,
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .entry-meta .meta-author {
 		display: none;
 	}
-	
+
 }
 
 /*--------------------------------------------------------------
 ## 14.6 - Tablet Small ( < 720px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 45em) {
-	
+
 	.type-post .post-thumbnail-small .wp-post-image {
 		float: none;
 		max-width: 100%;
 		margin: 0 0 0.5em;
 		padding: 0;
 	}
-	
+
 	.type-post .post-thumbnail-small + .entry-header .entry-title	{
 		font-size: 26px;
 		font-size: 1.625rem;
 	}
-	
+
 }
 
 /*--------------------------------------------------------------
 ## 14.7 - Mobile Extra Large ( < 640px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 40em) {
-	
+
 	.page-title,
 	.entry-title,
 	.type-post .post-thumbnail-small + .entry-header .entry-title	{
 		font-size: 24px;
 		font-size: 1.5rem;
 	}
-	
+
 	/* Magazine Homepage: Category Post Widgets */
 	.widget-category-posts-grid .category-posts-grid-row {
 		margin-right: 0;
 	}
-	
+
 	.widget-category-posts-grid .medium-post-row {
 		margin-right: -1.2em;
 	}
-	
+
 	.widget-category-posts-grid .category-posts-grid-row .large-post,
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .wp-post-image,
 	.widget-category-posts-boxed .category-posts-boxed-vertical .large-post,
@@ -2783,23 +2800,23 @@ object {
 		margin-left: 0;
 		padding-left: 0;
 	}
-	
+
 	.widget-category-posts .large-post .wp-post-image {
 		float: left;
 		margin: 0 1.5em 0 0;
 		max-width: 50%;
 	}
-	
+
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .post-content {
 		float: right;
 		width: 50%;
 		padding-left: 1.5em;
 	}
-	
+
 	.widget-category-posts-grid .category-posts-grid-row .large-post {
 		clear: left;
 	}
-	
+
 	.widget-category-posts-grid .category-posts-grid-row .large-post .wp-post-image {
 		margin-bottom: 1em;
 	}
@@ -2813,7 +2830,13 @@ object {
 		display: block;
 		margin: 0;
 	}
-	
+
+	/* Mega Menu Styling */
+	.mega-menu-item .mega-menu-four-columns > li,
+	.mega-menu-item .mega-menu-six-columns > li {
+		width: 100%;
+	}
+
 }
 
 /*--------------------------------------------------------------
@@ -2824,58 +2847,58 @@ object {
 	.widget-category-posts-grid .medium-post-row {
 		margin-right: 0;
 	}
-	
+
 	.widget-category-posts .medium-post {
 		float: none;
 		width: 100%;
 		padding-right: 0;
 	}
-	
+
 	.widget-category-posts .medium-post .wp-post-image {
 		float: left;
 		margin: 0 1.2em 0 0;
 		max-width: 40%;
 	}
-	
+
 	.widget-category-posts .medium-post .entry-title {
 		font-size: 16px;
 		font-size: 1rem;
 	}
-	
+
 	.widget-category-posts .large-post .entry-title {
 		font-size: 18px;
 		font-size: 1.125rem;
 	}
-	
+
 }
 
 /*--------------------------------------------------------------
 ## 14.9 - Mobile Medium ( < 480px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 30em) {
-	
-	.content-area, 
+
+	.content-area,
 	.site-content .fullwidth-content-area {
 		padding: 1.2em;
 	}
-	
+
 	.main-navigation-toggle:after,
 	.sidebar-navigation-toggle:after {
 		font-size: 22px;
 	}
-	
+
 	.page-title,
 	.entry-title,
 	.type-post .post-thumbnail-small + .entry-header .entry-title	{
 		font-size: 22px;
 		font-size: 1.375rem;
 	}
-	
+
 	.alignright, .alignleft {
 		float: none;
 		margin: 1em 0;
 	}
-	
+
 	.entry-footer-meta .meta-comments {
 		display: block;
 		float: none;
@@ -2888,7 +2911,7 @@ object {
 	#top-navigation-toggle-phone {
 		display: inline-block;
 	}
-	
+
 	/* Social Menu Dropdown */
 	.social-icons-navigation-toggle {
 		float: right;
@@ -2896,14 +2919,14 @@ object {
 		padding: 0.8em 1.2em;
 		background: none;
 	}
-	
+
 	.social-icons-navigation-toggle:hover,
 	.social-icons-navigation-toggle:active,
 	.social-icons-navigation-toggle:focus {
 		cursor: pointer;
 		background: none;
 	}
-	
+
 	.social-icons-navigation-toggle:after {
 		float: left;
 		display: inline-block;
@@ -2918,51 +2941,51 @@ object {
 		content: '\f510';
 		color: #2299cc;
 	}
-	
+
 	.social-icons-navigation-toggle:hover:after {
 		color: #333;
 	}
-	
+
 	.header-bar .social-icons-navigation {
 		display: none;
 		border-top: 2px solid #eee;
 		width: 100%;
 	}
-	
+
 	.header-bar .social-icons-menu {
 		float: right;
 		width: 100%;
 	}
-	
+
 	/* Magazine Homepage: Category Post Widgets */
 	.widget-category-posts .medium-post .wp-post-image,
 	.widget-category-posts .small-post .wp-post-image {
 		max-width: 30%;
 	}
-	
+
 	.widget-category-posts .medium-post .entry-title {
 		font-size: 14px;
 		font-size: 0.875rem;
 	}
-	
+
 	.widget-category-posts .large-post .wp-post-image,
 	.widget-category-posts-grid .category-posts-grid-row .large-post .wp-post-image {
 		float: none;
 		margin: 0 0 0.2em 0;
 		max-width: 100%;
 	}
-	
+
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .post-content {
 		float: none;
 		width: 100%;
 		padding: 0;
 	}
-	
+
 	.widget-category-posts .large-post .entry-title {
 		font-size: 20px;
 		font-size: 1.25rem;
 	}
-	
+
 	.widget-category-posts .large-post .entry-content,
 	.widget-category-posts .large-post .entry-content .more-link {
 		display: inline-block;
@@ -2973,34 +2996,34 @@ object {
 		display: inline-block;
 		margin-left: 0.8em;
 	}
-	
+
 }
 
 /*--------------------------------------------------------------
 ## 14.10 - Mobile Small ( < 320px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 20em) {
-	
+
 	.header-main {
 		padding: 1em 1.2em;
 	}
-	
+
 	.site-branding .site-title {
 		font-size: 28px;
 		font-size: 1.75rem;
 	}
-	
+
 	.page-title,
 	.entry-title,
 	.type-post .post-thumbnail-small + .entry-header .entry-title {
 		font-size: 20px;
 		font-size: 1.25rem;
 	}
-	
+
 	.entry-meta span, .postinfo span {
 		display: block;
 	}
-	
+
 }
 
 
@@ -3016,26 +3039,26 @@ object {
 	padding-right: 0;
 	padding-left: 1.8em;
 }
-	
+
 .sidebar-left .sidebar {
 	float: left;
 }
 
 @media only screen and (max-width: 55em) {
-	
+
 	.sidebar-left .content-area {
 		float: none;
 		width: 100%;
 		padding: 1.5em;
 	}
-	
+
 	.sidebar-left .sidebar {
 		float: none;
 		left: 0;
 		right: auto;
 		width: 80%;
 	}
-	
+
 }
 
 /*--------------------------------------------------------------
@@ -3062,50 +3085,50 @@ object {
 
 /* Ensure navigation is visible on desktop view */
 @media only screen and (min-width: 60.001em) {
-	
+
 	.main-navigation-menu, .top-navigation-menu {
 		display: block !important;
 	}
-	
+
 	.main-navigation-menu li.menu-item:hover a {
 		background: #2299cc;
 	}
-	
+
 }
 
 /* Ensure sidebar is visible on desktop view */
 @media only screen and (min-width: 55em) {
-	
+
 	.sidebar {
 		display: block;
 		width: 30%;
 		position: static;
 	}
-	
+
 }
 
 @media only screen and (min-width: 65em) {
-	
+
 	.sidebar {
 		width: 26%;
 	}
-	
+
 }
 
 /* Ensure .footer-navigation-menu is visible on desktop view */
 @media only screen and (min-width: 50.001em) {
-	
+
 	.footer-navigation-menu {
 		display: block !important;
 	}
-	
+
 }
 
 /* Ensure social icons are visible on desktop view */
 @media only screen and (min-width: 30.001em) {
-	
+
 	.header-bar .social-icons-navigation {
 		display: block !important;
 	}
-	
+
 }
