@@ -193,7 +193,7 @@ html[xmlns] .zeeflexslider .zeeslides {
 	height: 40px;
 	background: #44aacc;
 	text-align: left;
-	color #fff;
+	color: #fff;
 	font-size: 0;
 	cursor: pointer;
 	z-index: 10;
@@ -241,23 +241,23 @@ html[xmlns] .zeeflexslider .zeeslides {
 
 /* Control Nav */
 .post-slider-controls .zeeflex-control-nav {
-	position: absolute; 
+	position: absolute;
 	bottom: 0.3em;
 	left: 1em;
 	z-index: 99;
 }
 .post-slider-controls .zeeflex-control-nav li {
 	margin: 0 2px;
-	display: inline-block; 
-	zoom: 1; 
+	display: inline-block;
+	zoom: 1;
 	*display: inline;
 }
 .post-slider-controls .zeeflex-control-nav li a {
-	width: 30px; 
-	height: 10px; 
-	display: block; 
+	width: 30px;
+	height: 10px;
+	display: block;
 	background: rgba(255,255,255,0.7);
-	cursor: pointer; 
+	cursor: pointer;
 	text-indent: -9999px;
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
@@ -265,12 +265,12 @@ html[xmlns] .zeeflexslider .zeeslides {
 	-o-transition: all 0.4s ease;
 	transition: all 0.4s ease;
 }
-.post-slider-controls .zeeflex-control-nav li a:hover { 
+.post-slider-controls .zeeflex-control-nav li a:hover {
 	background: rgba(255,255,255,1);
 }
-.post-slider-controls .zeeflex-control-nav li a.zeeflex-active { 
+.post-slider-controls .zeeflex-control-nav li a.zeeflex-active {
 	background: rgba(255,255,255,1);
-	cursor: default; 
+	cursor: default;
 }
 
 
@@ -279,7 +279,7 @@ html[xmlns] .zeeflexslider .zeeslides {
 --------------------------------------------------------------*/
 
 @media only screen and (max-width: 78em) {
-	
+
 	.post-slider .zeeslide .slide-image {
 		width: 60%;
 	}
@@ -288,24 +288,24 @@ html[xmlns] .zeeflexslider .zeeslides {
 		margin-left: 60%;
 		width: 40%;
 	}
-	
+
 }
 
 @media only screen and (max-width: 72em) {
-	
+
 	.post-slider .zeeslide .more-link {
 		display: none;
 	}
-	
+
 	.post-slider .zeeslide .entry-title {
 		font-size: 26px;
 		font-size: 1.625rem;
 	}
-	
+
 }
 
 @media only screen and (max-width: 68em) {
-	
+
 	.post-slider .zeeslide .slide-image {
 		width: 55%;
 	}
@@ -314,11 +314,11 @@ html[xmlns] .zeeflexslider .zeeslides {
 		margin-left: 55%;
 		width: 45%;
 	}
-	
+
 }
 
 @media only screen and (max-width: 66em) {
-	
+
 	.post-slider .zeeslide .slide-image {
 		width: 50%;
 	}
@@ -327,20 +327,20 @@ html[xmlns] .zeeflexslider .zeeslides {
 		margin-left: 50%;
 		width: 50%;
 	}
-	
+
 	.post-slider .zeeslide .entry-title {
 		font-size: 24px;
 		font-size: 1.5rem;
 	}
-	
+
 	.post-slider .zeeslide .entry-meta {
 		display: none;
 	}
-	
+
 }
 
 @media only screen and (max-width: 58em) {
-	
+
 	.post-slider .zeeslide .slide-image {
 		float: none;
 		width: 100%;
@@ -354,78 +354,78 @@ html[xmlns] .zeeflexslider .zeeslides {
 		width: 100%;
 		padding: 1em 1em 0.5em;
 	}
-	
+
 	.post-slider .zeeslide .entry-title {
 		font-size: 26px;
 		font-size: 1.625rem;
 	}
-	
+
 	.post-slider .zeeslide .entry-meta {
 		display: block;
 	}
-	
+
 	.post-slider .zeeslide .more-link {
 		display: inline-block;
 	}
-	
+
 	.post-slider-controls .zeeflex-control-nav {
 		top: 1em;
 		right: 1em;
 		bottom: auto;
 		left: auto;
 	}
-	
+
 }
 
 @media only screen and (max-width: 55em) {
-	
+
 	.post-slider-container {
 		margin: 0;
 		padding: 1.5em 1.5em 0;
 	}
-	
+
 }
 
 @media only screen and (max-width: 40em) {
-	
+
 	.post-slider .zeeslide .entry-title {
 		font-size: 24px;
 		font-size: 1.5rem;
 	}
-	
+
 	.post-slider .zeeslide .more-link {
 		display: none;
 	}
-	
+
 }
 
 @media only screen and (max-width: 30em) {
-	
+
 	.post-slider-container {
 		padding: 1.2em 1.2em 0;
 	}
-	
+
 	.post-slider .zeeslide .entry-title {
 		font-size: 22px;
 		font-size: 1.375rem;
 	}
-	
+
 	.post-slider .zeeslide .slide-content {
 		padding: 0.5em 1em 0;
 	}
-	
+
 	.post-slider-controls .zeeflex-control-nav {
 		display: none;
 	}
-	
+
 }
 
 @media only screen and (max-width: 25em) {
-	
+
 	.post-slider .zeeslide .entry-content {
 		display: none;
 	}
-	
+
 	.post-slider .zeeslide .slide-content {
 		padding: 0.5em 1em;
 	}
@@ -434,15 +434,15 @@ html[xmlns] .zeeflexslider .zeeslides {
 		font-size: 20px;
 		font-size: 1.25rem;
 	}
-	
+
 }
 
 /* Smartphones | <320px */
 @media only screen and (max-width: 20em) {
-		
-	.post-slider .zeeslide .entry-title {	
+
+	.post-slider .zeeslide .entry-title {
 		font-size: 18px;
 		font-size: 1.125rem;
 	}
-	
+
 }
