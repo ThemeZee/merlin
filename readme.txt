@@ -26,6 +26,9 @@ For more information about Merlin please go to https://themezee.com/themes/merli
 
 == Changelog ==
 
+= 1.1.9 =
+* added Right-to-Left language support
+
 = 1.1.8 =
 * added readme.txt file
 * improved styling of navigation menus
