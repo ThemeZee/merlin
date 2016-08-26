@@ -322,6 +322,11 @@ li > ol {
 		float: right;
 	}
 
+	.top-navigation-menu li {
+		display: block;
+		width: 100%;
+	}
+
 	.top-navigation-menu a {
 		clear: right;
 	}
@@ -366,6 +371,11 @@ li > ol {
 		float: right;
 	}
 
+	.main-navigation-menu li {
+		display: block;
+		width: 100%;
+	}
+
 	.main-navigation-menu a {
 		clear: right;
 	}
@@ -377,7 +387,8 @@ li > ol {
 }
 
 @media only screen and (max-width: 55em) {
-	.sidebar {
+	.sidebar,
+	.sidebar-left .sidebar {
 		right: auto;
 		left: 0;
 	}
@@ -478,26 +489,6 @@ li > ol {
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .entry-meta .meta-author {
 		margin-right: 0.8em;
 		margin-left: 0;
-	}
-
-}
-
-.sidebar-left .content-area {
-	float: left;
-	padding-right: 0;
-	padding-right: 1.8em;
-	padding-left: 0;
-}
-
-.sidebar-left .sidebar {
-	float: right;
-}
-
-@media only screen and (max-width: 55em) {
-	.sidebar-left .sidebar {
-		right: auto;
-		right: 0;
-		left: auto;
 	}
 
 }

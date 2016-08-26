@@ -26,6 +26,10 @@ For more information about Merlin please go to https://themezee.com/themes/merli
 
 == Changelog ==
 
+= 1.2.0 =
+* fixed styling of sidebar position on RTL sites
+* fixed styling of mobile menus on RTL sites
+
 = 1.1.9 =
 * added Right-to-Left language support
 
