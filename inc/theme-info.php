@@ -1,5 +1,5 @@
 <?php
-/***
+/**
  * Theme Info
  *
  * Adds a simple Theme Info page to the Appearance section of the WordPress Dashboard.
@@ -7,13 +7,12 @@
  * @package Merlin
  */
 
-
 /**
  * Add Theme Info page to admin menu
  */
 function merlin_theme_info_menu_link() {
 
-	// Get Theme Details from style.css
+	// Get theme details.
 	$theme = wp_get_theme();
 
 	add_theme_page(
@@ -25,18 +24,16 @@ function merlin_theme_info_menu_link() {
 	);
 
 }
-add_action('admin_menu', 'merlin_theme_info_menu_link');
-
+add_action( 'admin_menu', 'merlin_theme_info_menu_link' );
 
 /**
  * Display Theme Info page
  */
 function merlin_theme_info_page() {
 
-	// Get Theme Details from style.css
+	// Get theme details.
 	$theme = wp_get_theme();
-
-?>
+	?>
 
 	<div class="wrap theme-info-wrap">
 
@@ -48,9 +45,9 @@ function merlin_theme_info_page() {
 		<div class="important-links clearfix">
 			<p><strong><?php esc_html_e( 'Theme Links', 'merlin' ); ?>:</strong>
 				<a href="<?php echo esc_url( __( 'https://themezee.com/themes/merlin/', 'merlin' ) . '?utm_source=theme-info&utm_medium=textlink&utm_campaign=merlin&utm_content=theme-page' ); ?>" target="_blank"><?php esc_html_e( 'Theme Page', 'merlin' ); ?></a>
-				<a href="<?php echo esc_url( 'http://preview.themezee.com/merlin/?utm_source=theme-info&utm_medium=textlink&utm_campaign=merlin&utm_content=demo' ); ?>" target="_blank"><?php esc_html_e( 'Theme Demo', 'merlin' ); ?></a>
+				<a href="http://preview.themezee.com/merlin/?utm_source=theme-info&utm_medium=textlink&utm_campaign=merlin&utm_content=demo" target="_blank"><?php esc_html_e( 'Theme Demo', 'merlin' ); ?></a>
 				<a href="<?php echo esc_url( __( 'https://themezee.com/docs/merlin-documentation/', 'merlin' ) . '?utm_source=theme-info&utm_medium=textlink&utm_campaign=merlin&utm_content=documentation' ); ?>" target="_blank"><?php esc_html_e( 'Theme Documentation', 'merlin' ); ?></a>
-				<a href="<?php echo esc_url( 'http://wordpress.org/support/view/theme-reviews/merlin?filter=5' ); ?>" target="_blank"><?php esc_html_e( 'Rate this theme', 'merlin' ); ?></a>
+				<a href="<?php echo esc_url( __( 'https://wordpress.org/support/theme/merlin/reviews/?filter=5', 'merlin' ) ); ?>" target="_blank"><?php esc_html_e( 'Rate this theme', 'merlin' ); ?></a>
 			</p>
 		</div>
 		<hr>
@@ -87,19 +84,6 @@ function merlin_theme_info_page() {
 						</p>
 					</div>
 
-					<div class="section">
-						<h4><?php esc_html_e( 'Pro Version', 'merlin' ); ?></h4>
-
-						<p class="about">
-							<?php printf( esc_html__( 'Purchase the Pro Version of %s to get additional features and advanced customization options.', 'merlin' ), 'Merlin'); ?>
-						</p>
-						<p>
-							<a href="<?php echo esc_url( __( 'https://themezee.com/addons/merlin-pro/', 'merlin' ) . '?utm_source=theme-info&utm_medium=button&utm_campaign=merlin&utm_content=pro-version' ); ?>" target="_blank" class="button button-secondary">
-								<?php printf( esc_html__( 'Learn more about %s Pro', 'merlin' ), 'Merlin'); ?>
-							</a>
-						</p>
-					</div>
-
 				</div>
 
 				<div class="column column-half clearfix">
@@ -114,34 +98,81 @@ function merlin_theme_info_page() {
 
 		<hr>
 
+		<div id="more-features">
+
+			<h3><?php esc_html_e( 'Get more features', 'merlin' ); ?></h3>
+
+			<div class="columns-wrapper clearfix">
+
+				<div class="column column-half clearfix">
+
+					<div class="section">
+						<h4><?php esc_html_e( 'Pro Version Add-on', 'merlin' ); ?></h4>
+
+						<p class="about">
+							<?php printf( esc_html__( 'Purchase the %s Pro Add-on and get additional features and advanced customization options.', 'merlin' ), 'Merlin' ); ?>
+						</p>
+						<p>
+							<a href="<?php echo esc_url( __( 'https://themezee.com/addons/merlin-pro/', 'merlin' ) . '?utm_source=theme-info&utm_medium=button&utm_campaign=merlin&utm_content=pro-version' ); ?>" target="_blank" class="button button-secondary">
+								<?php printf( esc_html__( 'Learn more about %s Pro', 'merlin' ), 'Merlin' ); ?>
+							</a>
+						</p>
+					</div>
+
+				</div>
+
+				<div class="column column-half clearfix">
+
+					<div class="section">
+						<h4><?php esc_html_e( 'Recommended Plugins', 'merlin' ); ?></h4>
+
+						<p class="about">
+							<?php esc_html_e( 'Extend the functionality of your WordPress website with our free and easy to use plugins.', 'merlin' ); ?>
+						</p>
+						<p>
+							<a href="<?php echo admin_url( 'plugin-install.php?tab=search&type=author&s=themezee' ); ?>" class="button button-secondary">
+								<?php esc_html_e( 'Install Plugins', 'merlin' ); ?>
+							</a>
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<hr>
+
 		<div id="theme-author">
 
 			<p><?php printf( esc_html__( '%1$s is proudly brought to you by %2$s. If you like this theme, %3$s :)', 'merlin' ),
 				$theme->get( 'Name' ),
 				'<a target="_blank" href="' . __( 'https://themezee.com/', 'merlin' ) . '?utm_source=theme-info&utm_medium=footer&utm_campaign=merlin" title="ThemeZee">ThemeZee</a>',
-				'<a target="_blank" href="http://wordpress.org/support/view/theme-reviews/merlin?filter=5" title="Merlin Review">' . esc_html__( 'rate it', 'merlin' ) . '</a>'); ?>
+				'<a target="_blank" href="' . __( 'https://wordpress.org/support/theme/merlin/reviews/?filter=5', 'merlin' ) . '" title="' . esc_attr__( 'Review Merlin', 'merlin' ) . '">' . esc_html__( 'rate it', 'merlin' ) . '</a>'); ?>
 			</p>
 
 		</div>
 
 	</div>
 
-<?php
+	<?php
 }
-
 
 /**
  * Enqueues CSS for Theme Info page
+ *
+ * @param int $hook Hook suffix for the current admin page.
  */
 function merlin_theme_info_page_css( $hook ) {
 
-	// Load styles and scripts only on theme info page
+	// Load styles and scripts only on theme info page.
 	if ( 'appearance_page_merlin' != $hook ) {
 		return;
 	}
 
-	// Embed theme info css style
-	wp_enqueue_style('merlin-theme-info-css', get_template_directory_uri() .'/css/theme-info.css');
+	// Embed theme info css style.
+	wp_enqueue_style( 'merlin-theme-info-css', get_template_directory_uri() .'/css/theme-info.css' );
 
 }
-add_action('admin_enqueue_scripts', 'merlin_theme_info_page_css');
+add_action( 'admin_enqueue_scripts', 'merlin_theme_info_page_css' );

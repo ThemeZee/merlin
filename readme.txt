@@ -26,6 +26,9 @@ For more information about Merlin please go to https://themezee.com/themes/merli
 
 == Changelog ==
 
+= 1.2.1 =
+* moved Theme Links to Theme Options panel dropdown
+
 = 1.2.0 =
 * fixed styling of sidebar position on RTL sites
 * fixed styling of mobile menus on RTL sites
