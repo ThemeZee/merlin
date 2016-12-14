@@ -14,21 +14,21 @@
  * @return array
  */
 function merlin_theme_options() {
-    
+
 	// Merge Theme Options Array from Database with Default Options Array
-	$theme_options = wp_parse_args( 
-		
+	$theme_options = wp_parse_args(
+
 		// Get saved theme options from WP database
-		get_option( 'merlin_theme_options', array() ), 
-		
+		get_option( 'merlin_theme_options', array() ),
+
 		// Merge with Default Options if setting was not saved yet
-		merlin_default_options() 
-		
+		merlin_default_options()
+
 	);
 
 	// Return theme options
 	return $theme_options;
-	
+
 }
 
 
@@ -41,6 +41,7 @@ function merlin_default_options() {
 
 	$default_options = array(
 		'site_title'						=> true,
+        'site_description'					=> false,
 		'custom_header_link'				=> '',
 		'custom_header_hide'				=> false,
 		'layout' 							=> 'right-sidebar',
@@ -63,6 +64,6 @@ function merlin_default_options() {
 		'slider_animation' 					=> 'slide',
 		'slider_speed' 						=> 7000,
 	);
-	
+
 	return $default_options;
 }

@@ -35,62 +35,89 @@ function merlin_customize_register_options( $wp_customize ) {
 		'description'    => merlin_customize_theme_links(),
 	) );
 
-	// Add postMessage support for site title and description.
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-
 	// Change default background section
-	$wp_customize->get_control( 'background_color'  )->section   = 'background_image';
-	$wp_customize->get_section( 'background_image'  )->title     = esc_html__( 'Background', 'merlin' );
+	$wp_customize->get_control( 'background_color' )->section   = 'background_image';
+	$wp_customize->get_section( 'background_image' )->title     = esc_html__( 'Background', 'merlin' );
 
-	// Add Display Site Title Setting
+	// Add postMessage support for site title and description.
+	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+
+	// Add selective refresh for site title and description.
+	$wp_customize->selective_refresh->add_partial( 'blogname', array(
+		'selector'        => '.site-title a',
+		'render_callback' => 'merlin_customize_partial_blogname',
+	) );
+	$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
+		'selector'        => '.site-description',
+		'render_callback' => 'merlin_customize_partial_blogdescription',
+	) );
+
+	// Add Display Site Title Setting.
 	$wp_customize->add_setting( 'merlin_theme_options[site_title]', array(
-        'default'           => true,
+		'default'           => true,
 		'type'           	=> 'option',
-        'transport'         => 'refresh',
-        'sanitize_callback' => 'merlin_sanitize_checkbox'
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'merlin_sanitize_checkbox',
 		)
 	);
-    $wp_customize->add_control( 'merlin_theme_options[site_title]', array(
-        'label'    => esc_html__( 'Display Site Title', 'merlin' ),
-        'section'  => 'title_tagline',
-        'settings' => 'merlin_theme_options[site_title]',
-        'type'     => 'checkbox',
-		'priority' => 10
+	$wp_customize->add_control( 'merlin_theme_options[site_title]', array(
+		'label'    => esc_html__( 'Display Site Title', 'merlin' ),
+		'section'  => 'title_tagline',
+		'settings' => 'merlin_theme_options[site_title]',
+		'type'     => 'checkbox',
+		'priority' => 10,
+		)
+	);
+
+	// Add Display Tagline Setting.
+	$wp_customize->add_setting( 'merlin_theme_options[site_description]', array(
+		'default'           => false,
+		'type'           	=> 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'merlin_sanitize_checkbox',
+		)
+	);
+	$wp_customize->add_control( 'merlin_theme_options[site_description]', array(
+		'label'    => esc_html__( 'Display Tagline', 'merlin' ),
+		'section'  => 'title_tagline',
+		'settings' => 'merlin_theme_options[site_description]',
+		'type'     => 'checkbox',
+		'priority' => 11,
 		)
 	);
 
 	// Add Header Image Link
 	$wp_customize->add_setting( 'merlin_theme_options[custom_header_link]', array(
-        'default'           => '',
+		'default'           => '',
 		'type'           	=> 'option',
-        'transport'         => 'refresh',
-        'sanitize_callback' => 'esc_url'
+		'transport'         => 'refresh',
+		'sanitize_callback' => 'esc_url',
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_custom_header_link', array(
-        'label'    => esc_html__( 'Header Image Link', 'merlin' ),
-        'section'  => 'header_image',
-        'settings' => 'merlin_theme_options[custom_header_link]',
-        'type'     => 'url',
-		'priority' => 10
+	$wp_customize->add_control( 'merlin_control_custom_header_link', array(
+		'label'    => esc_html__( 'Header Image Link', 'merlin' ),
+		'section'  => 'header_image',
+		'settings' => 'merlin_theme_options[custom_header_link]',
+		'type'     => 'url',
+		'priority' => 10,
 		)
 	);
 
 	// Add Custom Header Hide Checkbox
 	$wp_customize->add_setting( 'merlin_theme_options[custom_header_hide]', array(
-        'default'           => false,
+		'default'           => false,
 		'type'           	=> 'option',
-        'transport'         => 'refresh',
-        'sanitize_callback' => 'merlin_sanitize_checkbox'
+		'transport'         => 'refresh',
+		'sanitize_callback' => 'merlin_sanitize_checkbox',
 		)
 	);
-    $wp_customize->add_control( 'merlin_control_custom_header_hide', array(
-        'label'    => esc_html__( 'Hide header image on front page', 'merlin' ),
-        'section'  => 'header_image',
-        'settings' => 'merlin_theme_options[custom_header_hide]',
-        'type'     => 'checkbox',
-		'priority' => 15
+	$wp_customize->add_control( 'merlin_control_custom_header_hide', array(
+		'label'    => esc_html__( 'Hide header image on front page', 'merlin' ),
+		'section'  => 'header_image',
+		'settings' => 'merlin_theme_options[custom_header_hide]',
+		'type'     => 'checkbox',
+		'priority' => 15,
 		)
 	);
 
@@ -99,11 +126,27 @@ add_action( 'customize_register', 'merlin_customize_register_options' );
 
 
 /**
+ * Render the site title for the selective refresh partial.
+ */
+function merlin_customize_partial_blogname() {
+	bloginfo( 'name' );
+}
+
+
+/**
+ * Render the site tagline for the selective refresh partial.
+ */
+function merlin_customize_partial_blogdescription() {
+	bloginfo( 'description' );
+}
+
+
+/**
  * Embed JS file to make Theme Customizer preview reload changes asynchronously.
  *
  */
 function merlin_customize_preview_js() {
-	wp_enqueue_script( 'merlin-customizer-preview', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151202', true );
+	wp_enqueue_script( 'merlin-customizer-preview', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20161214', true );
 }
 add_action( 'customize_preview_init', 'merlin_customize_preview_js' );
 
@@ -113,7 +156,7 @@ add_action( 'customize_preview_init', 'merlin_customize_preview_js' );
  *
  */
 function merlin_customize_preview_css() {
-	wp_enqueue_style( 'merlin-customizer-css', get_template_directory_uri() . '/css/customizer.css', array(), '20160915' );
+	wp_enqueue_style( 'merlin-customizer-css', get_template_directory_uri() . '/css/customizer.css', array(), '20161214' );
 }
 add_action( 'customize_controls_print_styles', 'merlin_customize_preview_css' );
 
@@ -136,7 +179,7 @@ function merlin_customize_theme_links() {
 			</p>
 
 			<p>
-				<a href="http://preview.themezee.com/merlin/?utm_source=theme-info&utm_medium=textlink&utm_campaign=merlin&utm_content=demo" target="_blank">
+				<a href="http://preview.themezee.com/?demo=merlin&utm_source=theme-info&utm_medium=textlink&utm_campaign=merlin&utm_content=demo" target="_blank">
 					<?php esc_html_e( 'Theme Demo', 'merlin' ); ?>
 				</a>
 			</p>

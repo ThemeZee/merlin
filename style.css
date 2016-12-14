@@ -720,6 +720,10 @@ textarea {
 	height: auto;
 }
 
+.site-description {
+	margin: 0 0 0.25em;
+}
+
 /* Header Widgets */
 .header-widgets {
 	display: inline;
