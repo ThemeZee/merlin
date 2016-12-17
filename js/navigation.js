@@ -185,16 +185,6 @@
 			toggleClass: "top-navigation-toggle"
 		});
 
-
-		/* Setup Footer Navigation */
-		$('.footer-navigation-menu').before('<button id=\"footer-links-toggle\" class=\"footer-navigation-toggle\"></button>');
-
-		$('#footer-links-toggle').on('click', function(){
-			$('.footer-navigation-menu').slideToggle();
-			$(this).toggleClass('active');
-		});
-
-
 		/* Setup Sticky Menu for main navigation menu */
 		var menu = $( '#main-navigation' );
 		var stickyNavTop = menu.offset().top;

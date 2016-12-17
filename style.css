@@ -4,11 +4,11 @@ Theme URI: https://themezee.com/themes/merlin/
 Author: ThemeZee
 Author URI: https://themezee.com
 Description: Merlin is a beautiful designed Magazine WordPress theme with a responsive layout. The theme comes with a gorgeous Post Slider, Magazine Homepage template and a Header Widget area. Settings can be configured easily in the Customizer.
-Version: 1.2.1
+Version: 1.2.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: merlin
-Tags: two-columns, light, blue, custom-background, custom-header, custom-menu, editor-style, rtl-language-support, blog, entertainment, news, featured-image-header, featured-images, flexible-header, custom-colors, full-width-template, sticky-post, threaded-comments, translation-ready, theme-options, fluid-layout, responsive-layout, one-column, left-sidebar, right-sidebar, three-columns, black, red, silver, white, green, gray
+Tags: two-columns, custom-background, custom-header, custom-menu, editor-style, rtl-language-support, blog, entertainment, news, featured-image-header, featured-images, flexible-header, custom-colors, full-width-template, sticky-post, threaded-comments, translation-ready, theme-options, one-column, left-sidebar, right-sidebar, three-columns
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -2076,10 +2076,6 @@ textarea {
 	float: right;
 }
 
-.footer-navigation-toggle {
-	display: none;
-}
-
 .footer-navigation-menu {
 	display: inline;
 	margin: 0;
@@ -2674,71 +2670,30 @@ object {
 --------------------------------------------------------------*/
 @media only screen and (max-width: 50em) {
 
-	/*** Mobile Footer Navigation ***/
-
+	/* Footer */
 	.site-footer {
-		padding: 0;
+		text-align: center;
 	}
 
 	.site-footer .site-info {
-		padding: 0.9em 1.5em;
-	}
-
-	.footer-navigation {
-		display: block;
-		width: 100%;
-
-	}
-
-	/* Footer Navigation Toggle */
-	.footer-navigation-toggle {
-		float: right;
-		display: inline-block;
-		background: none;
-		padding: 0.9em 1.5em;
-		margin-top: -3.2em;
-	}
-
-	.footer-navigation-toggle:hover,
-	.footer-navigation-toggle:active,
-	.footer-navigation-toggle:focus {
-		cursor: pointer;
-		background: none;
-	}
-
-	.footer-navigation-toggle:after {
-		float: left;
-		display: inline-block;
-		font-family: 'Genericons';
-		font-size: 18px;
-		font-weight: normal;
-		line-height: 1;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		text-decoration: inherit;
-		vertical-align: middle;
-		content: '\f419';
-		color: #2299cc;
-	}
-
-	.footer-navigation-toggle:hover:after {
-		color: #333;
+		float: none;
 	}
 
 	/* Footer Navigation Menu */
-	.footer-navigation-menu {
-		float: left;
-		width: 100%;
-		display: none;
-		border-top: 2px solid #eee;
+	.footer-navigation {
+		float: none;
+		margin-bottom: 1em;
+	}
+
+	.footer-navigation-menu li {
+		float: none;
+		display: inline-block;
 	}
 
 	.footer-navigation-menu a {
-		font-size: 13px;
-		font-size: 0.8125rem;
-		padding: 0.9em;
+		display: inline-block;
+		margin-bottom: 0.5em;
 	}
-
 
 	/* Magazine Homepage: Category Post Widgets */
 	.widget-category-posts-boxed .category-posts-boxed-horizontal .large-post .more-link,
@@ -2906,6 +2861,10 @@ object {
 	.entry-footer-meta .meta-comments {
 		display: block;
 		float: none;
+	}
+
+	.footer-navigation-menu li {
+		display: block;
 	}
 
 	/* Mobile Main Navigation */
@@ -3115,15 +3074,6 @@ object {
 
 	.sidebar {
 		width: 26%;
-	}
-
-}
-
-/* Ensure .footer-navigation-menu is visible on desktop view */
-@media only screen and (min-width: 50.001em) {
-
-	.footer-navigation-menu {
-		display: block !important;
 	}
 
 }
