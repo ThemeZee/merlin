@@ -58,12 +58,12 @@ function merlin_hide_elements() {
 	$elements = array();
 
 	// Hide Site Title?
-	if ( false === $theme_options['site_title'] ) {
+	if ( false == $theme_options['site_title'] ) {
 		$elements[] = '.site-title';
 	}
 
 	// Hide Site Description?
-	if ( false === $theme_options['site_description'] ) {
+	if ( false == $theme_options['site_description'] ) {
 		$elements[] = '.site-description';
 	}
 

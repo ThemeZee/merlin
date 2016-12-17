@@ -179,7 +179,7 @@ function merlin_customize_theme_links() {
 			</p>
 
 			<p>
-				<a href="http://preview.themezee.com/?demo=merlin&utm_source=theme-info&utm_medium=textlink&utm_campaign=merlin&utm_content=demo" target="_blank">
+				<a href="http://preview.themezee.com/?demo=merlin&utm_source=customizer&utm_campaign=merlin" target="_blank">
 					<?php esc_html_e( 'Theme Demo', 'merlin' ); ?>
 				</a>
 			</p>
