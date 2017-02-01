@@ -26,6 +26,9 @@ For more information about Merlin please go to https://themezee.com/themes/merli
 
 == Changelog ==
 
+= 1.2.3 =
+* added Magazine Homepage widgets to blog index
+
 = 1.2.2 =
 * added editor shortcuts and instant live preview for site title and tagline in Customizer
 * improved styling of footer navigation menu
