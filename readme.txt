@@ -26,6 +26,11 @@ For more information about Merlin please go to https://themezee.com/themes/merli
 
 == Changelog ==
 
+= 1.4 =
+* added styling for Gutenberg blocks
+* added custom color palette for Gutenberg
+* added editor styling for WordPress 5.0
+
 = 1.3 =
 * added default theme fonts as local fonts
 * use local fonts instead of Google fonts for GDPR compliance
