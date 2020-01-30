@@ -23,6 +23,7 @@ $theme_options = merlin_theme_options();
 </head>
 
 <body <?php body_class(); ?>>
+<?php do_action( 'wp_body_open' ); ?>
 
 	<div id="page" class="hfeed site">
 
