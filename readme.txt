@@ -4,7 +4,7 @@ Theme URI: https://themezee.com/themes/merlin/
 Contributors: themezee
 Tags: two-columns, custom-background, custom-header, custom-menu, editor-style, rtl-language-support, blog, entertainment, news, featured-image-header, featured-images, flexible-header, custom-colors, full-width-template, sticky-post, threaded-comments, translation-ready, theme-options, one-column, left-sidebar, right-sidebar, three-columns
 Requires at least: 4.7
-Tested up to: 5.3
+Tested up to: 5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,10 @@ For more information about Merlin please go to https://themezee.com/themes/merli
 5. Navigate to Appearance > Customize in your admin panel and customize to taste.
 
 == Changelog ==
+
+= 1.4.2 =
+* added new wp_body_open action hook
+* improved Block Editor styling for WordPress 5.4
 
 = 1.4.1 =
 * added font display swap to default theme fonts
