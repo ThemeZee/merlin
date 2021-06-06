@@ -4,7 +4,7 @@ Theme URI: https://themezee.com/themes/merlin/
 Author: ThemeZee
 Author URI: https://themezee.com
 Description: Merlin is a beautiful designed Magazine WordPress theme with a responsive layout. The theme comes with a gorgeous Post Slider, Magazine Homepage template and a Header Widget area. Settings can be configured easily in the Customizer.
-Version: 1.4.3
+Version: 1.4.4
 Requires at least: 5.2
 Tested up to: 5.5
 Requires PHP: 5.6
@@ -1107,7 +1107,8 @@ textarea {
 	color: #222;
 }
 
-.social-icons-menu li a .screen-reader-text {
+.social-icons-menu li a .screen-reader-text,
+.social-icons-menu li a .icon {
 	display: none;
 }
 
